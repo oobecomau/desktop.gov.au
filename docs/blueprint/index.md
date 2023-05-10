@@ -25,11 +25,12 @@ The blueprint contains guidance for best practice deployment. It incorporates ad
 - The Australian Government Information Security Manual (ISM)
 - Microsoft
 - The ACSC Essential Eight
-- ACSC hardening guidelines for Microsoft Windows 10 and iOS 
+- ACSC hardening guidelines for Microsoft Windows 10 and iOS
+- oobe's field experience
 
 There are 2 deployment types covered in this blueprint:
 
-- **Cloud Native** – where an agency assumes an architecture that is based on consuming the Microsoft 365 offerings as a service, with no additional investment in on-premises infrastructure
-- **Hybrid** – where an agency adopts the Microsoft 365 offerings, while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration
+- **Cloud Native** – where an organisation assumes an architecture that is based on consuming the Microsoft 365 offerings as a service, with no additional investment in on-premises infrastructure
+- **Hybrid** – where an organisation adopts the Microsoft 365 offerings, while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration
 
 In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, the blueprint provides the common components applicable to all deployments. It then offers further guidance for each deployment type.

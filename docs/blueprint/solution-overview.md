@@ -33,7 +33,7 @@ Server infrastructure used by agencies to support hybrid deployments of the blue
 | [Multi-factor authentication](#multi-factor-authentication)                                 | 2              |
 | [Regular backups](#regular-backups)                                                         | N/A            |
 
-Each of the individual assessments against the Essential Eight are described in detail in the following sections. These sections detail the rationale for each maturity level assessment, agency responsibilities, and recommendations to achieving greater maturity levels where applicable.
+Each of the individual assessments against the Essential Eight are described in detail in the following sections. These sections detail the rationale for each maturity level assessment, organisation responsibilities, and recommendations to achieving greater maturity levels where applicable.
 
 ## Application control
 
@@ -223,6 +223,6 @@ Agencies seeking to reach maturity level 3 should consider alternative authentic
     <span class="maturity-rating">N/A</span>
 </div>
 
-The assessment of regular backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including agency backup capabilities, and to reflect the need for agencies to implement their own backup strategy tailored to their unique business continuity requirements.
+The assessment of regular backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including organisation backup capabilities, and to reflect the need for agencies to implement their own backup strategy tailored to their unique business continuity requirements.
 
-Microsoft provide the [Shared Responsibility Model](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) to assist customers understand what responsibilities are held by Microsoft as the provider of cloud services, and which remain the responsibility of the agency using these services. Responsibility for '*Information and data*' is described as '*always retained by the customer*'. Therefore, agencies are responsible for the protection of data including backup and restoration.
+Microsoft provide the [Shared Responsibility Model](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) to assist customers understand what responsibilities are held by Microsoft as the provider of cloud services, and which remain the responsibility of the organisation using these services. Responsibility for '*Information and data*' is described as '*always retained by the customer*'. Therefore, agencies are responsible for the protection of data including backup and restoration.

@@ -20,7 +20,7 @@ For each component within the document there is a brief description of the conte
 
 ## Assumptions
 
-- The Microsoft Endpoint Manager (MEM) Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
+- The Microsoft Endpoint Manager (MEM) Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per organisation customisation in existing MECM and GPOs configurations across Commonwealth entities.
 - Minimum version of MECM 1710 is required for co-management, recommended minimum version at is 2002 update version. See [support for Configuration Manager current branch versions.](https://learn.microsoft.com/en-au/mem/configmgr/core/servers/manage/current-branch-versions-supported)
 - Minimum version of MECM 2211 is required for management of Windows 11 devices. See [support for Windows 11 in Configuration Manager.](https://learn.microsoft.com/en-au/mem/configmgr/core/plan-design/configs/support-for-windows-11)
 
@@ -30,7 +30,7 @@ While most modern hardware will be capable of running Windows 10, making sure th
 
 Windows 11 has additional hardware requirements compared with Windows 10, including a specific set of supported processors (CPUs) and increased system firmware capabilities (e.g., TPM version 2.0).
 
-The style of hardware will also need to be considered, whether a typical desktop model which will be permanently located on a desk or a laptop model to facilitate a more mobile workforce. The DTA recommends that, within operational constraints, agencies consider a laptop deployment to increase the flexibility and mobility of an agency workforce. 
+The style of hardware will also need to be considered, whether a typical desktop model which will be permanently located on a desk or a laptop model to facilitate a more mobile workforce. The DTA recommends that, within operational constraints, agencies consider a laptop deployment to increase the flexibility and mobility of an organisation workforce. 
 
 ### Hardware requirements
 
@@ -40,12 +40,12 @@ The selected processor architecture and associated firmware capability directly 
 
 Agencies should select a reputable hardware platform that supports enterprise features, such as having an interface to provision zero-touch UEFI configuration and updates.
 
-Note: agencies that wish to implement virtual desktops or VDI (Virtual Desktop Infrastructure) should assess the chosen virtualisation or hypervisor (including cloud platforms) platform to determine the features available meet the desired security risk profile for the agency.
+Note: agencies that wish to implement virtual desktops or VDI (Virtual Desktop Infrastructure) should assess the chosen virtualisation or hypervisor (including cloud platforms) platform to determine the features available meet the desired security risk profile for the organisation.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Laptop Model | Any device that meets the below requirements and the Agency procurement processes | To meet the Agency requirements.
-Desktop Model | Any device that meets the below requirements and the Agency procurement processes | To meet the Agency requirements.
+Laptop Model | Any device that meets the below requirements and the organisation procurement processes | To meet the organisation requirements.
+Desktop Model | Any device that meets the below requirements and the organisation procurement processes | To meet the organisation requirements.
 
 Minimum physical hardware configuration for the Windows 10 SOE applicable to all agencies and implementation types.
 
@@ -86,13 +86,13 @@ Drivers and Peripherals Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Driver Integration | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. 
-Approved Peripheral Devices | Configured | The SOE will enforce a list of agency approved peripheral devices using Intune device installation policy. 
+Approved Peripheral Devices | Configured | The SOE will enforce a list of organisation approved peripheral devices using Intune device installation policy. 
 Unapproved Peripheral Devices | Blocked | The SOE will block installation of unapproved peripheral devices using Intune policy. 
 Signed Device Driver Store | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. 
 Peripheral Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. Unauthorised driver installation is blocked via WDAC (Windows Defender Application Control). 
 Workstation Device Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. Specific vendor updates can be deployed through Intune if Windows Update does not provide a suitable driver. 
 Printer Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. 
-Bluetooth Restrictions | Configured | The agency should define a list of approved Bluetooth services to only those necessary, using [Intune device restrictions profile](https://learn.microsoft.com/en-au/microsoft-365/security/defender-endpoint/mde-device-control-device-installation?view=o365-worldwide#limit-services-that-use-bluetooth). 
+Bluetooth Restrictions | Configured | The organisation should define a list of approved Bluetooth services to only those necessary, using [Intune device restrictions profile](https://learn.microsoft.com/en-au/microsoft-365/security/defender-endpoint/mde-device-control-device-installation?view=o365-worldwide#limit-services-that-use-bluetooth). 
 
 ### Firmware configuration
 
@@ -158,50 +158,50 @@ Hybrid can benefit from enabling the MECM Co-management feature. Once enabled th
 
 ### Deployment
 
-Windows 10 and 11 can be deployed via Intune or MECM, or a combination of both. The configuration of a Windows deployment will depend upon which technologies are available to an agency and whether a hybrid deployment is required.
+Windows 10 and 11 can be deployed via Intune or MECM, or a combination of both. The configuration of a Windows deployment will depend upon which technologies are available to an organisation and whether a hybrid deployment is required.
 
 Windows deployments will be based on either a deployment which is cloud native or hybrid.
 
-- Cloud native – Image on the workstation will be modified using Windows Autopilot and Intune. The OEM image in use should be from a trusted vendor or custom-built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an offline image will need to be created by the agency and applied to the workstation prior to Windows Autopilot and Intune. The offline image should be light weight consisting of the base Windows image and required base drivers only.
-- Hybrid – OEM image or MECM task sequence should be used as the base for Windows 10, with Intune and Windows Autopilot applied over the top of the image for further customisation. The OEM image in use should be from a trusted vendor or custom built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an agency specific MECM task sequence including the Windows image and base drivers. This image will then be further customised with Intune and Windows Autopilot.
+- Cloud native – Image on the workstation will be modified using Windows Autopilot and Intune. The OEM image in use should be from a trusted vendor or custom-built by the organisation and provided to the OEM vendor for implementation prior to being dispatched to the organisation. Alternatively, an offline image will need to be created by the organisation and applied to the workstation prior to Windows Autopilot and Intune. The offline image should be light weight consisting of the base Windows image and required base drivers only.
+- Hybrid – OEM image or MECM task sequence should be used as the base for Windows 10, with Intune and Windows Autopilot applied over the top of the image for further customisation. The OEM image in use should be from a trusted vendor or custom built by the organisation and provided to the OEM vendor for implementation prior to being dispatched to the organisation. Alternatively, an organisation specific MECM task sequence including the Windows image and base drivers. This image will then be further customised with Intune and Windows Autopilot.
 
 Deployment Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Deployment method | Agency light weight base image with Windows Autopilot and Intune deployments applied as during enrolment | An agency specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the agency through Intune & Windows Autopilot. 
+Deployment method | Organisation light weight base image with Windows Autopilot and Intune deployments applied as during enrolment | An organisation specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the organisation through Intune & Windows Autopilot. 
 
 Deployment Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Deployment method | Agency light weight base image with MECM deployment applied | An agency specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the agency through MECM. 
+Deployment method | Organisation light-weight base image with MECM deployment applied | An organisation specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the organisation through MECM. 
 
 ### Management
 
-Windows 10 and 11 can be managed via Intune or MECM, or a combination of both. The configuration of Windows management will depend upon which technologies are available to an agency and whether a hybrid deployment is required.
+Windows 10 and 11 can be managed via Intune or MECM, or a combination of both. The configuration of Windows management will depend upon which technologies are available to an organisation and whether a hybrid deployment is required.
 
 Windows management options will be based on either a deployment which is cloud native or hybrid. This section provides detailed information on the different configuration options for Windows management.
 
-Cloud native deployments provides the agency the immediate benefits of working with Intune and Windows Autopilot while also integrating directly with other cloud services including Microsoft 365 and Azure Active Directory (AAD). Using Intune will simplify the overall deployment and management of Windows to a single console which is also shared with the mobile device management of iOS devices.
+Cloud native deployments provides the organisation the immediate benefits of working with Intune and Windows Autopilot while also integrating directly with other cloud services including Microsoft 365 and Azure Active Directory (AAD). Using Intune will simplify the overall deployment and management of Windows to a single console which is also shared with the mobile device management of iOS devices.
 
-A hybrid deployment gives the option of co-management which enables the agency to manage Windows by using both MECM and Intune. Enabling co-management within MECM allows the agency to utilise their investment in MECM and take advantage of additional cloud capabilities. This allows the agency additional flexibility to use the technology solution that works best for them and facilitates a more gradual move to cloud native as the agency can pilot test various workloads in Intune first.
+A hybrid deployment gives the option of co-management which enables the organisation to manage Windows by using both MECM and Intune. Enabling co-management within MECM allows the organisation to utilise their investment in MECM and take advantage of additional cloud capabilities. This allows the organisation additional flexibility to use the technology solution that works best for them and facilitates a more gradual move to cloud native as the organisation can pilot test various workloads in Intune first.
 
-Hybrid deployments can choose to enable MECM or Intune for client management depending on the cloud maturity level of the agency or operational requirements. It is not a requirement of agencies undertaking hybrid implementations to use MECM. This blueprint provides guidance on integration between MECM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from MECM to Intune, which will not affect cyber security postures.
+Hybrid deployments can choose to enable MECM or Intune for client management depending on the cloud maturity level of the organisation or operational requirements. It is not a requirement of agencies undertaking hybrid implementations to use MECM. This blueprint provides guidance on integration between MECM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from MECM to Intune, which will not affect cyber security postures.
 
 Management methods that can be used to manage Windows in a Microsoft 365 environment.
 
 Microsoft 365 Implementation | MECM Implementation | Management Method for Windows | Benefits
 --- | --- | --- | ---
 Cloud native | MECM is not possible with cloud native | Intune | No on-premises infrastructure required for management. Well suited for Azure AD joined workstations for a full cloud solution. 
-Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstation. Well suited for an agency that does not have MECM or does not want to use MECM to manage workstations.
-Hybrid with MECM management | MECM with co-management enabled and Workloads set to MECM | MECM | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstations. Well suited for an agency that has a significant investment in MECM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
+Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstation. Well suited for an organisation that does not have MECM or does not want to use MECM to manage workstations.
+Hybrid with MECM management | MECM with co-management enabled and Workloads set to MECM | MECM | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstations. Well suited for an organisation that has a significant investment in MECM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
 
 The following image displays an overview diagram of MECM Co-Management.
 
 ![MECM Co-Management diagram](../img/cd-sccm-comgmt.png#center)
 
-With co-management enabled, the agency can choose which workloads remain on-premises and which workloads are offloaded to Intune. The workloads are:
+With co-management enabled, the organisation can choose which workloads remain on-premises and which workloads are offloaded to Intune. The workloads are:
 
 - Compliance Policies – Compliance policies define the rules and settings that a device must comply with to be considered compliant by conditional access policies. Compliance policies will also monitor and remediate compliance issues with devices. 
 - Device Configuration – The device configuration workload includes settings that you manage for devices in your organization. Switching this workload also moves the Endpoint Protection and Resource Access workloads.
@@ -211,7 +211,7 @@ With co-management enabled, the agency can choose which workloads remain on-prem
 - Office Click-to-Run Apps – This workload manages Office 365 apps on co-managed devices.
 - Windows Update Policies – Windows Update for Business policies allow deferral policies for Windows feature updates or quality updates for Windows devices managed directly by Windows Update for Business.
 
-With co-management disabled and no cloud integration, the agency will rely on on-premises management of the Windows workstations. These could include utilising MECM task sequencing, MECM Compliance and Endpoint Protection policies, various scripting methods and Group Policy Preferences. 
+With co-management disabled and no cloud integration, the organisation will rely on on-premises management of the Windows workstations. These could include utilising MECM task sequencing, MECM Compliance and Endpoint Protection policies, various scripting methods and Group Policy Preferences. 
 
 There are many benefits to going cloud native or hybrid co-management utilising workloads weighted to Intune. The workstations can be managed from any internet-connected location whether that be in the office or a remote location (home, client site etc).
 
@@ -225,8 +225,8 @@ Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Management method | Hybrid with MECM co-management enabled. | Intune integration is required to enable features such as Conditional Access. <br>MECM co-management offers flexibility for the agency to take advantage of cloud services immediately or pilot and move individual workloads across when ready while leveraging existing configuration on-premises.
-Management tool | Agency preference for Intune or MECM managing endpoints in co-management. | Each agency has a different level of investment and different maturity in MECM and cloud products. Co-management has several options to meet the unique requirements of each agency.
+Management method | Hybrid with MECM co-management enabled. | Intune integration is required to enable features such as Conditional Access. <br>MECM co-management offers flexibility for the organisation to take advantage of cloud services immediately or pilot and move individual workloads across when ready while leveraging existing configuration on-premises.
+Management tool | Organisation preference for Intune or MECM managing endpoints in co-management. | Each organisation has a different level of investment and different maturity in MECM and cloud products. Co-management has several options to meet the unique requirements of each organisation.
 
 ## Windows standard operating environment
 
@@ -310,7 +310,7 @@ Universal Windows Platform Applications Design Decisions for all agencies and im
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows SOE Footprint | Reduce | The Agency will reduce the size of the Windows SOE footprint by configuring the settings in the next table unless the Agency has a specific requirement for these applications to be enabled.
+Windows SOE Footprint | Reduce | The organisation will reduce the size of the Windows SOE footprint by configuring the settings in the next table unless the organisation has a specific requirement for these applications to be enabled.
 
 Universal Windows Platform Application configuration applicable to all agencies and implementation types
 
@@ -363,11 +363,11 @@ Enterprise applications provide organisations and end users the functionality th
 Applications can be delivered to the user's desktop by one of the following methods:
 
 - Intune – Ideally suited for Windows 10/11 only deployments. The only option for delivering application to iOS clients.
-- MECM – Ideally suited where an agency has a large existing investment of packaged applications. The only option for delivering application to servers. Only option for delivering virtual applications. 
+- MECM – Ideally suited where an organisation has a large existing investment of packaged applications. The only option for delivering application to servers. Only option for delivering virtual applications. 
 
 Self-Service applications are requested by users directly. They can be delivered via Software Centre which is installed as part of the MECM client or Company Portal which is available as part of Intune and the Microsoft 365 tenant. As of MECM version 1802 "user-available" apps now appear in Software Centre under the applications tab where they were previously available in the Application Catalogue
 
-Packaging methodology should be inherited from existing Agency procedures as each application has unique requirements. It is possible to repacked existing applications into an msix format which is compatible with both Intune and MECM delivery.
+Packaging methodology should be inherited from existing organisation procedures as each application has unique requirements. It is possible to repacked existing applications into an msix format which is compatible with both Intune and MECM delivery.
 
 Enterprise Applications Design Decisions for cloud native implementations
 
@@ -375,7 +375,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Delivery Technologies | Deployed via Intune | Applications deployed via Intune and will be installed during the build deployment.
 Self Service | Company Portal | Allow users to install the apps needed while ensuring the SOE remains as light weight as possible.
-Packaging Methodology | Agency preference | Applications will be packaged according to agency internal packaging standards and delivered via Intune. 
+Packaging Methodology | Organisation preference | Applications will be packaged according to organisation internal packaging standards and delivered via Intune. 
 
 Enterprise Applications Design Decisions for hybrid implementations
 
@@ -383,7 +383,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Delivery Technologies | Deployed via Intune or MECM | Applications deployed via Intune and will be installed during the build deployment.<br>MECM can continue to be used for existing applications, however consideration should be made to migrate these to Intune in future.
 Self Service | Company Portal or MECM Software Center | Allow users to request install of specific apps while ensuring the SOE remains as light weight as possible.
-Packaging Methodology | Agency preference | Applications will be packaged according to agency internal packaging standards and delivered via MECM or Intune.
+Packaging Methodology | Organisation preference | Applications will be packaged according to organisation internal packaging standards and delivered via MECM or Intune.
 
 ### Power Management
 
@@ -399,7 +399,7 @@ Power Management Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Power Management technology | Intune, MECM or Group Policy | Agency preference of technology to configure power options. <br>If using MECM or GPO, consideration should be made to migrate these to Intune in future.
+Power Management technology | Intune, MECM or Group Policy | Organisation preference of technology to configure power options. <br>If using MECM or GPO, consideration should be made to migrate these to Intune in future.
 Default Power Option Battery | Balanced | Default setting, no requirement to change has been identified. 
 Default Power Option Powered | Better Performance | Default setting, no requirement to change has been identified. 
 Allow standby states when sleeping (on battery) | Disabled | To align with the ACSC Windows hardening guidance. 
@@ -481,7 +481,7 @@ Organisational branding enables a consistent corporate user experience.
 
 Windows 10/11 permits the image displayed at the lock screen, logon screen, and desktop wallpaper to be customised and support various resolutions. The appropriate resolution is selected based on an image file name. Windows will automatically select the appropriate image based on the current screen resolution. If a file matching the screen resolution cannot be found, a default image file is used, and the picture stretched to fit the screen.
 
-Custom themes can be deployed to workstations either enforcing the theme or allowing a user to customise it after the initial SOE deployment. Each client agency would be required to provide information necessary to customise the branding.
+Custom themes can be deployed to workstations either enforcing the theme or allowing a user to customise it after the initial SOE deployment. Each client organisation would be required to provide information necessary to customise the branding.
 
 Although a system is capable of being assessed as PROTECTED, banners and backgrounds should not be set to PROTECTED in the SOE or desktop background until an IRAP assessment has been completed.
 
@@ -489,15 +489,15 @@ Corporate Branding Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Lock Screen | Custom Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
-Logon Screen | Custom Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
-Wallpaper | Custom Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
-Default Account Picture | Custom Agency logo | Customised to the agency logo to provide a corporate look and feel. 
-Theme | Agency choice | Customised to the agency's requirements. 
-Theme Colour | Agency choice | Customised to the agency's requirements. 
-Windows Colour | Default | Customised to the agency's requirements. 
+Lock Screen | Custom Corporate wallpaper | Customised to the organisation corporate wallpaper to provide a corporate look and feel. 
+Logon Screen | Custom Corporate wallpaper | Customised to the organisation corporate wallpaper to provide a corporate look and feel. 
+Wallpaper | Custom Corporate wallpaper | Customised to the organisation corporate wallpaper to provide a corporate look and feel. 
+Default Account Picture | Custom organisation logo | Customised to the organisation logo to provide a corporate look and feel. 
+Theme | Organisation choice | Customised to the organisation's requirements. 
+Theme Colour | Organisation choice | Customised to the organisation's requirements. 
+Windows Colour | Default | Customised to the organisation's requirements. 
 Corporate Account Picture | Default | The default account picture will be displayed as the user account picture to provide a consistent look and feel. 
-User Ability to Change Account Picture | Disabled | Disabled to provide a consistent configuration for all agency users.
+User Ability to Change Account Picture | Disabled | Disabled to provide a consistent configuration for all organisation users.
 
 ### System properties
 
@@ -513,7 +513,7 @@ A custom OEM logo can also be displayed below the Windows logo.
 
 The system Computer Description can also be used to display the build date, time and SOE version.
 
-The Manufacturer value is used in the title string displayed in the support section, being "Manufacturer support". If the actual computer manufacturer were to be populated, then the support section heading would be "HP support", for example, which would be misleading for users. Setting the Manufacturer value to "Agency" would set the support section heading to "Agency support".
+The Manufacturer value is used in the title string displayed in the support section, being "Manufacturer support". If the actual computer manufacturer were to be populated, then the support section heading would be "HP support", for example, which would be misleading for users. Setting the Manufacturer value to "Organisation" would set the support section heading to "Organisation support".
 
 System Properties Design Decisions for all agencies and implementation types.
 
@@ -521,12 +521,12 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Company Name | Not Configured | Not required to support deployments. 
 OEM Logo | Configured – Australian Government crest | To identify that the equipment is under Australian Government jurisdiction. 
-Manufacturer Value | Configured – the Agency Name | To identify the Agency as the device owner. 
+Manufacturer Value | Configured – the Organisation Name | To identify the organisation as the device owner. 
 Model Value | Configured – Asset Number | To identify the device via asset label. 
-Support Hours Value | Configured – Support hours of internal ICT support | To simplify Agency desktop support. 
-Support Phone Value | Configured | To simplify Agency desktop support. 
-Support URL Value | Configured | To simplify Agency desktop support. 
-Computer Description | Configured – Asset type and model | To simplify Agency desktop support. 
+Support Hours Value | Configured – Support hours of internal ICT support | To simplify organisation desktop support. 
+Support Phone Value | Configured | To simplify organisation desktop support. 
+Support URL Value | Configured | To simplify organisation desktop support. 
+Computer Description | Configured – Asset type and model | To simplify organisation desktop support. 
 
 ### Start Menu
 
@@ -651,7 +651,7 @@ Operational Support Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Azure AD.
-WinRM | Enabled | To meet operating support requirements for the Agency. Consideration should be made to harden the use of WinRM in the agency environment to increase the security of Windows 10/11 endpoints.
+WinRM | Enabled | To meet operating support requirements for the organisation. Consideration should be made to harden the use of WinRM in the organisation environment to increase the security of Windows 10/11 endpoints.
 Windows Remote Assistance | Disabled | To align with the ACSC Windows hardening guidance and reduces the attack surface.
 Remote Desktop | Disabled | To align with ACSC recommendations and reduce the risk of unauthorised access by a malicious actor. 
 Remote Desktop Client | Enabled | The Remote Desktop Client will be enabled for Windows 10/11 devices to enable access to remote services (e.g., servers).
@@ -683,13 +683,13 @@ Windows Update and Patching Design Decisions for all agencies and implementation
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Patching technology | Agency preference of Intune, MECM or WSUS | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst MECM and WSUS provide more granular control of patch deployment.
+Patching technology | Organisation preference of Intune, MECM or WSUS | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst MECM and WSUS provide more granular control of patch deployment.
 Patching Testing Method | Pilot and Production | Allows early deployment and test of Windows updates to selected users prior to the full release of updates to the remaining users.<br><br>The Pilot group will be a select number of users who will actively provide feedback on updates before rollout to all users. 
 Feature Updates | Enabled | To align with the ACSC Windows hardening guidance. 
 Quality Updates | Enabled | To align with the ACSC Windows hardening guidance. 
 Driver Updates | Enabled | To align with the ACSC Windows hardening guidance. 
 Microsoft Product Updates | Enabled | To align with the ACSC Windows hardening guidance. 
-Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br>Meets ACSC Essential Eight guidance for patching Operating Systems. 
+Patching Frequency | Existing organisation patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br>Meets ACSC Essential Eight guidance for patching Operating Systems. 
 
 ### Networking
 
@@ -705,10 +705,10 @@ Networking Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-IPv6 | Disabled | To align with the ACSC Windows hardening guidance.<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
+IPv6 | Disabled | To align with the ACSC Windows hardening guidance.<br>Exceptions to this rule are if IPv6 is wholly deployed within an organisation network with no IPv4.
 Wireless | Enabled | Where applicable, wireless capable devices will have Wi-Fi enabled to allow use case of mobile working.
 Wireless Configuration | Refer to Table below for wireless configuration recommendations. | To align with the ACSC Windows hardening guidance. 
-Broadband | Not Configured | If Agency devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
+Broadband | Not Configured | If organisation devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
 Network Bridging | Disabled | To align with the ACSC Windows hardening guidance.
 Wake on LAN (WoL) | Configured via existing MECM solution if in use | Wake on LAN configured to allow existing MECM management tasks to operate on computers regardless of power status.
 
@@ -720,7 +720,7 @@ Connect to Wireless Hotspots | Enabled | Allows users to connect to wireless hot
 Automatically Connect to Suggested Open Hotspots | Disabled | To align with the ACSC Windows hardening guidance. 
 Prohibit installation and configuration of Network Bridge | Enabled | To align with the ACSC Windows hardening guidance. 
 Single Sign On 802.1x | Enabled | To align with the ACSC Windows hardening guidance. 
-Wireless Profile Configuration | Configured | Will be configured depending on the Agency requirements. 
+Wireless Profile Configuration | Configured | Will be configured depending on the organisation requirements. 
 
 ### Delivery optimisation
 
@@ -786,7 +786,7 @@ Microsoft Office Edition Design Decisions for all agencies and implementation ty
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Office Version | Microsoft 365 Apps for Enterprise 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
-Microsoft 365 Apps Update channel | Monthly Enterprise | Provides the latest features for Office apps, such as Excel and Word, on a regular predictable basis. This will ensure new features are available but can be planned within the Agency's change management process. 
+Microsoft 365 Apps Update channel | Monthly Enterprise | Provides the latest features for Office apps, such as Excel and Word, on a regular predictable basis. This will ensure new features are available but can be planned within the organisation's change management process. 
 
 ### Office features
 
@@ -828,7 +828,7 @@ Office Language Pack Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Default Language | English (UK) – AU Default | Required to support the Microsoft Office deployment and allow user productivity.<br>English (US) language pack is removed from the SOE as part of the English (UK) install. English (UK) contains the AU region language pack which is then set as default. 
-Additional Language | Not Configured | Additional languages will be installed if required to meet agency requirements. 
+Additional Language | Not Configured | Additional languages will be installed if required to meet organisation requirements. 
 
 ### OneDrive for Business
 
@@ -882,7 +882,7 @@ Interaction accessibility features	| Default setting are enabled:<br>Speech<br>K
 
 ## Windows security
 
-Security settings are applied to the SOE largely to slow down and prevent malicious adversaries and payloads from causing harm to an Agency. The security settings should not prevent legitimate users from conducting work and should provide them with the correct amount of access to the environment to allow them to operate without impeding the work.
+Security settings are applied to the SOE largely to slow down and prevent malicious adversaries and payloads from causing harm to an organisation. The security settings should not prevent legitimate users from conducting work and should provide them with the correct amount of access to the environment to allow them to operate without impeding the work.
 
 ### Microsoft Defender
 
@@ -908,7 +908,7 @@ Microsoft Defender Exploit guard comprises of the below features:
 
 - Exploit protection – Exploit protection applies exploit mitigation mechanisms to applications. Works with third-party antivirus solutions and Windows Defender Antivirus.
 - Attack surface reduction – Attack Surface Reduction (ASR) rules reduce the attack surface of applications with rules that stop the vectors used by Office, script, and mail-based malware.
-- Network protection – Network protection extends the malware and social engineering protection offered by Microsoft Defender SmartScreen in Microsoft Edge to cover network traffic and connectivity on agency devices.
+- Network protection – Network protection extends the malware and social engineering protection offered by Microsoft Defender SmartScreen in Microsoft Edge to cover network traffic and connectivity on organisation devices.
 - Controlled Folder Access – Controlled folder access protects files in key system folders from changes made by malicious and suspicious apps.
 
 Microsoft Defender Design Decisions for all agencies and implementation types.
@@ -1346,7 +1346,7 @@ Application Whitelisting Product | WDAC | Microsoft recommended product for [app
 User Mode Code Integrity | Enabled | Restricts both kernel-mode and user-mode binaries. To align with the ACSC Windows hardening guidance.
 Windows Hardware Quality Labs Signing | Required | Blocks the execution of legacy drivers and ensures drivers have passed [Windows Hardware Certification Testing](https://learn.microsoft.com/en-au/windows-hardware/drivers/install/whql-release-signature). 
 Flight Signing | Disabled | Restricts the use of non production release binaries. Flightroot-signed binaries will not be trusted.
-Unsigned System Integrity Policy | Agency Decision | The use of signed policies prevent administrative tampering and kernel mode exploit access. However, it does increase the administrative overhead associated with management and updating of policies. There is no current ACSC guidance on the configuration of signed integrity polices. 
+Unsigned System Integrity Policy | Organisation Decision | The use of signed policies prevent administrative tampering and kernel mode exploit access. However, it does increase the administrative overhead associated with management and updating of policies. There is no current ACSC guidance on the configuration of signed integrity polices. 
 EV Signers | Required | Blocks the execution of drivers created by a partner without a Extended Verification (EV) certificate.
 Advanced Boot Options Menu | Disabled | Restricts access to the advanced boot options menu. 
 Boot Audit on Failure | Enabled | Enables investigation when a driver fails on boot. 
@@ -1380,8 +1380,8 @@ Decision Point | Design Decision | Justification
 Guest Account (Local) | Disabled | To align with the ACSC Windows hardening guidance. 
 Guest Account Name | Renamed | To align with the ACSC Windows hardening guidance.
 Microsoft Accounts | Disabled | To align with the ACSC Windows hardening guidance.
-Windows Hello for Business | Agency decision | As per the ACSC Windows hardening guidance, Agencies may consider if Windows Hello for Business is suitable for their environment.
-Windows Hello for Business Configuration Method | Agency decision | As per the ACSC Windows hardening guidance, Agencies may consider if Windows Hello for Business is suitable for their environment.
+Windows Hello for Business | Organisation decision | As per the ACSC Windows hardening guidance, Agencies may consider if Windows Hello for Business is suitable for their environment.
+Windows Hello for Business Configuration Method | Organisation decision | As per the ACSC Windows hardening guidance, Agencies may consider if Windows Hello for Business is suitable for their environment.
 
 Additional Identity Providers Design Decisions for cloud native implementations
 
@@ -1395,7 +1395,7 @@ Additional Identity Providers Design Decisions for hybrid implementations
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Active Directory Accounts | Enabled | Machines will be Hybrid Azure AD Joined. 
-Domain Accounts | Enabled | Users will log onto devices using credentials which originate in an on-premises domain.<br>Machines will also be joined to the Agency domain. 
+Domain Accounts | Enabled | Users will log onto devices using credentials which originate in an on-premises domain.<br>Machines will also be joined to the organisation domain. 
 
 ### Desktop analytics
 
@@ -1421,7 +1421,7 @@ Desktop Analytics Design Decisions for hybrid implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Desktop Analytics | Enable and configure | In line with the ACSC hardening guideline policy recommendations and meets requirements for future Desktop Analytics use. 
-Data Location | United States | The Windows diagnostic data (non-business data) is encrypted using SSL and sent to and processed at a Microsoft-managed secure data centre located in the United States. This service is only hosted in the United States.<br><br>The diagnostic data cannot be seen by another customer nor unauthorised Microsoft personnel.<br><br>Note: As the diagnostic data is located offshore this may raise data sovereignty questions for the Agency, for which internal decisions might need to be made. 
+Data Location | United States | The Windows diagnostic data (non-business data) is encrypted using SSL and sent to and processed at a Microsoft-managed secure data centre located in the United States. This service is only hosted in the United States.<br><br>The diagnostic data cannot be seen by another customer nor unauthorised Microsoft personnel.<br><br>Note: As the diagnostic data is located offshore this may raise data sovereignty questions for the organisation, for which internal decisions might need to be made. 
 
 ### Telemetry collection
 
@@ -1570,7 +1570,7 @@ Office Macro Hardening Design Decisions for all agencies and implementation type
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Implementation approach | Only macros digitally signed by a trusted publisher are enabled | To align with the ACSC Microsoft Office Macro Security guidance and enable Agencies to leverage macros securely with the least business impact. 
-Configuration method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
+Configuration method | Organisation preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
 Specific configuration | See below | To align with the ACSC Microsoft Office Macro Security guidance.
 
 - Microsoft Office Security Settings
@@ -1677,7 +1677,7 @@ LAPS | Not Configured | Not required for the solution. The local Administrator a
 
 ## iOS
 
-The blueprint's recommendation is to utilise iOS for Agency devices following the design decisions based on the ACSC [Security Configuration Guide – Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) guidance.
+The blueprint's recommendation is to utilise iOS for organisation devices following the design decisions based on the ACSC [Security Configuration Guide – Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) guidance.
 
 ### iOS devices
 
@@ -1694,7 +1694,7 @@ Decision Point | Design Decision | Justification
 iOS version | iOS 14 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. Once a version is not signed a device cannot be restored to it. <br><br>iOS 15 is the latest version at time of writing, but a security configuration guide for that version has not yet been released by the ACSC. Agencies should review [security update notifications](https://support.apple.com/en-us/HT201222) from Apple for resolved vulnerabilities and determine an appropriate minimum supported version.
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
 Update Policies | Configured | To align with the ACSC Security Configuration guide. 
-Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
+Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing organisation information. 
 
 ### Enrolling iOS devices
 
@@ -1716,7 +1716,7 @@ Enrolment method | Automated device enrollment through Apple Business Manager | 
 
 ### Securing iOS devices
 
-Intune provides ability to configure iOS configuration settings for securing, configuring and applications on iOS devices. These configurations are managed via Mobile Device Management (MDM) as an Intune policy. MDM allows the Agency to deploy consistent configuration on enrolled iOS devices.
+Intune provides ability to configure iOS configuration settings for securing, configuring and applications on iOS devices. These configurations are managed via Mobile Device Management (MDM) as an Intune policy. MDM allows the organisation to deploy consistent configuration on enrolled iOS devices.
 
 MDM provides the capability to configure iOS devices. These devices must be configured to meet ACSC iOS Secure Hardening guide to ensure the device can access and store the Agencies data. These configurations can be categories as:
 
@@ -1731,8 +1731,8 @@ Securing iOS devices Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
-Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
-Apple Business Manager Enrollment Token App Delivery | Agency licenced apps purchased under the Volume Purchase Program (VPP) are installed directly to devices, without needing an Apple ID on the device | Configured inline with ACSC iOS hardening guidance, simplifies management and improves user experience with device onboarding. 
+Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the organisation | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
+Apple Business Manager Enrollment Token App Delivery | Organisation licenced apps purchased under the Volume Purchase Program (VPP) are installed directly to devices, without needing an Apple ID on the device | Configured inline with ACSC iOS hardening guidance, simplifies management and improves user experience with device onboarding. 
 Public App Store access | Disabled | Configured inline with ACSC iOS hardening guidance. Applications are installed under the VPP.
 Device Features | Configured | Device features configured in line with ACSC hardening guidance. 
 
@@ -1741,29 +1741,29 @@ Mobile Device Management Configuration applicable to all agencies and implementa
 Configuration | Value | Description
 --- | --- | ---
 **Security** | | 
-Supervised Mode | Enable | Agency iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
+Supervised Mode | Enable | Organisation iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Device passcode | Device passcode of 14 characters or above. Alphanumeric in nature and must contain a minimum of 1 special character | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
 Biometrics | Disable | This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
-Mobile Device Management | Enable | Mobile Device Management provides the Agency better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices. 
+Mobile Device Management | Enable | Mobile Device Management provides the organisation better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices. 
 Maximum Auto-Lock | 2 minutes | Auto Lock will lock a device if it is inactive for specified time. 
 Virtual Private Network (VPN) | Configured | Per-app VPN will be set up to secure communication between the device and the Agencies data. This is in line with ACSC iOS Secure Configuration Hardening guide. 
 **Branding** | | 
-Lock Screen and background branding | Configured | Agency branding will be applied to endpoints. It is recommended that agencies include the contact information of the relevant IT Support in the event that a device is lost.
+Lock Screen and background branding | Configured | Organisation branding will be applied to endpoints. It is recommended that agencies include the contact information of the relevant IT Support in the event that a device is lost.
 **Device Features** | | 
 Disable Screenshot and screen recording | Disable | Disablement of screenshot and screen recording, disable users from taking a snapshot of protected documents. 
 Allow iCloud backup, document data and Keychain | Disable | The Agencies data on mobile devices must be uploaded into the Agencies tenant. This is done to prevent accidental information being backed up to iCloud or another unsecure data store. 
 Managed Open-In | Enable | Managed Open-In is enable segregates between corporate managed and personal application in an iOS device. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Allow documents from managed sources in unmanaged destination | Disable | The Agencies data cannot be moved between managed and unmanaged application destination. This is to prevent PROTECTED from being transferred to an unmanaged application or location. 
-Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring Agency data to unsecure applications or locations. 
+Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring organisation data to unsecure applications or locations. 
 Restricted Application List | Configured | Unapproved application installs will be alerted upon. App Store is also disabled as applications will be delivered through the VPP. 
 
 ### Securing iOS applications
 
-Mobile Application Management (MAM) in Intune allows configuration of managed applications within an iOS device. Managed applications enclose Agency applications within an application bubble. This bubble prevents accidental data spillage by preventing cutting and pasting, as well as allowing data sharing within the application bubble.
+Mobile Application Management (MAM) in Intune allows configuration of managed applications within an iOS device. Managed applications enclose organisation applications within an application bubble. This bubble prevents accidental data spillage by preventing cutting and pasting, as well as allowing data sharing within the application bubble.
 
 MAM provides the capability to configure iOS device applications. These configurations include:
 
-- Managed Applications – List of Agency business applications.
+- Managed Applications – List of organisation business applications.
 - Managed Application configuration – Configure and secure managed application configuration within the device. These configurations allow and isolate managed applications to resides next to unmanaged applications.
 - Per-app VPN - Secure communication between applications on devices, and the Office 365 tenant. This will require the Agencies VPN device setup to accept communication from the VPN connection from managed apps.
 
@@ -1777,7 +1777,7 @@ Disable organisation data to be backed up to iCloud | Disable | PROTECTED must b
 Encrypt organisation data in mobile device | Configured | To ensure encryption requirements are met based on ACSC hardening requirements. 
 Send organisation data to unmanaged apps | Policy managed apps with Open In/Share Filtering | Prevents data to be shared between managed application stated above and other unmanaged application on the device. 
 Save copies of organisation data | SharePoint and OneDrive for Business only | Ensure all data is saved within the Agencies tenant. 
-Organisation data notification | Block organisation Data | Prevents Agency information being displayed on the lock screen. 
+Organisation data notification | Block organisation Data | Prevents organisation information being displayed on the lock screen. 
 Microsoft Edge Configuration | Configured.<br>Set Microsoft Edge proxy and homepage URL to Agencies Intranet | Configured so Microsoft Edge is able to access Agencies internal websites. 
 Microsoft Outlook | Configured.<br>Ensure Contact list is added into Outlook Contact list rather than device | Configured so Agencies contact list is maintained within managed application rather than the phone's contact details. 
 
@@ -1787,11 +1787,11 @@ iOS devices can be used to access information while away from the office. The de
 
 Intune provides the ability to reset the device (factory reset) or remove managed application data from the device. The Factory reset option remotely wipes and resets the iOS device. The Intune manage application wipe does not clear the device of non-managed application data which allow for potential security issues.
 
-The Agency has indicated that the device must be able to be remotely wipe in case it is lost. This is to ensure information cannot be recovered in any circumstances.
+The organisation has indicated that the device must be able to be remotely wipe in case it is lost. This is to ensure information cannot be recovered in any circumstances.
 
 Remote wipe iOS devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Device Lost Mode | Enabled | Lost mode sends notification to the device's lock screen.
-Device remote wipe | Device will be remote wiped of corporate data (Factory Reset). | To minimize the security if the device is lost or not return to the Agency.<br>Intune remotely wipe and reset the iOS device when a user is off-boarded. This allows the device to be reassign to other users in the Agency. 
+Device remote wipe | Device will be remote wiped of corporate data (Factory Reset). | To minimize the security if the device is lost or not return to the organisation.<br>Intune remotely wipe and reset the iOS device when a user is off-boarded. This allows the device to be reassign to other users in the organisation. 

@@ -1,8 +1,10 @@
 ---
-layout: page
-title: Essential Eight maturity
-body_class: e8
+
 ---
+
+# Essential Eight maturity
+
+<p id="date-and-time">14 minutes to read - 30 March 2023</p>
 
 The Essential Eight represents security guidance from the ACSC. It prioritises mitigation strategies to assist organisations in protecting their systems against a range of cyber threats.
 
@@ -20,24 +22,25 @@ The ACSC has provided an assessment of iOS devices against the Essential Eight i
 
 Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
 
-{:.auto}
-Mitigation strategy | Maturity level
---- | ---
-[Application control](#application-control) | 3
-[Patch applications](#patch-applications) | 3
-[Configure Microsoft Office macro settings](#configure-microsoft-office-macro-settings) | 3
-[User application hardening](#user-application-hardening) | 3
-[Restrict administrative privileges](#restrict-administrative-privileges) | 3
-[Patch operating systems](#patch-operating-systems) | 3
-[Multi-factor authentication](#multi-factor-authentication) | 2
-[Regular backups](#regular-backups) | N/A
+| Mitigation Strategy                                                                         | Maturity Level |
+| :------------------------------------------------------------------------------------------ | :------------: |
+| [Application control](#application-control)                                                 | 3              |
+| [Patch applications](#patch-applications)                                                   | 3              |
+| [Configure Microsoft Office macro settings](#configure-microsoft-office-macro-settings)     | 3              |
+| [User application hardening](#user-application-hardening)                                   | 3              |
+| [Restrict administrative privileges](#restrict-administrative-privileges)                   | 3              |
+| [Patch operating systems](#patch-operating-systems)                                         | 3              |
+| [Multi-factor authentication](#multi-factor-authentication)                                 | 2              |
+| [Regular backups](#regular-backups)                                                         | N/A            |
 
 Each of the individual assessments against the Essential Eight are described in detail in the following sections. These sections detail the rationale for each maturity level assessment, agency responsibilities, and recommendations to achieving greater maturity levels where applicable.
 
 ## Application control
 
-{:.maturity}
-Maturity level: 3
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">3</span>
+</div>
 
 Windows Defender Application Control (WDAC) is used for application control on Windows 10 devices within the blueprint. WDAC restricts the execution of executables, software libraries, scripts, drivers, and applications to an approved set, including code which runs in the system core (kernel). WDAC is managed via Microsoft Endpoint Manager (MEM) or via Group Policies, allowing applications deployed via MEM to also be added to the allowed list automatically.
 
@@ -49,7 +52,7 @@ WDAC policies are also configured to enforce Constrained Language Mode (CLM) for
 
 Defender for Endpoint (which is enabled as part of the blueprint) can be used to centrally query WDAC events on all connected devices. Microsoft provides sample queries to assist with monitoring and alerting based on [WDAC events](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/querying-application-control-events-centrally-using-advanced-hunting).
 
-For additional information on WDAC within the blueprint, see [Windows Defender Application Control](https://desktop.gov.au/blueprint/client-devices.html#windows-defender-application-control).
+For additional information on WDAC within the blueprint, see [Windows Defender Application Control](../client-devices#windows-defender-application-control).
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3. Note, this assessment assumes agencies undertake the recommendations below.
 
@@ -59,8 +62,10 @@ To achieve and maintain maturity level 3 it is recommended agencies validate the
 
 ## Patch applications
 
-{:.maturity}
-Maturity level: 3
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">3</span>
+</div>
 
 Microsoft (first party) application updates are automatically deployed and installed on blueprint devices via MEM. This includes the Edge internet browser and Microsoft Office productivity suite. By default, the blueprint does not include any third-party applications. If required, MEM can also be used to deploy third-party application packages, including manually packaged patches.
 
@@ -80,8 +85,10 @@ If agencies deploy third-party applications to blueprint devices, they are respo
 
 ## Configure Microsoft Office macro settings
 
-{:.maturity}
-Maturity level: 3
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">3</span>
+</div>
 
 The blueprint restricts macro execution to only those signed by a trusted digital certificate in accordance with the [ACSC Microsoft Office Macro Security](https://www.cyber.gov.au/acsc/view-all-content/publications/microsoft-office-macro-security) guidance. This includes blocking Microsoft Office macros originating from the internet and preventing standard users from modifying macro security settings in all Microsoft Office applications. The blueprint does not provide any recommendations for the use of trusted locations.
 
@@ -103,8 +110,10 @@ It is recommended that agencies review their list of trusted publishers at least
 
 ## User application hardening
 
-{:.maturity}
-Maturity level: 3
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">3</span>
+</div>
 
 The blueprint does not include the deployment of Java, so cannot process Java from the internet.
 
@@ -134,20 +143,22 @@ Agencies should review Defender for Endpoint alerts and logs to detect unauthori
 
 ## Restrict administrative privileges
 
-{:.maturity}
-Maturity level: 3
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">3</span>
+</div>
 
 The blueprint includes two types of users, standard and privileged users. Standard users are assigned mailboxes and can access the internet from Windows 10 devices, but do not have elevated privileges on those devices. Privileged users are not assigned an Office 365 license and therefore do not have mailboxes assigned to their accounts. AppLocker is configured by MEM to prevent privileged users from launching web browsers or mail clients from blueprint devices.
 
 The local administrator account is disabled as per the ACSC Windows 10 hardening guide. The local administrator account is renamed, the password set randomly, and the account disabled. The local administrator group is enabled and contains the Azure Active Directory (Azure AD) Global Admins and Device Admins roles. These roles are configured for Azure AD Privileged Identity Management (PIM), providing Just-in-Time (JIT) administration.
 
-Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](https://desktop.gov.au/blueprint/abac/admin-disable-inactive-users.html) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
+Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](../../as-built-as-configured/admin-disable-inactive-users) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
 
 All logins to blueprint devices are recorded and centralised to Defender for Identity. All privileged actions performed in the Microsoft 365 and Azure portals are also logged to the Audit Log, including changes to privileged accounts and groups. User activities for the Office 365 apps are also recorded in the [Audit Log](https://docs.microsoft.com/en-au/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide).
 
 Windows Defender Credential Guard is enabled in the Windows 10 blueprint SOE (on supported devices).
 
-Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](https://desktop.gov.au/blueprint/overview.html#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
+Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](../solution-overview#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
 
 As all required technical controls that are in scope of the blueprint are implemented, the maturity level has been assessed at 3*. Note, this assessment assumes agencies have implemented a compliant secure system administration solution and undertake the recommendations presented below.
 
@@ -159,8 +170,10 @@ Agencies should ensure that only the specific privileges required for a role are
 
 ## Patch operating systems
 
-{:.maturity}
-Maturity level: 3
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">3</span>
+</div>
 
 Windows 10 operating system updates are automatically deployed and installed on blueprint devices using Windows Update for Business which is configured via MEM. For hybrid deployments, patches may be deployed to blueprint devices via Microsoft Endpoint Configuration Manager (MECM) or Windows Server Update Services (WSUS) rather than downloaded from the internet directly.
 
@@ -180,8 +193,10 @@ It is recommended that agencies monitor the success of operating system patching
 
 ## Multi-factor authentication
 
-{:.maturity}
-Maturity level: 2
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">2</span>
+</div>
 
 M365 products are considered as third-party internet-facing services that process and store both sensitive and non-sensitive data for agencies using the blueprint.
 
@@ -203,8 +218,10 @@ Agencies seeking to reach maturity level 3 should consider alternative authentic
 
 ## Regular backups
 
-{:.maturity}
-Maturity level: N/A
+<div class="maturity">
+    <span class="maturity-label">Maturity level: </span>
+    <span class="maturity-rating">N/A</span>
+</div>
 
 The assessment of regular backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including agency backup capabilities, and to reflect the need for agencies to implement their own backup strategy tailored to their unique business continuity requirements.
 

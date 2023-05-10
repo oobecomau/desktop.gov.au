@@ -32,7 +32,7 @@ The following tables in this section lists the components that are in scope for 
 
 Component | Inclusions
 --- | ---
-Azure Active Directory | Domains<br>User Accounts<br>Agency Collaboration<br>Multifactor Authentication<br>Conditional Access
+Azure Active Directory | Domains<br>User Accounts<br>Organisation Collaboration<br>Multifactor Authentication<br>Conditional Access
 Active Directory | On premises for Hybrid solutions only
 Security | Microsoft for Cloud Apps<br>Microsoft Defender for Identity<br>Microsoft Defender for Endpoint<br>Security Information and Event Management<br>Monitoring
 Client Configuration | Intune<br>Microsoft Co-Management<br>Group Policy<br>Printing
@@ -70,7 +70,7 @@ iOS | Enrolment<br>Security<br>Remote Wipe
 - Azure AD Multi-Factor Authentication (MFA) natively supports the Open Authentication (OATH) standard for selected hardware tokens. To use Azure MFA with OATH support, and to achieve an Essential Eight maturity level of 3, use tokens that are "verifier impersonation resistant" and uses either: something users have and something users know, or something users have that is unlocked by something users know or are. This blueprint and associated security documentation assume the use of soft tokens (with Microsoft Authenticator) and a level 2 maturity for MFA. 
 - Microsoft 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is 10 years with Microsoft Purview Audit (Premium). For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Microsoft Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
 - The blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Microsoft 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
-- The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
+- The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per organisation customisation in existing MECM and GPOs configurations across Commonwealth entities.
 
 ## Identity and access management
 
@@ -95,7 +95,7 @@ Azure IAM is configured using:
 - Enterprise Applications - The registration of Microsoft and Third-party enterprise applications. The registration requires information regarding the name, publisher, permissions, authentication configuration and Redirect URIs (Uniform Resource Identifier) to be provided.
 - App Registrations – The registration of custom-built enterprise applications. The registration requires information regarding the name, Application Identifier (APP ID), permissions, authentication configuration and Redirect URIs (Uniform Resource Identifier) to be provided.
 
-Where an Agency has already determined that a HYBRID solution is required, [additional considerations](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview) will apply and these should also be reviewed.
+Where an organisation has already determined that a HYBRID solution is required, [additional considerations](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview) will apply and these should also be reviewed.
 
 Azure AD Design Decisions for all agencies and implementation types.
 
@@ -105,18 +105,18 @@ Cloud Based Service Accounts | Configured | Break glass accounts are required to
 Allow the registration of applications by users | Disabled | Only administrators can register applications.
 Allow self-service sign-up for email verified users | Disabled | Only administrators can create user accounts. 
 Restrict access to the Azure AD administrative portal | Enabled | Only administrators have access to the portal.
-Allow LinkedIn connections | Disabled | To meet the Agency's requirements not to share information with third party Agencies without approval.
-External Collaboration | Configured | As required by the Agency, provided the external Agencies are at the same classification.
-Group Management | Configured | Naming policies and expiration as required by the Agency.
+Allow LinkedIn connections | Disabled | To meet the organisation's requirements not to share information with third party Agencies without approval.
+External Collaboration | Configured | As required by the organisation, provided the external Agencies are at the same classification.
+Group Management | Configured | Naming policies and expiration as required by the organisation.
 Azure Active Directory RBAC | Configured | For ease of administration, segregation and delegation of roles. Users and administrators will be assigned only the roles they need through PIM (Privileged Identity Management).
 Enterprise Applications | Not Configured  | No enterprise applications have been identified.
 Device registration | Not Configured | Default settings.
 Identity Governance | Not Configured | Default settings.
 Application Proxy | Not Configured | No requirement has been identified.
 Licences | Configured | Configured to assign Microsoft 365 licences to user groups. Ensures consistent configuration.
-Custom Domain Names | Configured | {agency}.onmicrosoft.com<br>{agency}.gov.au 
+Custom Domain Names | Configured | {organisation}.onmicrosoft.com<br>{organisation}.com.au 
 Mobility (MDM and MAM) | Not Configured | Default settings.
-Company Branding | Configured | Agency specific logos will be required to provide a corporate look and feel. The agency specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
+Company Branding | Configured | Organisation specific logos will be required to provide a corporate look and feel. The organisation specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
 Keep Me Signed In (KMSI) | Disabled | To prevent users from being offer the 'Stay signed in?' option during authentication.
 
 Additional Azure AD Design Decisions for cloud native implementations.
@@ -133,7 +133,7 @@ Additional Azure AD Design Decisions for hybrid implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Identity Source | Windows Server Active Directory Domain Services (AD DS) | As this is a hybrid implementation, Active Directory will be the source of identity. 
-Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with agency specific requirements.
+Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with organisation specific requirements.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Inherited | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
 Display Name | Inherited | Agencies should avoid using the "Lastname, Firstname" display name format within the directory as this can cause display issues within Microsoft 365 applications. 
@@ -156,7 +156,7 @@ While naming policies for Office 365 groups can assist IT with governance of gro
 In order to create an effective Microsoft 365 group naming strategy, consider adopting a naming standard that assists users with identifying what the group's purpose or function is. Dynamic attributes such as the user's (who created the group) department or office locations attribute can be substituted, for example:
 
 - `<Team Name> - Human Resources Dept`
-- `Agency - <Project Name> - Sydney`
+- `Organisation - <Project Name> - Sydney`
 
 In conjunction with the Naming Policy, Microsoft 365 groups can also be given expiration dates. This assists with unused group clean-up activities. The expiration period commences on group creation and can be renewed at the end of the period (The owner or contact for groups with no owners has 30 days to renew the group). When a group expires, it is soft deleted for 30 days. Retention policies will however hold the data for the period of the retention policy. An expiration policy can be applied globally to all groups or to specific groups.
 
@@ -167,7 +167,7 @@ Microsoft 365 Group Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
-Naming Policy | Agency to determine | Naming can align to organisational team structure and help identify the working group or a project. The Agency should determine what naming policy meets their business requirements. 
+Naming Policy | Organisation to determine | Naming can align to organisational team structure and help identify the working group or a project. The organisation should determine what naming policy meets their business requirements. 
 Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
 ### Emergency access admin accounts
@@ -284,7 +284,7 @@ When a user attempts to access an application or system from any device, one or 
 - Application based - Application based Conditional Access policies provide the ability to allow or block an application based on policy configuration.
 - Risk based - Risk based Conditional Access protects corporate data from malicious hackers based on a user's Sign-In risk. The sign-in risk is an indicator for the likelihood (high, medium, or low) that a sign-in attempt was not performed by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during the sign-in of a user.
 - Session based – Session based Conditional Access policies enables the control of user sessions by redirecting the user through a reverse proxy instead of directly to the app. From then on, user requests and responses go through Defender for Cloud Apps rather than directly to the app.
-- Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. Its purpose is to remind users of their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed. Their acceptance is recorded in Azure AD. As the Terms of Use is presented only once, the agency's "Logon Banner" text should be presented on the desktop and Azure AD portal branding in addition to the Terms of Use.
+- Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. Its purpose is to remind users of their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed. Their acceptance is recorded in Azure AD. As the Terms of Use is presented only once, the organisation's "Logon Banner" text should be presented on the desktop and Azure AD portal branding in addition to the Terms of Use.
 
 Based on the above conditions, the user will either be allowed, prompted for multi-factor authentication, or blocked.
 
@@ -292,7 +292,7 @@ Conditional Access Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and agency issued devices access to the Agency's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Azure AD and is evaluated with Conditional Access. 
+Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and organisation issued devices access to the organisation's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Azure AD and is evaluated with Conditional Access. 
 
 Conditional Access Policy Design Decisions for all agencies and implementation types.
 
@@ -340,24 +340,24 @@ Domain Design Decisions for hybrid implementations
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Registration of on-premises Domains | Configured | Required to utilise the on-premises identities.
-Azure AD Primary domain | Configured - {agency}.gov.au | Required to ensure that Azure created resources contain the Agency's Primary Domain.
+Azure AD Primary domain | Configured - {organisation}.com.au | Required to ensure that Azure created resources contain the organisation's Primary Domain.
 
 ### Collaboration
 
-Within Azure and Office 365 the ability to collaborate with other tenants exists through the External sharing, B2B (Business-to-Business) and B2C (Business-to-Customer) services. These are key features for any external or inter-Agency collaboration.
+Within Azure and Office 365 the ability to collaborate with other tenants exists through the External sharing, B2B (Business-to-Business) and B2C (Business-to-Customer) services. These are key features for any external or inter-organisation collaboration.
 
-Utilising the blueprints, an Agency can configure collaboration with other organisations where:
+Utilising the blueprints, an organisation can configure collaboration with other organisations where:
 
 - A business requirement exists.
 - Both organisations choose to collaborate.
 - The organisations trust each other.
 - Organisations staff possess the appropriate clearance levels.
 - Risk assessments have been completed; and,
-- Collaboration is based on the lowest classification level of any involved Organisation or Agency.
+- Collaboration is based on the lowest classification level of any involved Organisation or organisation.
 
 Collaboration between organisations assessed and operating at the same security level is relatively straightforward, while collaboration between organisations operating on networks that have been assessed at different security levels presents additional considerations and risk. The additional risks and considerations are similar to those that already exist for organisations today, with activities such as personnel clearances, physical security requirements and the secure creation, storage and destruction of physical artefacts. These considerations will need to be assessed on a case by case basis and risks accepted by the Chief Information Security Officers (CISO).
 
-ACSC provides guidance on connecting networks with differing security classifications available at [Fundamentals of Cross Domain solutions](https://www.cyber.gov.au/acsc/view-all-content/publications/fundamentals-cross-domain-solutions). At the time of writing, there are no automated options for external collaboration from a PROTECTED environment and user validation for external collaboration remains a manual process. This is particularly the case should an Agency adopting this service seek to collaborate from a PROTECTED environment to an environment that is operating at a lower classification. The ISM stipulates that all users of a PROTECTED environment must have a valid security clearance. It is recommended that users of the higher classification Agency collaborate into the lower classification Agency, and that unified labelling be configured as per the blueprints with PROTECTED content restricted to external sharing.
+ACSC provides guidance on connecting networks with differing security classifications available at [Fundamentals of Cross Domain solutions](https://www.cyber.gov.au/acsc/view-all-content/publications/fundamentals-cross-domain-solutions). At the time of writing, there are no automated options for external collaboration from a PROTECTED environment and user validation for external collaboration remains a manual process. This is particularly the case should an organisation adopting this service seek to collaborate from a PROTECTED environment to an environment that is operating at a lower classification. The ISM stipulates that all users of a PROTECTED environment must have a valid security clearance. It is recommended that users of the higher classification organisation collaborate into the lower classification organisation, and that unified labelling be configured as per the blueprints with PROTECTED content restricted to external sharing.
 
 For Agencies operating at a PROTECTED level seeking to collaborate, B2C collaboration is not suitable as it allows authentication through publicly accessible domains such as Google and Facebook. Azure AD Business-to-Business (B2B) allows authentication between Azure tenants which provides a higher level of assurance.
 
@@ -378,7 +378,7 @@ When an external user is invited to collaborate, the following items are checked
 
 When the above are all true, the external user can be invited generating an invitation email. The user must accept the invitation by clicking on the link contained within the email causing a linked guest account to be created in the hosting Azure AD tenant. When the guest account has been created it is available for use by any of the applications that are configured to allow guest access.
 
-B2B only requires a small amount of user information (name, and email), however it is recommended that CISOs consuming this document creates a process outside of technology that ensures Agency identity requirements are met. The identity requirements should include the properties listed in the table below and the external user's nationality and clearances held.
+B2B only requires a small amount of user information (name, and email), however it is recommended that CISOs consuming this document creates a process outside of technology that ensures organisation identity requirements are met. The identity requirements should include the properties listed in the table below and the external user's nationality and clearances held.
 
 The following table describes the identity properties that should be a minimum requirement before collaboration is enabled for all agencies and implementation types.
 
@@ -386,31 +386,31 @@ Field | Example | Justification
 --- | --- | ---
 FirstName | John | Search and identify the user.
 LastName | Smith | Search and identify the user.
-UserName (UPN) = EmailAddress | john.smith3@{agency}.gov.au | Users agency and contract address.
+UserName (UPN) = EmailAddress | john.smith3@{organisation}.com.au | Users organisation and contract address.
 UserName | john.smith3 | Identity in Microsoft.
-EmailAddress | john.smith3@desktopa.gov.au<br>Users email contact.
-OfficePhone | 61411 2999 | Users phone contact.
+EmailAddress | john.smith3@organisation.com.au<br>Users email contact.
+OfficePhone | 61400 0000 | Users phone contact.
 MobilePhone | 0411 123 456 | Users phone contact.
 JobProfile | Finance | Users job description in identifying appropriate contact.
-Agency | Digital Transformation Agency | Users agency.
+Organisation | exampleOrg | Users organisation.
 Manager | Julie Citizen | Users manager for further consultation.
 Photo | ID.JPEG | Viewing and identifying the user.
 
 In addition to the above, Conditional Access policies should be enforced requiring external individuals to use MFA, block legacy authentication, and block from disallowed locations.
 
-The following table describes the minimal conditional access policies that should be applied by the partner agency for all agencies and implementation types.
+The following table describes the minimal conditional access policies that should be applied by the partner organisation for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Conditional Access Policies | **BLOCK - Legacy Authentication**:<br>This global policy blocks all connections from unsecure legacy protocols like ActiveSync, IMAP, PO3, etc.<br>**BLOCK - Countries not Allowed:**<br>This global policy blocks all connections from countries not in the Allowed countries list. | Minimises the risk of the user in the partner organisation using credentials that have been compromised.
 
-Azure AD design decisions in relation to inter-Agency collaboration for all agencies and implementation types.
+Azure AD design decisions in relation to inter-organisation collaboration for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-B2B Relationships | Not Configured | The Agency is pursuing a PROTECTED-level certification for the solution. To maintain a robust PROTECTED platform for the Agency, B2B collaboration will not be configured.<br>In a future state, specified partner tenants can be listed assuming they are also rated at a PROTECTED level and approved by appropriate Agency personnel. Only users of these tenants would be allowed collaborative access.
+B2B Relationships | Not Configured | The organisation is pursuing a PROTECTED-level certification for the solution. To maintain a robust PROTECTED platform for the organisation, B2B collaboration will not be configured.<br>In a future state, specified partner tenants can be listed assuming they are also rated at a PROTECTED level and approved by appropriate organisation personnel. Only users of these tenants would be allowed collaborative access.
 B2C Relationships | Not Configured | Client collaboration other than partner organisations is not required.
-External Sharing | Disabled | The Agency is pursuing a PROTECTED-level certification for the solution. To maintain a robust PROTECTED platform for the Agency, B2B collaboration will not be configured.<br>In a future state, specified partner tenants can be listed assuming they are also rated at a PROTECTED level and approved by appropriate Agency personnel. Only users of these tenants would be allowed collaborative access.
+External Sharing | Disabled | The organisation is pursuing a PROTECTED-level certification for the solution. To maintain a robust PROTECTED platform for the organisation, B2B collaboration will not be configured.<br>In a future state, specified partner tenants can be listed assuming they are also rated at a PROTECTED level and approved by appropriate organisation personnel. Only users of these tenants would be allowed collaborative access.
 
 ### Azure AD Connect
 
@@ -423,7 +423,7 @@ AAD Connect can be deployed in several patterns. These patterns follow the guidi
 
 As only one AAD Connect instance can be actively synchronising at a time, high availability is not possible. A warm standby can be configured using a second AAD Connect server in Staging mode.
 
-The following illustrates the user identity synchronisation between the Agency's on-premises AD to Azure AD.
+The following illustrates the user identity synchronisation between the organisation's on-premises AD to Azure AD.
 
 ![AD Connect Identity Synchronisation](../img/platform-ad-connect-id-sync.png#center)
 
@@ -453,11 +453,11 @@ Attribute used for login | User ID | This attribute is commonly used for logins 
 Organisational unit filtering | Configured | To target only the required identities for synchronisation. Whole directory synchronisations are not recommended.
 Single Sign On | Configured | Single Sign-on.
 Staging Server | Configured | Best practice dictates a secondary staging server be in place to be used in disaster recovery scenarios.
-Password writeback | Agency decision | Password writeback enables additional capabilities such as [Leaked Password Detection](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#password-hash-synchronization), however, it requires hashed passwords to be synchronised from on-premises AD DS to Azure AD.
-Self Service Password Reset | Agency decision | The Self-Service Password Reset feature requires activation of password writeback in the AAD Connect configuration.
+Password writeback | Organisation decision | Password writeback enables additional capabilities such as [Leaked Password Detection](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#password-hash-synchronization), however, it requires hashed passwords to be synchronised from on-premises AD DS to Azure AD.
+Self Service Password Reset | Organisation decision | The Self-Service Password Reset feature requires activation of password writeback in the AAD Connect configuration.
 Azure AD App and attribute filtering | Configured | All Azure AD App and attribute filtering will be synchronised as recommended by Microsoft .
 Exchange Hybrid | Configured | Exchange will be used in a hybrid configuration with Exchange Online, therefore this setting is required to be set as Configured.
-Exchange Mail Public Folders | Not Configured | The Agency does not leverage Public folders currently, therefore this setting is not required.
+Exchange Mail Public Folders | Not Configured | The organisation does not leverage Public folders currently, therefore this setting is not required.
 Directory extension attribute synchronisation | Not Configured | Not required for this solution.
 
 AAD Connect configuration applicable to agencies leveraging a hybrid implementation.
@@ -466,10 +466,10 @@ Configuration | Value | Description
 --- | --- | ---
 Installation Mode | Custom | The type of installation – Default or Custom. The Default install does not allow customisation of the filtering.
 SQL Mode | Local DB | The location of the AAD Connect database. Local DB is the default configuration and the simplest to manage. 
-Directory to Connect to | {Agency}.gov.au | Azure AD Tenant of the Agency.
+Directory to Connect to | {organisation}.com.au | Azure AD Tenant of the organisation.
 On-premises attribute to use for Azure AD (used for logging in to Azure AD) | User ID  | This attribute is commonly used for logins as it will ensure that the same credentials are maintained for on-premises and in-cloud authentication.
 Alternate ID | Not required | This is required in scenarios where primary ID may be duplicated between users in the organisation.
-OU Filtering | Enabled <br>{TBA by the Agency} | OU filtering will be used to ensure that specific OUs containing entities such as service accounts are not synchronised with Azure AD. OU filtering will be finalised during deployment and documented in As-Built-As-Configured documentation.
+OU Filtering | Enabled <br>{TBA by the organisation} | OU filtering will be used to ensure that specific OUs containing entities such as service accounts are not synchronised with Azure AD. OU filtering will be finalised during deployment and documented in As-Built-As-Configured documentation.
 Uniquely Identifying Users | Users are represented only once across all directories.<br>Let Azure manage the source anchor (ms-DS-ConsistencyGuid) | Default configuration. As users are not duplicated within the environment, this setting meets the solution requirements. The ms-DS-ConsistencyGuid is used when Azure manages the source anchor.
 Azure AD Attributes | Default – All attributes | Default configuration. All attributes to be synchronised.
 Synchronisation Interval | 30 minutes | Default synchronisation interval.<br>Note: Password resets and new accounts are synchronised immediately.
@@ -577,10 +577,10 @@ Cloud Discovery Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Cloud Discovery report type | Continuous reports | To provide continuous visibility while minimising management overhead. 
-Log collector | Will be deployed to collect logs from the Agency's existing proxy or firewalls and upload them to Defender for Cloud Apps. | To provide automatic upload of logs. 
-Microsoft Defender for Endpoint integration | Enabled | To provide additional visibility from agency endpoints that have been onboarded into the Defender for Endpoint.
+Log collector | Will be deployed to collect logs from the organisation's existing proxy or firewalls and upload them to Defender for Cloud Apps. | To provide automatic upload of logs. 
+Microsoft Defender for Endpoint integration | Enabled | To provide additional visibility from organisation endpoints that have been onboarded into the Defender for Endpoint.
 Enforce app access | Enabled | To block access to apps marked as Unsanctioned.
-List of sanctioned and unsanctioned cloud apps | To be developed during build with the Agency's Cyber Intelligence team. | Provides visibility within the Agency as to what cloud applications are in use and by which department within the Agency.
+List of sanctioned and unsanctioned cloud apps | To be developed during build with the organisation's Cyber Intelligence team. | Provides visibility within the organisation as to what cloud applications are in use and by which department within the organisation.
 
 ##### Automatic log upload & Log collectors
 
@@ -598,8 +598,8 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Number of log collectors | One | An increase in the number of log collectors may be necessary if there is excessive traffic.
 Log collector deployment mode | Docker container | Maximise support life as virtual appliance has been deprecated.
-Log collector location | Within the Agency Gateway zone | Minimise number of firewall ports to be opened between the existing proxies and the log collector.
-Log collector operating system | Agency's discretion of supported operating system for Defender for Cloud Apps Log Collector. | Defender for Cloud Apps supports Windows and Linux (Ubuntu, RHEL, CentOS) operating systems for the Log Collector.
+Log collector location | Within the organisation Gateway zone | Minimise number of firewall ports to be opened between the existing proxies and the log collector.
+Log collector operating system | Organisation's discretion of supported operating system for Defender for Cloud Apps Log Collector. | Defender for Cloud Apps supports Windows and Linux (Ubuntu, RHEL, CentOS) operating systems for the Log Collector.
 
 ##### App tags 
 
@@ -609,7 +609,7 @@ App tags Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Custom tags | Configured on demand | Custom tags will be added to Cloud Discovery as they are identified by the Agency.
+Custom tags | Configured on demand | Custom tags will be added to Cloud Discovery as they are identified by the organisation.
 
 ##### Microsoft Defender for Endpoint integration
 
@@ -650,8 +650,8 @@ User Data Anonymization Design Decisions for all agencies and implementation typ
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Username anonymisation | Not enabled | Reduced investigation effort by not requiring security analysts to decrypt usernames on demand. If the Agency identifies a requirement this can be enabled.
-Machine name anonymisation | Not enabled | Reduced investigation effort by not requiring security analysts to decrypt machine names on demand. If the Agency identifies a requirement this can be enabled.
+Username anonymisation | Not enabled | Reduced investigation effort by not requiring security analysts to decrypt usernames on demand. If the organisation identifies a requirement this can be enabled.
+Machine name anonymisation | Not enabled | Reduced investigation effort by not requiring security analysts to decrypt machine names on demand. If the organisation identifies a requirement this can be enabled.
 
 #### Custom apps
 
@@ -663,7 +663,7 @@ Custom Apps Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Custom Apps | Configured on demand | Custom apps will be added to Cloud Discovery as they are identified by the Agency.
+Custom Apps | Configured on demand | Custom apps will be added to Cloud Discovery as they are identified by the organisation.
 
 #### App connectors
 
@@ -726,7 +726,7 @@ Policies Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of policies | Enable all in-built policies.<br>Agencies should also consider developing custom policies to match their specific use-cases. | Provides visibility within the Agency of suspicious behaviour and application use. 
+Use of policies | Enable all in-built policies.<br>Agencies should also consider developing custom policies to match their specific use-cases. | Provides visibility within the organisation of suspicious behaviour and application use. 
 
 #### Threat Protection
 
@@ -742,7 +742,7 @@ Defender for Identity integration Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Defender for Identity integration | Enabled | To enable integration between security tools deployed within the Agency's environment.
+Defender for Identity integration | Enabled | To enable integration between security tools deployed within the organisation's environment.
 
 ##### Azure AD Identity Protection integration
 
@@ -754,7 +754,7 @@ Azure AD Identity Protection integration Design Decisions for all agencies and i
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure AD Identity Protection integration | Enabled | To enable integration between security tools deployed within the Agency's environment.
+Azure AD Identity Protection integration | Enabled | To enable integration between security tools deployed within the organisation's environment.
 
 ##### App Governance
 
@@ -784,8 +784,8 @@ Admin quarantine Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Admin quarantine folder location | Configured | Folder location is agency-specific and will be determined via an agency's internal decision processes.
-User notification | Default text – `This file was quarantined because it might conflict with your Agency's security and compliance policies. Contact your IT administrator for more information.` | Notify user that file has been quarantined using default text. Agency to determine whether default text meets IT security requirements.
+Admin quarantine folder location | Configured | Folder location is organisation-specific and will be determined via an organisation's internal decision processes.
+User notification | Default text – `This file was quarantined because it might conflict with your organisation's security and compliance policies. Contact your IT administrator for more information.` | Notify user that file has been quarantined using default text. Organisation to determine whether default text meets IT security requirements.
 
 ##### Microsoft Information Protection
 
@@ -832,8 +832,8 @@ Conditional Access App Control Protection Design Decisions for all agencies and 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Access control policies | Use of policies is agency-specific and would need further development with internal cyber security team. | Provides a greater security posture for the Agency applications.
-Session control policies | Use of policies is agency-specific and would need further development with internal cyber security team. | Provides a greater security posture for users within the Agency.
+Access control policies | Use of policies is organisation-specific and would need further development with internal cyber security team. | Provides a greater security posture for the organisation applications.
+Session control policies | Use of policies is organisation-specific and would need further development with internal cyber security team. | Provides a greater security posture for users within the organisation.
 
 ##### Default behaviour
 
@@ -875,7 +875,7 @@ Device Identification Design Decisions for all agencies and implementation types
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of client certificates for device identification | Not configured | No requirement to use client certificates has been identified as the Agency will leverage Intune for compliant and Hybrid Azure AD devices.
+Use of client certificates for device identification | Not configured | No requirement to use client certificates has been identified as the organisation will leverage Intune for compliant and Hybrid Azure AD devices.
 
 ##### App onboarding/maintenance
 
@@ -887,7 +887,7 @@ App Onboarding/Maintenance Design Decisions for all agencies and implementation 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Included users | To be developed during build with the Agency's Cyber Intelligence team. | Agency to determine if a requirement for users and non-supported apps exist within the environment.
+Included users | To be developed during build with the organisation's Cyber Intelligence team. | Organisation to determine if a requirement for users and non-supported apps exist within the environment.
 
 #### Security extensions
 
@@ -910,7 +910,7 @@ API token Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-API tokens | Not configured | An agency can determine and identify whether use cases exist for the creation of API tokens in their specific environments however for a base implementation of the blueprint, API tokens are not required.
+API tokens | Not configured | An organisation can determine and identify whether use cases exist for the creation of API tokens in their specific environments however for a base implementation of the blueprint, API tokens are not required.
 
 ##### SIEM agents
 
@@ -935,9 +935,9 @@ SIEM agents Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of SIEM agent | Yes | To support integration between Defender for Cloud Apps and the Agency's existing SIEM solution.
-SIEM agent install location | Agency's discretion of supported operating system for Defender for Cloud Apps SIEM agents. | Defender for Cloud Apps supports Windows and Linux operating systems for the SIEM agents.
-Microsoft Security Graph API integration | Not configured | Agency to determine whether requirement exists based on existing SIEM solution.
+Use of SIEM agent | Yes | To support integration between Defender for Cloud Apps and the organisation's existing SIEM solution.
+SIEM agent install location | Organisation's discretion of supported operating system for Defender for Cloud Apps SIEM agents. | Defender for Cloud Apps supports Windows and Linux operating systems for the SIEM agents.
+Microsoft Security Graph API integration | Not configured | Organisation to determine whether requirement exists based on existing SIEM solution.
 
 ##### External Data Loss Prevention (DLP)
 
@@ -949,7 +949,7 @@ External DLP Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-External DLP | Not configured | Not configured by default however an Agency can determine whether a DLP solution will be leveraged and if there is a requirement to be integrated with Defender for Cloud Apps.
+External DLP | Not configured | Not configured by default however an organisation can determine whether a DLP solution will be leveraged and if there is a requirement to be integrated with Defender for Cloud Apps.
 
 ##### Playbooks
 
@@ -961,7 +961,7 @@ Playbooks Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Playbooks | Not configured | Not configured by default however an Agency can determine whether Playbooks will be leveraged to assist in automating pre-approved and consistent responses reducing analyst intervention. Use of Playbooks is subject to licensing.
+Playbooks | Not configured | Not configured by default however an organisation can determine whether Playbooks will be leveraged to assist in automating pre-approved and consistent responses reducing analyst intervention. Use of Playbooks is subject to licensing.
 
 ### Microsoft Defender for Identity
 
@@ -986,19 +986,19 @@ Defender for Identity relies on Network Name Resolution (NNR) to correlate betwe
 - RDP (TCP port 3389) – only the first packet of Client hello.
 - Queries the DNS server using reverse DNS lookup of the IP address (UDP 53).
 
-Microsoft recommends using all the above methods, however if this is not possible the Agency should use the DNS lookup method and at least one of the other methods available at [https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy](https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy).
+Microsoft recommends using all the above methods, however if this is not possible the organisation should use the DNS lookup method and at least one of the other methods available at [https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy](https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy).
 
 Defender for Identity Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Number of Defender for Identity instances | One | A single Defender for Identity instance can monitor multiple AD DS forests.
-Defender for Identity instance name | {agency-instance-name}.atp.azure.com | The Defender for Identity cloud service will be given an Defender for Identity instance name which will be used to access the Defender for Identity portal.
-Forests and domains to be monitored by Defender for Identity | {agency}.gov.au | Nominated agency forests and domains.
+Defender for Identity instance name | {organisation-instance-name}.atp.azure.com | The Defender for Identity cloud service will be given an Defender for Identity instance name which will be used to access the Defender for Identity portal.
+Forests and domains to be monitored by Defender for Identity | {organisation}.com.au | Nominated organisation forests and domains.
 Defender for Identity sensor deployment | To all DC's within the identified forests and domains. | Best practice to ensure all authentication traffic is monitored by Defender for Identity.
 Internet connectivity | Domain controllers must have internet connectivity | Domain controllers which will have Defender for Identity sensors installed, must have internet connectivity to the Defender for Identity Cloud Service. <br>Defender for Identity sensors support the use of a web proxy / WPAD for internet connectivity.
-Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the Agency environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If Agency environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the Agency environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites).
-Network Name Resolution (NNR) | Reverse DNS lookup and one other method (listed above) | This is the minimum NNR requirement for Defender for Identity. Microsoft recommends using all of the above-mentioned resolution methods available within Agency environment.
+Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the organisation environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If organisation environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the organisation environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites).
+Network Name Resolution (NNR) | Reverse DNS lookup and one other method (listed above) | This is the minimum NNR requirement for Defender for Identity. Microsoft recommends using all of the above-mentioned resolution methods available within organisation environment.
 Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites#before-you-start) to allow Defender for Identity to detect user deletions from the Agencies Active Directory.
 
 #### Role groups
@@ -1017,9 +1017,9 @@ Role group Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Members of the Azure ATP Administrators group | Agency decision | Only specific users that require administrative access should be added to this group.
-Members of the Azure ATP Users group | Agency decision | Include membership of the cyber security team that are responsible for the day-to-day use and management of Defender for Identity.
-Members of the Azure ATP Viewers group | Agency decision | Include membership of the cyber security team to enable auditing of Defender for Identity.
+Members of the Azure ATP Administrators group | Organisation decision | Only specific users that require administrative access should be added to this group.
+Members of the Azure ATP Users group | Organisation decision | Include membership of the cyber security team that are responsible for the day-to-day use and management of Defender for Identity.
+Members of the Azure ATP Viewers group | Organisation decision | Include membership of the cyber security team to enable auditing of Defender for Identity.
 
 #### Notifications
 
@@ -1037,7 +1037,7 @@ Notification Design Decisions for hybrid implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mail notifications | Enabled for both suspicious activities and health alerts | Notify relevant security teams when unwarranted and unauthorised activities occur.
-Syslog notifications | Enabled for both suspicious activities and health alerts | If the Agency has an existing SIEM solution enable the SIEM to gather all possible security-related events.
+Syslog notifications | Enabled for both suspicious activities and health alerts | If the organisation has an existing SIEM solution enable the SIEM to gather all possible security-related events.
 
 #### Integration with Defender for Endpoint
 
@@ -1055,12 +1055,12 @@ Integration with Defender for Endpoint | Enabled | To integrate data feeds and a
 
 As Defender for Identity is reliant upon the Defender for Identity portal and the Defender for Identity sensors, firewall ports are required to be opened to allow communication between infrastructure (Domain Controllers and standalone servers) and Defender for Identity. These port configurations are updated frequently and are available online from Microsoft ([Configure endpoint proxy and Internet connectivity settings for your Microsoft Defender for Identity Sensor](https://docs.microsoft.com/en-au/defender-for-identity/configure-proxy), [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites)).
 
-It is important to note the traffic between the client and the Defender for Identity portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the Agency as required.
+It is important to note the traffic between the client and the Defender for Identity portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the organisation as required.
 
 Firewall rules and proxy allow lists will be implemented as part of the Defender for Identity solution.
 
-- Defender for Identity service location – As mentioned previously, Defender for Identity data centres are deployed in the United States, Europe, and Asia. The Agency's Defender for Identity instance will be created in the data centre that is geographically closest to the Agency's Azure AD service. This will assist in determining which service location to utilise for generating allow lists. For Azure AD tenants located in Australia, Defender for Identity will be created in Asia.
-- Maximal security and data privacy – Defender for Identity cloud services use certificate based mutual authentication for communication between Defender for Identity cloud backend and all Defender for Identity sensors. To make the authentication process seamless as possible if the Agency's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
+- Defender for Identity service location – As mentioned previously, Defender for Identity data centres are deployed in the United States, Europe, and Asia. The organisation's Defender for Identity instance will be created in the data centre that is geographically closest to the organisation's Azure AD service. This will assist in determining which service location to utilise for generating allow lists. For Azure AD tenants located in Australia, Defender for Identity will be created in Asia.
+- Maximal security and data privacy – Defender for Identity cloud services use certificate based mutual authentication for communication between Defender for Identity cloud backend and all Defender for Identity sensors. To make the authentication process seamless as possible if the organisation's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
 
 Further details on the firewall configuration for the solution can be found in the [Hybrid - Network Configuration ABAC](../../as-built-as-configured/hybrid-network-configuration).
 
@@ -1107,10 +1107,10 @@ Microsoft Defender for Endpoint | Configured | To provide increased security and
 Sample Collection | Enabled | Required configuration to enable<br>Deep Analysis on files when required. 
 Data storage location | US | As of June 2019, the available Azure data centres to host Defender for Endpoint are located in the US, UK and Europe. All data used by Defender for Endpoint is protected at minimum by Advanced Encryption Standard (AES) 256-bit encryption, both at rest and inflight.  The US has been selected due to policy alignment under the Cloud Act. 
 Data Retention Period | 180 Days | Default configuration and suitable for the organisation's requirements.
-Alert Notifications | Send Information, Low, Medium, High to Security team. | Alerts will be sent to agency's Cyber Intelligence team for action.
+Alert Notifications | Send Information, Low, Medium, High to Security team. | Alerts will be sent to organisation's Cyber Intelligence team for action.
 Microsoft Secure Score integration | Enabled | Forwards data from Defender for Endpoint to Secure Score to provide visibility into device security posture. 
-Administration Roles | Full Administrator:<br>Admin_{agency}-securityadmin | Administrative roles will be segregated as per the ACSC's [Restricting Administrative Privileges](https://www.cyber.gov.au/acsc/view-all-content/publications/restricting-administrative-privileges) guidance.
-Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the Agency and documented in the As-Built-As-Configured documentation.
+Administration Roles | Full Administrator:<br>Admin_{organisation}-securityadmin | Administrative roles will be segregated as per the ACSC's [Restricting Administrative Privileges](https://www.cyber.gov.au/acsc/view-all-content/publications/restricting-administrative-privileges) guidance.
+Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the organisation and documented in the As-Built-As-Configured documentation.
 Machine onboarding and Configuration | Configured | Onboarding and configuration will be performed by Intune.
 SIEM Integration | Configured | To meet the security logging requirements of this solution.
 Live Response | Enabled | To enable remote investigation of devices.
@@ -1142,24 +1142,24 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Microsoft Endpoint Manager managed workloads and Azure AD sign in logs.
 Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
-Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the Agency has an existing SIEM for further custom log analysis.
+Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the organisation has an existing SIEM for further custom log analysis.
 
 Log Analytics configuration for all agencies and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
-Workspace Name | agency-log-workspace | Log workspace name to be confirmed by the Agency. 
-Azure Subscription | Agency subscription | Configured by Office 365. 
-Region | Australia Central | Closest location of Log Analytics to the Agency. 
+Workspace Name | organisation-log-workspace | Log workspace name to be confirmed by the organisation. 
+Azure Subscription | Organisation subscription | Configured by Office 365. 
+Region | Australia Central | Closest location of Log Analytics to the organisation. 
 Log retention | Retention Period: 1 year<br>Data Volume Cap: Off | One year aligns with other data retention periods in this solution and meets the system requirements. 
 Enabled Diagnostic Settings | Microsoft Endpoint Manager, Azure AD | Ensures logs are ingested by log analytics. 
-Log Analytics Contributor Group | rol-agency-log-admin | Log Analytics Contributor group name to be confirmed by the Agency. 
+Log Analytics Contributor Group | rol-organisation-log-admin | Log Analytics Contributor group name to be confirmed by the organisation. 
 
 ### Security Information and Event Management
 
-SIEM is a combination of tools and services that provide insights into a network. The tools and services are classed as either Security Information Management (SIM) or Security Event Management (SEM). SIEM tools gather log files from devices for analysis and reporting. Through this process security threats and events can be identified. SIEM tools provide real-time analysis of log and event data to alert administrators to potential issues like security threats. When combined into a SIEM the Agency is provided with:
+SIEM is a combination of tools and services that provide insights into a network. The tools and services are classed as either Security Information Management (SIM) or Security Event Management (SEM). SIEM tools gather log files from devices for analysis and reporting. Through this process security threats and events can be identified. SIEM tools provide real-time analysis of log and event data to alert administrators to potential issues like security threats. When combined into a SIEM the organisation is provided with:
 
-- Real-time visibility for the Agency's systems.
+- Real-time visibility for the organisation's systems.
 - Centralised event log management meaning data is consolidated from multiple sources across the network.
 - Correlation of events gathered from different logs and security sources.
 - Automated security event notification for administrators.
@@ -1170,17 +1170,17 @@ SIEM Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-SIEM Solution | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium).
-Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
-Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
+SIEM Solution | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium).
+Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
+Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
 
 ### Azure AD tenant restrictions
 
-Office 365 and other enterprise SaaS applications that use Azure AD as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the agency's own Office 365 tenancy. With Azure AD tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Azure AD tenants that their users are permitted to access (e.g. GovTeams). Azure AD then only grants access to these permitted tenants.
+Office 365 and other enterprise SaaS applications that use Azure AD as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the organisation's own Office 365 tenancy. With Azure AD tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Azure AD tenants that their users are permitted to access (e.g. GovTeams). Azure AD then only grants access to these permitted tenants.
 
 Azure AD tenant restrictions prerequisites are as follows:
 
-- The agency's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
+- The organisation's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
 - Endpoints must trust the web filtering services PKI certificate chain for TLS communications.  
 
 For more detail on Azure AD tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
@@ -1251,7 +1251,7 @@ Enable an "All Users" group in the directory | No | This group is not required. 
 
 ### Intune - Mobile application management
 
-Mobile Application Management (MAM) allows the management and protection of an Agency's data within an application. It controls data flows into and out of the application container which houses corporate data.
+Mobile Application Management (MAM) allows the management and protection of an organisation's data within an application. It controls data flows into and out of the application container which houses corporate data.
 
 Using MAM, a corporate app that contains sensitive data can be managed on a wide variety of devices. Many productivity apps, such as the Microsoft Office apps, can be managed by Intune MAM. MAM can protect data within the application container using authentication methods and copy/paste controls, but these controls must be balanced with any MDM controls of the device to maintain usability of the solution.
 
@@ -1275,9 +1275,9 @@ Applications Managed | Microsoft Information Protection<br>Microsoft Corporate P
 
 Device enrolment registers the Windows 10 and iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
 
-Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the Agency's security requirements. 
+Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the organisation's security requirements. 
 
-Microsoft Intune provides three separate experience in enrolling the iOS devices into the Agency's Azure Active directory. The enrolment experiences are:
+Microsoft Intune provides three separate experience in enrolling the iOS devices into the organisation's Azure Active directory. The enrolment experiences are:
 
 - Device Enrolment Program (DEP) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user's account will be assigned to the device. The device will be marked as a Supervised device.
 - Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device.
@@ -1312,18 +1312,18 @@ Intune Co-Management design considerations and decisions apply to the HYBRID sol
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Co-management | Enabled | The Microsoft co-management approach will enable Agency to strategically move device management from on-premises to the cloud in a staged manner.
+Co-management | Enabled | The Microsoft co-management approach will enable organisation to strategically move device management from on-premises to the cloud in a staged manner.
 Compliance policies controlled by | Intune preferred | Compliance and remediation policies to controlled via Intune. Staged migration to be completed from MECM if previously in use.
 Device Configuration policies controlled by | Intune preferred | Device configuration policies to be controlled via Intune. Staged migration to be completed from MECM if previously in use.
 Endpoint Protection policies controlled by | Intune preferred | Endpoint protection, including the Windows Defender products and features are controlled via Intune policies. Staged migration to be completed from MECM if previously in use.
 Resource Access policies controlled by | Intune preferred | Resources in this instance refers to VPN profiles, Wi-Fi profiles, certificate profiles, etc. are controlled via Intune policies. Staged migration to be completed from MECM if previously in use.
 Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from MECM if previously in use.
 Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from MECM if previously in use.
-MECM minimum version | At least MECM update 1802 | Compatible with co-management and determined by the Agency.
+MECM minimum version | At least MECM update 1802 | Compatible with co-management and determined by the organisation.
 Enrolled Device Types | Windows 10: 21H2 / 10.0.19044.100 (minimum) | As per the Client Devices design.<br>Note: iOS is permitted but controlled by Intune only.
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 User Enrolment | Enabled | All users must be enrolled to ensure device compliance.
-Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by Agency requirements.
+Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by organisation requirements.
 Conditional Access | Enabled | Conditional Access is enabled. It will leverage device & user compliance to allow or disallow access to the corporate environment.
 Mobile Device Management (MDM) | Enabled | MECM will be the MDM authority for the solution, with Intune inspecting compliance.
 Mobile Application Management (MAM) | Disabled | Not required as Group Policy will configure application controls.
@@ -1348,8 +1348,8 @@ Decision Point | Design Decision | Justification
 Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically join the Azure Active Directory. 
 Auto-enrol devices | Configured | Enrolled automatically into Intune MDM.
 Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening guide for Windows 10.
-Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.
-Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployment profile will ensure that all workstations are configured in accordance with the Agency standards with no user intervention.
+Create and auto-assign devices | Configured | For ease of management and enrolment for devices within organisation.
+Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployment profile will ensure that all workstations are configured in accordance with the organisation standards with no user intervention.
 
 ### Intune - Device compliance
 
@@ -1359,7 +1359,7 @@ Microsoft Intune can control access to resources by interrogating endpoints and 
 
 Each compliance policy can be edited to ensure that devices are tested before being allowed access to corporate resources.
 
-Device Compliance Profiles deployed ensure a strong security posture for the entire Windows 10 and iOS fleet. Compliance Policies allow the Agency to ensure that baselines are met prior to access being granted to any corporate applications or data. The Windows 10 compliance policy settings include:
+Device Compliance Profiles deployed ensure a strong security posture for the entire Windows 10 and iOS fleet. Compliance Policies allow the organisation to ensure that baselines are met prior to access being granted to any corporate applications or data. The Windows 10 compliance policy settings include:
 
 - Device Health – This includes BitLocker status and whether code integrity is enabled.
 - Device Properties – Including a minimum and maximum Operating System version.
@@ -1416,7 +1416,7 @@ Windows 10 and later polices | Not Configured | Management solution such as MECM
 
 ### Intune - Information protection
 
-Application protection policies are rules that ensure an Agency's data remains safe or contained in a managed application.
+Application protection policies are rules that ensure an organisation's data remains safe or contained in a managed application.
 
 An application protection policy can be a rule that is enforced when the user attempts to access or move "corporate" data, or a set of actions that are prohibited or monitored when the user is inside the app.
 
@@ -1455,7 +1455,7 @@ Feature Update uninstall period | 10 days | Allows reversal for a short period o
 
 ### Intune - iOS
 
-iOS devices will be enrolled with the Intune Agency Portal to gain secure access to Agency data.
+iOS devices will be enrolled with the Intune organisation Portal to gain secure access to organisation data.
 
 After devices are enrolled, they become managed. Agencies can assign policies and apps to the device through a mobile device management (MDM) provider, such as Intune.
 
@@ -1482,13 +1482,13 @@ Registry settings Design Decisions for cloud native implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Registry Setting Method | Intune | The Agency will use Intune to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
+Registry Setting Method | Intune | The organisation will use Intune to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
 
 Registry settings Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Registry Setting Method | Group Policy Objects & MECM | The Agency may utilise management solutions such as Group Policy Objects and MECM to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
+Registry Setting Method | Group Policy Objects & MECM | The organisation may utilise management solutions such as Group Policy Objects and MECM to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
 
 ### Applications
 
@@ -1522,7 +1522,7 @@ Decision Point | Design Decision | Justification
 Application Deployment | Configured | Deployment and monitoring of the deployment can be assigned to users or devices.
 Application Configuration | Configured | Store applications are easily updated while Win32 applications will need some packaging.
 Application Protection | Configured | In combination with conditional access and network boundaries, applications are limited with respect to the copy, paste, forwarding, printing capabilities.
-Application Removal | Configured | When applications (or versions of applications) are no longer required they are removed via Agency's nominated management solution.
+Application Removal | Configured | When applications (or versions of applications) are no longer required they are removed via organisation's nominated management solution.
 
 ### Printing
 
@@ -1614,7 +1614,7 @@ Additional RPO, RTO and Retention Periods Design Decisions for cloud native impl
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Restoration tools | Microsoft backup and restoration tools (when no backup product selected) | The Agency will leverage Microsoft Office 365 native tools in the first instance to recover user data, where no third-party backup toolset is deployed. 
+Restoration tools | Microsoft backup and restoration tools (when no backup product selected) | The organisation will leverage Microsoft Office 365 native tools in the first instance to recover user data, where no third-party backup toolset is deployed. 
 Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | Up to maximum allowable days per Microsoft Office 365 application | For guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements. 
 
@@ -1624,13 +1624,13 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Restoration tools | Third party backup and restoration tools | Agencies should investigate third-party backup tools to backup and restore data on-premises and within the cloud.
 Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
-Retention Policies | At discretion of Agency | Retention policies for the backups should be determined by the Agency and measured against the business, application, regulatory (including the Agency's records authority) and security requirements. 
+Retention Policies | At discretion of organisation | Retention policies for the backups should be determined by the organisation and measured against the business, application, regulatory (including the organisation's records authority) and security requirements. 
 
 ### Data availability
 
 Microsoft Azure services are available globally and provides geographical, regional, data centre, virtual infrastructure, and application resiliency. This allows the Microsoft Azure platform and Microsoft 365 to combat and minimise potential disasters such as customers loss of connectivity to data or loss of data.
 
-Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft 365 will replicate and store Agency's data in multiple data centres which are geographically dispersed  (see [Exchange Online data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-exchange-data-resiliency) and [Data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-data-resiliency-overview)). 
+Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft 365 will replicate and store organisation's data in multiple data centres which are geographically dispersed  (see [Exchange Online data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-exchange-data-resiliency) and [Data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-data-resiliency-overview)). 
 
 The data availability and resiliency of Microsoft 365 cloud service is in-built and managed by Microsoft.
 
