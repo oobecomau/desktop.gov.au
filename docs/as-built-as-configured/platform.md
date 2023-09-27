@@ -480,14 +480,14 @@ Primary Azure AD Connect settings
   - Sync selected domains and OUs:
 ```
   Department
-    - Groups
-    .  . Admin
-    -- Security Access
-    . Users
-    .  . Admin
-    .  . General
-    .  . Service Accounts
-    . Computers
+      . Groups
+      .  . Admin
+      .  . Security Access
+      . Users
+      .  . Admin
+      .  . General
+      .  . Service Accounts
+      . Computers
 ```
   - How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   - How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
