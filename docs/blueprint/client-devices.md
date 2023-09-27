@@ -1514,13 +1514,42 @@ D4F940AB-401B-4EFC-AADC-AD5F3C50688A
   - Justification: To align with the ACSC Microsoft Office hardening guidance.
   - Set default file block behavior: Enabled - Blocked files are not opened
   - Excel: File Block Settings
-  ```(dBase III / IV files, Dif and Sylk files, Excel 2 macrosheets and add-in files, Excel 2 worksheets, Excel 3 macrosheets and add-in files, Excel 3 worksheets, Excel 4 macrosheets and add-in files, Excel 4 workbooks, Excel 4 worksheets, Excel 95 workbooks, Excel 95-97 workbooks and templates, Excel 97-2003 workbooks and templates, Web pages and Excel 2003 XML spreadsheets)```
+```
+  dBase III / IV files, 
+  Dif and Sylk files, 
+  Excel 2 macrosheets and add-in files, 
+  Excel 2 worksheets, 
+  Excel 3 macrosheets and add-in files, 
+  Excel 3 worksheets, 
+  Excel 4 macrosheets and add-in files, 
+  Excel 4 workbooks, 
+  Excel 4 worksheets, 
+  Excel 95 workbooks, 
+  Excel 95-97 workbooks and templates, 
+  Excel 97-2003 workbooks and templates, 
+  Web pages and Excel 2003 XML spreadsheets
+```
   - PowerPoint: File Block Settings
-  ```(PowerPoint 97-2003 presentations, shows, templates and add-in files)```
+```
+  PowerPoint 97-2003 presentations, shows, templates and add-in files
+```
   - Visio: File Block Settings
-  ```(Visio 2000-2002 Binary Drawings, Templates and Stencils, Visio 2003-2010 Binary Drawings, Templates and Stencils, Visio 5.0 or earlier Binary Drawings, Templates and Stencils)```
+```
+  Visio 2000-2002 Binary Drawings, Templates and Stencils,
+  Visio 2003-2010 Binary Drawings, Templates and Stencils, 
+  Visio 5.0 or earlier Binary Drawings, Templates and Stencils 
+```
   - Word: File Block Settings
-  ```(Word 2 and earlier binary documents and templates, Word 2000 binary documents and templates, Word 2003 binary documents and templates, Word 2007 and later binary documents and templates, Word 6.0 binary documents and templates, Word 95 binary documents and templates, Word 97 binary documents and templates, Word XP binary documents and templates)```
+```
+  Word 2 and earlier binary documents and templates, 
+  Word 2000 binary documents and templates, 
+  Word 2003 binary documents and templates, 
+  Word 2007 and later binary documents and templates, 
+  Word 6.0 binary documents and templates, 
+  Word 95 binary documents and templates, 
+  Word 97 binary documents and templates, 
+  Word XP binary documents and templates
+```
 - Office File Validation
   - Justification: To align with the ACSC Microsoft Office hardening guidance.
   - Turn off file validation: Disabled (Excel, PowerPoint and Word)
