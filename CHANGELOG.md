@@ -2,6 +2,10 @@
 
 The News articles at blueprint.oobe.com.au will be the source of truth moving forward, but this log will be updated intermittently. 
 
+## Sep 2023
+* Macro Execution Logging 
+* Rename AzureAD to Microsoft Entra ID
+
 ## The blueprint
 
 * oobe forks to the blueprint March 2023 and adds Win 11 and Enhance MFA content
