@@ -522,7 +522,7 @@ The following table outlines the configuration settings within the profile.
 
 | Item                                              | Configuration                                                |
 | ------------------------------------------------- | ------------------------------------------------------------ |
-| Cloud resources                                   | `sharepoint.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|crm.dynamics.com|visualstudio.com|powerbi.com|teams.microsoft.com|tasks.office.com|protection.office.com|meet.lync.com|project.microsoft.com` |
+| Cloud resources                                   | sharepoint.com <br> www.yammer.com <br> yammer.com <br> persona.yammer.com <br> outlook.office.com <br> outlook.office365.com <br> attachments.office.net <br> crm.dynamics.com <br> visualstudio.com <br> powerbi.com <br> teams.microsoft.com <br> tasks.office.com <br> protection.office.com <br> meet.lync.com <br> project.microsoft.com |
 
 #### Blueprint - OneDrive Device
 

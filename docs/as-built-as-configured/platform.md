@@ -433,24 +433,24 @@ The following ABAC settings outlines the multifactor authentication configuratio
 
 `Azure Active Directory > Security > Authentication methods`
 
-* FIDO2 security key: `Not configured`
-* Microsoft Authentication: `Enabled`
-* SMS (preview): `Not configured`
-* Temporary Access Pass: `Not configured`
-* Third-party software OATH tokens (preview): `Not configured`
-* Voice call (preview): `Not configured`
-* Email OTP (preview): `Not configured`
-* Certificate-based authentication: `Not configured`
+- FIDO2 security key: `Not configured`
+- Microsoft Authentication: `Enabled`
+- SMS (preview): `Not configured`
+- Temporary Access Pass: `Not configured`
+- Third-party software OATH tokens (preview): `Not configured`
+- Voice call (preview): `Not configured`
+- Email OTP (preview): `Not configured`
+- Certificate-based authentication: `Not configured`
 
 `Azure Active Directory > Security > Authentication methods > Microsoft Authentication`
 
-* Enable and Target: `Enable`
-* Include: `All users`
-* Authentication mode: `Push`
-* Allow use of Microsoft Authenticator OTP: `Yes`
-* Require number matching for push notifications: `Enabled, All users`
-* Show application name in push and passwordless notifications: `Enabled, All users`
-* Show geographic location in push and passwordless notifications: `Enabled, All users` 
+- Enable and Target: `Enable`
+- Include: `All users`
+- Authentication mode: `Push`
+- Allow use of Microsoft Authenticator OTP: `Yes`
+- Require number matching for push notifications: `Enabled, All users`
+- Show application name in push and passwordless notifications: `Enabled, All users`
+- Show geographic location in push and passwordless notifications: `Enabled, All users` 
 
 ### Hybrid Identity - Azure AD Connect (hybrid implementation types only)
 
@@ -464,10 +464,10 @@ Primary Azure AD Connect settings
 - Source of truth for account information: `On-Premises Active Directory (organisation.com.au)`
 - User sign-in method
 ```
-Selected - Pass-through authentication
-Not selected – Password Hash Synchronization
-Not selected – Federation with AD FS
-Not selected – Federation with PingFederate
+  Selected - Pass-through authentication
+  Not selected – Password Hash Synchronization
+  Not selected – Federation with AD FS
+  Not selected – Federation with PingFederate
 ```
 - Enable Single Sign-on: `Enabled`
 - Directory Type: `Active Directory`
@@ -478,17 +478,17 @@ Not selected – Federation with PingFederate
 - Domain and OU filtering
   - Directory: `<Organisation_forest_name>.local`
   - Sync selected domains and OUs:
-  ```
+```
   Department
-    . Groups
-    .  . Admin
-    .  . Security Access
-    . Users
-    .  . Admin
-    .  . General
-    .  . Service Accounts
-    . Computers
-  ```
+      . Groups
+      .  . Admin
+      .  . Security Access
+      . Users
+      .  . Admin
+      .  . General
+      .  . Service Accounts
+      . Computers
+```
   - How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   - How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
   - Filter users and devices: `Synchronize all users and devices`
@@ -500,7 +500,7 @@ Not selected – Federation with PingFederate
   - Group writeback: `Disabled`
   - Azure AD app and attribute filtering: `Enabled`
   - Azure AD Apps: The following applications are enabled:
-  ```
+```
   Office 365 ProPlus
   Exchange Online
   SharePoint Online
@@ -509,17 +509,17 @@ Not selected – Federation with PingFederate
   Intune
   Dynamics CRM
   3rd party application
-  ```
+```
 
 Standby Azure AD Connect settings:
 
 - Source of truth for account information: `On-Premises Active Directory (organisation.com.au)`
 - User sign-in method
 ```
-Selected - Pass-through authentication
-Not selected – Password Hash Synchronization
-Not selected – Federation with AD FS
-Not selected – Federation with PingFederate
+  Selected - Pass-through authentication
+  Not selected – Password Hash Synchronization
+  Not selected – Federation with AD FS
+  Not selected – Federation with PingFederate
 ```
 - Enable Single Sign-on: `Enabled`
 - Directory Type: `Active Directory`
@@ -530,7 +530,7 @@ Not selected – Federation with PingFederate
 - Domain and OU filtering
   - Directory \| `<Organisation_forest_name>.local`
   - Sync selected domains and OUs
-  ```
+```
   Department
       . Groups
       .  . Admin
@@ -540,7 +540,7 @@ Not selected – Federation with PingFederate
       .  . General
       .  . Service Accounts
       . Computers
-  ```
+```
   - How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   - How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
   - Filter users and devices: `Synchronize all users and devices`
@@ -553,14 +553,14 @@ Not selected – Federation with PingFederate
   - Azure AD app and attribute filtering: `Enabled`
   - Azure AD Apps: The following applications are enabled:
 ```
-Office 365 ProPlus
-Exchange Online
-SharePoint Online
-Lync Online
-Azure RMS
-Intune
-Dynamics CRM
-3rd party application
+  Office 365 ProPlus
+  Exchange Online
+  SharePoint Online
+  Lync Online
+  Azure RMS
+  Intune
+  Dynamics CRM
+  3rd party application
 ```
 
 The following table describes the Azure AD attributes being synchronized via Azure AD Connect.
@@ -2030,30 +2030,30 @@ The following ABAC settings outlines the application protection policy configura
 - Enrollment state: `With enrollment`
 - Targeted apps
   - Protected apps:
-  ```
-  Office-365-ProPlus-1810-Allowed.xml
-  Recommended-Denied-Office-365-ProPlus-1810.xml
-  MsEdge - WIPMode-Allow - Enterprise AppLocker Policy File.xml
-  Microsoft OneDrive
-  Notepad
-  Microsoft Paint
-  Microsoft Remote Desktop
-  Microsoft Teams
-  Microsoft Azure Information Protection
-  Microsoft Edge
-  Microsoft People
-  Word Mobile
-  Excel Mobile
-  PowerPoint Mobile
-  OneDrive App
-  OneNote
-  Mail and Calendar for Windows 10
-  Microsoft Photos
-  Groove Music
-  Microsoft Movies and TV
-  Microsoft Messaging
-  Company Portal
-  ```
+```
+                      Office-365-ProPlus-1810-Allowed.xml
+                      Recommended-Denied-Office-365-ProPlus-1810.xml
+                      MsEdge - WIPMode-Allow - Enterprise AppLocker Policy File.xml
+                      Microsoft OneDrive
+                      Notepad
+                      Microsoft Paint
+                      Microsoft Remote Desktop
+                      Microsoft Teams
+                      Microsoft Azure Information Protection
+                      Microsoft Edge
+                      Microsoft People
+                      Word Mobile
+                      Excel Mobile
+                      PowerPoint Mobile
+                      OneDrive App
+                      OneNote
+                      Mail and Calendar for Windows 10
+                      Microsoft Photos
+                      Groove Music
+                      Microsoft Movies and TV
+                      Microsoft Messaging
+                      Company Portal
+```
   - Exempt apps: -
 - Required settings
   - Windows Information Protection mode: `Block`
@@ -2062,12 +2062,27 @@ The following ABAC settings outlines the application protection policy configura
   - Network perimeter
     - Type: `Cloud resources`
     - Name: `Office365`
-    - Value:
-    ```
-    Organisation.sharepoint.com|Organisation-my.sharepoint.com|Organisation-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Organisation.crm.dynamics.com|Organisation.visualstudio.com|Organisation.powerbi.com
-    ```
     - Enterprise Proxy Servers list is authoritative (do not auto-detect): `Off`
     - Enterprise IP Ranges list is authoritative (do not auto-detect): `Off`
+    - Value:
+```
+                Organisation.sharepoint.com
+                Organisation-my.sharepoint.com
+                Organisation-files.sharepoint.com
+                tasks.office.com
+                protection.office.com
+                meet.lync.com
+                teams.microsoft.com
+                www.yammer.com
+                yammer.com
+                persona.yammer.com
+                outlook.office.com
+                outlook.office365.com
+                attachments.office.net
+                Organisation.crm.dynamics.com
+                Organisation.visualstudio.com
+                Organisation.powerbi.com
+```
   - Data protection
     - Upload a Data Recovery Agent (DRA) certificate to allow recovery of encrypted data: `Not configured`
     - Prevent corporate data from being accessed by apps when the device is locked. Applies only to Windows 10 Mobile: `Off`
@@ -2090,32 +2105,32 @@ The following ABAC settings outlines the application protection policy configura
   - Target to apps on all device types: `Yes`
   - Device types: -
   - Public apps:
-  ```
-  Adobe Acrobat Reader
-  Microsoft Dynamics 365
-  Microsoft Dynamics 365 for phones
-  Skype for Business
-  Microsoft Excel
-  Microsoft Edge
-  Microsoft Outlook
-  Microsoft PowerPoint
-  Microsoft Word
-  Microsoft OneNote
-  Microsoft Planner
-  Microsoft Power BI
-  Azure Information Protection
-  Microsoft SharePoint
-  Microsoft OneDrive
-  Microsoft Teams
-  Microsoft Stream
-  Microsoft To-Do
-  Microsoft Visio Viewer
-  ```
+```
+                    Adobe Acrobat Reader
+                    Microsoft Dynamics 365
+                    Microsoft Dynamics 365 for phones
+                    Skype for Business
+                    Microsoft Excel
+                    Microsoft Edge
+                    Microsoft Outlook
+                    Microsoft PowerPoint
+                    Microsoft Word
+                    Microsoft OneNote
+                    Microsoft Planner
+                    Microsoft Power BI
+                    Azure Information Protection
+                    Microsoft SharePoint
+                    Microsoft OneDrive
+                    Microsoft Teams
+                    Microsoft Stream
+                    Microsoft To-Do
+                    Microsoft Visio Viewer
+```
   - Custom apps:
-  ```
-  com.adobe.acrobatdc.intune
-  com.microsoft.rdc.ios  Microsoft Dynamics 365
-  ```
+```
+                    com.adobe.acrobatdc.intune
+                    com.microsoft.rdc.ios  Microsoft Dynamics 365
+```
 - Data protection
   - Data Transfer
     - Backup org data to iTunes and iCloud backups: `Block`
