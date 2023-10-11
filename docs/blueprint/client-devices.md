@@ -194,7 +194,7 @@ Management methods that can be used to manage Windows in a Microsoft 365 environ
 Microsoft 365 Implementation | MECM Implementation | Management Method for Windows | Benefits
 --- | --- | --- | ---
 Cloud native | MECM is not possible with cloud native | Intune | No on-premises infrastructure required for management. Well suited for Microsoft Entra ID joined workstations for a full cloud solution. 
-Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Microsoft Entra IDD joined workstation. Well suited for an organisation that does not have MECM or does not want to use MECM to manage workstations.
+Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Microsoft Entra ID joined workstation. Well suited for an organisation that does not have MECM or does not want to use MECM to manage workstations.
 Hybrid with MECM management | MECM with co-management enabled and Workloads set to MECM | MECM | Existing on-premises MECM infrastructure with Hybrid Microsoft Entra ID joined workstations. Well suited for an organisation that has a significant investment in MECM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
 
 The following image displays an overview diagram of MECM Co-Management.
