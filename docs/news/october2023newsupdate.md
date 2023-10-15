@@ -6,10 +6,11 @@ That whole life cycle of making a change, committing, reviewing and then publish
 We've got some more exciting stuff in the coming months so stay tuned :-)
 
 The first couple of changes that have gone through this process are:
-1. Some typos and formatting changes
-2. Macro Execution Logging; and
-3. Renaming AzureAD to Microsoft Entra ID
-4. Issues are now live on the blueprint repo
+
+1. Macro Execution Logging
+2. Renaming Azure AD to Microsoft Entra ID
+3. Issues are now live on the blueprint repo; and
+4. Some typos and formatting changes
 
 Macro Execution Logging is enabled via Trust Center Logging and better aligns with the Essential 8 guidance from ACSC. 
 In the event of an incident, you'll be able to see detailed logs.
