@@ -124,6 +124,8 @@ Cloud based systems generate a wide range of information about their operation a
 
 The below table lists each continuous monitoring security domain alongside applicable Microsoft and agency tools and sources of information. The agency may consider monitoring information from these sources to measure each domain's security controls.
 
+**Note:** In July 2022 Microsoft announced deprecation of certain capabilities within Windows Information Protection (WIP). Please see the news article [here](../news/wip-guidance-2023-11-13.md)
+
 Domain | M365 Tools | Agency Tools and Sources
 --- | --- | ---
 Vulnerability & Patch Management | Windows Server Update Service <br> Microsoft Endpoint Configuration Manager<br> Microsoft Intune <br> Microsoft Defender for Endpoint | Vulnerability scanner <br> Vulnerability database <br> Patch Management database <br> Software registry

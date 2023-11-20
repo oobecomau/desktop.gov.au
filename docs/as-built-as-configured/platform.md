@@ -2019,6 +2019,8 @@ The following table describes the admin (`rol-Organisation-administrators`) lice
 
 ## Windows Information Protection
 
+**Note:** In July 2022 Microsoft announced deprecation of certain capabilities within Windows Information Protection (WIP). Please see the news article [here](../news/wip-guidance-2023-11-13.md)
+ 
 ### Application protection policies
 
 The following ABAC settings outlines the application protection policy configuration for all implementation types.

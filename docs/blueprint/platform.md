@@ -1230,6 +1230,8 @@ Intune can also configure Windows Information Protection (WIP) policies. WIP can
 
 Within WIP, Network boundaries are created as a network perimeter that controls what applications can be accessed on the network.
 
+**Note:** In July 2022 Microsoft announced deprecation of certain capabilities within Windows Information Protection (WIP). Please see the news article [here](../news/wip-guidance-2023-11-13.md)
+ 
 Clients managed by Intune are configured to refresh their status on an 8-hour interval. During this refresh. their policy compliance, configuration profile, and app assignments are checked. If the client is recently enrolled then the compliance, non-compliance, and configuration check-in runs more frequently.
 
 Intune Design Decisions for cloud native implementations.
