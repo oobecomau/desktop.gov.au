@@ -1097,7 +1097,7 @@ Log into the Microsoft Azure portal, then select **Azure Active Directory**
 
 #### Step 2
 
-Additionally, open the corresponding [ABAC](../../blueprint/as-built-as-configured). In this instance, the ABAC in question is [Platform – ABAC](../../as-built-as-configured/platform).
+Additionally, open the corresponding [ABAC](../blueprint/as-built-as-configured). In this instance, the ABAC in question is [Platform – ABAC](../as-built-as-configured/platform).
 
 #### Step 3
 

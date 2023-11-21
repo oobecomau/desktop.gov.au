@@ -94,7 +94,7 @@ Components that transfer Protected information outside of an agency's environmen
 
 ### GovLink
 
-GovLink enables secure communication between Commonwealth entities across public infrastructure. GovLink provides secure, encrypted and trusted communication across the internet. This allows the Commonwealth to transmit and receive information up to the security classification of Protected. More information is available at [GovLink](https://www.finance.gov.au/government/whole-government-information-communications-technology-services/govlink).
+GovLink enables secure communication between Commonwealth entities across public infrastructure. GovLink provides secure, encrypted and trusted communication across the internet. This allows the Commonwealth to transmit and receive information up to the security classification of Protected. More information is available at [GovLink](https://www.finance.gov.au/government/whole-government-information-and-communications-technology-services/govlink).
 
 Protected email must be sent and received over GovLink. There is no native solution to allow a direct interface between the Office 365/Exchange Online environment and GovLink.
 
@@ -174,7 +174,7 @@ Collaboration is initially controlled by lists of allowed domains. Individual us
 
 ### Secure internet gateway
 
-This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
+This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/publications-library/policy-11-robust-ict-systems). 
 
 ### Secure system administration
 
@@ -190,7 +190,7 @@ PAW and jump host solutions for cloud native may comprise of:
 - **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which seamlessly provides Multifactor Authentication (MFA) through Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these jump hosts only
 - **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved by utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
 
-Review the Australian Government Information Security Manual [(ISM) controls for systems management](https://www.cyber.gov.au/acsc/view-all-content/publications/secure-administration) to assist with implementing a secure administration model.
+Review the Australian Government Information Security Manual [(ISM) controls for systems management](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism) to assist with implementing a secure administration model.
 
 ### Zero Trust security model
 
@@ -204,7 +204,7 @@ For more information, review [Microsoft's Zero Trust Security Model and Framewor
 
 ### Virtual private network
 
-If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](../../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
+If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
 
 ## Security
 

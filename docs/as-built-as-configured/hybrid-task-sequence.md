@@ -25,7 +25,7 @@ The following table describes the prerequisites in use in the task sequence.
 
 Item | Description
 --- | ---
-AutopilotConfigurationFile.json | The AutopilotConfigurationFile.json is required to be available within an Microsoft Endpoint Configuration Manager (MECM) package. As a requirement the [Intune enrolment ABAC](../../as-built-as-configured/intune-enrolment) would need to be implemented before this ABAC. 
+AutopilotConfigurationFile.json | The AutopilotConfigurationFile.json is required to be available within an Microsoft Endpoint Configuration Manager (MECM) package. As a requirement the [Intune enrolment ABAC](../as-built-as-configured/intune-enrolment) would need to be implemented before this ABAC. 
 MECM Package | **Windows 10 Customisations** package to be created within MECM and contain the [AutopilotConfigurationFile.json](#annex-2-autopilotconfigurationfilejson) and the [Unattend.xml](#annex-1-unattendxml) files.
 MECM Package | **Configuration Manager Client** packaged needs to exist, this typically exists by default with the MECM installation.
 MECM Boot Image | A WinPE boot image is required to boot to Windows PE, this typically exists by default with the MECM installation.

@@ -1287,7 +1287,7 @@ Not configured.
 
 The following tables describe the sensitivity label configuration settings for all implementation types. Only create and publish labels that are required for the organisation.
 
-The sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](../../blueprint/automation) guide. 
+The sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](../blueprint/automation) guide. 
 
 Note, labels **OFFICIAL Sensitive** and **PROTECTED** have a number of sub-labels to cater for DLMs in the PSPF. Both main labels will be presented as a group object but are not selectable as a user at the top level. They will also appear as a sub-label that is selectable under the group. This ensures that the sensitivity label selection is easier when dealing with a large number of DLM combinations. The following figure is an example of the configuration panel in the Microsoft 365 compliance portal.
 
@@ -1576,7 +1576,7 @@ The following table lists the Sensitivity label policy configuration for all imp
 | Item             | Configuration                                                |
 | ---------------- | ------------------------------------------------------------ |
 | Name             | Sensitivity labels policy                                    |
-| Description      | Default sensitivity labels based on [PSPF infosec document](https://www.protectivesecurity.gov.au/system/files/2021-11/pspf-policy-8-sensitive-and-classified-information.pdf) |
+| Description      | Default sensitivity labels based on [PSPF infosec document](https://www.protectivesecurity.gov.au/publications-library/policy-8-classification-system) |
 | Published Labels | UNOFFICIAL<br/>OFFICIAL<br/>OFFICIAL Sensitive<br/>OFFICIAL Sensitive/OFFICIAL Sensitive<br/>OFFICIAL Sensitive/Legal-Privilege<br/>OFFICIAL Sensitive/Legislative-Secrecy<br/>OFFICIAL Sensitive/Personal-Privacy<br/>OFFICIAL Sensitive/NATIONAL CABINET<br/>OFFICIAL Sensitive/NATIONAL CABINET - Legal-Privilege<br/>OFFICIAL Sensitive/NATIONAL CABINET - Legislative-Secrecy<br/>OFFICIAL Sensitive/NATIONAL CABINET - Personal-Privacy<br/>PROTECTED<br/>PROTECTED/PROTECTED<br/>PROTECTED/Legal-Privilege<br/>PROTECTED/Legislative-Secrecy<br/>PROTECTED/Personal-Privacy<br/>PROTECTED/NATIONAL CABINET<br/>PROTECTED/NATIONAL CABINET - Legal-Privilege<br/>PROTECTED/NATIONAL CABINET - Legislative-Secrecy<br/>PROTECTED/NATIONAL CABINET - Personal-Privacy<br/>PROTECTED/CABINET<br/>PROTECTED/CABINET - Legal-Privilege<br/>PROTECTED/CABINET - Legislative-Secrecy<br/>PROTECTED/CABINET - Personal-Privacy |
 | Published to     | All                                                          |
 | Policy settings  | Users must provide a justification to remove a label or lower its classification: Checked<br>Require users to apply a label to their emails and documents: Checked |

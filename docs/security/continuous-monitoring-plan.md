@@ -19,7 +19,7 @@ Throughout this document several security monitoring tools are identified. While
 
 ## Purpose
 
-The [Information Security Manual (ISM) requires](https://www.cyber.gov.au/acsc/view-all-content/guidance/system-specific-security-documentation) agencies to create a CMP as one of the system-specific documents prior to a system's operation. This is to assist agencies in identifying, prioritising and responding to security vulnerabilities.
+The [Information Security Manual (ISM) requires](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-security-documentation) agencies to create a CMP as one of the system-specific documents prior to a system's operation. This is to assist agencies in identifying, prioritising and responding to security vulnerabilities.
 
 To meet this requirement, this CMP provides agencies leveraging the blueprint desktop environment (the desktop environment) with an outline of implemented technologies that produce continuous monitoring data. This plan also provides guidance for monitoring the security posture of the system and verifying implemented security controls remain fit-for-purpose for the system's operating and threat environment.
 
@@ -43,7 +43,7 @@ The CMP is a living document. It is anticipated that, over time, amendments and 
 
 ## Developing a Continuous Monitoring Plan
 
-Agencies are free to develop the structure of their CMP as appropriate for their organisation. The [ISM specifies](https://www.cyber.gov.au/acsc/view-all-content/advice/guidelines-security-documentation) only that agencies must:
+Agencies are free to develop the structure of their CMP as appropriate for their organisation. The [ISM specifies](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-security-documentation) only that agencies must:
 
 - conduct vulnerability scans for systems at least monthly
 - conduct vulnerability assessments or penetration tests for systems at least annually
@@ -147,8 +147,8 @@ To assess the security of their system's architecture, the agency should conside
 
 Category | Reference Data Source
 --- | ---
-Vulnerability & Patch Management | [Microsoft Security Notification Service](https://www.microsoft.com/en-us/msrc/technical-security-notifications?rtc=1) <br> [National Vulnerability Database](https://nvd.nist.gov/vuln/data-feeds) <br> [US-CERT](https://us-cert.cisa.gov/mailing-lists-and-feeds) <br> [ACSC Security Notifications](https://www.cyber.gov.au/acsc/register) <br> [AusCERT](https://www.auscert.org.au/resources/security-bulletins/)
-Configuration Management | [Australian Government Information Security Manual](https://www.cyber.gov.au/acsc/view-all-content/ism) <br> [ACSC Essential Eight](https://www.cyber.gov.au/acsc/view-all-content/essential-eight) <br> [ACSC Publications](https://www.cyber.gov.au/acsc/view-all-content/publications) <br> [Protected Utility blueprint](https://desktop.gov.au/) <br> [Center for Internet Security (CIS) Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
+Vulnerability & Patch Management | [Microsoft Security Notification Service](https://www.microsoft.com/en-us/msrc/technical-security-notifications?rtc=1) <br> [National Vulnerability Database](https://nvd.nist.gov/vuln/data-feeds) <br> [US-CERT](https://www.cisa.gov/search?g=mailing-lists-and-feeds) <br> [ACSC Security Notifications](https://www.cyber.gov.au/about-us/register) <br> [AusCERT](https://www.auscert.org.au/resources/security-bulletins/)
+Configuration Management | [Australian Government Information Security Manual](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism) <br> [ACSC Essential Eight](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight) <br> [ACSC Publications](https://www.cyber.gov.au/about-us/view-all-content/publications) <br> [Protected Utility blueprint](https://desktop.gov.au/) <br> [Center for Internet Security (CIS) Benchmarks](https://www.cisecurity.org/cis-benchmarks/)
 
 #### Continuous monitoring information elicitation activities
 
@@ -255,7 +255,7 @@ When deciding on a responsive action, Agencies should consider change management
 
 The CMP should outline how identified weaknesses and vulnerabilities will be prioritised based on their assessed risk or impact and the timeframes within which actions will be taken.
 
-The agency may wish consider the timeframes specified within the [ISM](https://www.cyber.gov.au/acsc/view-all-content/advice/guidelines-system-management) under which action must be taken as outlined in the below table.
+The agency may wish consider the timeframes specified within the [ISM](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-system-management) under which action must be taken as outlined in the below table.
 
 Vulnerability Risk | Timeframe
 --- | ---
@@ -496,7 +496,7 @@ The below lists sections the agency may refer to for guidance developing measure
 
 #### Risk assessment table example
 
-Example detail the agency could capture is provided in the below table. For more detail, and the Risk Matrix refer to the [blueprint's Security Risk Management Plan (SRMP)](../../security/security-risk-management-plan) or [Hybrid (SRMP)](../../security/hybrid-security-risk-management-plan).
+Example detail the agency could capture is provided in the below table. For more detail, and the Risk Matrix refer to the [blueprint's Security Risk Management Plan (SRMP)](../security/security-risk-management-plan) or [Hybrid (SRMP)](../security/hybrid-security-risk-management-plan).
 
 Field | Detail
 --- | ---

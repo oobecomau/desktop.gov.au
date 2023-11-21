@@ -288,9 +288,9 @@ Windows Features Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-.Net Framework 3.5 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](../solution-overview#essential-eight-maturity) 
+.Net Framework 3.5 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](solution-overview#essential-eight-maturity) 
 .Net Framework 4.8 | Enabled | This is to support modern .Net applications on the Windows SOE device.
-Internet Explorer 11 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](../solution-overview#essential-eight-maturity) and the deprecation of the IE 11 feature. Note, this is not applicable to Windows 11.
+Internet Explorer 11 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](solution-overview#essential-eight-maturity) and the deprecation of the IE 11 feature. Note, this is not applicable to Windows 11.
 Windows Media Features | Enabled | Support media content functionality. 
 Windows Ink Workspace | Enabled | Required to support full functionality of devices to be deployed, including Handwriting support. 
 Print and Document Services - Windows Fax and Scan | Enabled | Support scanning functionality. 
@@ -928,7 +928,7 @@ Microsoft Defender Firewall Configuration | Enabled and configured | To align wi
 
 The following design components apply to the hardening of Microsoft Windows 10 21H1 and above, including Windows 11.
 
-The Windows security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) guidance.
+The Windows security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) guidance.
 
 Note, the ACSC Government Uplift team have advised that the controls in their Windows 10 hardening guide also apply to Windows 11, and therefore should continue to be used. 
 
@@ -1189,7 +1189,7 @@ Windows Hardening Design Decisions for all agencies and implementation types.
   - Restrict Unauthenticated RPC clients: Enabled (RPC Runtime Unauthenticated Client Restriction to Apply: Authenticated)
 - Reporting system information
   - Justification: To align with the ACSC Windows hardening guidance.
-  Note, additional telemetry is required for [Desktop Analytics](../client-devices#telemetry-collection) and Agencies may choose to enable it to aid in Microsoft Support troubleshooting.
+  Note, additional telemetry is required for [Desktop Analytics](client-devices#telemetry-collection) and Agencies may choose to enable it to aid in Microsoft Support troubleshooting.
   - Microsoft Support Diagnostic Tool:
     - Turn on MSDT interactive communication with support provider: Disabled
   - Turn off Inventory Collector: Enabled
@@ -1291,7 +1291,7 @@ Windows Hardening Design Decisions for all agencies and implementation types.
 
 The Microsoft Edge security settings support Edge version 90 and later.
 
-The Microsoft Edge security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) guidance.
+The Microsoft Edge security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) guidance.
 
 Microsoft Edge Hardening Design Decisions for all agencies and implementation types.
 
@@ -1454,7 +1454,7 @@ Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desk
 
 The following design components apply to the hardening of Microsoft 365 Apps for Enterprise.
 
-The Microsoft Office security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft 365, Office 2021, Office 2019 and Office 2016 (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-365-office-2021-office-2019-and-office-2016) guidance.
+The Microsoft Office security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft 365, Office 2021, Office 2019 and Office 2016 (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-365-office-2021-office-2019-and-office-2016) guidance.
 
 Microsoft Office Hardening Design Decisions for all agencies and implementation types.
 
@@ -1709,7 +1709,7 @@ LAPS | Not Configured | Not required for the solution. The local Administrator a
 
 ## iOS
 
-The blueprint's recommendation is to utilise iOS for organisation devices following the design decisions based on the ACSC [Security Configuration Guide – Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) guidance.
+The blueprint's recommendation is to utilise iOS for organisation devices following the design decisions based on the ACSC [Security Configuration Guide – Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) guidance.
 
 ### iOS devices
 

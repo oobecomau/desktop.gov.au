@@ -75,15 +75,15 @@ The security policies that the HybridSystem has been designed to comply with are
 
 In accordance with the requirements of the ISM, the following security documentation has been developed for the HybridSystem:
 
-- [Blueprint – Solution Overview](../../blueprint/solution-overview)
-- [Blueprint – Client Devices Design](../../blueprint/client-devices)
-- [Blueprint – Platform Design](../../blueprint/platform)
-- [Blueprint – Office 365 Design](../../blueprint/office-365)
-- [Hybrid Blueprint – System Security Plan](../../security/system-security-plan)
+- [Blueprint – Solution Overview](../blueprint/solution-overview)
+- [Blueprint – Client Devices Design](../blueprint/client-devices)
+- [Blueprint – Platform Design](../blueprint/platform)
+- [Blueprint – Office 365 Design](../blueprint/office-365)
+- [Hybrid Blueprint – System Security Plan](../security/system-security-plan)
 - [Hybrid Blueprint – System Security Plan (Annex)](../files/security/system-security-plan-annex.xlsx)
-- [Hybrid Blueprint – Security Risk Management Plan](../../security/security-risk-management-plan)
-- [Hybrid Blueprint – Standard Operating Procedures](../../security/standard-operating-procedures)
-- [Hybrid Blueprint – Incident Response Plan](../../security/incident-response-plan)
+- [Hybrid Blueprint – Security Risk Management Plan](../security/security-risk-management-plan)
+- [Hybrid Blueprint – Standard Operating Procedures](../security/standard-operating-procedures)
+- [Hybrid Blueprint – Incident Response Plan](../security/incident-response-plan)
 
 The IRAP reports for the assessment of Azure and Office 365 at PROTECTED have also been leveraged in the development of the  HybridSystem, and includes the following:
 
@@ -300,7 +300,7 @@ Where possible the HybridSystem leverages services located in Australia, otherwi
 
 When consuming a cloud service, management of some security controls is transferred from the Agency to the Cloud Service Provider (CSP), in this case Microsoft. The level of control transferred ultimately depends on the type of services being consumed i.e. cloud native or hybrid deployment and the agreement made with Microsoft. 
 
-Whilst responsibility for controls may be shared, Agencies must be conscious that security risk is not transferred to the service provider. It is therefore critical that Agencies understand how the sharing of responsibilities impacts system risk and what impact it may have on [Assessing and Authorising the system within their environment](https://www.cyber.gov.au/acsc/view-all-content/publications/anatomy-cloud-assessment-and-authorisation).
+Whilst responsibility for controls may be shared, Agencies must be conscious that security risk is not transferred to the service provider. It is therefore critical that Agencies understand how the sharing of responsibilities impacts system risk and what impact it may have on their [Cloud Assessment and Authorisation](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/cloud-security-guidance/cloud-assessment-and-authorisation).
 
 In general, [Microsoft defines](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) themselves as being responsible for:
 
@@ -570,13 +570,13 @@ The HybridSystem leverages Microsoft Endpoint Manager - Intune (Intune) to provi
 
 The HybridSystem does not include the use of privately-owned mobile devices. Only Agency-owned devices are enrolled and allowed to access data.
 
-iOS devices are hardened in accordance with the ACSC ‘[Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices)’ and Information Security Manual (ISM) with specific deviations to maximise usability for the target users as described below. Note: Agencies should do a risk assessment before deciding to change settings relating to mobile devices.
+iOS devices are hardened in accordance with the ACSC ‘[Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices)’ and Information Security Manual (ISM) with specific deviations to maximise usability for the target users as described below. Note: Agencies should do a risk assessment before deciding to change settings relating to mobile devices.
 
 Bluetooth is enabled as it allows users to pair devices they may require to perform their duties (e.g. conference calls or online meetings).
 
 Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised. 
 
-The HybridSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
+The HybridSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
 
 Applications are installed from the App Store using the Volume Purchasing Program (VPP) tokens through Apple Business Manager Enrollment. This provides application control for iOS mobile devices, and removes the need for users having to install applications from the App Store through an Apple ID.
 
