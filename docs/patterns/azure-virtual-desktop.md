@@ -17,7 +17,7 @@ AVD provides the following benefits over a traditional Desktop-as-a-Service plat
 - Provide extended support for legacy desktop operating systems or hosting of legacy applications.
 - Provide a rich work from home or alternate office solution, that is simple to use.
 
-The following sections of this document outline design defaults and guidance when deploying an AVD platform and is to be treated as an addendum to the [client devices](../blueprint/client-devices) design.  
+The following sections of this document outline design defaults and guidance when deploying an AVD platform and is to be treated as an addendum to the [client devices](../blueprint/client-devices.md) design.  
 
 [![Typical AVD Architecture](../img/patterns/avd-typical-avd-architecture.png#center)](../img/patterns/avd-typical-avd-architecture.png#center)
 
@@ -304,7 +304,7 @@ Session Host Power Management | [Azure Automation](https://docs.microsoft.com/en
 Session Host Configuration | Refer to Session Host Configuration table | Session Host configuration.
 Deployed Applications | Agency defined | Applications to be deployed post platform deployment.
 OS Optimisations | [Virtual Desktop Optimization Tool](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-virtual-desktop-optimization-tool-now-available/m-p/1558614) | Microsoft recommend some optimisation to the OS image to increase performance and scalability and enhance the overall end user experience. 
-Antivirus | Microsoft Defender for Endpoint | Microsoft Defender for Endpoint will be configured for the AVD platform. <br><br>For configuration items that apply specifically to an AVD environment, such as a dedicated VDI file share and specific exclusions, refer to [Deployment guide for Microsoft Defender Antivirus in a virtual desktop infrastructure (VDI) environment](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deployment-vdi-microsoft-defender-antivirus?view=o365-worldwide) and for common client device configuration settings, refer to [client devices design](../blueprint/client-devices).
+Antivirus | Microsoft Defender for Endpoint | Microsoft Defender for Endpoint will be configured for the AVD platform. <br><br>For configuration items that apply specifically to an AVD environment, such as a dedicated VDI file share and specific exclusions, refer to [Deployment guide for Microsoft Defender Antivirus in a virtual desktop infrastructure (VDI) environment](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deployment-vdi-microsoft-defender-antivirus?view=o365-worldwide) and for common client device configuration settings, refer to [client devices design](../blueprint/client-devices.md).
 
 Session Host Sizing table:
 

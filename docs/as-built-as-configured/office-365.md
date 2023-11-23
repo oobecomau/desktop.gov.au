@@ -1287,7 +1287,7 @@ Not configured.
 
 The following tables describe the sensitivity label configuration settings for all implementation types. Only create and publish labels that are required for the organisation.
 
-The sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](../blueprint/automation) guide. 
+The sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](../blueprint/automation.md) guide. 
 
 Note, labels **OFFICIAL Sensitive** and **PROTECTED** have a number of sub-labels to cater for DLMs in the PSPF. Both main labels will be presented as a group object but are not selectable as a user at the top level. They will also appear as a sub-label that is selectable under the group. This ensures that the sensitivity label selection is easier when dealing with a large number of DLM combinations. The following figure is an example of the configuration panel in the Microsoft 365 compliance portal.
 

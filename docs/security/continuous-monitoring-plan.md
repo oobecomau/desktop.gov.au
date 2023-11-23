@@ -496,7 +496,7 @@ The below lists sections the agency may refer to for guidance developing measure
 
 #### Risk assessment table example
 
-Example detail the agency could capture is provided in the below table. For more detail, and the Risk Matrix refer to the [blueprint's Security Risk Management Plan (SRMP)](../security/security-risk-management-plan) or [Hybrid (SRMP)](../security/hybrid-security-risk-management-plan).
+Example detail the agency could capture is provided in the below table. For more detail, and the Risk Matrix refer to the [blueprint's Security Risk Management Plan (SRMP)](../security/security-risk-management-plan.md) or [Hybrid (SRMP)](../security/hybrid-security-risk-management-plan.md).
 
 Field | Detail
 --- | ---

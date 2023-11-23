@@ -1283,7 +1283,7 @@ The following MIP methods can be used to assist with PSPF compliance:
 - For calendar invites, advise users to add the classification to the body, and use transport rules or DLP to add the required subject and header values.
 - Update the `X-Protective-Marking` header associated with the MIP label at the email gateway with the `ORIGIN=user@organisation.com.au` property. Note, internal emails inside the organisation wouldn't be tagged using this method.
 
-Example email gateway rules that work with MIP are available in the [Network Configuration ABAC document](../as-built-as-configured/hybrid-network-configuration#office-365--email-protective-markings-with-aip-technology). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
+Example email gateway rules that work with MIP are available in the [Network Configuration ABAC document](../as-built-as-configured/hybrid-network-configuration.md#office-365--email-protective-markings-with-aip-technology). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
 
 Classification Label Design Decisions for all agencies and implementation types.
 

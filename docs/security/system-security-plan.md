@@ -73,15 +73,15 @@ The security policies that the CloudSystem has been designed to comply with are 
 
 In accordance with the requirements of the ISM, the following security documentation has been developed for the CloudSystem:
 
-- [Blueprint – Solution Overview](../blueprint/solution-overview)
-- [Blueprint – Client Devices Design](../blueprint/client-devices)
-- [Blueprint – Platform Design](../blueprint/platform)
-- [Blueprint – Office 365 Design](../blueprint/office-365)
-- [Cloud-Native Blueprint – System Security Plan](../security/system-security-plan)
+- [Blueprint – Solution Overview](../blueprint/solution-overview.md)
+- [Blueprint – Client Devices Design](../blueprint/client-devices.md)
+- [Blueprint – Platform Design](../blueprint/platform.md)
+- [Blueprint – Office 365 Design](../blueprint/office-365.md)
+- [Cloud-Native Blueprint – System Security Plan](../security/system-security-plan.md)
 - [Cloud-Native Blueprint – System Security Plan (Annex)](../files/security/system-security-plan-annex.xlsx)
-- [Cloud-Native Blueprint – Security Risk Management Plan](../security/security-risk-management-plan)
-- [Cloud-Native Blueprint – Security Standard Operating Procedures](../security/standard-operating-procedures)
-- [Cloud-Native Blueprint – Incident Response Plan](../security/incident-response-plan)
+- [Cloud-Native Blueprint – Security Risk Management Plan](../security/security-risk-management-plan.md)
+- [Cloud-Native Blueprint – Security Standard Operating Procedures](../security/standard-operating-procedures.md)
+- [Cloud-Native Blueprint – Incident Response Plan](../security/incident-response-plan.md)
 
 The IRAP reports for the assessment of Azure and Office 365 at PROTECTED have also been leveraged in the development of the CloudSystem, and includes the following:
 
@@ -562,11 +562,11 @@ Bluetooth is enabled as it allows users to pair devices they may require to perf
 
 Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised. 
 
-The CloudSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
+The CloudSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../as-built-as-configured/intune-configuration.md#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
 
 Applications are installed from the App Store using the Volume Purchasing Program (VPP) tokens through Apple Business Manager Enrollment. This provides application control for iOS mobile devices, and removes the need for users having to install applications from the App Store through an Apple ID.
 
-The risk of non-compliance with controls relating to iOS devices is addressed in the ‘[Cloud-Native Blueprint - Security Risk Management Plan](../security-risk-management-plan/)’ at [R17](../security-risk-management-plan#r17-mobile-device-compromised).
+The risk of non-compliance with controls relating to iOS devices is addressed in the ‘[Cloud-Native Blueprint - Security Risk Management Plan](security-risk-management-plan.md)’ at [R17](security-risk-management-plan.md#r17-mobile-device-compromised).
 
 #### Security controls provided by the CloudSystem
 

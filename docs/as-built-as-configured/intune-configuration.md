@@ -680,8 +680,8 @@ The following table outlines the OMA-URI settings within the profile.
 
 | Name            | Description                                                  | OMA-URI                                                      | Value                                                        |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](../as-built-as-configured/wdac-policy-creation#wdac-policy---baseline) |
-| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](../as-built-as-configured/wdac-policy-creation#wdac-policy---supplementary-policy) |
+| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](../as-built-as-configured/wdac-policy-creation.md#wdac-policy---baseline) |
+| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](../as-built-as-configured/wdac-policy-creation.md#wdac-policy---supplementary-policy) |
 
 ### iOS Devices
 
@@ -1072,7 +1072,7 @@ The following table outlines the settings within the policy.
 
 The following table outlines the policy is created for all implementation types. 
 
-Each firewall rule policy can contain up to 150 individual rules. Guidance on creating this policy can be found within [Windows Firewall rules import technical guide](../../as-built-as-configured/wfw-rules-import).
+Each firewall rule policy can contain up to 150 individual rules. Guidance on creating this policy can be found within [Windows Firewall rules import technical guide](../as-built-as-configured/wfw-rules-import.md).
 
 | Item               | Configuration                  |
 | ------------------ | ------------------------------ |

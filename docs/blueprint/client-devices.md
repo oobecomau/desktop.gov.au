@@ -288,9 +288,9 @@ Windows Features Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-.Net Framework 3.5 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](solution-overview#essential-eight-maturity) 
+.Net Framework 3.5 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](solution-overview.md#essential-eight-maturity) 
 .Net Framework 4.8 | Enabled | This is to support modern .Net applications on the Windows SOE device.
-Internet Explorer 11 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](solution-overview#essential-eight-maturity) and the deprecation of the IE 11 feature. Note, this is not applicable to Windows 11.
+Internet Explorer 11 | Disabled | Disabled by default to meet user application hardening guidelines in the [ACSC Essential Eight.](solution-overview.md#essential-eight-maturity) and the deprecation of the IE 11 feature. Note, this is not applicable to Windows 11.
 Windows Media Features | Enabled | Support media content functionality. 
 Windows Ink Workspace | Enabled | Required to support full functionality of devices to be deployed, including Handwriting support. 
 Print and Document Services - Windows Fax and Scan | Enabled | Support scanning functionality. 
@@ -1189,7 +1189,7 @@ Windows Hardening Design Decisions for all agencies and implementation types.
   - Restrict Unauthenticated RPC clients: Enabled (RPC Runtime Unauthenticated Client Restriction to Apply: Authenticated)
 - Reporting system information
   - Justification: To align with the ACSC Windows hardening guidance.
-  Note, additional telemetry is required for [Desktop Analytics](client-devices#telemetry-collection) and Agencies may choose to enable it to aid in Microsoft Support troubleshooting.
+  Note, additional telemetry is required for [Desktop Analytics](client-devices.md#telemetry-collection) and Agencies may choose to enable it to aid in Microsoft Support troubleshooting.
   - Microsoft Support Diagnostic Tool:
     - Turn on MSDT interactive communication with support provider: Disabled
   - Turn off Inventory Collector: Enabled

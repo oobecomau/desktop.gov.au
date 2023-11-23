@@ -1071,7 +1071,7 @@ Firewall rules and proxy allow lists will be implemented as part of the Defender
 - Defender for Identity service location – As mentioned previously, Defender for Identity data centres are deployed in the United States, Europe, and Asia. The organisation's Defender for Identity instance will be created in the data centre that is geographically closest to the organisation's Microsoft Entra ID service. This will assist in determining which service location to utilise for generating allow lists. For Microsoft Entra ID tenants located in Australia, Defender for Identity will be created in Asia.
 - Maximal security and data privacy – Defender for Identity cloud services use certificate based mutual authentication for communication between Defender for Identity cloud backend and all Defender for Identity sensors. To make the authentication process seamless as possible if the organisation's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
 
-Further details on the firewall configuration for the solution can be found in the [Hybrid - Network Configuration ABAC](../as-built-as-configured/hybrid-network-configuration).
+Further details on the firewall configuration for the solution can be found in the [Hybrid - Network Configuration ABAC](../as-built-as-configured/hybrid-network-configuration.md).
 
 #### Integration with Defender for Cloud Apps
 

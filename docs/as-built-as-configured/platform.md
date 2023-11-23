@@ -2844,13 +2844,13 @@ The following table describes the additional Intune Configuration Documents requ
 
 | Section              | Description                                                  | Document Name                                                |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Device enrollment    | Automatic Enrolment, Enrolment Status page, Deployment Profiles | [ABAC - Intune Enrolment](../as-built-as-configured/intune-enrolment) |
-| Device compliance    | Device compliance policies                                   | [ABAC - Intune Compliance](../as-built-as-configured/intune-compliance) |
-| Device configuration | Configuration Profiles, PowerShell scripts                   | [ABAC - Intune Configuration](../as-built-as-configured/intune-configuration) |
-| Device security      | Windows 10 Security Hardening (ACSC), Microsoft Defender Configuration, Microsoft Edge Configuration | [ABAC - Intune Configuration](../as-built-as-configured/intune-configuration) |
-| Client apps          | Win32 Apps, Web links, Windows MSI Line of Business apps, Office 365 installation, Windows Information Protection | [ABAC - Intune Applications](../as-built-as-configured/intune-applications) |
-| Conditional Access   | Conditional Access policies                                  | [ABAC - Conditional Access Policies](../as-built-as-configured/conditional-access-policies) |
-| Software Updates     | Windows 10 update rings and updates configuration            | [ABAC – Intune Software Updates](../as-built-as-configured/intune-software-updates) |
+| Device enrollment    | Automatic Enrolment, Enrolment Status page, Deployment Profiles | [ABAC - Intune Enrolment](../as-built-as-configured/intune-enrolment.md) |
+| Device compliance    | Device compliance policies                                   | [ABAC - Intune Compliance](../as-built-as-configured/intune-compliance.md) |
+| Device configuration | Configuration Profiles, PowerShell scripts                   | [ABAC - Intune Configuration](../as-built-as-configured/intune-configuration.md) |
+| Device security      | Windows 10 Security Hardening (ACSC), Microsoft Defender Configuration, Microsoft Edge Configuration | [ABAC - Intune Configuration](../as-built-as-configured/intune-configuration.md) |
+| Client apps          | Win32 Apps, Web links, Windows MSI Line of Business apps, Office 365 installation, Windows Information Protection | [ABAC - Intune Applications](../as-built-as-configured/intune-applications.md) |
+| Conditional Access   | Conditional Access policies                                  | [ABAC - Conditional Access Policies](../as-built-as-configured/conditional-access-policies.md) |
+| Software Updates     | Windows 10 update rings and updates configuration            | [ABAC – Intune Software Updates](../as-built-as-configured/intune-software-updates.md) |
 
 ### Intune Co-management configuration (Hybrid implementation types only)
 
@@ -2935,7 +2935,7 @@ The following table outlines the client internet access configuration scenarios 
 | All            | Office 365 Endpoint connectivity  | As per Organisation pattern for internet browser connectivity. Optimisation of traffic is required and recommended, see [Office 365 URLs and IP address ranges](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) for which categories are recommended for optimisation, and those that are compatible with ExpressRoute (if applicable). |
 | Cloud-native   | Office 365 Authentication Traffic | Configured to traverse the web proxy (if part of Organisation pattern). Cloud-native implementation types without a proxy that supports SSL inspection will not be able to implement tenancy whitelisting feature. |
 | Hybrid         | Office 365 Authentication Traffic | Existing on-premises proxy will be utilised for Hybrid implementation types. |
-| Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](../as-built-as-configured/intune-software-updates). |
+| Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](../as-built-as-configured/intune-software-updates.md). |
 | Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br>Hybrid Agencies may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
 
 ## Application control
@@ -2972,8 +2972,8 @@ The ABAC settings for MECM managed installer are applicable to hybrid implementa
 For all implementation types, it is recommended to deploy WDAC configuration through Intune configuration profiles:
 
 
-- ABAC configuration for this item can be found within the [Intune Configuration ABAC](../as-built-as-configured/intune-configuration#custom---windows-defender-application-control-csp).
-- Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](../as-built-as-configured/wdac-policy-creation#wdac-policy---baseline).
+- ABAC configuration for this item can be found within the [Intune Configuration ABAC](../as-built-as-configured/intune-configuration.md#custom---windows-defender-application-control-csp).
+- Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](../as-built-as-configured/wdac-policy-creation.md#wdac-policy---baseline).
 
 Configuration Profiles using Custom OMA-URI policy:
 

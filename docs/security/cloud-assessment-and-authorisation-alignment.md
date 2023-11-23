@@ -61,7 +61,7 @@ The blueprint assumes that organisations using it will take on the following res
 - Monitoring of organisation systems and data for indicators of compromise; and
 - Re-evaluating and accepting the cloud service when needed.
 
-The blueprint provides an example [Continuous Monitoring Plan](../security/continuous-monitoring-plan), which contains guidance on how organisations can approach conducting continuous monitoring in partnership with Microsoft. It details a number of technology options embedded within the blueprint design that may help facilitate ongoing monitoring.
+The blueprint provides an example [Continuous Monitoring Plan](../security/continuous-monitoring-plan.md), which contains guidance on how organisations can approach conducting continuous monitoring in partnership with Microsoft. It details a number of technology options embedded within the blueprint design that may help facilitate ongoing monitoring.
 
 ![Figure 5: Phase 3 - Overview of Continuous Monitoring and Assurance](../img/security/cca-phase3.png#center)
 

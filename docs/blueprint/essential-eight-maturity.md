@@ -52,7 +52,7 @@ WDAC policies are also configured to enforce Constrained Language Mode (CLM) for
 
 Defender for Endpoint (which is enabled as part of the blueprint) can be used to centrally query WDAC events on all connected devices. Microsoft provides sample queries to assist with monitoring and alerting based on [WDAC events](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/querying-application-control-events-centrally-using-advanced-hunting).
 
-For additional information on WDAC within the blueprint, see [Windows Defender Application Control](client-devices#windows-defender-application-control).
+For additional information on WDAC within the blueprint, see [Windows Defender Application Control](client-devices.md#windows-defender-application-control).
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3. Note, this assessment assumes agencies undertake the recommendations below.
 
@@ -152,13 +152,13 @@ The blueprint includes two types of users, standard and privileged users. Standa
 
 The local administrator account is disabled as per the ACSC Windows 10 hardening guide. The local administrator account is renamed, the password set randomly, and the account disabled. The local administrator group is enabled and contains the Azure Active Directory (Azure AD) Global Admins and Device Admins roles. These roles are configured for Azure AD Privileged Identity Management (PIM), providing Just-in-Time (JIT) administration.
 
-Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](../as-built-as-configured/admin-disable-inactive-users) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
+Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](../as-built-as-configured/admin-disable-inactive-users.md) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
 
 All logins to blueprint devices are recorded and centralised to Defender for Identity. All privileged actions performed in the Microsoft 365 and Azure portals are also logged to the Audit Log, including changes to privileged accounts and groups. User activities for the Office 365 apps are also recorded in the [Audit Log](https://docs.microsoft.com/en-au/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide).
 
 Windows Defender Credential Guard is enabled in the Windows 10 blueprint SOE (on supported devices).
 
-Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](solution-overview#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
+Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](solution-overview.md#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
 
 As all required technical controls that are in scope of the blueprint are implemented, the maturity level has been assessed at 3*. Note, this assessment assumes agencies have implemented a compliant secure system administration solution and undertake the recommendations presented below.
 

@@ -204,7 +204,7 @@ For more information, review [Microsoft's Zero Trust Security Model and Framewor
 
 ### Virtual private network
 
-If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
+If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](../as-built-as-configured/intune-configuration.md#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
 
 ## Security
 

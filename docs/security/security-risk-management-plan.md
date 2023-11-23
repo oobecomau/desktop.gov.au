@@ -117,7 +117,7 @@ If a privileged account were to be compromised or system privileges were incorre
   - Leverages built-in Azure AD / Office 365 Role Groups to implement a robust Role-Based Access Control (RBAC) model
   - All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   - Emergency access accounts are configured in accordance with [Microsoft best practice](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access) to prevent administrators from being locked-out of Azure services
-  - Azure Automation script provided to automatically [disable inactive Azure AD accounts](../as-built-as-configured/admin-disable-inactive-users)
+  - Azure Automation script provided to automatically [disable inactive Azure AD accounts](../as-built-as-configured/admin-disable-inactive-users.md)
 
 #### Residual likelihood
 
