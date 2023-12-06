@@ -1,4 +1,9 @@
+---
+date: 2023-10-11
+---
+
 # October 2023 update
+
 11 Oct 2023
 
 In the last month or so we've been bedding down our processes for managing the blueprints. 
