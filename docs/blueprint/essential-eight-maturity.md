@@ -16,9 +16,9 @@ Since then, both the blueprint and Essential Eight have been updated by the DTA 
 
 The assessments presented in this document includes Windows 10 and the supporting Microsoft 365 (M365) services as described in the blueprint. These assessments do not include iOS or any server infrastructure used by agencies to support the blueprint (e.g. in a hybrid deployment). The exclusion of iOS from this assessment is due to the following:
 
-> "The Essential Eight are designed to protect Microsoft Windows-based internet-connected networks. While the Essential Eight may be applied to cloud services and enterprise mobility... it was not primarily designed for such ... In such cases, organisations should consider alternative guidance provided by the ACSC" - [Essential Eight Maturity Model (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/essential-eight-maturity-model).
+> "The Essential Eight are designed to protect Microsoft Windows-based internet-connected networks. While the Essential Eight may be applied to cloud services and enterprise mobility... it was not primarily designed for such ... In such cases, organisations should consider alternative guidance provided by the ACSC" - [Essential Eight Maturity Model (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight/essential-eight-maturity-model).
 
-The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). 
+The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices). 
 
 Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
 
@@ -52,7 +52,7 @@ WDAC policies are also configured to enforce Constrained Language Mode (CLM) for
 
 Defender for Endpoint (which is enabled as part of the blueprint) can be used to centrally query WDAC events on all connected devices. Microsoft provides sample queries to assist with monitoring and alerting based on [WDAC events](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/querying-application-control-events-centrally-using-advanced-hunting).
 
-For additional information on WDAC within the blueprint, see [Windows Defender Application Control](../client-devices#windows-defender-application-control).
+For additional information on WDAC within the blueprint, see [Windows Defender Application Control](client-devices.md#windows-defender-application-control).
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3. Note, this assessment assumes agencies undertake the recommendations below.
 
@@ -90,11 +90,11 @@ If agencies deploy third-party applications to blueprint devices, they are respo
     <span class="maturity-rating">3</span>
 </div>
 
-The blueprint restricts macro execution to only those signed by a trusted digital certificate in accordance with the [ACSC Microsoft Office Macro Security](https://www.cyber.gov.au/acsc/view-all-content/publications/microsoft-office-macro-security) guidance. This includes blocking Microsoft Office macros originating from the internet and preventing standard users from modifying macro security settings in all Microsoft Office applications. The blueprint does not provide any recommendations for the use of trusted locations.
+The blueprint restricts macro execution to only those signed by a trusted digital certificate in accordance with the [ACSC Microsoft Office Macro Security](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/restricting-microsoft-office-macros) guidance. This includes blocking Microsoft Office macros originating from the internet and preventing standard users from modifying macro security settings in all Microsoft Office applications. The blueprint does not provide any recommendations for the use of trusted locations.
 
 Microsoft Defender Antivirus and Defender for Endpoint provide antivirus scanning of all Microsoft Office file types, including embedded macros. This leverages the [Antimalware Scan Interface](https://www.microsoft.com/security/blog/2018/09/12/office-vba-amsi-parting-the-veil-on-malicious-macros/) (AMSI) to enable inspecting macros at runtime. In addition, the [Safe Documents](https://docs.microsoft.com/en-au/microsoft-365/security/office-365-security/safe-docs) feature of Defender for Office 365 is also enabled as part of the blueprint to scan documents that are opened in Protected View.
 
-Microsoft Office macros are blocked from making Win32 API calls using Attack Surface Reduction (ASR) rules as per the ACSC [Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) and [Microsoft Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016) hardening guides.
+Microsoft Office macros are blocked from making Win32 API calls using Attack Surface Reduction (ASR) rules as per the ACSC [Windows 10](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) and [Microsoft Office](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-365-office-2021-office-2019-and-office-2016) hardening guides.
 
 Defender for Endpoint centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices, which includes the execution of macro-enabled documents and resulting behaviours (such as attempts to make Win32 API calls).
 
@@ -121,7 +121,7 @@ Microsoft Edge provides limited web advertisement blocking from the internet, wh
 
 Internet Explorer 11 is removed from the Windows 10 blueprint SOE.
 
-The ASR rules are configured as per the ACSC [Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) and [Microsoft Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016) hardening guides to prevent Microsoft Office from creating child processes, creating executable content, injecting code into other processes, and activating Object Linking and Embedding (OLE) packages.
+The ASR rules are configured as per the ACSC [Windows 10](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) and [Microsoft Office](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-365-office-2021-office-2019-and-office-2016) hardening guides to prevent Microsoft Office from creating child processes, creating executable content, injecting code into other processes, and activating Object Linking and Embedding (OLE) packages.
 
 No third-party PDF software is included in the blueprint. Microsoft Edge is configured as the default PDF reader and hardened as per ACSC guidance.
 
@@ -131,7 +131,7 @@ Standard users are not able to change security-related settings in Microsoft Off
 
 WDAC is configured so that PowerShell runs in Constrained Language Mode (CLM).
 
-PowerShell script block logging is enabled via MEM in accordance with the ACSC [Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) hardening guide. Defender for Endpoint also centrally stores EDR logs for all Windows 10 blueprint devices, which includes PowerShell script execution and resultant events.
+PowerShell script block logging is enabled via MEM in accordance with the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) hardening guide. Defender for Endpoint also centrally stores EDR logs for all Windows 10 blueprint devices, which includes PowerShell script execution and resultant events.
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
 
@@ -152,13 +152,13 @@ The blueprint includes two types of users, standard and privileged users. Standa
 
 The local administrator account is disabled as per the ACSC Windows 10 hardening guide. The local administrator account is renamed, the password set randomly, and the account disabled. The local administrator group is enabled and contains the Azure Active Directory (Azure AD) Global Admins and Device Admins roles. These roles are configured for Azure AD Privileged Identity Management (PIM), providing Just-in-Time (JIT) administration.
 
-Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](../../as-built-as-configured/admin-disable-inactive-users) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
+Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](../as-built-as-configured/admin-disable-inactive-users.md) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
 
 All logins to blueprint devices are recorded and centralised to Defender for Identity. All privileged actions performed in the Microsoft 365 and Azure portals are also logged to the Audit Log, including changes to privileged accounts and groups. User activities for the Office 365 apps are also recorded in the [Audit Log](https://docs.microsoft.com/en-au/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide).
 
 Windows Defender Credential Guard is enabled in the Windows 10 blueprint SOE (on supported devices).
 
-Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](../solution-overview#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
+Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](solution-overview.md#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
 
 As all required technical controls that are in scope of the blueprint are implemented, the maturity level has been assessed at 3*. Note, this assessment assumes agencies have implemented a compliant secure system administration solution and undertake the recommendations presented below.
 

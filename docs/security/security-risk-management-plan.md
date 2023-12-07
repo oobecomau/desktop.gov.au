@@ -117,7 +117,7 @@ If a privileged account were to be compromised or system privileges were incorre
   - Leverages built-in Azure AD / Office 365 Role Groups to implement a robust Role-Based Access Control (RBAC) model
   - All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   - Emergency access accounts are configured in accordance with [Microsoft best practice](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access) to prevent administrators from being locked-out of Azure services
-  - Azure Automation script provided to automatically [disable inactive Azure AD accounts](../../as-built-as-configured/admin-disable-inactive-users)
+  - Azure Automation script provided to automatically [disable inactive Azure AD accounts](../as-built-as-configured/admin-disable-inactive-users.md)
 
 #### Residual likelihood
 
@@ -1294,7 +1294,7 @@ Administration of the system is undertaken by authorised privileged users by con
 
 #### Risk overview
 
-An Apple iOS device used to access Sensitive and or security classified data is compromised. This maybe as a result of the ACSC's [Security Configuration Guide – Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) (October 2021) guidance not being fully implemented due to the usability impacts, or due to the use traditional threat events as described below.
+An Apple iOS device used to access Sensitive and or security classified data is compromised. This maybe as a result of the ACSC's [Security Configuration Guide – Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) (October 2021) guidance not being fully implemented due to the usability impacts, or due to the use traditional threat events as described below.
 
 Note, the CloudSystem does not include the use of personal iOS devices or devices using the Android operating system.
 

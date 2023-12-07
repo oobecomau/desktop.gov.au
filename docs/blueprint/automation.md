@@ -47,7 +47,7 @@ Device Settings | Manual
 External Collaboration | Manual
 Custom Domains | Manual
 Company Branding | Manual
-Group Creation Restrictions | [Platform ABAC - delegate 365 group creation script](../../as-built-as-configured/platform#delegate-office-365-group-creation) 
+Group Creation Restrictions | [Platform ABAC - delegate 365 group creation script](../as-built-as-configured/platform.md#delegate-office-365-group-creation) 
 Azure Active Directory Connect (if applicable) | Manual
 
 ## Exchange Online
@@ -62,7 +62,7 @@ The following table outlines the subsections of the blueprint and their automati
 | Remote domains (Default)        | Automated                                                    |
 | CAS mailbox plan                | Automated                                                    |
 | Per mailbox attributes          | Manual                                                       |
-| Authentication policy           | [Office 365 ABAC - authentication policy](../../as-built-as-configured/office-365#authentication-policy) |
+| Authentication policy           | [Office 365 ABAC - authentication policy](../as-built-as-configured/office-365.md#authentication-policy) |
 | Outlook Web Access policy       | Automated                                                    |
 | Mailbox archive                 | Manual                                                       |
 | Mailbox auditing                | Manual                                                       |
@@ -191,7 +191,7 @@ Additional guidance and troubleshooting information can be found in the M365DSC 
 
 **Issue 1 - remedy:** Ensure that  the emergency access admin account (break glass) identities exist prior to running the DSC script
 
-- Check or create each emergency access admin account manually as per the the [Platform - ABAC ](../../as-built-as-configured/platform#emergency-access-admin-accounts)
+- Check or create each emergency access admin account manually as per the the [Platform - ABAC ](../as-built-as-configured/platform.md#emergency-access-admin-accounts)
 
 **Issue 2 - error:** *Undefined DSC resource 'M365DSCResource'. Use Import-DSCResource to import the resource.*
 
