@@ -40,5 +40,5 @@ For all new configurations we recommend using the Alternative Products / Feature
 | --- | --- | --- |
 | Unsanctioned Application Protections | Currently admins can define a set of sanctioned applications, with their own enforcement on activities. This Unsanctioned App Protection feature would extend this to unsanctioned applications as well. | In planning |
 | Context based classification | This set of scenarios involves admins being able to scope protection to the context of where the file originates such as the originating source location or source application of the file. | In planning |
-| Identity | Any protections that rely on the context of the user’s identity including identity separation in Outlook, Edge, and access within enlightened apps. These scenarios will not be supported in Purview. For user level restrictions, our guidance will be to use Tenant Level Restrictions within Azure AD. | Not Planned |
+| Identity | Any protections that rely on the context of the user’s identity including identity separation in Outlook, Edge, and access within enlightened apps. These scenarios will not be supported in Purview. For user level restrictions, our guidance will be to use Tenant Level Restrictions within Entra ID. | Not Planned |
 
