@@ -14,7 +14,7 @@ The announcement by the Microsoft Endpoint Manager team is [here](https://techco
 
 Your organisation falls into one of three categories:
 1. You have already implemented the blueprint recommendations and you have at least some unmanaged devices, or
-2. You have already implmented the blueprint recommendations and you only have managed devices.
+2. You have already implmented the blueprint recommendations and you only have managed devices, or
 3. You haven't yet implemented the blueprint recommended configurations
 
 ### Scenario 1:
