@@ -211,13 +211,13 @@ Further details on the firewall configuration for the solution can be found in t
 
 Mail flow is the path taken by an email from the sender to a receiver. A Mail Gateway acts as the central egress and ingress point for mail traffic into an organisation.
 
-For agencies implementing a PROTECTED environment, DTA recommends the use of a separate mail gateway to interface with [GovLink](https://www.finance.gov.au/government/whole-government-information-communications-technology-services/govlink) for the following functions:
+For agencies implementing a PROTECTED environment, DTA recommends the use of a separate mail gateway to interface with [GovLink](https://www.finance.gov.au/government/whole-government-information-and-communications-technology-services/govlink) for the following functions:
 
 - Encryption.
 - Message rules.
 - Header modification.
 
-This will achieve the closest alignment to whole of government policy for [Secure Internet Gateways](https://www.cyber.gov.au/acsc/view-all-content/programs/irap/asd-certified-gateways), guidance of the [Information Security Manual](https://www.cyber.gov.au/acsc/view-all-content/guidance/email-gateways-and-servers) and the [Protective Security Policy Framework](https://www.protectivesecurity.gov.au/sites/default/files/2019-11/policy-8-annex-g-email-protective-marking-standard.pdf).
+This will achieve the closest alignment to whole of government policy for [Secure Internet Gateways](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/gateway-hardening/gateway-security-guidance-package-gateway-security-principles), guidance of the [Information Security Manual](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-email) and the [Protective Security Policy Framework](https://www.protectivesecurity.gov.au/sites/default/files/2019-11/policy-8-annex-g-email-protective-marking-standard.pdf).
 
 GovLink enables secure communication between Commonwealth entities across public infrastructure and is required for PROTECTED mail to be securely transferred between government organisations. When a GovLink mail gateway is required, Agencies can either use an existing gateway or a new gateway.
 
@@ -1283,7 +1283,7 @@ The following MIP methods can be used to assist with PSPF compliance:
 - For calendar invites, advise users to add the classification to the body, and use transport rules or DLP to add the required subject and header values.
 - Update the `X-Protective-Marking` header associated with the MIP label at the email gateway with the `ORIGIN=user@organisation.com.au` property. Note, internal emails inside the organisation wouldn't be tagged using this method.
 
-Example email gateway rules that work with MIP are available in the [Network Configuration ABAC document](../../as-built-as-configured/hybrid-network-configuration#office-365--email-protective-markings-with-aip-technology). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
+Example email gateway rules that work with MIP are available in the [Network Configuration ABAC document](../as-built-as-configured/hybrid-network-configuration.md#office-365--email-protective-markings-with-aip-technology). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
 
 Classification Label Design Decisions for all agencies and implementation types.
 

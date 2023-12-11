@@ -6,7 +6,7 @@
 
 <p id="date-and-time">4 minutes to read - 30 March 2023</p>
 
-The purpose of this document is to provide guidance on how the Protected Utility blueprint developed by the Digital Transformation Agency (DTA) aligns with the [Cloud Security Guidance](https://www.cyber.gov.au/acsc/government/cloud-security-guidance) issued by the Australian Cyber Security Centre (ACSC).
+The purpose of this document is to provide guidance on how the Protected Utility blueprint developed by the Digital Transformation Agency (DTA) aligns with the [Cloud Security Guidance](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/cloud-security-guidance) issued by the Australian Cyber Security Centre (ACSC).
 
 The ACSC's Cloud Security Guidance suite of documents provides advice to organisations, including Government agencies, on how to perform an assessment of a Cloud Service Provider and its cloud services. The guidance aims to enable organisations to make risk-informed decisions on cloud solutions and their suitability to safely handle the organisations data.
 
@@ -16,9 +16,9 @@ This document explains how the three key phases of Cloud Assessment and Authoris
 
 ## Anatomy of a cloud assessment and authorisation
 
-The [Protective Security Policy Framework (PSPF)](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx) requires applicable Federal and State Government agencies to secure their ICT systems by applying the controls within the Information Security Manual (ISM). It also requires that a formal risk assessment and authorisation (process occur when an ICT system is being introduced into service.
+The [Protective Security Policy Framework (PSPF)](https://www.protectivesecurity.gov.au/publications-library/policy-11-robust-ict-systems) requires applicable Federal and State Government agencies to secure their ICT systems by applying the controls within the Information Security Manual (ISM). It also requires that a formal risk assessment and authorisation (process occur when an ICT system is being introduced into service.
 
-This authorisation process is articulated in the Anatomy of a [Cloud Assessment and Authorisation](https://www.cyber.gov.au/acsc/view-all-content/publications/anatomy-cloud-assessment-and-authorisation) document issued by the ACSC, which describes the three (3) phases Cloud Consumers (i.e., the organisation or agency who will be deploying the blueprint), should take to assess and accept a cloud service and solution into service. In the context of the blueprint, Microsoft is the Cloud Service Provider (CSP), with Cloud Services being Microsoft products such as Microsoft 365 and Azure.
+This authorisation process is articulated in the Anatomy of a [Cloud Assessment and Authorisation](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/cloud-security-guidance/cloud-assessment-and-authorisation) document issued by the ACSC, which describes the three (3) phases Cloud Consumers (i.e., the organisation or agency who will be deploying the blueprint), should take to assess and accept a cloud service and solution into service. In the context of the blueprint, Microsoft is the Cloud Service Provider (CSP), with Cloud Services being Microsoft products such as Microsoft 365 and Azure.
 
 Whilst the DTA has designed the blueprint to meet the ISM requirements for the classification level of PROTECTED, agencies must still assess for themselves whether the blueprint design meets their own particular security needs and requirements.
 
@@ -61,7 +61,7 @@ The blueprint assumes that organisations using it will take on the following res
 - Monitoring of organisation systems and data for indicators of compromise; and
 - Re-evaluating and accepting the cloud service when needed.
 
-The blueprint provides an example [Continuous Monitoring Plan](../../security/continuous-monitoring-plan), which contains guidance on how organisations can approach conducting continuous monitoring in partnership with Microsoft. It details a number of technology options embedded within the blueprint design that may help facilitate ongoing monitoring.
+The blueprint provides an example [Continuous Monitoring Plan](../security/continuous-monitoring-plan.md), which contains guidance on how organisations can approach conducting continuous monitoring in partnership with Microsoft. It details a number of technology options embedded within the blueprint design that may help facilitate ongoing monitoring.
 
 ![Figure 5: Phase 3 - Overview of Continuous Monitoring and Assurance](../img/security/cca-phase3.png#center)
 

@@ -1305,7 +1305,7 @@ Administration of the system is undertaken by authorised privileged users by con
 
 #### Risk overview
 
-An Apple iOS device used to access Sensitive and or security classified data is compromised. This maybe as a result of the ACSC's [Security Configuration Guide – Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) (October 2021) guidance not being fully implemented due to the usability impacts, or due to the use traditional threat events as described below.
+An Apple iOS device used to access Sensitive and or security classified data is compromised. This maybe as a result of the ACSC's [Security Configuration Guide – Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) (October 2021) guidance not being fully implemented due to the usability impacts, or due to the use traditional threat events as described below.
 
 Note, the HybridSystem does not include the use of personal iOS devices or devices using the Android operating system.
 
