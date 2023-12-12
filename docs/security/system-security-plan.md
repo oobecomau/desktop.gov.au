@@ -14,7 +14,7 @@ CloudSystem.
 
 ### System overview
 
-The CloudSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure and Office 365 platforms and their associated services. The CloudSystem includes the following components to improve the security posture of a target Agency:
+The CloudSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure and Office 365 platforms and their associated services. The CloudSystem includes the following components to improve the security posture of a target organisation:
 
 - Cloud identity – Azure Active Directory (Azure AD) configuration including Conditional Access policies allowing log in from anywhere and appropriate security policies to be applied.
 - Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, Microsoft Forms, Microsoft Whiteboard, and Microsoft Planner allowing cloud-based file storage and collaboration.
@@ -30,7 +30,7 @@ The CloudSystem is designed to be able to achieve and maintain security accredit
 
 ### System purpose and scope
 
-The CloudSystem is intended to achieve a PROTECTED standard and raise Australian Government Agencies' cyber security posture. The CloudSystem details technology and configuration settings to deploy a cloud-only Microsoft 365 solution.
+The CloudSystem is intended to achieve a PROTECTED standard and raise Australian Government organisations cyber security posture. The CloudSystem details technology and configuration settings to deploy a cloud-only Microsoft 365 solution.
 
 Note: The Microsoft 365 suite includes multiple products including Windows 10, Office 365 and Enterprise Mobility + Security (EM+S).
 
@@ -55,7 +55,7 @@ Note: This means that Transport Layer Security (TLS) would be included within th
 
 The purpose of this System Security Plan (SSP) is to describe the security implementation of the CloudSystem, including the underlying Azure and Office 365 components that are leveraged in its deployment. This document is designed to comply with the Australian Government Information Security Manual (ISM) documentation requirements for system authorisation. 
 
-This document is deliberately written using descriptive and explanatory language to assist an Agency to understand how the CloudSystem operates securely, the security controls it provides, and the residual controls that must be addressed by an Agency.
+This document is deliberately written using descriptive and explanatory language to assist an organisation to understand how the CloudSystem operates securely, the security controls it provides, and the residual controls that must be addressed by an organisation.
 
 For detailed information on how the CloudSystem addresses specific controls in the ISM (June 2022 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (June 2022)’.
 
@@ -122,10 +122,10 @@ Table 2 Section Definitions
 
 Section | Description
 --- | ---
-Applicability to CloudSystem | For each chapter, the applicability relates to whether the CloudSystem provides any technical, process or documentation that need to be assessed.<br><br>The CloudSystem inherits many controls from the underlying Azure and Office 365 platforms, so if a chapter is listed as Not Applicable then the Agency may or may not be required to address the control. The reason the chapter is not applicable is stated in this section and if the Agency is required to address the controls then this is listed in the Residual controls to be addressed by the Agency section.
-CloudSystem compliance approach | The compliance approach for the CloudSystem is described in this section to provide:<br><br>* The background and context for how the CloudSystem addresses the controls in the chapter<br>* To provide the Agency with information to assist in the assessment of the CloudSystem
+Applicability to CloudSystem | For each chapter, the applicability relates to whether the CloudSystem provides any technical, process or documentation that need to be assessed.<br><br>The CloudSystem inherits many controls from the underlying Azure and Office 365 platforms, so if a chapter is listed as Not Applicable then the organisation may or may not be required to address the control. The reason the chapter is not applicable is stated in this section and if the organisation is required to address the controls then this is listed in the Residual controls to be addressed by the organisation section.
+CloudSystem compliance approach | The compliance approach for the CloudSystem is described in this section to provide:<br><br>* The background and context for how the CloudSystem addresses the controls in the chapter<br>* To provide the organisation with information to assist in the assessment of the CloudSystem
 Security controls provided by the CloudSystem | The specific technical implementation, process or documentation that the CloudSystem provides to address the controls are listed in this section.
-Residual controls to be addressed by the Agency | If there are any residual controls that the Agency must address in relation to the operation of the CloudSystem, then they are listed in this section.
+Residual controls to be addressed by the organisation | If there are any residual controls that the organisation must address in relation to the operation of the CloudSystem, then they are listed in this section.
 
 ## Summary of applicability
 
@@ -137,13 +137,13 @@ Table 3 Summary of applicability
 
 ISM Chapter | Applicability | Rationale
 --- | --- | ---
-Guidelines for Cyber Security Roles | Not Applicable | Fulfilling these roles is an Agency responsibility.
-Guidelines for Cyber Security Incidents | Not Applicable | The Agency is responsible for identifying, managing and reporting cyber security incidents.
-Guidelines for Outsourcing | Applicable | Shared responsibility between the CloudSystem and the Agency consuming it.
-Guidelines for Security Documentation | Applicable | The CloudSystem provides system-specific documentation to be read in conjunction with the Agency’s cyber security strategy.
+Guidelines for Cyber Security Roles | Not Applicable | Fulfilling these roles is an organisation responsibility.
+Guidelines for Cyber Security Incidents | Not Applicable | The organisation is responsible for identifying, managing and reporting cyber security incidents.
+Guidelines for Outsourcing | Applicable | Shared responsibility between the CloudSystem and the organisation consuming it.
+Guidelines for Security Documentation | Applicable | The CloudSystem provides system-specific documentation to be read in conjunction with the organisations cyber security strategy.
 Guidelines for Physical Security | Not Applicable | The CloudSystem inherits the physical security controls which are implemented by Microsoft for Azure and Office 365 components.
-Guidelines for Personnel Security | Applicable | The CloudSystem implements technical controls to assist the Agency with managing personnel security.
-Guidelines for Communications Infrastructure | Not Applicable | The Agency is responsible for communications infrastructure leveraged by the CloudSystem.
+Guidelines for Personnel Security | Applicable | The CloudSystem implements technical controls to assist the organisation with managing personnel security.
+Guidelines for Communications Infrastructure | Not Applicable | The organisation is responsible for communications infrastructure leveraged by the CloudSystem.
 Guidelines for Communications Systems | Applicable | The CloudSystem includes Microsoft Teams which provides video conferencing functionality.
 Guidelines for Enterprise Mobility | Applicable | The CloudSystem includes the management and use of mobile devices.
 Guidelines for Evaluated Products | Applicable | The CloudSystem includes Windows 10 which has been evaluated. Additionally, the CloudSystem leverages Office 365 services which include evaluated products.
@@ -166,20 +166,20 @@ Guidelines for Data Transfers | Applicable | The CloudSystem is responsible for 
 
 #### Applicability to CloudSystem
 
-Not applicable as appointing a Chief Information Security Officer (CISO) is an Agency’s responsibility.
+Not applicable as appointing a Chief Information Security Officer (CISO) is an organisations responsibility.
 
 #### CloudSystem compliance approach
 
-The CloudSystem is deployed into the Agency’s environment and is under the scope of the Agency’s CISO.
+The CloudSystem is deployed into the organisations environment and is under the scope of the organisations CISO.
 
 #### Security controls provided by the CloudSystem
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency must appoint a CISO to provide cyber security leadership and guidance.
-- The Agency's CISO is responsible for all duties outlined in the Annex.
+- The organisation must appoint a CISO to provide cyber security leadership and guidance.
+- The organisations CISO is responsible for all duties outlined in the Annex.
 
 ### System owners
 
@@ -189,7 +189,7 @@ Not applicable as the CloudSystem does not designate a system owner.
 
 #### CloudSystem compliance approach
 
-The deployment of the CloudSystem into an Agency’s environment can be designated as a specific system, or it can form part of a broader system. 
+The deployment of the CloudSystem into an organisations environment can be designated as a specific system, or it can form part of a broader system. 
 
 By default, the CloudSystem is defined as a system and all documentation, including this SSP, is written in that context.
 
@@ -197,9 +197,9 @@ By default, the CloudSystem is defined as a system and all documentation, includ
 
 Not Applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency must designate a System Owner for the CloudSystem.
+- The organisation must designate a System Owner for the CloudSystem.
 - The System Owner must perform the relevant duties outlined in the Annex.
 
 ## Cyber security incidents
@@ -208,11 +208,11 @@ Not Applicable.
 
 #### Applicability to CloudSystem
 
-Not applicable to the CloudSystem as the detection of cyber security incidents is the responsibility of the Agency.
+Not applicable to the CloudSystem as the detection of cyber security incidents is the responsibility of the organisation.
 
 #### CloudSystem compliance approach
 
-The CloudSystem implements technical controls and processes to assist the Agency with detecting cyber security incidents related to the system.
+The CloudSystem implements technical controls and processes to assist the organisation with detecting cyber security incidents related to the system.
 
 #### Security controls provided by the CloudSystem
 
@@ -224,45 +224,45 @@ The CloudSystem utilises Microsoft Defender for Endpoint and Defender for Office
 - Threat analytics
 - Secure score
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency must develop and implement an Intrusion Detection and Prevention Policy, which can leverage the security controls implemented by the CloudSystem and meets requirements outlined in the Annex.
+- The organisation must develop and implement an Intrusion Detection and Prevention Policy, which can leverage the security controls implemented by the CloudSystem and meets requirements outlined in the Annex.
 
 ### Managing cyber security incidents
 
 #### Applicability to CloudSystem
 
-Not applicable to the CloudSystem as the management of cyber security incidents is the responsibility of the Agency.
+Not applicable to the CloudSystem as the management of cyber security incidents is the responsibility of the organisation.
 
 #### CloudSystem compliance approach
 
-The CloudSystem implements technical controls and processes to assist the Agency with managing cyber security incidents related to the system.
+The CloudSystem implements technical controls and processes to assist the organisation with managing cyber security incidents related to the system.
 
 #### Security controls provided by the CloudSystem
 
 - The CloudSystem utilises the Microsoft 365 Defender portal to assist in the management of cyber security incidents. Specific capabilities include the Incident queue and Action center views.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency should establish a cyber security incident register, cyber security incident communication and response strategy and associated procedures that meet requirements outlined in the Annex.
+- The organisation should establish a cyber security incident register, cyber security incident communication and response strategy and associated procedures that meet requirements outlined in the Annex.
 
 ### Reporting cyber security incidents
 
 #### Applicability to CloudSystem
 
-Not applicable to the CloudSystem as the reporting of cyber security incidents is the responsibility of the Agency.
+Not applicable to the CloudSystem as the reporting of cyber security incidents is the responsibility of the organisation.
 
 #### CloudSystem compliance approach
 
-The reporting requirements for cyber security incidents are an Agency responsibility.
+The reporting requirements for cyber security incidents are an organisation responsibility.
 
 #### Security controls provided by the CloudSystem
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency should establish a process and standard operating procedures for reporting cyber security incidents that meet requirements outlined in the Annex.
+- The organisation should establish a process and standard operating procedures for reporting cyber security incidents that meet requirements outlined in the Annex.
 
 ## Outsourcing
 
@@ -283,17 +283,17 @@ Where possible the CloudSystem leverages services located in Australia, otherwis
 #### Security controls provided by the CloudSystem
 
 - Australian data locations have been selected where supported by Azure and Office 365 services leveraged by the CloudSystem. Where Australia is not available, the United States is used.
-- Microsoft provides a shared responsibility model which outlines how security responsibilities are shared between itself and the Agency.
+- Microsoft provides a shared responsibility model which outlines how security responsibilities are shared between itself and the organisation.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency must assess, establish, manage and maintain the commercial and contractual relationship with Microsoft as the provider of the cloud services and review changes to the Microsoft IRAP assessments as they occur.
+- The organisation must assess, establish, manage and maintain the commercial and contractual relationship with Microsoft as the provider of the cloud services and review changes to the Microsoft IRAP assessments as they occur.
 
 #### Shared responsibility 
 
-When consuming a cloud service, management of some security controls is transferred from the Agency to the Cloud Service Provider (CSP), in this case Microsoft. The level of control transferred ultimately depends on the type of services being consumed i.e. cloud native or hybrid deployment and the agreement made with Microsoft. 
+When consuming a cloud service, management of some security controls is transferred from the organisation to the Cloud Service Provider (CSP), in this case Microsoft. The level of control transferred ultimately depends on the type of services being consumed i.e. cloud native or hybrid deployment and the agreement made with Microsoft. 
 
-Whilst responsibility for controls may be shared, Agencies must be conscious that security risk is not transferred to the service provider. It is therefore critical that Agencies understand how the sharing of responsibilities impacts system risk, and what impact it may have on their [Cloud Assessment and Authorisation](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/cloud-security-guidance/cloud-assessment-and-authorisation).
+Whilst responsibility for controls may be shared, organisations must be conscious that security risk is not transferred to the service provider. It is therefore critical that organisations understand how the sharing of responsibilities impacts system risk, and what impact it may have on their [Cloud Assessment and Authorisation](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/cloud-security-guidance/cloud-assessment-and-authorisation).
 
 In general, [Microsoft defines](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) themselves as being responsible for:
 
@@ -310,58 +310,58 @@ In the context of Software as a Service (SaaS) Protected Utility platforms, Micr
 - Vulnerability and patch management
 - Software development
 
-When deploying a cloud native model, in the context of SaaS Protected Utility platforms, the Agency is responsible for:
+When deploying a cloud native model, in the context of SaaS Protected Utility platforms, the organisation is responsible for:
 
 - Access management
 - System monitoring
 - Client devices
 
-Overall, the Agency is deemed accountable for any technology platform when in use, with Microsoft responsible for some or all of the platform operational management. 
+Overall, the organisation is deemed accountable for any technology platform when in use, with Microsoft responsible for some or all of the platform operational management. 
 
-A suggested high-level shared responsibility matrix for the technology stack across the platform, Microsoft Office 365 and client devices has been tabled below. There are three defined stakeholders who share the responsibility to maintain the Agency’s security capabilities.
+A suggested high-level shared responsibility matrix for the technology stack across the platform, Microsoft Office 365 and client devices has been tabled below. There are three defined stakeholders who share the responsibility to maintain the organisations security capabilities.
 
-- **Agency**: Australian government Agency adapting and implementing the DTA cloud native blueprint.
+- **Organisation**: Organisation adapting and implementing the DTA cloud native blueprint.
 - **Microsoft**: Cloud Service Provider who provide and/or manage the defined technology platforms.
-- **Product Vendors**: external product vendors (such as Apple for iOS) that provide or manage platforms within the Agency’s ecosystem that are not performed by Microsoft. 
+- **Product Vendors**: external product vendors (such as Apple for iOS) that provide or manage platforms within the organisations ecosystem that are not performed by Microsoft. 
 
 ##### Platform
 
 CATEGORY | ITEM | INCIDENT RESPONSE | BACKUPS | PHYSICAL SECURITY | SYSTEM HARDENING | ACCESS MANAGEMENT | VULNERABILITY & PATCH MANAGEMENT | SYSTEM MONITORING | SOFTWARE DEVELOPMENT
 --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-IDENTITY & ACCESS MANAGEMENT | AZURE ACTIVE DIRECTORY | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SECURITY | MICROSOFT CLOUD APP SECURITY | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SECURITY | AZURE ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SECURITY | MICROSOFT DEFENDER ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SECURITY | LOG ANALYTICS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SECURITY | SECURITY INFORMATION & EVENT MANAGEMENT | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
-CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | AGENCY | AGENCY | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-CLIENT CONFIGURATION | PRINTING | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
-BACKUP & OPERATIONAL MANAGEMENT | OFFICE 365 BACKUP | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SYSTEM ADMINISTRATION | ADMINISTRATIVE CONSOLES | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
-SYSTEM ADMINISTRATION | PRIVILEGED IDENTITY MANAGEMENT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
+IDENTITY & ACCESS MANAGEMENT | AZURE ACTIVE DIRECTORY | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SECURITY | MICROSOFT CLOUD APP SECURITY | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SECURITY | AZURE ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SECURITY | MICROSOFT DEFENDER ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SECURITY | LOG ANALYTICS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SECURITY | SECURITY INFORMATION & EVENT MANAGEMENT | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION
+CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | ORGANISATION | ORGANISATION | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+CLIENT CONFIGURATION | PRINTING | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION
+BACKUP & OPERATIONAL MANAGEMENT | OFFICE 365 BACKUP | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SYSTEM ADMINISTRATION | ADMINISTRATIVE CONSOLES | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
+SYSTEM ADMINISTRATION | PRIVILEGED IDENTITY MANAGEMENT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | ORGANISATION | MICROSOFT | MICROSOFT | MICROSOFT
 
 ##### Office 365
 
 ITEM | INCIDENT RESPONSE | BACKUPS | PHYSICAL SECURITY | SYSTEM HARDENING | ACCESS MANAGEMENT | VULNERABILITY & PATCH MANAGEMENT | SYSTEM MONITORING | SOFTWARE DEVELOPMENT
 --- | --- | --- | --- | --- | --- | --- | --- | ---
-EXCHANGE ONLINE | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-SHAREPOINT ONLINE | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-ONEDRIVE FOR BUSINESS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-MICROSOFT TEAMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-POWER BI | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-SECURITY & COMPLIANCE PLATFORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-EXCHANGE ONLINE PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-OFFICE 365 ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-MICROSOFT FORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-MICROSOFT WHITEBOARD | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
-MICROSOFT PLANNER | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+EXCHANGE ONLINE | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+SHAREPOINT ONLINE | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+ONEDRIVE FOR BUSINESS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+MICROSOFT TEAMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+POWER BI | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+SECURITY & COMPLIANCE PLATFORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+EXCHANGE ONLINE PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+OFFICE 365 ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+MICROSOFT FORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+MICROSOFT WHITEBOARD | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
+MICROSOFT PLANNER | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | ORGANISATION | MICROSOFT | ORGANISATION | MICROSOFT
 
 ##### Client devices
 
 ITEM | INCIDENT RESPONSE | BACKUPS | PHYSICAL SECURITY | SYSTEM HARDENING | ACCESS MANAGEMENT | VULNERABILITY & PATCH MANAGEMENT | SYSTEM MONITORING | SOFTWARE DEVELOPMENT
 --- | --- | --- | --- | --- | --- | --- | --- | ---
-WINDOWS 10 – INTUNE MANAGED | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
-IOS – INTUNE MANAGED | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | APPLE
+WINDOWS 10 – INTUNE MANAGED | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | MICROSOFT
+IOS – INTUNE MANAGED | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | ORGANISATION | APPLE
 
 ## Security documentation
 
@@ -373,18 +373,18 @@ Development and maintenance of security documentation is applicable to the Cloud
 
 #### CloudSystem compliance approach
 
-The CloudSystem provides security documentation that an Agency can review, approve and incorporate into the broader Agency-level security documentation.
+The CloudSystem provides security documentation that an organisation can review, approve and incorporate into the broader organisation-level security documentation.
 
 #### Security controls provided by the CloudSystem
 
 - All security documentation produced by DTA for the CloudSystem has been updated within the last year and include the 'last updated' date.
 - DTA provide updates to documentation via the Protected Utility website at [desktop.gov.au](https://desktop.gov.au/). Release logs and change sets between versions can be obtained at [GitHub](https://github.com/govau/desktop.gov.au).
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency must develop a cyber security strategy.
-- The Agency CISO or equivalent should approve all security documentation and ensure the documentation is reviewed annually.
-- The Agency should communicate their security documentation to stakeholders of the CloudSystem and ensure stakeholders are notified of subsequent changes.
+- The organisation must develop a cyber security strategy.
+- The organisation CISO or equivalent should approve all security documentation and ensure the documentation is reviewed annually.
+- The organisation should communicate their security documentation to stakeholders of the CloudSystem and ensure stakeholders are notified of subsequent changes.
 
 ### System-specific security documentation
 
@@ -398,18 +398,18 @@ The CloudSystem includes a suite of security and operational documentation that 
 
 Cloud-Only provides an SSP (this document), SSP Annex (formerly the Statement of Applicability (SoA)), SRMP, Incident Response Plan (IRP), Standard Operating Procedures (SOPs) and other operational documentation to assist in the understanding of the Cloud-Only system and the security controls included.
 
-A Continuous Monitoring Plan (CMP) has also been developed for the blueprint to assist Agencies with the development of their own Agency-specific CMPs.
+A Continuous Monitoring Plan (CMP) has also been developed for the blueprint to assist organisations with the development of their own organisation-specific CMPs.
 
 #### Security controls provided by the CloudSystem
 
 - An SSP has been drafted for the CloudSystem (this document).
-- A system-specific IRP has been drafted for the CloudSystem which integrates with the Agency-level IRP.
-- The blueprint includes guidance to assist Agencies in developing a CMP.
+- A system-specific IRP has been drafted for the CloudSystem which integrates with the organisation-level IRP.
+- The blueprint includes guidance to assist organisations in developing a CMP.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for developing an Agency-specific CMP.
-- The Agency is responsible for developing a security assessment report including a plan of action post security assessment.
+- The organisation is responsible for developing an organisation-specific CMP.
+- The organisation is responsible for developing a security assessment report including a plan of action post security assessment.
 
 ## Physical security
 
@@ -427,9 +427,9 @@ The CloudSystem inherits physical security controls from the underlying Azure an
 
 Not applicable.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the physical security of all Agency-owned equipment, such as network devices and endpoint devices, that are utilised to connect to Azure and Office 365.
+- The organisation is responsible for the physical security of all organisation-owned equipment, such as network devices and endpoint devices, that are utilised to connect to Azure and Office 365.
 
 ## Personnel security
 
@@ -437,11 +437,11 @@ This section does not include specific subsections as the information is the sam
 
 ### Applicability to CloudSystem
 
-Technical controls relating to personnel security are applicable to the CloudSystem. An Agency’s implementation of personnel security controls should include the CloudSystem.
+Technical controls relating to personnel security are applicable to the CloudSystem. An organisations implementation of personnel security controls should include the CloudSystem.
 
 ### CloudSystem compliance approach
 
-The CloudSystem provides a role-based access control implementation and associated operations guide to enable an Agency to easily and securely control access, including privileged and emergency access, to Azure and Office 365 services. The CloudSystem leverages in-built authentication logging provided by the platform, and centralises logs to prevent unauthorised modification and deletion.
+The CloudSystem provides a role-based access control implementation and associated operations guide to enable an organisation to easily and securely control access, including privileged and emergency access, to Azure and Office 365 services. The CloudSystem leverages in-built authentication logging provided by the platform, and centralises logs to prevent unauthorised modification and deletion.
 
 ### Security controls provided by the CloudSystem
 
@@ -453,12 +453,12 @@ The CloudSystem provides a role-based access control implementation and associat
 - The CloudSystem includes automation to disable inactive Azure AD accounts after 45 days.
 - Microsoft Defender for Cloud Apps policy monitoring is implemented to monitor activity of break glass accounts. The use of break glass accounts are also logged in Azure AD Sign-ins. 
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for ensuring that personnel undergo pre-employment checks and hold the appropriate level of security clearance, as well as providing cyber security awareness training to staff and contractors.
-- The Agency is responsible establishing processes for the creation, maintenance and decommissioning of accounts created within the system in accordance with the controls within the annex.
-- The Agency is responsible for documenting and testing emergency access procedures. 
-- The Agency is responsible for monitoring and actioning cyber security events that are centralised to Log Analytics.
+- The organisation is responsible for ensuring that personnel undergo pre-employment checks and hold the appropriate level of security clearance, as well as providing cyber security awareness training to staff and contractors.
+- The organisation is responsible establishing processes for the creation, maintenance and decommissioning of accounts created within the system in accordance with the controls within the annex.
+- The organisation is responsible for documenting and testing emergency access procedures. 
+- The organisation is responsible for monitoring and actioning cyber security events that are centralised to Log Analytics.
 
 ## Communications infrastructure
 
@@ -476,9 +476,9 @@ The CloudSystem inherits communications infrastructure controls from the underly
 
 Not applicable.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the Agency-owned communication infrastructure utilised to connect to Azure and Office 365.
+- The organisation is responsible for the organisation-owned communication infrastructure utilised to connect to Azure and Office 365.
 
 ## Communications systems
 
@@ -496,7 +496,7 @@ Not Applicable.
 
 Not Applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -510,7 +510,7 @@ This section is applicable as the CloudSystem contains Microsoft Teams which pro
 
 The CloudSystem inherits the security controls Microsoft have implemented for Microsoft Teams as assessed in the Office 365 IRAP report.
 
-The Annex specifies the controls associated with the self-contained use of Microsoft Teams up to the level of PROTECTED. As per the Office 365 design, Agencies have the ability to connect Teams to the Telstra Calling for Office 365 service to allow calling between Teams and traditional telephones. Agencies wishing to use Telstra Calling for Office 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
+The Annex specifies the controls associated with the self-contained use of Microsoft Teams up to the level of PROTECTED. As per the Office 365 design, organisations have the ability to connect Teams to the Telstra Calling for Office 365 service to allow calling between Teams and traditional telephones. Organisations wishing to use Telstra Calling for Office 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
 
 #### Security controls provided by the CloudSystem
 
@@ -520,9 +520,9 @@ The Annex specifies the controls associated with the self-contained use of Micro
 - Microsoft Teams has a dedicated Virtual Local Area Network (VLAN) within the Microsoft cloud.
 - Microsoft Teams leverages Azure's Distributed Denial of Service (DDoS) protection capabilities.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for all gateway configurations.
+- The organisation is responsible for all gateway configurations.
 
 ### Fax machines and multifunction devices
 
@@ -538,9 +538,9 @@ Not Applicable.
 
 Not Applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the use and management of any fax machines and Multifunction Devices (MFDs) that are used with the CloudSystem.
+- The organisation is responsible for the use and management of any fax machines and Multifunction Devices (MFDs) that are used with the CloudSystem.
 
 ## Enterprise mobility
 
@@ -554,15 +554,15 @@ This section is applicable as the CloudSystem includes mobile devices.
 
 The CloudSystem leverages Microsoft Endpoint Manager - Intune (Intune) to provide both Mobile Device Management (MDM) and Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
 
-The CloudSystem does not include the use of privately-owned mobile devices. Only Agency-owned devices are enrolled and allowed to access data.
+The CloudSystem does not include the use of privately-owned mobile devices. Only organisation-owned devices are enrolled and allowed to access data.
 
-iOS devices are hardened in accordance with the ACSC ‘[Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices)’ and Information Security Manual (ISM) with specific deviations to maximise usability for the target users as described below. Note: Agencies should do a risk assessment before deciding to change settings relating to mobile devices.
+iOS devices are hardened in accordance with the ACSC ‘[Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices)’ and Information Security Manual (ISM) with specific deviations to maximise usability for the target users as described below. Note: Organisations should do a risk assessment before deciding to change settings relating to mobile devices.
 
 Bluetooth is enabled as it allows users to pair devices they may require to perform their duties (e.g. conference calls or online meetings).
 
 Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised. 
 
-The CloudSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../as-built-as-configured/intune-configuration.md#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
+The CloudSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended organisations consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../as-built-as-configured/intune-configuration.md#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the organisation.
 
 Applications are installed from the App Store using the Volume Purchasing Program (VPP) tokens through Apple Business Manager Enrollment. This provides application control for iOS mobile devices, and removes the need for users having to install applications from the App Store through an Apple ID.
 
@@ -580,9 +580,9 @@ The risk of non-compliance with controls relating to iOS devices is addressed in
 - CloudSystem standard users do not have sufficient permissions to modify security functions on Windows 10 devices. Standard users can modify security functions on iOS devices.
 - Apple provides timely security updates for iOS devices.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for developing a mobile device management policy in relation to the CloudSystem that meets requirements outlined in the Annex.
+- The organisation is responsible for developing a mobile device management policy in relation to the CloudSystem that meets requirements outlined in the Annex.
 
 ### Mobile device usage
 
@@ -592,15 +592,15 @@ This section is applicable as the CloudSystem may contain mobile devices.
 
 #### CloudSystem compliance approach
 
-The CloudSystem is reliant on the Agency to development and enforce a mobile device usage policy which include mobiles devices that are enrolled into the CloudSystem.
+The CloudSystem is reliant on the organisation to development and enforce a mobile device usage policy which include mobiles devices that are enrolled into the CloudSystem.
 
 #### Security controls provided by the CloudSystem
 
 Not Applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for developing and enforcing a mobile device usage policy in relation to the CloudSystem that meets requirements outlined in the Annex.
+- The organisation is responsible for developing and enforcing a mobile device usage policy in relation to the CloudSystem that meets requirements outlined in the Annex.
 
 ## Evaluated products
 
@@ -620,9 +620,9 @@ A Protection Profile (PP) evaluation has been performed on Windows 10 and Micros
 - Windows 10 installation media is sourced directly from Microsoft in accordance with the evaluated delivery procedures.
 - Windows 10 is managed by Microsoft Endpoint Manager (Intune) in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for any evaluated products if they are implemented as part of network connectivity to Azure and Office 365.
+- The organisation is responsible for any evaluated products if they are implemented as part of network connectivity to Azure and Office 365.
 
 ## ICT equipment management
 
@@ -640,9 +640,9 @@ The CloudSystem inherits ICT equipment controls from the underlying Azure and Of
 
 Not applicable.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the implementation of controls relating to ICT equipment management based on their deployment of the CloudSystem.
+- The organisation is responsible for the implementation of controls relating to ICT equipment management based on their deployment of the CloudSystem.
 
 ## Media management
 
@@ -660,15 +660,15 @@ The CloudSystem implements technical controls to protect the confidentiality and
 
 - Removable media is encrypted via BitLocker using AES-256.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for implementing controls relating to media management if media is connected to the CloudSystem.
+- The organisation is responsible for implementing controls relating to media management if media is connected to the CloudSystem.
 
 ### Media sanitisation
 
 #### Applicability to CloudSystem
 
-The controls relating to the sanitisation of media are not applicable to the CloudSystem and are instead the responsibility of the Agency.
+The controls relating to the sanitisation of media are not applicable to the CloudSystem and are instead the responsibility of the organisation.
 
 #### CloudSystem compliance approach
 
@@ -678,15 +678,15 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the management, including sanitisation, of media connected to CloudSystem endpoints.
+- The organisation is responsible for the management, including sanitisation, of media connected to CloudSystem endpoints.
 
 ### Media destruction
 
 #### Applicability to CloudSystem
 
-The controls relating to the destruction of media are not applicable to the CloudSystem and are instead the responsibility of the Agency.
+The controls relating to the destruction of media are not applicable to the CloudSystem and are instead the responsibility of the organisation.
 
 #### CloudSystem compliance approach
 
@@ -696,15 +696,15 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the management, including destruction, of media connected to CloudSystem endpoints.
+- The organisation is responsible for the management, including destruction, of media connected to CloudSystem endpoints.
 
 ### Media disposal
 
 #### Applicability to CloudSystem
 
-The controls relating to the disposal of media are not applicable to the CloudSystem and are instead the responsibility of the Agency.
+The controls relating to the disposal of media are not applicable to the CloudSystem and are instead the responsibility of the organisation.
 
 #### CloudSystem compliance approach
 
@@ -714,9 +714,9 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the management, including disposal, of media connected to CloudSystem endpoints.
+- The organisation is responsible for the management, including disposal, of media connected to CloudSystem endpoints.
 
 ## System hardening
 
@@ -778,13 +778,13 @@ Endpoint Device Control will be configured by Intune policies restricting usage 
 - External connections relying on DMA will be disabled via Intune policies.
 - Defender for Endpoint centrally stores Endpoint Detection and Response (EDR) logs for all Windows 10 blueprint devices.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- Where Agencies utilise a SOE developed by third parties, the Agency must ensure that the SOE is scanned for malicious content and configurations before being used and that the design is reviewed and updated at least annually.
-- The Agency must validate cryptographic hash rules, publisher certificate rules and path rules used for application control at least annually.
-- The Agency is responsible for collecting and storing WDAC and PowerShell logs in a centralised logging facility/SIEM as this capability is not included in the blueprint.
-- The Agency is responsible for configuration of Protected Event Logging functionality if required.
-- The Agency is responsible for monitoring and actioning cyber security events from the EDR logs.
+- Where organisations utilise a SOE developed by third parties, the organisation must ensure that the SOE is scanned for malicious content and configurations before being used and that the design is reviewed and updated at least annually.
+- The organisation must validate cryptographic hash rules, publisher certificate rules and path rules used for application control at least annually.
+- The organisation is responsible for collecting and storing WDAC and PowerShell logs in a centralised logging facility/SIEM as this capability is not included in the blueprint.
+- The organisation is responsible for configuration of Protected Event Logging functionality if required.
+- The organisation is responsible for monitoring and actioning cyber security events from the EDR logs.
 
 ### Application hardening
 
@@ -800,7 +800,7 @@ The CloudSystem utilises the Monthly Enterprise channel of Office to ensure the 
 
 ACSC guidance has been incorporated into the applications to harden the configuration and remove unneeded features, including the hardening guide for Office 365.
 
-Web browsers are configured to block Flash content and Java content by the Intune policies. Neither Flash nor Java is included in the Windows 10 SOE. Native Microsoft Edge advertisement blocking is enabled. The blueprint recommends Agencies deploy a third-party add-on to provide further advertisement blocking.
+Web browsers are configured to block Flash content and Java content by the Intune policies. Neither Flash nor Java is included in the Windows 10 SOE. Native Microsoft Edge advertisement blocking is enabled. The blueprint recommends organisations deploy a third-party add-on to provide further advertisement blocking.
 
 Office macros sourced from the internet are blocked and only signed macros will be allowed to execute. Additional macro controls are configured in the Attack Surface Rules configuration controlled by Intune. Users are not able to change macro settings.
 
@@ -822,10 +822,10 @@ Office macros sourced from the internet are blocked and only signed macros will 
 - Users cannot change macro settings.
 - Defender for Endpoint centrally stores EDR logs for all Windows 10 blueprint devices.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for hardening any third-party browsers (e.g. Google Chrome) that are deployed to CloudSystem endpoints. The [United Kingdom Government provides guidance on hardening Chrome](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/380011/Browser_Security_Guidance_-_Google_Chrome.pdf) specifically which Agencies may choose to follow.
-- The Agency is responsible for reviewing EDR logs in relation to macro executions.
+- The organisation is responsible for hardening any third-party browsers (e.g. Google Chrome) that are deployed to CloudSystem endpoints. The [United Kingdom Government provides guidance on hardening Chrome](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/380011/Browser_Security_Guidance_-_Google_Chrome.pdf) specifically which organisations may choose to follow.
+- The organisation is responsible for reviewing EDR logs in relation to macro executions.
 
 ### Authentication hardening
 
@@ -865,15 +865,15 @@ To minimise potential user impact, Windows 10 laptops are not rebooted daily. In
 - Windows Defender Credential Guard is enabled for the Windows 10 SOE. Remote Credential Guard is not applicable as the CloudSystem does not include servers.
 - Only one previous logon is cached for the Windows 10 SOE.
 - The CloudSystem Windows 10 SOE is configured with a screen saver after 15 minutes which requires users to re-authenticate.
-- The CloudSystem Windows 10 SOE is configured with a logon banner provided by the Agency.
+- The CloudSystem Windows 10 SOE is configured with a logon banner provided by the organisation.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for investigating repeated account lockouts.
-- The Agency is responsible for managing passwords/passphrases.
-- The Agency is responsible for procedures involving provisioning user passwords.
-- The Agency is responsible for terminating user sessions and rebooting workstations outside of business hours.
-- The Agency is responsible for the wording of the logon banner.
+- The organisation is responsible for investigating repeated account lockouts.
+- The organisation is responsible for managing passwords/passphrases.
+- The organisation is responsible for procedures involving provisioning user passwords.
+- The organisation is responsible for terminating user sessions and rebooting workstations outside of business hours.
+- The organisation is responsible for the wording of the logon banner.
 
 ### Virtualisation hardening
 
@@ -889,7 +889,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -903,7 +903,7 @@ The system administration section is applicable to the CloudSystem in the contex
 
 #### CloudSystem compliance approach
 
-Privileged Access Workstations (PAWs) and admin jump servers are not used in the CloudSystem due to the limited size of the expected Agencies and all administrative access to the Microsoft portals is with Azure AD accounts using MFA. The risk of not implementing these controls is addressed in the CloudSystem SRMP.
+Privileged Access Workstations (PAWs) and admin jump servers are not used in the CloudSystem due to the limited size of the expected organisations and all administrative access to the Microsoft portals is with Azure AD accounts using MFA. The risk of not implementing these controls is addressed in the CloudSystem SRMP.
 
 All administration of the CloudSystem is performed through a web browser to a number of Microsoft 365 portals as listed below:
 
@@ -925,9 +925,9 @@ The Conditional Access policies and RBAC model also extend to the administration
 - The CloudSystem includes a system administration SOP.
 - Azure MFA is required for all privileged user access.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for provisioning, managing and decommissioning administrative accounts to be used for CloudSystem administration.
+- The organisation is responsible for provisioning, managing and decommissioning administrative accounts to be used for CloudSystem administration.
 
 ### System patching
 
@@ -941,7 +941,7 @@ System patching of endpoint devices is required, and this is accomplished via In
 
 The CloudSystem compliance approach is to primarily utilise native cloud capabilities that are patched as part of the service. 
 
-The CloudSystem uses Intune to automatically deploy operating system, application, driver, and firmware (where supported) updates to Windows 10 SOE devices. Microsoft Defender for Endpoint provide a vulnerability management capability to aid Agencies in detecting missing patches and insecure configurations.
+The CloudSystem uses Intune to automatically deploy operating system, application, driver, and firmware (where supported) updates to Windows 10 SOE devices. Microsoft Defender for Endpoint provide a vulnerability management capability to aid organisations in detecting missing patches and insecure configurations.
 
 The blueprint does not include third-party applications or any unsupported software. The patching of other ICT equipment is not in scope of the CloudSystem.
 
@@ -954,46 +954,46 @@ The blueprint does not include third-party applications or any unsupported softw
 - Microsoft Defender for Endpoint provides a continuous vulnerability management capability for all Windows 10 devices.
 - The blueprint does not include the use of unsupported software.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for maintaining and auditing a software register.
-- The Agency is responsible for patching any third-party applications deployed to Windows 10 devices.
+- The organisation is responsible for maintaining and auditing a software register.
+- The organisation is responsible for patching any third-party applications deployed to Windows 10 devices.
 
 ### Change management
 
 #### Applicability to CloudSystem
 
-Change management is not applicable as the ongoing management and maintenance of the CloudSystem utilises the Agency’s change management process.
+Change management is not applicable as the ongoing management and maintenance of the CloudSystem utilises the organisations change management process.
 
 #### CloudSystem compliance approach
 
-The CloudSystem integrates with an Agency’s existing change management process. 
+The CloudSystem integrates with an organisations existing change management process. 
 
 #### Security controls provided by the CloudSystem
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for all change management processes.
+- The organisation is responsible for all change management processes.
 
 ### Data backups
 
 #### Applicability to CloudSystem
 
-Data backups are not applicable to the CloudSystem as they are the responsibility of the Agency to implement in accordance with their data preservation strategy.
+Data backups are not applicable to the CloudSystem as they are the responsibility of the organisation to implement in accordance with their data preservation strategy.
 
 #### CloudSystem compliance approach
 
-The Agency is responsible for backup and restoration of data and configurations stored in the CloudSystem. 
+The organisation is responsible for backup and restoration of data and configurations stored in the CloudSystem. 
 
 #### Security controls provided by the CloudSystem
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for identifying what backup and restoration requirements they have and how these will be achieved within the CloudSystem. 
+- The organisation is responsible for identifying what backup and restoration requirements they have and how these will be achieved within the CloudSystem. 
 
 ## System monitoring
 
@@ -1005,7 +1005,7 @@ The controls relating to the logging and auditing of events for components inclu
 
 #### CloudSystem compliance approach
 
-The CloudSystem provides extensive event logging and auditing for Azure and Microsoft 365 resources that can be incorporated into an Agency’s event logging strategy. Logs are stored in Log Analytics for two years which is the maximum available period for Log Analytics. 
+The CloudSystem provides extensive event logging and auditing for Azure and Microsoft 365 resources that can be incorporated into an organisations event logging strategy. Logs are stored in Log Analytics for two years which is the maximum available period for Log Analytics. 
 
 All logs relevant to the operation and integrity of the CloudSystem are stored in a centralised storage account. The CloudSystem protects the integrity of logs through policy enforcement, automation and RBAC.
 
@@ -1033,12 +1033,12 @@ Local event logs on Windows 10 devices will be lost when endpoints are rebuilt a
 - Logs include the date and time of the event, the relevant user or process, the event description, and the ICT equipment involved are recorded.
 - Logs stored in Log Analytics are protected from unauthorised access, modification and deletion by the Azure AD RBAC model. Standard Windows 10 users do not have access to modify the local event logs.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for developing and implementing an event logging policy. 
-- The Agency is responsible for establishing and maintaining logging facilities, including for the centralisation of Window 10 local event logs.
-- The Agency is responsible for longer term log retention (greater than the two years offered by Log Analytics).
-- The Agency is responsible for storing any DNS or proxy logs they generate as part of the system.
+- The organisation is responsible for developing and implementing an event logging policy. 
+- The organisation is responsible for establishing and maintaining logging facilities, including for the centralisation of Window 10 local event logs.
+- The organisation is responsible for longer term log retention (greater than the two years offered by Log Analytics).
+- The organisation is responsible for storing any DNS or proxy logs they generate as part of the system.
 
 ## Software development
 
@@ -1056,9 +1056,9 @@ Not applicable.
 
 Not applicable.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for all application development controls but can leverage the CloudSystem security controls detailed in this document.
+- The organisation is responsible for all application development controls but can leverage the CloudSystem security controls detailed in this document.
 
 ## Database systems management
 
@@ -1076,7 +1076,7 @@ Not applicable.
 
 Not applicable.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1092,7 +1092,7 @@ The controls relating to email usage are applicable to the CloudSystem as it pro
 
 The CloudSystem provides the capability for users to apply protective markings to emails based on their classification. If required, users have the ability to lower the classification of an email, but are required to provide a text-based justification that is included in the audit log. This is due to a product limitation in Microsoft Information Protection (MIP).
 
-The CloudSystem will leverage an Agency's Secure Internet Gateway (SIG) for proxy and mail services.
+The CloudSystem will leverage an organisations Secure Internet Gateway (SIG) for proxy and mail services.
 
 #### Security controls provided by the CloudSystem
 
@@ -1101,12 +1101,12 @@ The CloudSystem will leverage an Agency's Secure Internet Gateway (SIG) for prox
 - Only appropriate classification options will be presented to CloudSystem users.
 - Defender for Office 365 will notify users and administrators of blocked emails.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for developing and implementing an email usage policy.
-- The Agency is responsible for preventing access to unapproved sites and services from within the network.
-- The Agency is responsible for ensuring their email gateway blocks, logs and reports on emails with inappropriate protective markings.
-- The Agency is responsible for conducting a risk assessment if the Agency chooses not to use a SIG.
+- The organisation is responsible for developing and implementing an email usage policy.
+- The organisation is responsible for preventing access to unapproved sites and services from within the network.
+- The organisation is responsible for ensuring their email gateway blocks, logs and reports on emails with inappropriate protective markings.
+- The organisation is responsible for conducting a risk assessment if the organisation chooses not to use a SIG.
 
 ### Email gateways and servers
 
@@ -1116,14 +1116,14 @@ The controls relating to email gateways and servers are applicable to the CloudS
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages Exchange Online, part of Office 365, to provide email capability without the need to deploy traditional email servers and gateways. Native Exchange Online security capabilities are enabled to prevent against email-related threats such as spoofing and phishing. Exchange Online is configured to route through the Agency’s existing email gateway.
+The CloudSystem leverages Exchange Online, part of Office 365, to provide email capability without the need to deploy traditional email servers and gateways. Native Exchange Online security capabilities are enabled to prevent against email-related threats such as spoofing and phishing. Exchange Online is configured to route through the organisations existing email gateway.
 
 The advanced features of Defender for Office 365, including Safe Attachments and Safe Links which provide sandboxing of attachments and inspective of hyperlinks respectively, are enabled by the CloudSystem. This provides email content filtering and expands on the default protections offered by Exchange Online Protection (EOP).
 
 #### Security controls provided by the CloudSystem
 
-- Exchange Online is configured to route PROTECTED emails through the Agency's existing email gateway. Unclassified emails are not configured to be routed through the Agency's mail gateway.
-- Email traffic between external users and Exchange Online is encrypted with TLS 1.2. Exchange Online then forwards emails to the Agency's existing email gateway via an Exchange connector.
+- Exchange Online is configured to route PROTECTED emails through the organisations existing email gateway. Unclassified emails are not configured to be routed through the organisations mail gateway.
+- Email traffic between external users and Exchange Online is encrypted with TLS 1.2. Exchange Online then forwards emails to the organisations existing email gateway via an Exchange connector.
 - Exchange Online is not configured to act as an open relay.
 - Exchange Online implements TLS 1.2 for opportunistic TLS encryption where supported by the other mail server.
 - Exchange Online implements Mail Transfer Agent - Strict Transport Security (MTA-STS) for outbound mail flow.
@@ -1132,12 +1132,12 @@ The advanced features of Defender for Office 365, including Safe Attachments and
 - Domain-based Message Authentication, Reporting and Conformance (DMARC) records are configured in Exchange Online.
 - Defender for Office 365 provides content filtering including sandboxing of attachments (Safe Attachments) and inspection of links (Safe Links).
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for controls implemented by their existing email gateway.
-- The Agency's gateway is responsible for blocking incoming emails that use an internal domain name as the source address.
-- The Agency's gateway is responsible for ensuring undeliverable notifications are only sent to sender that are verified by SPF or other trusted means.
-- The Agency is responsible for any backup or alternative email gateways.
+- The organisation is responsible for controls implemented by their existing email gateway.
+- The organisations gateway is responsible for blocking incoming emails that use an internal domain name as the source address.
+- The organisations gateway is responsible for ensuring undeliverable notifications are only sent to sender that are verified by SPF or other trusted means.
+- The organisation is responsible for any backup or alternative email gateways.
 
 ## Network management
 
@@ -1145,11 +1145,11 @@ The advanced features of Defender for Office 365, including Safe Attachments and
 
 #### Applicability to CloudSystem
 
-The majority of the controls relating to network design and configuration are not directly applicable to the CloudSystem and are instead the responsibility of the Agency to implement. This is due to the CloudSystem not including network devices within its scope.
+The majority of the controls relating to network design and configuration are not directly applicable to the CloudSystem and are instead the responsibility of the organisation to implement. This is due to the CloudSystem not including network devices within its scope.
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages the Microsoft backbone to provide networking for the Office 365 and Azure services. LAN design and configuration is the responsibility of the Agency and may reuse existing capabilities. The CloudSystem designs the interfaces between endpoints and services, including how data traverses public networks such as the internet.
+The CloudSystem leverages the Microsoft backbone to provide networking for the Office 365 and Azure services. LAN design and configuration is the responsibility of the organisation and may reuse existing capabilities. The CloudSystem designs the interfaces between endpoints and services, including how data traverses public networks such as the internet.
 
 The CloudSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component.
 
@@ -1160,14 +1160,14 @@ The CloudSystem is designed to run using the public internet. All security contr
 - All communication between CloudSystem Windows 10 endpoints and Office 365 components is encrypted by TLS.
 - The blueprint uses Conditional Access policies to restrict access to only specified geographic regions within Australia. The blueprint also uses Azure AD Identity Protection to analyse sign-in logs to identify and notify administrators when users are identified as originating from anonymous proxy IP addresses. 
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the management of network devices used in relation to the CloudSystem.
-- The Agency is responsible for implementing security controls within their email gateway.
-- The Agency is responsible for ensuring that they segregate their network from that of service providers.
-- The Agency is responsible for reviewing alerts from Defender for Cloud Apps and Azure AD Identity Protection.
-- The Agency is responsible for ensuring that outbound traffic to anonymity networks is blocked.
-- The Agency is responsible for implementing a protective DNS service as part of their gateway.
+- The organisation is responsible for the management of network devices used in relation to the CloudSystem.
+- The organisation is responsible for implementing security controls within their email gateway.
+- The organisation is responsible for ensuring that they segregate their network from that of service providers.
+- The organisation is responsible for reviewing alerts from Defender for Cloud Apps and Azure AD Identity Protection.
+- The organisation is responsible for ensuring that outbound traffic to anonymity networks is blocked.
+- The organisation is responsible for implementing a protective DNS service as part of their gateway.
 
 ### Wireless networks
 
@@ -1183,9 +1183,9 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for securing any wireless networks that they provide to enable connectivity between CloudSystem endpoints and Azure/Office 365 services.
+- The organisation is responsible for securing any wireless networks that they provide to enable connectivity between CloudSystem endpoints and Azure/Office 365 services.
 
 ### Service continuity for online services
 
@@ -1201,9 +1201,9 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the procurement and management of online services as applicable.
+- The organisation is responsible for the procurement and management of online services as applicable.
 
 ## Using cryptography
 
@@ -1227,10 +1227,10 @@ At the time of writing Microsoft does not support the latest version of TLS – 
 - Microsoft BitLocker provides full disk encryption of CloudSystem mobile devices, implementing AES-256. BitLocker recovery keys are stored in Azure AD.
 - TLS with AES is used to protect traffic to and from Azure and Office 365 servers over the internet.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the management of cryptographic keys used in relation to the CloudSystem other than those managed by Microsoft as part of the Microsoft 365 cloud services.
-- The Agency is responsible for informing users of their responsibilities in relation to the management encrypted devices.
+- The organisation is responsible for the management of cryptographic keys used in relation to the CloudSystem other than those managed by Microsoft as part of the Microsoft 365 cloud services.
+- The organisation is responsible for informing users of their responsibilities in relation to the management encrypted devices.
 
 ### ASD approved cryptographic algorithms
 
@@ -1255,7 +1255,7 @@ The CloudSystem leverage’s Microsoft’s implementation of AACAs in Azure and 
 - SHA-384 is the preferred hashing algorithm used as part of TLS for Office 365 components.
 - AES-256 is used for BitLocker encryption.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1273,7 +1273,7 @@ The CloudSystem leverage’s Microsoft’s implementation of AACPs in Azure and 
 
 - Microsoft Azure and Office 365 services implement AACPs where possible.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1298,7 +1298,7 @@ The CloudSystem leverage’s Microsoft’s implementation of TLS in Azure and Of
 - Microsoft Azure and Office 365 services disable TLS compression.
 - Microsoft Azure and Office 365 services implement Perfect Forward Secrecy (PFS).
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1316,7 +1316,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1334,7 +1334,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1352,7 +1352,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1370,9 +1370,9 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the management of any CGCE used in relation to the CloudSystem.
+- The organisation is responsible for the management of any CGCE used in relation to the CloudSystem.
 
 ## Gateway management
 
@@ -1380,19 +1380,19 @@ Not applicable.
 
 #### Applicability to CloudSystem
 
-The controls relating to gateways are applicable to the CloudSystem as the solution is designed to integrate with a SIG provided by the Agency.
+The controls relating to gateways are applicable to the CloudSystem as the solution is designed to integrate with a SIG provided by the organisation.
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages the Agency’s SIG capability where required.
+The CloudSystem leverages the organisations SIG capability where required.
 
 #### Security controls provided by the CloudSystem
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the implementation of security controls relating to their internet and email gateway if integrated with the CloudSystem.
+- The organisation is responsible for the implementation of security controls relating to their internet and email gateway if integrated with the CloudSystem.
 
 ### Cross domain solutions
 
@@ -1408,7 +1408,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1426,9 +1426,9 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the implementation of security controls relating to their email gateway if integrated with the CloudSystem.
+- The organisation is responsible for the implementation of security controls relating to their email gateway if integrated with the CloudSystem.
 
 ### Diodes
 
@@ -1444,7 +1444,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1452,22 +1452,22 @@ Not applicable.
 
 #### Applicability to CloudSystem
 
-The controls relating to web proxies are applicable to the CloudSystem as the solution leverages the Agency’s SIG for proxy services. 
+The controls relating to web proxies are applicable to the CloudSystem as the solution leverages the organisations SIG for proxy services. 
 
 #### CloudSystem compliance approach
 
 The CloudSystem does not include a web proxy service. 
 
-Web proxies, content filters, SIG and VPN connections between mobile devices and Agency networks are not currently included within the Protected Utility design.
+Web proxies, content filters, SIG and VPN connections between mobile devices and organisation networks are not currently included within the Protected Utility design.
 
 #### Security controls provided by the CloudSystem
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the development and implementation of a web usage policy.
-- The Agency is responsible for the implementation of a web proxy for devices within their network.
+- The organisation is responsible for the development and implementation of a web usage policy.
+- The organisation is responsible for the implementation of a web proxy for devices within their network.
 
 ### Web content filters
 
@@ -1485,9 +1485,9 @@ The CloudSystem leverages Defender for Endpoint to provide web content filtering
 - Client-side active content, including all Java and Flash content, is blocked on all Windows 10 devices.
 - Microsoft Defender for Endpoint blocks specific web categories which are maintained by Microsoft.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for all gateway configurations relating to web content filtering.
+- The organisation is responsible for all gateway configurations relating to web content filtering.
 
 ### Content filtering
 
@@ -1510,9 +1510,9 @@ The blueprint does not include content validation, conversion, and sanitisation 
 - Defender for Office 365 alerts are configured.
 - Integrity of patches is verified before installation.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for implementing content filtering for web traffic and other vectors.
+- The organisation is responsible for implementing content filtering for web traffic and other vectors.
 
 ### Peripheral switches
 
@@ -1528,7 +1528,7 @@ Not applicable.
 
 Not applicable.
 
-#### Residual controls to be addressed by the Agency
+#### Residual controls to be addressed by the organisation
 
 Not applicable.
 
@@ -1549,7 +1549,7 @@ The CloudSystem does not provide configuration advice on protective marking chec
 - Defender for Endpoint will scan all data copied onto CloudSystem Windows 10 devices.
 - Event logs are generated when data is transferred to external media from a Windows 10 endpoint.
 
-### Residual controls to be addressed by the Agency
+### Residual controls to be addressed by the organisation
 
-- The Agency is responsible for the development and implementation of a data transfer policy.
-- The Agency is responsible for auditing data transfer logs.
+- The organisation is responsible for the development and implementation of a data transfer policy.
+- The organisation is responsible for auditing data transfer logs.

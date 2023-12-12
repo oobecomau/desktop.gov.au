@@ -8,12 +8,12 @@
 
 ## Conditional Access - Named locations
 
-Conditional Access rules can be assigned according to several variables including named locations. These are the public internet (IP) addresses that Azure Active Directory sees, this is not the Agency's internal private IP addressing scheme. Named locations are Agency defined and are used to authorise logon from:
+Conditional Access rules can be assigned according to several variables including named locations. These are the public internet (IP) addresses that Azure Active Directory sees, this is not the organisations internal private IP addressing scheme. Named locations are organisation defined and are used to authorise logon from:
 
-- Agency approved countries,
-- Agency approved network egress or proxy locations (more used in hybrid implementation types),
+- Organisation approved countries,
+- Organisation approved network egress or proxy locations (more used in hybrid implementation types),
 - Defining Internet Service Provider (ISP) provider addresses when used with bespoke security use-cases,
-- Agency Privileged Access Workstation (PAW) or Jump Server network egress locations for administration policy use cases (e.g. allowed admin roles).
+- Organisation Privileged Access Workstation (PAW) or Jump Server network egress locations for administration policy use cases (e.g. allowed admin roles).
 
 Note, named locations should be avoided for the purposes of suppressing MFA on a corporate LAN setting. Consider the use of `Device state` for this scenario.
 
@@ -22,10 +22,10 @@ Note, named locations should be avoided for the purposes of suppressing MFA on a
 - Name: `Allowed Countries`
   - Location type: `Countries`
   - Countries: `Australia`
-- Name: `<Agency> Internal Network`
+- Name: `<Organisation> Internal Network`
   - Location type: `IP ranges`
   - Mark as trusted location: `Selected`
-  - IP ranges: Agency defined
+  - IP ranges: Organisation defined
 
 ## Conditional Access - Terms of use
 
@@ -44,14 +44,14 @@ Note, terms of user does not replace the logon banner warning text.
 - Frequency: `Annually`
 - Duration before re-acceptance required (days): `N/A`
 - Languages
-  - English: Agency supplied
+  - English: Organisation supplied
   - Other languages as required
 
 ## Conditional Access - Policies
 
-The following Conditional Access policies can be found in the Azure Portal at `Azure AD Conditional Access | Policies`. The polices here are a baseline and should be customised to the Agencies requirements for both hybrid and cloud-only implementations types.
+The following Conditional Access policies can be found in the Azure Portal at `Azure AD Conditional Access | Policies`. The polices here are a baseline and should be customised to the organisations requirements for both hybrid and cloud-only implementations types.
 
-Agencies should avoid the use of trusted locations for cloud app access and use device state/require enrolment on conditions where possible.
+Organisations should avoid the use of trusted locations for cloud app access and use device state/require enrolment on conditions where possible.
 
 ### BLOCK - Countries Not Allowed
 

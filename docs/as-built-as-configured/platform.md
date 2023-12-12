@@ -2936,7 +2936,7 @@ The following table outlines the client internet access configuration scenarios 
 | Cloud-native   | Office 365 Authentication Traffic | Configured to traverse the web proxy (if part of Organisation pattern). Cloud-native implementation types without a proxy that supports SSL inspection will not be able to implement tenancy whitelisting feature. |
 | Hybrid         | Office 365 Authentication Traffic | Existing on-premises proxy will be utilised for Hybrid implementation types. |
 | Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](../as-built-as-configured/intune-software-updates.md). |
-| Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br>Hybrid Agencies may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
+| Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br>Hybrid Organisations may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
 
 ## Application control
 

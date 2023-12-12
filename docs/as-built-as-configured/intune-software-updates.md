@@ -6,7 +6,7 @@
 
 <p id="date-and-time">2 minutes to read - 30 March 2023</p>
 
-The following lists the Windows 10 update ring profiles, and iOS update profiles deployed within the Agency tenant. Windows 10 update rings are utilised to maintain a patch level congruent to the standards determined in the blueprint design documents. 
+The following lists the Windows 10 update ring profiles, and iOS update profiles deployed within the organisation tenant. Windows 10 update rings are utilised to maintain a patch level congruent to the standards determined in the blueprint design documents. 
 
 ## Update Rings (Windows 10)
 

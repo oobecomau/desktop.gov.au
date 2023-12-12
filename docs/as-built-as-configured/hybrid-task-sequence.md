@@ -6,7 +6,7 @@
 
 <p id="date-and-time">5 minutes to read - 30 March 2023</p>
 
-The following provides guidance on settings required to develop a Windows 10 task sequence that can be used as the basis for the Agency specific Operating System image used prior to Autopilot taking over the image in Hybrid deployments.
+The following provides guidance on settings required to develop a Windows 10 task sequence that can be used as the basis for the organisation specific Operating System image used prior to Autopilot taking over the image in Hybrid deployments.
 
 ## Base configuration
 
@@ -29,7 +29,7 @@ AutopilotConfigurationFile.json | The AutopilotConfigurationFile.json is require
 MECM Package | **Windows 10 Customisations** package to be created within MECM and contain the [AutopilotConfigurationFile.json](#annex-2-autopilotconfigurationfilejson) and the [Unattend.xml](#annex-1-unattendxml) files.
 MECM Package | **Configuration Manager Client** packaged needs to exist, this typically exists by default with the MECM installation.
 MECM Boot Image | A WinPE boot image is required to boot to Windows PE, this typically exists by default with the MECM installation.
-MECM Operating System Image  | An Operating System image is required within MECM. This should consist of the Windows 10 WIM file as per the **Base Configuration**. Additional Agency specific customisations can be injected into the WIM as required, however this is out of scope of this ABAC.
+MECM Operating System Image  | An Operating System image is required within MECM. This should consist of the Windows 10 WIM file as per the **Base Configuration**. Additional organisation specific customisations can be injected into the WIM as required, however this is out of scope of this ABAC.
 
 ## Windows 10 task sequence
 
@@ -75,7 +75,7 @@ _SMSTSBootUEFI not equals “true”
   - Item: Apply Windows Settings
     - Type: Apply Windows Settings
     - Configuration
-      - Organization name: Agency Name
+      - Organization name: Organisation Name
       - Product key: KMS or leave blank
       - Randomly generate the local administrator password and disable the account on all supported platforms (recommended)
       - Time zone: (UTC +10:00) Canberra, Melbourne, Sydney
@@ -88,7 +88,7 @@ _SMSTSBootUEFI not equals “true”
     - Type: Auto Apply Drivers
     - Configuration
       - Install only the best matched compatible drivers
-      - Consider drivers from all categories. Note: Agency specific Device Drivers will need to be added to MECM.
+      - Consider drivers from all categories. Note: Organisation specific Device Drivers will need to be added to MECM.
 - Setup Operating System
   - Item: Setup Windows and Configuration Manager
     - Type: Setup Windows and ConfigMgr
@@ -112,7 +112,7 @@ _SMSTSBootUEFI not equals “true”
   - Item: Install Applications
     - Type: Install Applications
     - Configuration
-      - Install the following applications: Agency specific applications
+      - Install the following applications: Organisation specific applications
       - Note: This step should be considered optional and only used if the applications are unable to be migrated to Microsoft Endpoint Manager - Intune (Intune)
 - Prepare device for Windows Autopilot
   - Item: Prepare Configuration Manager Client
@@ -128,15 +128,15 @@ Figure 1 has been included to show order of the task sequence.
 
 ## Autopilot
 
-Once the Task Sequence has been completed the Windows OOBE (Out Of the Box Experience) will start at next power cycle of the workstation. Autopilot will start its process to apply the additional Agency customisations.
+Once the Task Sequence has been completed the Windows OOBE (Out Of the Box Experience) will start at next power cycle of the workstation. Autopilot will start its process to apply the additional organisation customisations.
 
 Item | Configuration
 --- | ---
 Region | Australia
 Keyboard Layout | US
-Email Address | Agency specific user
+Email Address | Organisation specific user
 
-The following figure shows the OOBE Agency specific welcome page.
+The following figure shows the OOBE organisation specific welcome page.
 
 ![Figure 2 Windows 10 OOBE Welcome Screen](../img/abac/windows-10-welcome.png#center)
 
@@ -167,7 +167,7 @@ The following figure shows the OOBE Agency specific welcome page.
 
 ### Annex 2: AutopilotConfigurationFile.json
 
-This is an example AutopilotConfigurationFile.json only. This file will be agency specific and should be generated from the Intune tenant. Ensure that the `TenantId` and `ZtdCorrelationID` are correct before using.
+This is an example AutopilotConfigurationFile.json only. This file will be organisation specific and should be generated from the Intune tenant. Ensure that the `TenantId` and `ZtdCorrelationID` are correct before using.
 
 ```json
 {
@@ -180,9 +180,9 @@ This is an example AutopilotConfigurationFile.json only. This file will be agenc
   "CloudAssignedAutopilotUpdateDisabled": 1,
   "ZtdCorrelationId": "xxxxxxxx-xxx-xxxx-xxxx-xxxxxxxxxxxx",
   "Comment_File": "Profile Autopilot",
-  "CloudAssignedAadServerData": "{\"ZeroTouchConfig\":{\"CloudAssignedTenantUpn\":\"\",\"ForcedEnrollment\":1,\"CloudAssignedTenantDomain\":\"testagency.gov.au\"}}",
+  "CloudAssignedAadServerData": "{\"ZeroTouchConfig\":{\"CloudAssignedTenantUpn\":\"\",\"ForcedEnrollment\":1,\"CloudAssignedTenantDomain\":\"testorganisation.gov.au\"}}",
   "CloudAssignedOobeConfig": 1310,
-  "CloudAssignedTenantDomain": "testagency.gov.au",
+  "CloudAssignedTenantDomain": "testorganisation.gov.au",
   "CloudAssignedLanguage": "os-default"
 }
 ```

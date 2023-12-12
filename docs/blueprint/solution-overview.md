@@ -31,11 +31,11 @@ For each component in the solution, the blueprint artefacts provide:
 
 Example as-built-as-configured (ABAC) documents detail specific technical configurations, which include the settings and values of an environment based on the blueprint. 
 
-The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Two sets of ABAC documents cover the differences between configuring cloud and hybrid solutions.
+The use of placeholders like 'organisation.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Two sets of ABAC documents cover the differences between configuring cloud and hybrid solutions.
 
 ## Blueprint components
 
-The blueprint provides the information, rationale and configuration settings to allow an agency to implement the following components:
+The blueprint provides the information, rationale and configuration settings to allow an organisation to implement the following components:
 
 - **Cloud identity** – Azure Active Directory configuration, including Multi-Factor Authentication (MFA) and conditional access, allows log in from anywhere and appropriate security policies to be applied
 - **Microsoft 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams, Whiteboard, Forms and OneDrive for Business allowing cloud-based file storage
@@ -45,7 +45,7 @@ The blueprint provides the information, rationale and configuration settings to 
 - **Autopilot deployment** – Configuration of Autopilot allows for automated deployment (and redeployment when required) of devices with no user interaction
 - **Support** – A flexible support model with system administration and role-based access control, whether the support is carried out by in-house staff, third party contractors or a managed service provider.
 
-An agency can choose to deviate from the blueprint on any technology, licensing requirement, security aspect, platform or design decision. Deviations may affect the agency's security posture and will affect the blueprint's security documentation. 
+An organisation can choose to deviate from the blueprint on any technology, licensing requirement, security aspect, platform or design decision. Deviations may affect the organisations security posture and will affect the blueprint's security documentation. 
 
 ## Design considerations
 
@@ -53,7 +53,7 @@ An agency can choose to deviate from the blueprint on any technology, licensing 
 
 The blueprint includes guidance for cloud native and hybrid deployments (implementation types). It can also be for staged deployments to leverage hybrid configurations as a transition step to cloud native transformation. DTA can assist agencies in developing strategic roadmaps for transition.
 
-Considerations for implementation often include whether an agency has or requires:
+Considerations for implementation often include whether an organisation has or requires:
 
 - Microsoft Exchange servers on premises.
 - an on-premises SharePoint instance.
@@ -61,15 +61,15 @@ Considerations for implementation often include whether an agency has or require
 - multiple active directories 
 - significant investment in on-premises infrastructure with serviceable life.
 
-A hybrid implementation can use Microsoft Endpoint Configuration Manager (MECM) or Microsoft Endpoint Manager - Intune (Intune) for client management, depending on the agency's cloud maturity. 
+A hybrid implementation can use Microsoft Endpoint Configuration Manager (MECM) or Microsoft Endpoint Manager - Intune (Intune) for client management, depending on the organisations cloud maturity. 
 
-Blueprint artefacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
+Blueprint artefacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the organisations existing cyber security posture.
 
-### Agency classification
+### Organisation classification
 
 The blueprint is based on a principle of 'engineered to Protected' to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for Protected and below.
 
-The blueprint design and configuration at Protected assumes the agency has available the licencing level of Microsoft 365 E5, or the equivalent Microsoft 365 E3 with Microsoft 365 E5 security and compliance add-ons.
+The blueprint design and configuration at Protected assumes the organisation has available the licencing level of Microsoft 365 E5, or the equivalent Microsoft 365 E3 with Microsoft 365 E5 security and compliance add-ons.
 
 The VSA 4 Common Cloud Commitment consists of:
 
@@ -86,7 +86,7 @@ At a minimum, Microsoft recommends the following licensing in addition to the VS
 
 Agencies that implement the blueprint at a Protected level will need to configure some components differently to enable connectivity to supporting systems. 
 
-Components that transfer Protected information outside of an agency's environment include:
+Components that transfer Protected information outside of an organisations environment include:
 
 - a GovLink mail gateway
 - Information management and protection
@@ -102,7 +102,7 @@ DTA can provide further advice to agencies and reference sites of how other Comm
 
 ### Information management
 
-Each agency determines information management approaches specific to its operational requirements. 
+Each organisation determines information management approaches specific to its operational requirements. 
 
 The following information management tools are available within the blueprint:
 
@@ -146,7 +146,7 @@ Labelling for Microsoft Teams has recently been released for general availabilit
 
 ### Collaboration
 
-The blueprint enables cross-agency collaboration between 2 consenting agencies using Teams, SharePoint Online and Planner.
+The blueprint enables cross-organisation collaboration between 2 consenting agencies using Teams, SharePoint Online and Planner.
 
 The Teams application provides the following collaboration functionality using several Microsoft supporting products:
 
@@ -180,13 +180,13 @@ This blueprint does not include design information for a Secure Internet Gateway
 
 Most hybrid agencies should already have a secure administration model with set of policies and procedures. For example, this may include privileged access workstations (PAW) and jump host (sometimes referred to as bastion host, jump box or jump server) environments that provide a secure and resilient boundary for the administration of critical assets.
 
-Cloud native environments usually do not have a jump host environment or PAW. However, such a solution could be hosted within M365/Azure utilising components of the blueprint to provide a secure administration environment for the agency.
+Cloud native environments usually do not have a jump host environment or PAW. However, such a solution could be hosted within M365/Azure utilising components of the blueprint to provide a secure administration environment for the organisation.
 
 PAW and jump host solutions for cloud native may comprise of:
 
 - **Separate credentials** are provided for non-privileged and privileged duties
 - **Hardened PAW** (Windows operating system) enrolled into Intune and coupled with conditional access polices to provide a zero trust entry point into the associated cloud apps to administer. Local administrative privileges should be restricted on the PAW, it is used to access the jump server solution or direct access to cloud admin portals
-- **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a risk assessed cloud platform or built as an infrastructure as a service server. The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://learn.microsoft.com/en-au/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
+- **Web filtering system** to restrict privileged accounts to the set of organisation approved admin portals only. This product could be a risk assessed cloud platform or built as an infrastructure as a service server. The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://learn.microsoft.com/en-au/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
 - **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which seamlessly provides Multifactor Authentication (MFA) through Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these jump hosts only
 - **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved by utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
 
@@ -196,7 +196,7 @@ Review the Australian Government Information Security Manual [(ISM) controls for
 
 "Zero Trust" is an IT security concept where the organisation does not automatically trust the user, the device they're on, or the network location they're connecting from.
 
-Implementing Zero Trust lowers the agency's risk profile and increases business agility as new devices and applications can be adopted faster.
+Implementing Zero Trust lowers the organisations risk profile and increases business agility as new devices and applications can be adopted faster.
 
 The blueprint supports the Zero Trust concept through M365 features like requiring device enrolment with conditional access and enforcing Azure Active Directory Identity Protection. Agencies should take a risk based approach when utilising features such as trusted IP locations, use these as a last resort when implementing a trust model.
 
@@ -204,11 +204,11 @@ For more information, review [Microsoft's Zero Trust Security Model and Framewor
 
 ### Virtual private network
 
-If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](../as-built-as-configured/intune-configuration.md#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
+If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](../as-built-as-configured/intune-configuration.md#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the organisation. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
 
 ## Security
 
-The blueprint's security artefacts enable an agency to conduct a security assessment. Relevant documentation an agency can develop from the artefacts include:
+The blueprints security artefacts enable an organisation to conduct a security assessment. Relevant documentation an organisation can develop from the artefacts include:
 
 - a system security plan
 - a system security plan annex (previously referred to as the Statement of Applicability - SOA)

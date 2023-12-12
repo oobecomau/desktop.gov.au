@@ -8,7 +8,7 @@
 
 ## Configuration Profiles
 
-The ABAC settings for the Agency Microsoft Endpoint Manager - Intune (Intune) Profiles can be found below. This includes macro security, Windows 10 Hardening (ACSC), Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, Bitlocker, and Windows 10 Enterprise settings.
+The ABAC settings for the organisation Microsoft Endpoint Manager - Intune (Intune) Profiles can be found below. This includes macro security, Windows 10 Hardening (ACSC), Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, Bitlocker, and Windows 10 Enterprise settings.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
@@ -121,13 +121,13 @@ The following table outlines the settings within the profile.
 | Enable saving passwords to  the password manager             | Device | \Microsoft Edge\Password manager and protection              | Disabled                                                     |
 | Intranet Sites: Include all  network paths (UNCs)            | Device | \Windows Components\Internet  Explorer\Internet Control Panel\Security Page | Disabled                                                     |
 | Ads setting for sites with  intrusive ads                    | Device | \Microsoft Edge                                              | Enabled – Block ads on sites  with intrusive ads. (Default value) |
-| Block access to a list of  URLs                              | Device | \Microsoft Edge                                              | Enabled AGENCY to configure                                  |
+| Block access to a list of  URLs                              | Device | \Microsoft Edge                                              | Enabled organisation to configure                                  |
 | Block all ads on Bing search  results                        | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Do Not Track                                       | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Microsoft Defender  SmartScreen                    | Device | \Microsoft Edge\SmartScreen settings                         | Enabled                                                      |
 | Configure Microsoft Defender  SmartScreen to block potentially unwanted apps | Device | \Microsoft Edge\SmartScreen settings         | Enabled                                                      |
 | Control where developer  tools can be used                   | Device | \Microsoft Edge                                              | Enabled – Don’t allow using  the developer tools             |
-| Control which extensions are  installed silently             | Device | \Microsoft Edge\Extensions                                   | Enabled – AGENCY to configure                                |
+| Control which extensions are  installed silently             | Device | \Microsoft Edge\Extensions                                   | Enabled – organisation to configure                                |
 | Control which extensions  cannot be installed                | Device | \Microsoft Edge\Extensions                                   | Enabled                                                      |
 | Default Adobe Flash setting  (obsolete)                      | Device | \Microsoft Edge\Content  settings                            | Enabled – Block the Adobe  Flash plugin                      |
 | Enable site isolation for  every site                        | Device | \Microsoft Edge                                              | Enabled                                                      |
@@ -207,7 +207,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later                          |
 | Groups excluded    | 0                                             |
 | Assigned           | Yes                                           |
-| Groups assigned    | `rol-Agency-users, rol-Agency-administrators` |
+| Groups assigned    | `rol-organisation-users, rol-organisation-administrators` |
 
 The following table outlines the settings within the profile.
 
@@ -255,7 +255,7 @@ The following table outlines the settings within the profile.
 | Block macros from running in Office files from the  Internet | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center   | Enabled                                                      |
 | Block macros from running in Office files from the  Internet | User | \Microsoft Access 2016\Application  Settings\Security\Trust Center | Enabled                                                      |
 | Block macros from running in Office files from the  Internet | User | \Microsoft Visio 2016\Visio Options\Security\Trust  Center   | Enabled                                                      |
-| Configure trusted add-ins                                    | User | \Microsoft Outlook 2016\Security\Security Form  Settings\Programmatic Security\Trusted Add-ins | Enabled – Agency defined list                                |
+| Configure trusted add-ins                                    | User | \Microsoft Outlook 2016\Security\Security Form  Settings\Programmatic Security\Trusted Add-ins | Enabled – organisation defined list                                |
 | dBase III / IV files                                         | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
 | Dif and Sylk files                                           | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
 | Disable All ActiveX                                          | User | \Microsoft Office 2016\Security Settings | Enabled |
@@ -291,7 +291,7 @@ The following table outlines the settings within the profile.
 | Excel 95-97 workbooks and templates | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
 | Excel 97-2003 workbooks and templates | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
 | Force file extension to match file type | User | \Microsoft Excel 2016\Excel Options\Security | Enabled (Always match file type) |
-| List of managed add-ins                                      | User | \Microsoft Outlook 2016\Miscellaneous                        | Agency defined                                               |
+| List of managed add-ins                                      | User | \Microsoft Outlook 2016\Miscellaneous                        | Organisation defined                                               |
 | Macro Runtime Scan Scope                                     | User | \Microsoft Office 2016\Security Settings                     | Enabled (Enable for all documents)                     |
 | Make hidden markup visible | User | \Microsoft Word 2016\Word Options\Security | Enabled |
 | Make hidden markup visible | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security | Enabled |
@@ -354,7 +354,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later                                         |
 | Groups excluded    | 0                                                            |
 | Assigned           | Yes                                                          |
-| Groups assigned    | `All Devices, rol-Agency-Administrators, rol-Agency-users`   |
+| Groups assigned    | `All Devices, rol-organisation-Administrators, rol-organisation-users`   |
 
 The following table outlines the settings within the profile.
 
@@ -542,7 +542,7 @@ The following table outlines the settings within the profile.
 
 | Item                                                         | Type   | ADMX Path | Value                                                |
 | ------------------------------------------------------------ | ------ | --------- | ---------------------------------------------------- |
-| Silently move Windows known folders to OneDrive              | Device | \OneDrive | Enabled: Agency tenant ID<br>Show notification: No |
+| Silently move Windows known folders to OneDrive              | Device | \OneDrive | Enabled: Organisation tenant ID<br>Show notification: No |
 | Prevent users from syncing libraries and folders shared from other organizations | Device | \OneDrive | Enabled                                              |
 | Require users to confirm large delete operations             | Device | \OneDrive | Enabled                                              |
 | Set the sync app update ring                              | Device | \OneDrive | Enabled: Production                                  |
@@ -560,7 +560,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later                                |
 | Groups excluded    | 0                                                   |
 | Assigned           | Yes                                                 |
-| Groups assigned    | `rol-Agency-users, rol-Agency-Administrators`       |
+| Groups assigned    | `rol-organisation-users, rol-organisation-Administrators`       |
 
 The following table outlines the settings within the profile.
 
@@ -586,7 +586,7 @@ The following table outlines the OMA-URI settings within the profile.
 
 | Name                             | Description    | OMA-URI                                                      | Value                                                        |
 | -------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| DefaultAssociationsConfiguration | Not configured | `./Vendor/MSFT/Policy/Config/ApplicationDefaults/DefaultAssociationsConfiguration` | Agency to generate base64 file on reference computer. <br>See [ApplicationDefaults policy csp](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-applicationdefaults). |
+| DefaultAssociationsConfiguration | Not configured | `./Vendor/MSFT/Policy/Config/ApplicationDefaults/DefaultAssociationsConfiguration` | Organisation to generate base64 file on reference computer. <br>See [ApplicationDefaults policy csp](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-applicationdefaults). |
 | TimeZone                         | Not configured | `./Device/Vendor/MSFT/Policy/Config/TimeLanguageSettings/ConfigureTimeZone` | String: AUS Eastern Standard Time                            |
 
 #### Custom - Device Restrictions
@@ -607,9 +607,9 @@ The following table outlines the configuration settings within the profile.
 | Item                           | Configuration                                                |
 | ------------------------------ | ------------------------------------------------------------ |
 | **Locked Screen Experience**            |                                                              |
-| Locked screen picture URL (Desktop only) | Agency to define                                             |
+| Locked screen picture URL (Desktop only) | Organisation to define                                             |
 | **Personalization**            |                                                              |
-| Desktop background picture URL | Agency to define                                             |
+| Desktop background picture URL | Organisation to define                                             |
 | **Start**                      |                                                              |
 | Start Menu Layout              | File: [Start_menu_layout.xml](../files/abac/Start_menu_layout.xml) |
 
@@ -624,7 +624,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later                                         |
 | Groups excluded    | 0                                                            |
 | Assigned           | Yes                                                          |
-| Groups assigned    | `All Devices, rol-Agency-Administrators, rol-Agency-users`   |
+| Groups assigned    | `All Devices, rol-organisation-Administrators, rol-organisation-users`   |
 
 The following table outlines the settings within the profile.
 
@@ -632,16 +632,16 @@ The following table outlines the settings within the profile.
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ | ----------------------------------------------- |
 | Action to take on startup                                    | Device | \Microsoft Edge\Startup, home page and new tab page          | Open a list of URLs                             |
 | Browser  sign-in settings                                    | Device | \Microsoft  Edge                                             | Force users to sign-in to use the browser       |
-| Configure  the new tab page URL                              | Device | \Microsoft  Edge\Startup, home page and new tab page         | Agency to define                                |
+| Configure  the new tab page URL                              | Device | \Microsoft  Edge\Startup, home page and new tab page         | Organisation to define                                |
 | Configure  whether a user always has a default profile automatically signed in with  their work or school account | Device | \Microsoft  Edge                                             | Enabled                                         |
-| Default  search provider name                                | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
-| Default  search provider search URL                          | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
-| Default  search provider URL for suggestions                 | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
+| Default  search provider name                                | Device | \Microsoft  Edge\Default search provider                     | Organisation to define                                |
+| Default  search provider search URL                          | Device | \Microsoft  Edge\Default search provider                     | Organisation to define                                |
+| Default  search provider URL for suggestions                 | Device | \Microsoft  Edge\Default search provider                     | Organisation to define                                |
 | Enable  the default search provider                          | Device | \Microsoft  Edge\Default search provider                     | Enabled                                         |
 | Force  synchronization of browser data and do not show the sync consent prompt | Device | \Microsoft  Edge                                             | Enabled                                         |
 | Hide  the First-run experience and splash screen             | Device | \Microsoft  Edge                                             | Enabled                                         |
 | Site  to Zone Assignment List                                | Device | \Windows  Components\Internet Explorer\Internet Control Panel\Security Page | https://autologon.microsoftazuread-sso.com  - 1 |
-| Sites  to open when the browser starts                       | Device | \Microsoft  Edge\Startup, home page and new tab page         | Agency to define                                |
+| Sites  to open when the browser starts                       | Device | \Microsoft  Edge\Startup, home page and new tab page         | Organisation to define                                |
 
 #### Custom - Interactive Logon Banner CSP
 
@@ -660,8 +660,8 @@ The following table outlines the OMA-URI settings within the profile.
 
 | Name                               | Description    | OMA-URI                                                      | Value                                      |
 | ---------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------ |
-| Interactive Login Banner -   Title | Not configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/InteractiveLogon_MessageTitleForUsersAttemptingToLogOn` | String: Agency to define warning title     |
-| Interactive Login Banner - Text    | Not Configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/InteractiveLogon_MessageTextForUsersAttemptingToLogOn` | String: Agency to define logon banner text |
+| Interactive Login Banner -   Title | Not configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/InteractiveLogon_MessageTitleForUsersAttemptingToLogOn` | String: Organisation to define warning title     |
+| Interactive Login Banner - Text    | Not Configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/InteractiveLogon_MessageTextForUsersAttemptingToLogOn` | String: Organisation to define logon banner text |
 
 #### Custom - Windows Defender Application Control CSP
 
@@ -698,7 +698,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | iOS/iPadOS                                    |
 | Groups excluded    | 0                                             |
 | Assigned           | Yes                                           |
-| Groups assigned    | `rol-Agency-users, rol-Agency-Administrators` |
+| Groups assigned    | `rol-organisation-users, rol-organisation-Administrators` |
 
 Configuration settings:
 
@@ -829,15 +829,15 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | iOS/iPadOS                                    |
 | Groups excluded    | 0                                             |
 | Assigned           | Yes                                           |
-| Groups assigned    | `rol-Agency-users, rol-Agency-Administrators` |
+| Groups assigned    | `rol-organisation-users, rol-organisation-Administrators` |
 
 Configuration settings:
 
 - Lock Screen Message	
-  - "If Lost, Return to..." Message: `If lost return to the <Agency Name>`
+  - "If Lost, Return to..." Message: `If lost return to the <Organisation Name>`
 - Wallpaper
   - Wallpaper Display Location: `Lock Screen and Home Screen`
-  - Wallpaper Image: `Agency wallpaper`
+  - Wallpaper Image: `Organisation wallpaper`
 
 #### Custom - Per App VPN
 
@@ -850,7 +850,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | iOS/iPadOS                                    |
 | Groups excluded    | 0                                             |
 | Assigned           | Yes                                           |
-| Groups assigned    | `rol-Agency-users, rol-Agency-Administrators` |
+| Groups assigned    | `rol-organisation-users, rol-organisation-Administrators` |
 
 Configuration settings:
 
@@ -864,7 +864,7 @@ Configuration settings:
 
 ## Endpoint Security
 
-The ABAC settings for the Agency Microsoft Endpoint Manager - Intune (Intune) Endpoint Security settings can be found below. This includes configuration specific to Windows devices for Antivirus, Disk Encryption, Firewall, Endpoint Detection and Response, Attack Surface Reduction, Account Protection and Microsoft Defender for Endpoint. 
+The ABAC settings for the organisation Microsoft Endpoint Manager - Intune (Intune) Endpoint Security settings can be found below. This includes configuration specific to Windows devices for Antivirus, Disk Encryption, Firewall, Endpoint Detection and Response, Attack Surface Reduction, Account Protection and Microsoft Defender for Endpoint. 
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
@@ -897,9 +897,9 @@ The following table outlines the settings within the policy.
 | Defender Cloud Extended Timeout In Seconds                   | 50                              |
 | **Microsoft Defender Antivirus Exclusions**                  |                                 |
 | Disable local admin merge                                    | Yes                             |
-| Defender Processes To Exclude                                | Agency to define (if required)  |
+| Defender Processes To Exclude                                | Organisation to define (if required)  |
 | File extensions to exclude from scans and  real-time protection | 0 items                      |
-| Defender Files and Folders to Exclude                        | Agency to define (if required)  |
+| Defender Files and Folders to Exclude                        | Organisation to define (if required)  |
 | **Real-time protection**                                     |                                 |
 | Turn on real-time protection                                 | Yes                             |
 | Enable on access protection                                  | Yes                             |
@@ -1083,7 +1083,7 @@ Each firewall rule policy can contain up to 150 individual rules. Guidance on cr
 | Assigned           | Yes                            |
 | Groups assigned    | All Devices                    |
 
-The exact firewall rules imported are specific to the agency reference computer and will vary depending on Windows version and build.
+The exact firewall rules imported are specific to the organisation reference computer and will vary depending on Windows version and build.
 
 #### Endpoint Detection and Response
 
@@ -1148,7 +1148,7 @@ The following table outlines the settings within the policy.
 | Enable folder protection                                     | Enable           |
 | List of additional folders that need to be  protected        | 0 items          |
 | List of apps that have access to protected  folders          | 0 items          |
-| Exclude files and paths from attack surface reduction rules | Agency to define (if required)|
+| Exclude files and paths from attack surface reduction rules | Organisation to define (if required)|
 
 `Microsoft Endpoint Manager > Endpoint Security > Attack Surface Reduction`
 
@@ -1168,11 +1168,11 @@ The following table outlines the settings within the policy.
 | Item                                                         | Configuration    |
 | ------------------------------------------------------------ | ---------------- |
 | Allow hardware device installation by device identifiers     | Yes              |
-| Allow list                                                   | Agency to define |
+| Allow list                                                   | Organisation to define |
 | Allow hardware device installation by setup class            | Yes              |
-| Allow list                                                   | Agency to define |
+| Allow list                                                   | Organisation to define |
 | Allow hardware device installation by device instance identifiers| Yes          |
-| Allow list                                                   | Agency to define |
+| Allow list                                                   | Organisation to define |
 | Scan removable drives during full scan                       | Yes              |
 | Block direct memory access                                   | Enabled          |
 | Enumeration of external devices incompatible with Kernel DMA Protection| Block All|
@@ -1219,7 +1219,7 @@ The following table outlines the settings within the policy.
 
 | Item                                                         | Configuration    |
 | ------------------------------------------------------------ | ---------------- |
-| Upload XML                                                   | Agency to generate XML from from a reference computer. <br>See [create exploit guard policy](https://docs.microsoft.com/en-us/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy) |
+| Upload XML                                                   | Organisation to generate XML from from a reference computer. <br>See [create exploit guard policy](https://docs.microsoft.com/en-us/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy) |
 | Block users from editing the Exploit Guard protection interface | Yes           |
 
 #### Account Protection

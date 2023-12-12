@@ -19,17 +19,17 @@ With hybrid implementation types, access is managed through Active Directory Dom
 
 This guide includes a sample script that uses the Microsoft Graph API and Azure AD PowerShell modules. The Microsoft Graph API is used to query the sign-in activity within the tenant as it is the only method to reliably ascertain the last interactive sign-in from Azure AD sign-in logs. 
 
-The script can be executed manually by an administrator or automatically on a schedule. If the agency has an Azure subscription, it can be scheduled from within an Azure Automation account.
+The script can be executed manually by an administrator or automatically on a schedule. If the organisation has an Azure subscription, it can be scheduled from within an Azure Automation account.
 
 For simplicity, the script disables all accounts after 30 days of inactivity, excluding break glass accounts or those that are yet to sign in.
 
-Agencies can tweak the script to better reflect their needs.
+Organisations can tweak the script to better reflect their needs.
 
 The script is provided as a sample and without warranty, limited error checking or handling provided.
 
 ## Microsoft Graph API
 
-In order to use the Graph API to query sign-in information, the agency must create an Azure AD App registration which will be used by the script to authenticate to the Graph API.
+In order to use the Graph API to query sign-in information, the organisation must create an Azure AD App registration which will be used by the script to authenticate to the Graph API.
 
 One of the following role based access control groups are required to create the app registration:
 
@@ -47,7 +47,7 @@ Register the Application for Microsoft Graph.
 
 2. Provide the following details for the Application registration:
 
-   - Name: `Agency to define`
+   - Name: `Organisation to define`
    - Who can use this application or access this API: `Accounts in this organizational directory only`
    - Redirect URI: Web \| `http://localhost`
 
@@ -95,9 +95,9 @@ Connect-AzureAD -TenantId $servicePrincipalConnection.TenantId `
 # Manual connect to Azure AD
 #Connect-AzureAD   
  
-# Connection information for Graph API connection - specific to Agency
+# Connection information for Graph API connection - specific to organisation
 $clientID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-$tenantName = "agency.onmicrosoft.com"
+$tenantName = "organisation.onmicrosoft.com"
 $clientSecret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $resource = "https://graph.microsoft.com/"
  

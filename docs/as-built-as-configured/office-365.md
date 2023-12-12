@@ -150,7 +150,7 @@ The following table describes the Microsoft 365 Security and Privacy settings fo
 
 ## Exchange Online
 
-The ABAC settings for the Agencies Exchange Online instance can be found below. This includes connectors, Mail Exchange (MX) records, SPF, DMARC, DKIM, Remote Domains, User mailbox configurations, Authentication Policies, Outlook on the Web policies, Mailbox Archiving, and Address lists
+The ABAC settings for the organisations Exchange Online instance can be found below. This includes connectors, Mail Exchange (MX) records, SPF, DMARC, DKIM, Remote Domains, User mailbox configurations, Authentication Policies, Outlook on the Web policies, Mailbox Archiving, and Address lists
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting. 
 
@@ -160,7 +160,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 Cloud-native connector configuration assumes Office 365 is not configured with a 3rd party gateway for mail flow. 
 
-Agencies that are required to route traffic through a 3rd party mail gateway will require connectors to be configured.
+Organisations that are required to route traffic through a 3rd party mail gateway will require connectors to be configured.
 
 `Exchange Online admin center > Mail flow > Connectors`
 
@@ -212,7 +212,7 @@ MX records are not set within Azure or Exchange and have been configured with th
 
 Note, cloud-native MX configuration assumes Office 365 is not configured with a 3rd party gateway for mail flow. 
 
-Agencies that are required to route traffic through a 3rd party mail gateway will point MX record to the 3rd party gateway.
+Organisations that are required to route traffic through a 3rd party mail gateway will point MX record to the 3rd party gateway.
 
 The following table describes the MX records that have been configured per implementation type.
 
@@ -725,7 +725,7 @@ Get-label | where{$_.Name -eq "U"} |select name,guid
 
 #### Apply Disclaimer
 
-Note, the disclaimer text is provided as an example only and is typically unique across Agencies.
+Note, the disclaimer text is provided as an example only and is typically unique across organisations.
 
 - Apply this rule if: The recipient is located `Outside the organization`
 - Do the following actions: Append the message with the disclaimer
@@ -1121,7 +1121,7 @@ The ABAC settings for the organisation SharePoint Online and OneDrive instances 
 - Limit external sharing by domain:
   ```
   <organisation>.com.au
-  <other trusted Agencies>
+  <other trusted organisations>
   ```
 - Allow only users in specific security groups to share externally: `False`
 - Guests must sign in using the same account to which sharing invitations are sent: `True`

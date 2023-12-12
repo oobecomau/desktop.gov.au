@@ -12,13 +12,13 @@
 
 Item | Configuration
 --- | ---
-MDM user scope | Some - rol-Agency-users 
+MDM user scope | Some - rol-organisation-users 
 Groups | 1 Group selected
 MDM terms of use URL | `https://portal.manage.microsoft.com/TermsofUse.aspx`
 MDM discovery URL | `https://enrolment.manage.microsoft.com/enrolmentserver/discovery.svc`
 MDM Compliance URL | `https://portal.manage.microsoft.com/?portalAction=Compliance`
 MAM user scope | Some
-Groups | rol-Agency-users 
+Groups | rol-organisation-users 
 MAM terms of use URL | Not configured
 MAM discovery URL | `https://wip.mam.manage.microsoft.com/Enroll`
 MAM compliance URL | Not configured 
@@ -64,7 +64,7 @@ MAM compliance URL | Not configured
   - Language (Region): `English (Australia)`
   - Automatically configure the keyboard: `Yes`
   - Apply device name template: `Yes`
-  - Enter a name: `<Agency 3 characters>-%SERIAL%`
+  - Enter a name: `<Organisation 3 characters>-%SERIAL%`
 - Scope tags: `Default`
 - Assignments
   - Included groups: `All devices`
@@ -103,8 +103,8 @@ Use security keys for sign-in | Not configured
   - Apply device name template (supervised only): `Yes`
   - Device Name Template: `{SERIAL}-{DEVICETYPE}`
 - Setup Assistant
-  - Department: `<Agency Name>`
-  - Department Phone: `<Agency Support Telephone Number>`
+  - Department: `<Organisation Name>`
+  - Department Phone: `<Organisation Support Telephone Number>`
 - Setup Assistant Screens
   - Passcode: `Hide`
   - Location Services: `Hide`
@@ -142,8 +142,8 @@ Use security keys for sign-in | Not configured
 - Assignments
   - Included groups:
   ```
-  rol-Agency-Users
-  rol-Agency-Administrators
+  rol-organisation-Users
+  rol-organisation-Administrators
   ```
   - Excluded groups: -
 

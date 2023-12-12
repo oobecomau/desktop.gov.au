@@ -12,7 +12,7 @@ The following is guidance from the Australian Cyber Security Centre (ACSC) for s
 
 - A software firewall is implemented on workstations and servers to limit both inbound and outbound network connections (**ISM** security control 1416)
 
-Simply enabling and enforcing the Windows Firewall through policy does not cover the full intent of the ISM control. It is recommended that a reference computer is used to capture the required rules to allow normal Windows desktop function, and also include any additional Windows Firewall rules (inbound and outbound) that may be required for agency specific applications and services.
+Simply enabling and enforcing the Windows Firewall through policy does not cover the full intent of the ISM control. It is recommended that a reference computer is used to capture the required rules to allow normal Windows desktop function, and also include any additional Windows Firewall rules (inbound and outbound) that may be required for organisation specific applications and services.
 
 This process uses the [Endpoint security firewall rule migration tool for Microsoft Intune](https://docs.microsoft.com/en-us/mem/intune/protect/endpoint-security-firewall-rule-tool) which is a PowerShell script provided by Microsoft.
 

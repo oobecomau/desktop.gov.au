@@ -6,7 +6,7 @@
 
 Azure Virtual Desktop (AVD) is a PaaS offering managed by Microsoft that allows administrators to configure, deploy, and manage, a scalable and flexible virtual desktop solution. AVD enables administrators to publish full virtual desktops or remote applications from a single host pool or create individual applications groupings for different sets of users.
 
-Using the Windows 10 Enterprise multi-session capability exclusively available to Azure Virtual Desktop on Azure services, agencies are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
+Using the Windows 10 Enterprise multi-session capability exclusively available to Azure Virtual Desktop on Azure services, organisations are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
 
 AVD provides the following benefits over a traditional Desktop-as-a-Service platform:
 
@@ -23,21 +23,21 @@ The following sections of this document outline design defaults and guidance whe
 
 This diagram shows a typical architectural overview for AVD.
 
-- The user endpoints reside either within an agency's on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the agency's hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services or use native Azure AD join with Intune management.
+- The user endpoints reside either within an organisations on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the organisations hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services or use native Azure AD join with Intune management.
 - The AVD control plane handles Web Access, Gateway, Broker, Diagnostics, and extensibility components like REST APIs.
-- The agency manages AD DS and Azure AD, Azure subscriptions, virtual networks, Azure Storage, and the AVD host pools and workspaces.
-- The agency uses multiple Azure subscriptions in an [enterprise-scale landing zone architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/architecture) as per [Microsoft's Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/overview) for Azure.
+- The organisation manages AD DS and Azure AD, Azure subscriptions, virtual networks, Azure Storage, and the AVD host pools and workspaces.
+- The organisation uses multiple Azure subscriptions in an [enterprise-scale landing zone architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/architecture) as per [Microsoft's Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/overview) for Azure.
 
 ## Assumptions
 
 The following represent the assumptions when considering to deploy Azure Virtual Desktop.
 
-- The agency already has a suitable Azure deployment or is planning an Azure deployment within the Australian Azure regions, with appropriate controls implemented up to Protected.
+- The organisation already has a suitable Azure deployment or is planning an Azure deployment within the Australian Azure regions, with appropriate controls implemented up to Protected.
 - Licensing is available for Windows 10 Enterprise multi-session, Windows 10 Enterprise and FSLogix.
   - Microsoft 365 E3, E5
   - Windows E3, E5
 - Adequate storage is provisioned for the expected number of users. Recommendation of a minimum of 30GB per-user for the Windows profile hosted with the FSLogix solution.
-- The agency has read the [client devices](https://desktop.gov.au/blueprint/client-devices.html) blueprint and ensures the [ACSC Windows 10 hardening guidelines](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) are being adhered to in relation to the AVD Windows 10 session hosts.
+- The organisation has read the [client devices](https://desktop.gov.au/blueprint/client-devices.html) blueprint and ensures the [ACSC Windows 10 hardening guidelines](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) are being adhered to in relation to the AVD Windows 10 session hosts.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Cloud native:
 
 - Azure AD Connect synced to a cloud-only AD DS IaaS (Infrastructure as a Service) within the Azure deployment, or
 - Azure AD DS PaaS configured within the Azure deployment (automatically synchronised to Azure AD), or
-- Agencies can choose to opt out of a AD DS infrastructure and use native Azure AD join with Intune management, but there are caveats that need to be assessed (see Active Directory below).
+- Organisations can choose to opt out of a AD DS infrastructure and use native Azure AD join with Intune management, but there are caveats that need to be assessed (see Active Directory below).
 
 Hybrid:
 
@@ -76,8 +76,8 @@ Active Directory Domain Type | **Hybrid**: AD Connect synced to AD DS domain<br>
 Active Directory Domain | [Domain Name] | A new or current AD DS domain will be leveraged for the AVD solution.
 Active Directory Domain Functional Level (Hybrid Only) | Windows Server 2016 functional level | Latest support AD Functional level and supported by the AVD service.
 Single Sign On | Optional – AD FS is required and supported with Web Client and Windows Client only. | Active Directory Federation Services (AD FS) is required to [support Single Sign On](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-adfs-sso) (SSO) from the RD Gateway logon point through to the AVD desktop.
-AD Organisation Units | `OU=[Agency] Workstations,OU=Windows 10 Virtual,DC=[Domain], DC=GOV, DC=AU` | AVD session host computer accounts will reside within a dedicated Windows 10 virtual desktop OU.
-DNS Type | **Hybrid**: AD DS integrated DNS infrastructure<br><br>**Cloud Native**: AD DS / AAD DS integrated DNS infrastructure | The agency will utilise AD DS integrated DNS infrastructure for name resolution. Communication for hybrid will occur inside the Azure VPN. Communication for Cloud native will be configured within Azure subnets.
+AD Organisation Units | `OU=[Organisation] Workstations,OU=Windows 10 Virtual,DC=[Domain], DC=GOV, DC=AU` | AVD session host computer accounts will reside within a dedicated Windows 10 virtual desktop OU.
+DNS Type | **Hybrid**: AD DS integrated DNS infrastructure<br><br>**Cloud Native**: AD DS / AAD DS integrated DNS infrastructure | The organisation will utilise AD DS integrated DNS infrastructure for name resolution. Communication for hybrid will occur inside the Azure VPN. Communication for Cloud native will be configured within Azure subnets.
 NTLM Requirements (Hybrid Only) | Add AVD hostnames to security groups | For hybrid environment, the AVD session host names will be added to group policy which is applied to the domain controllers: <br><br>* Network security: Restrict NTLM: Add remote server exceptions for NTLM authentication: `<avd hostnames>`<br>* Network security: Restrict NTLM: Add server exceptions in this domain: `<avd hostnames>`
 
 The following figure outlines a suggested AD DS OU Structure with proposed OUs to accommodate the Virtual Desktop and hybrid joined devices.
@@ -96,8 +96,8 @@ Group Policy template versions (ADMX) | **Windows**: Windows 10 Enterprise ( 21H
 Group Policy Inheritance | Enabled | The session host desktop policies will be linked to a new OU structure. No existing policies will be used.
 Group Policy Loopback Mode | Replace Mode | Loopback processing in Replace Mode will be configured to allow finer grained user policies to be linked at the computers OU level.
 ACSC Hardening Guidelines – [Hardening Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations), [Restricting Microsoft Office Macros](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/restricting-microsoft-office-macros) and [Hardening MS 365, Office 2021, Office 2019 and Office 2016](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-365-office-2021-office-2019-and-office-2016). | Deployed | Ensures the ACSC Windows 10 and Office Macro Security hardening recommendations have been assessed and appropriately applied to devices via custom group policies.<br><br>The Client Devices Design Blueprint advice will be followed to harden the AVD VM's except where it does not apply (I.e., Any recommendations that only apply to physical desktop machines and not VM's).  For example, the following outlined hardening recommendations from the guide will not be applied:<br><br>* Early Launch Antimalware<br>* Measured Boot<br>* Secure Boot<br>* BIOS and UEFI passwords<br>* Boot devices<br>* CD burner access<br><br>Exact configurations per the ACSC guidelines will be included in the ‘As-Built As-Configured' documentation. 
-ACSC Group Policy – Override | As required | A set of custom group policy settings to override the ACSC group policies can be applied as needed to meet the agencies requirements (i.e., legacy applications configurations, custom organisational settings, etc).
-Group Policies Configuration | To be outlined in As Built Configuration | As required to allow system to function correctly and as per the agencies requirements.
+ACSC Group Policy – Override | As required | A set of custom group policy settings to override the ACSC group policies can be applied as needed to meet the organisations requirements (i.e., legacy applications configurations, custom organisational settings, etc).
+Group Policies Configuration | To be outlined in As Built Configuration | As required to allow system to function correctly and as per the organisations requirements.
 
 ### Personalisation and profile management
 
@@ -121,10 +121,10 @@ Microsoft provide the following profile management solutions:
 FSLogix provides various functionality and advanced profile configurations that can further optimise the virtual desktop experience:
 
 - Simplification of gold image versioning via the use of application masking. This feature allows the base image to include most optional applications to be installed inside the gold image, while only presenting these applications to authorised users. This simplifies gold image management and application delivery and is relatively simple to setup. For further guidance on this this configuration see [Implement Application Masking Tutorial](https://docs.microsoft.com/en-us/fslogix/implement-application-masking-tutorial).
-- Management of Java versioning used for various URLs and applications, for those agencies running multiple java runtimes within the desktop.
+- Management of Java versioning used for various URLs and applications, for those organisations running multiple java runtimes within the desktop.
 - Use of **redirections.xml** with profile management provides the ability to control which portions of the profile (in the C: drive) are redirected out to the remote profile and kept in sync. Exclusions can optimise the desktop environment and are sometimes used to make an application work within a virtual environment. Microsoft recommend using this feature with caution and to only include exclusions where they are fully understood.  
   - This pattern recommends to utilise the crowdsourced **redirections.xml** as a base. **redirections.xml** is maintained by the virtual desktop user community and can be found at [crowdsourced redirections.xml - github](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv). At minimum, Microsoft recommend excluding certain Microsoft Teams data, this guidance can be found in the [FSLogix Azure Architecture Guide](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#teams-exclusions).
-- Cloud Cache is a configuration option that provides greater resilience for the user profile outside of the standard *VHDLocations* configuration which only provides a mounted remote location for the users profile, this can be subject to availability constraints. The use of Cloud Cache in previous versions of FSLogix introduced a 'logon tax' meaning logon times were slower than using *VHDLocations*, at the expense of resilience and availability. Cloud Cache performance has not yet been validated within this pattern. Agencies are encouraged to assess this feature - which can greatly improve resilience if resilience and availability is a concern. For more information on this architecture, see [Cloud Cache for resiliency and availability.](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt)
+- Cloud Cache is a configuration option that provides greater resilience for the user profile outside of the standard *VHDLocations* configuration which only provides a mounted remote location for the users profile, this can be subject to availability constraints. The use of Cloud Cache in previous versions of FSLogix introduced a 'logon tax' meaning logon times were slower than using *VHDLocations*, at the expense of resilience and availability. Cloud Cache performance has not yet been validated within this pattern. Organisations are encouraged to assess this feature - which can greatly improve resilience if resilience and availability is a concern. For more information on this architecture, see [Cloud Cache for resiliency and availability.](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt)
 
 The following table describes the Profile Management design decisions for the solution.
 
@@ -144,17 +144,17 @@ Decision Point | Design Decision | Justification
 Profile Management Version | FSLogix Apps 2.9.7838.44263 | The latest version at the time of writing. The latest version should be assessed and utilised where appropriate. This agent is installed within the Azure marketplace image. The latest version available at time of deployment should be utilised. 
 Profile Container | Enabled | FSLogix will be used to manage profiles for the solution.
 Office Container | Enabled (optional) | The Office container stores just the Microsoft Office portion of the profile and is utilised to spread storage load over various storage locations.<br />Note, Microsoft Office data is stored in the profile container when the Office container is not utilised, this can simplify the deployment. See [Profile Container vs. Office Container](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt). 
-Cloud Cache | Not configured | VHDLocations will be used in preference of Cloud Cache (CCDLocations) in this pattern due to the resilience and performance using NetApp Files or Azure files seen when appropriately configured for the size of the user base. <br />Agencies are encouraged to test CCDLocations if resilience and availability is a problem. 
+Cloud Cache | Not configured | VHDLocations will be used in preference of Cloud Cache (CCDLocations) in this pattern due to the resilience and performance using NetApp Files or Azure files seen when appropriately configured for the size of the user base. <br />Organisations are encouraged to test CCDLocations if resilience and availability is a problem. 
 Profile Container Logging | Enabled (All logs enabled) | Logging is to be enabled for FSLogix.
 Enable Search Roaming | Disabled | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session and should be disabled, and subsequent multi-session operating systems with enhanced native search capabilities. 
 Search Database Configuration | Not applicable | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session. 
 Outlook Cached Mode | Enabled | FSLogix Outlook Cached mode will be configured to provide the best user experience.
 Dynamic VHD(X) Allocation | Enabled | Dynamic VHD(X) will be configured to provide storage cost savings where possible.
-Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements or consider the Cloud Cache option (out of scope for this blueprint). <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison).
+Profile Virtual Disk Location | Organisation decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the organisation must decide between Azure Files and Azure NetApp files depending on their requirements or consider the Cloud Cache option (out of scope for this blueprint). <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison).
 Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable for this solution.
 Allow concurrent users sessions | Enabled | Concurrent user sessions must be enabled to allow multi-session desktop scenarios. 
 Delete local profile when FSLogix Profile should apply | Enabled | To provide the use a clean desktop session on each desktop launch, it is recommended to enable this setting. 
-Redirections File Path | Azure Storage account or other domain share | The redirections configuration XML will be hosted on a common share, to be determined by the agency.<br /> 
+Redirections File Path | Azure Storage account or other domain share | The redirections configuration XML will be hosted on a common share, to be determined by the organisation.<br /> 
 Redirection Exclusions | Copy `Redirections.xml` file to `[TBD-DOMAIN]\NETLOGON\FsLogix\`<br><br>See recommended [crowd sourced redirections.xml](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv) for base inclusions.<br />For structure and creation of the file see [Structure of redirections.xml file](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt#structure-of-redirectionsxml-file). | It is recommended to use the redirections file with caution. Base configuration recommended initially.<br>Note, the folder path to the redirections.xml path is set through Group Policy and points to the folder where the file exists, not the full path of the file itself. 
 Swap directory name components | Enabled: Swap directory name components | This configuration allows for easier navigation of the user VHDX folders when troubleshooting and during maintenance. 
 
@@ -212,7 +212,7 @@ Azure License Entitlement | Microsoft 365 E3/E5 <br>Windows 10 Enterprise E3/E5 
 Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5 <br>Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
 Encryption | TLS 1.2 | [TLS 1.2 is used for all connections](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity) initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components.
 Identity and Access Configuration | Refer to AVD Control Plane Configuration table | To meet the requirements of this design
-Connectivity | Agency decision point: <br />Optimised through SIG public internet or RDP Shortpath | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation with Microsoft peering. It is recommended that outgoing connections from within the agency to AVD desktops are optimised by either bypassing the agency web proxy, but still egressing the agency's SIG (direct route) or utilising [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) if there is direct line of sight to the Azure Landing zone inside the organisation.<br><br />RDP Shortpath is the recommended approach where it is available the agency. 
+Connectivity | Organisation decision point: <br />Optimised through SIG public internet or RDP Shortpath | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation with Microsoft peering. It is recommended that outgoing connections from within the organisation to AVD desktops are optimised by either bypassing the organisation web proxy, but still egressing the organisations SIG (direct route) or utilising [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) if there is direct line of sight to the Azure Landing zone inside the organisation.<br><br />RDP Shortpath is the recommended approach where it is available the organisation. 
 
 AVD Control Plane Configuration table:
 
@@ -253,11 +253,11 @@ Host Pool Configuration table:
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Host Pool Name | `<agn>-<hp>-<os>-<pooltype>` | Host Pool naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<pooltype>` = Pool Name<br><br>e.g. agency-hp-win10-fin
-Friendly Name | Aligned to Host Pool name | Descriptive text that aligns to the host pool name.<br><br>e.g. Agency Windows 10
+Host Pool Name | `<agn>-<hp>-<os>-<pooltype>` | Host Pool naming will be configured as follows:<br><br>`<agn>` = Organisation Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<pooltype>` = Pool Name<br><br>e.g. organisation-hp-win10-fin
+Friendly Name | Aligned to Host Pool name | Descriptive text that aligns to the host pool name.<br><br>e.g. Organisation Windows 10
 Access | Aligned to user groups | The AVD Session Hosts will accept any user connection with access to the host pool.
-Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Agency Name<br>`<avd>` = Azure Virtual Desktop
-App Groups | `<agn>-<hp>-<os>-<pooltype>-<appgroup>` | Host Pool naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<pooltype>` = Pool Name<br>`<appgroup>` = Application Group<br><br>e.g. agency-hp-win10-fin-accapps
+Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Organisation Name<br>`<avd>` = Azure Virtual Desktop
+App Groups | `<agn>-<hp>-<os>-<pooltype>-<appgroup>` | Host Pool naming will be configured as follows:<br><br>`<agn>` = Organisation Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<pooltype>` = Pool Name<br>`<appgroup>` = Application Group<br><br>e.g. organisation-hp-win10-fin-accapps
 Max Session Limit | Dependant on user-types | To ensure no more than a defined number of users can connect to a single Windows 10 session. Can restrict number of users to a maximum limit per session host.  For best performance and density estimates, see section Session Host Sizing in the next section for further information.
 Session Host Members | View Client Devices guidelines | As per the Client device's blueprint guidelines.
 Validation Environment | Enabled | Allows to monitor service updates before rolling them out to the Production host pool.
@@ -302,7 +302,7 @@ Encryption | Azure Disk Encryption | Session host disks to be encrypted at rest 
 Graphical Application Support | [GPU Capable VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu) available in selected Australian Regions | Windows 10 VMs with higher GPU capability are available from Azure if there is a need to run graphical applications.
 Session Host Power Management | [Azure Automation](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-scaling-script) | Azure Automation will be utilised to scale session host power management. This will enable shutting down and deallocating session host VMs during off-peak usage hours, and powering on and reallocating as required (during peak hours).
 Session Host Configuration | Refer to Session Host Configuration table | Session Host configuration.
-Deployed Applications | Agency defined | Applications to be deployed post platform deployment.
+Deployed Applications | Organisation defined | Applications to be deployed post platform deployment.
 OS Optimisations | [Virtual Desktop Optimization Tool](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-virtual-desktop-optimization-tool-now-available/m-p/1558614) | Microsoft recommend some optimisation to the OS image to increase performance and scalability and enhance the overall end user experience. 
 Antivirus | Microsoft Defender for Endpoint | Microsoft Defender for Endpoint will be configured for the AVD platform. <br><br>For configuration items that apply specifically to an AVD environment, such as a dedicated VDI file share and specific exclusions, refer to [Deployment guide for Microsoft Defender Antivirus in a virtual desktop infrastructure (VDI) environment](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deployment-vdi-microsoft-defender-antivirus?view=o365-worldwide) and for common client device configuration settings, refer to [client devices design](../blueprint/client-devices.md).
 
@@ -322,15 +322,15 @@ Decision Point | Design Decision | Justification
 VM Size | Dependant on user persona type selected | Dependant on user persona type selected.
 Azure VM Generation | Generation 2 | Generation 2 should be selected to support security features such as UEFI.
 Trusted Launch | Configured | To increase the security posture of the virtual machine.
-Name Prefix | `<agn><os><shg><nnn>` | To meet the requirements of this design. App Group naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<os>` = Windows Version<br>`<shg>` = Session Host Group<br>`<nnn>` = Numerical Iteration<br><br>e.g. agnwin10acc001
-Domain | [Agency Domain] | As per agencies domain name.
-AAD DS / AD DS Domain Join Account | svc_domjoin@[Agency Domain] | Service account in the agencies domain.
-Domain Joined type | Hybrid-Joined (depending on Agency Active Directory selection) | AVD Session-hosts will be managed through AAD DS / AD DS.
-Organisational Unit | `OU=[Agency] Workstations,OU=Windows 10 Virtual,DC=[Domain], DC=GOV, DC=AU` | The guidance is to deploy the session hosts to a dedicated organisation unit for the session hosts. The agency can determine where that location best fits with the deployment.
+Name Prefix | `<agn><os><shg><nnn>` | To meet the requirements of this design. App Group naming will be configured as follows:<br><br>`<agn>` = Organisation Name<br>`<os>` = Windows Version<br>`<shg>` = Session Host Group<br>`<nnn>` = Numerical Iteration<br><br>e.g. agnwin10acc001
+Domain | [Organisation Domain] | As per organisations domain name.
+AAD DS / AD DS Domain Join Account | svc_domjoin@[Organisation Domain] | Service account in the organisations domain.
+Domain Joined type | Hybrid-Joined (depending on organisation Active Directory selection) | AVD Session-hosts will be managed through AAD DS / AD DS.
+Organisational Unit | `OU=[Organisation] Workstations,OU=Windows 10 Virtual,DC=[Domain], DC=GOV, DC=AU` | The guidance is to deploy the session hosts to a dedicated organisation unit for the session hosts. The organisation can determine where that location best fits with the deployment.
 IP Subnet | Customer design decision based on networking standards | Adequately sized and number of subnets to be configured as required to host the number of session hosts.
-Network Security Group | `<agn>-<env>-<loc>-<vnet>-<host>-<nsg>` | Azure Virtual Desktop Subnet Network Security Gateway (NSG) with a default deny rule for all traffic, which can be modified as required for specific workloads. Naming convention as follows:<br><br>`<agn>` = Agency <br>`<env>` = Environment (e.g. Prod)<br>`<loc>` = Location (e.g. auc1)<br>`<vnet>` = Virtual Network<br>`<host>` = Workloads the vnet is hosting (I.e. Desktops)<br>`<nsg>` = Network Security Group
+Network Security Group | `<agn>-<env>-<loc>-<vnet>-<host>-<nsg>` | Azure Virtual Desktop Subnet Network Security Gateway (NSG) with a default deny rule for all traffic, which can be modified as required for specific workloads. Naming convention as follows:<br><br>`<agn>` = Organisation <br>`<env>` = Environment (e.g. Prod)<br>`<loc>` = Location (e.g. auc1)<br>`<vnet>` = Virtual Network<br>`<host>` = Workloads the vnet is hosting (I.e. Desktops)<br>`<nsg>` = Network Security Group
 Public Inbound Ports | Disabled | A default deny rule for all traffic, which can be modified as required for specific workloads. AVD control plane traffic will ingress regardless of the NSG configuration.
-Minimum Outbound Ports Allowed | 135/TCP (RPC Endpoint Mapper)<br>1024-65535/TCP (RPC)<br>636/TCP (LDAP SSL)<br>3268/TCP (LDAP GC)<br>3269/TCP (LDAP GC SSL)<br>53/TCP/UDP (DNS)<br>88/TCP/UDP (Kerberos)<br>445/TCP (SMB)<br>1688/TCP (KMS)<br>80 & 443 TCP (internet) | To meet the minimum requirements of this blueprint for the Virtual Desktop to communicate with Active Directory.  Agency to assess additional egress ports based on requirements. More information around network port requirements are outlined in the Access and connectivity section.<br><br>Note 1: AVD control plane outbound ports are not explicitly configured on the NSG and are controlled per URL on the Azure Firewall egress point.<br><br>Note 2: An internet filtering solution for user traffic is in place outside of the Azure Firewall.
+Minimum Outbound Ports Allowed | 135/TCP (RPC Endpoint Mapper)<br>1024-65535/TCP (RPC)<br>636/TCP (LDAP SSL)<br>3268/TCP (LDAP GC)<br>3269/TCP (LDAP GC SSL)<br>53/TCP/UDP (DNS)<br>88/TCP/UDP (Kerberos)<br>445/TCP (SMB)<br>1688/TCP (KMS)<br>80 & 443 TCP (internet) | To meet the minimum requirements of this blueprint for the Virtual Desktop to communicate with Active Directory.  Organisation to assess additional egress ports based on requirements. More information around network port requirements are outlined in the Access and connectivity section.<br><br>Note 1: AVD control plane outbound ports are not explicitly configured on the NSG and are controlled per URL on the Azure Firewall egress point.<br><br>Note 2: An internet filtering solution for user traffic is in place outside of the Azure Firewall.
 Associated Host Pool | Aligned to Host Pools required | Session Hosts will align to the host pools created.
 Built-In Applications | As required | Enterprise applications installed in the image as required.
 
@@ -359,9 +359,9 @@ App Group Configuration table:
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-App Group Name | `<agn>-<hp>-<os>-<loc>-<agn>` | To meet the requirements of this design. App Group naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<loc>` = Location<br>`<agn>` = App Group Name<br><br>e.g. agency-hp-win10-auc-dag
-Friendly Name | Aligned to App Group Name | Descriptive text that aligns to the host pool name.<br><br>e.g. Agency Windows 10 Desktop App Group
-Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Agency Name <br>`<avd>` = Azure Virtual Desktop
+App Group Name | `<agn>-<hp>-<os>-<loc>-<agn>` | To meet the requirements of this design. App Group naming will be configured as follows:<br><br>`<agn>` = Organisation Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<loc>` = Location<br>`<agn>` = App Group Name<br><br>e.g. organisation-hp-win10-auc-dag
+Friendly Name | Aligned to App Group Name | Descriptive text that aligns to the host pool name.<br><br>e.g. Organisation Windows 10 Desktop App Group
+Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Organisation Name <br>`<avd>` = Azure Virtual Desktop
 App Group Type | Desktop / RemoteApp | Desktop or RemoteApp selected depending on the requirement of a full desktop experience or applications only.
 Description | Aligned to App Group Name | Descriptive text that aligns to the app group name. 
 Assignments | Aligned to User Persona | User assignment will be aligned to groupings aligned to the persona image type required.
@@ -388,8 +388,8 @@ Workspace Configuration table:
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Workspace Name | I.e. ‘Accounting Workspace' | The workspace name will be descriptive for the App Group collection.
-Friendly Name | Aligned to Workspace Name | Descriptive text that aligns to the Workspace name.<br><br>e.g. Agency Windows 10 Desktop Workspace
-Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Agency Name<br>`<avd>` = Azure Virtual Desktop
+Friendly Name | Aligned to Workspace Name | Descriptive text that aligns to the Workspace name.<br><br>e.g. Organisation Windows 10 Desktop Workspace
+Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Organisation Name<br>`<avd>` = Azure Virtual Desktop
 Description | Aligned to Workspace Name | Descriptive text that aligns to the workspace name. 
 Host Pool | Aligned to Host Pool | Each Workspace will be aligned to a host pool.
 App Groups | List of App Groups | List of App Groups that will form this Workspace.
@@ -475,7 +475,7 @@ The following client access methods are available to clients:
 - **Android Remote Desktop Client** – Allows users to access Azure Virtual Desktop resources directly from an Android device or a Chromebook that supports the Google Play Store.
 - **MacOS Remote Desktop Client** –Allows users to access Azure Virtual Desktop resources from an Apple computer.
 - **iOS Remote Desktop Client** – Allows users to access Azure Virtual Desktop resources directly from an iOS device (iPhones and iPads).
-- **RDP Shortpath** – Is an Azure Virtual Desktop optimisation feature that allows the client device to establish a direct UDP-based connection between the Remote Desktop Client and the Session host. The feature requires that the client has routing capability into the Azure VNet where the Session hosts reside. This connection method offers a secure reliable and low latency connection directly to Azure for agencies that meet the requirements.
+- **RDP Shortpath** – Is an Azure Virtual Desktop optimisation feature that allows the client device to establish a direct UDP-based connection between the Remote Desktop Client and the Session host. The feature requires that the client has routing capability into the Azure VNet where the Session hosts reside. This connection method offers a secure reliable and low latency connection directly to Azure for organisations that meet the requirements.
 
 The table below describes the Client Access design decisions for the solution. 
 
@@ -483,7 +483,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Primary Client Access | Web Client (HTML5)<br>Windows Desktop Client | User will primarily access AVD resources using the [Web Client](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) (HTML5) and the Windows Desktop Client.<br /><br />The Windows Desktop client installed on a Windows Desktop client is the recommend client access method as it provides support for RDP Shortpath. 
 Browser Support | Microsoft Edge<br>Apple Safari<br>Mozilla Firefox<br>Google Chrome | All current browsers advised by Microsoft which have HTML5 compatibility will be supported.
-Conditional Access App Exclusions | Exclude from blocking policies:<br>Windows Virtual Desktop<br>Windows Virtual Desktop Client<br>Include in MFA grant policy:<br>Windows Virtual Desktop<br>Windows Virtual Desktop Client | Exclusion of any “All Cloud Apps” policies that prevent the use of Azure Virtual Desktop should be implemented to allow connectivity from non-agency endpoints.
+Conditional Access App Exclusions | Exclude from blocking policies:<br>Windows Virtual Desktop<br>Windows Virtual Desktop Client<br>Include in MFA grant policy:<br>Windows Virtual Desktop<br>Windows Virtual Desktop Client | Exclusion of any “All Cloud Apps” policies that prevent the use of Azure Virtual Desktop should be implemented to allow connectivity from non-organisation endpoints.
 Conditional Access Session Control | Set to 14 hours (when KMSI enabled) | Session Control policy should be implemented to enforce MFA after long periods when KMSI (Keep me Signed In) is implemented.
 RDP Shortpath | Configured | RDP Shortpath should be enabled if there is line of sight to the Azure Landing Zone, as it offers better reliability and consistent latency when compared to an Internet connection. 
 
@@ -541,7 +541,7 @@ The table below describes the Client Devices design decisions for the solution.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Device Ownership | Corporate Devices (Intune Managed)<br>BYOD Device (External AVD Access) | Both corporate and BYOD devices may access the AVD solution.  
-Device Types | Corporate Devices (Windows)<br>BYOD Devices (Any Supported AVD Platform) | Government agencies primarily utilise PCs to access the environments and BYOD will need to access via a support platform or a HTML5 capable browser.<br />A Windows Client desktop is the preferred method for supportability. 
+Device Types | Corporate Devices (Windows)<br>BYOD Devices (Any Supported AVD Platform) | Government organisations primarily utilise PCs to access the environments and BYOD will need to access via a support platform or a HTML5 capable browser.<br />A Windows Client desktop is the preferred method for supportability. 
 Supported Client Devices and Web Clients | See Supported [Client Devices](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) and [Web Clients](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) | Any of the supported client devices or web clients can be used to access the AVD platform. 
 Client Device Configuration | Refer to Client Device Considerations table | To meet the requirements of this solution.
 

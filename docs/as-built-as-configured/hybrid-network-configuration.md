@@ -57,7 +57,7 @@ The following table describes the Microsoft Cloud App Security direct firewall e
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
 R05 | MCAS Portal Access | | 13.80.125.22<br>40.74.1.235<br>40.74.6.204<br>40.90.218.196<br>40.90.218.198<br>51.143.58.207<br>52.137.89.147<br>52.183.75.62 | TCP 443
-R05 | MCAS SIEM Agent Connection | Agency SIEM Servers | 13.80.125.22<br>40.74.1.235<br>40.74.6.204<br>40.90.218.196<br>40.90.218.198<br>51.143.58.207<br>52.137.89.147<br>52.183.75.62 | TCP 443
+R05 | MCAS SIEM Agent Connection | Organisation SIEM Servers | 13.80.125.22<br>40.74.1.235<br>40.74.6.204<br>40.90.218.196<br>40.90.218.198<br>51.143.58.207<br>52.137.89.147<br>52.183.75.62 | TCP 443
 R05 | MCAS Access and Session Controls | | 40.81.62.224<br>40.81.62.220<br>40.82.186.168<br>40.82.186.169<br>52.155.180.210<br>52.155.179.84<br>40.66.59.196<br>40.66.60.224<br>40.65.170.80<br>40.65.170.83<br>40.81.127.229<br>40.81.121.66<br>104.45.170.191<br>104.45.170.183<br>40.91.114.40<br>40.91.114.42<br>40.81.62.179<br>40.81.62.223<br>20.40.162.86<br>20.40.162.200<br>40.82.186.182<br>40.82.186.177<br>52.139.21.70<br>52.139.16.105<br>52.155.177.13<br>52.155.180.208<br>52.155.164.131<br>52.155.167.231<br>40.66.60.226<br>40.66.59.193<br>40.66.61.193<br>40.66.61.158<br>40.65.170.113<br>40.65.170.82<br>52.139.245.1<br>52.139.245.21<br>40.81.120.192<br>40.81.127.239<br>51.137.136.34<br>51.137.137.69<br>104.45.170.70<br>104.45.170.180<br>52.224.190.225<br>52.224.191.62<br>40.91.114.41<br>40.91.78.105<br>52.148.161.45<br>52.148.161.53<br>40.81.62.193<br>40.81.62.162<br>40.82.186.166<br>40.82.186.176<br>52.155.180.209<br>52.155.178.247<br>40.66.59.246<br>40.66.59.195<br>40.65.170.81<br>40.65.170.112<br>40.81.120.191<br>40.81.123.157<br>104.45.170.186<br>104.45.170.178<br>40.91.114.43<br>40.91.74.37<br>20.40.161.160<br>20.40.161.161<br>52.139.2.0<br>52.139.1.156<br>52.155.180.211<br>52.155.182.138<br>40.66.62.7<br>40.66.62.9<br>20.184.63.158<br>20.184.61.253<br>20.40.106.51<br>20.40.107.84<br>52.224.202.86<br>52.224.202.91<br>51.143.122.59<br>51.143.122.60<br>40.82.186.168<br>40.82.186.169<br>52.139.2.0<br>52.139.1.156<br>40.82.186.182<br>40.82.186.177<br>52.139.21.70<br>52.139.16.105<br>52.139.9.176<br>52.139.9.198 | TCP 443
 
 ### Mail server
@@ -66,7 +66,7 @@ Table 6 describes the Microsoft Cloud App Security Mail Server settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
-R05 | Mail Relay SPAM Exception | Agency Mail Relays | 65.55.234.192/26<br>207.46.200.0/27<br>65.55.52.224/27<br>94.245.112.0/27<br>111.221.26.0/27<br>207.46.50.192/26 | N/A
+R05 | Mail Relay SPAM Exception | Organisation Mail Relays | 65.55.234.192/26<br>207.46.200.0/27<br>65.55.52.224/27<br>94.245.112.0/27<br>111.221.26.0/27<br>207.46.50.192/26 | N/A
 
 ## Office 365 – Common and Office Online
 
@@ -139,7 +139,7 @@ The following table describes the Office 365 SharePoint Online and OneDrive for 
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
-R06 | SharePoint Online and OneDrive for Business | | *.wns.windows.com<br>admin.onedrive.com<br>officeclient.microsoft.com<br>g.live.com<br>oneclient.sfx.ms<br>*.sharepointonline.com<br>cdn.sharepointonline.com<br>privatecdn.sharepointonline.com<br>publiccdn.sharepointonline.com<br>spoprod-a.akamaihd.net<br>static.sharepointonline.com<br>*.svc.ms<br><Agency Name>Dev-files.sharepoint.com<br><Agency Name>Dev-myfiles.sharepoint.com | TCP 80, 443
+R06 | SharePoint Online and OneDrive for Business | | *.wns.windows.com<br>admin.onedrive.com<br>officeclient.microsoft.com<br>g.live.com<br>oneclient.sfx.ms<br>*.sharepointonline.com<br>cdn.sharepointonline.com<br>privatecdn.sharepointonline.com<br>publiccdn.sharepointonline.com<br>spoprod-a.akamaihd.net<br>static.sharepointonline.com<br>*.svc.ms<br><Organisation Name>Dev-files.sharepoint.com<br><Organisation Name>Dev-myfiles.sharepoint.com | TCP 80, 443
 
 ### Direct firewall exclusion
 
@@ -159,7 +159,7 @@ Below describes the Office 365 Cisco ESA Rules for Office 365 Outbound Protectiv
 
 ```
 office365_outboundprotectivemarkings:
-if ((mail-from == '@<Agency Acronym>\\.gov\\.au$') and (sendergroup == "RELAYLIST")) {
+if ((mail-from == '@<Organisation Acronym>\\.gov\\.au$') and (sendergroup == "RELAYLIST")) {
     if header("Subject") == "SEC=PROTECTED" {
         edit-header-text("Subject", "\\[SEC=PROTECTED\\]*", "");
     }
@@ -200,11 +200,11 @@ if ((mail-from == '@<Agency Acronym>\\.gov\\.au$') and (sendergroup == "RELAYLIS
 
 ### Inbound protective marking
 
-Note: Please do not copy the below rule directly into the Agency environment for Inbound Protective Marking as it will not produce the desired results. This is an example rule which requires modification prior to implementation. The rule contains Globally Unique Identifiers (GUIDs) related to instances of sensitivity labels in a specific tenant.
+Note: Please do not copy the below rule directly into the organisation environment for Inbound Protective Marking as it will not produce the desired results. This is an example rule which requires modification prior to implementation. The rule contains Globally Unique Identifiers (GUIDs) related to instances of sensitivity labels in a specific tenant.
 
 ```
 office365_inboundprotectivemarkings: 
-if (rcpt-to == '@<Agency Acronym>\\.gov\\.au$') {
+if (rcpt-to == '@<Organisation Acronym>\\.gov\\.au$') {
 	if (header("Subject") == "SEC=PROTECTED") AND (header("Subject") == "SEC") {
 		insert-header("X-Protective-marking", "VER=2018.1, NS=gov.au, SEC=PROTECTED, ORIGIN=$EnvelopeFrom");
 		insert-header("msip_labels", "MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=True;MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_SiteId=158b7f91-36cd-420e-8730-3dbec75e20a9;MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Name=PROTECTED;MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_ContentBits=0;MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Method=Privileged;");
@@ -235,12 +235,12 @@ if (rcpt-to == '@<Agency Acronym>\\.gov\\.au$') {
 
 The following tables below describe the Azure Advanced Threat Protection service URLs Whitelist settings.
 
-Direct and correct service location access to the agency Azure ATP instance name (Option 1)
+Direct and correct service location access to the organisation Azure ATP instance name (Option 1)
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
-R08 | Azure ATP portal |  | `agency-instance-name`.atp.azure.com | TCP 443
-R08 | Azure ATP senor |  | `agency-instance-name`.sensorapi.atp.azure.com | TCP 443
+R08 | Azure ATP portal |  | `organisation-instance-name`.atp.azure.com | TCP 443
+R08 | Azure ATP senor |  | `organisation-instance-name`.sensorapi.atp.azure.com | TCP 443
 
 Granular control to service location access for Azure ATP (Option 2)
 
@@ -298,5 +298,5 @@ The following table describes the AAD Connect ports and protocols required for c
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
-R09 | HTTP (used to download Certificate Revocation Lists to verify SSL certificates) | AAD Connect server | Agency Azure AD Tenant | 80 (TCP) / outbound direction
-R09 | HTTPS (used to synchronise with Azure AD, including communication with the AAD Connect Health agents) | AAD Connect server | Agency Azure AD Tenant | 443 (TCP) / outbound direction
+R09 | HTTP (used to download Certificate Revocation Lists to verify SSL certificates) | AAD Connect server | Organisation Azure AD Tenant | 80 (TCP) / outbound direction
+R09 | HTTPS (used to synchronise with Azure AD, including communication with the AAD Connect Health agents) | AAD Connect server | Organisation Azure AD Tenant | 443 (TCP) / outbound direction

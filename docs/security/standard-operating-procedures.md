@@ -10,7 +10,7 @@
 
 The authorisation and approval of users being granted access to the system is out of scope of this Standard Operating Procedure (SOP).
 
-Asset management of devices used by the agency and being connected to the systems is out of scope of this SOP.
+Asset management of devices used by the organisation and being connected to the systems is out of scope of this SOP.
 
 Before a device can be used there are a number of procedures that must be completed for it to be onboarded correctly, these include:
 
@@ -22,7 +22,7 @@ Before a device can be used there are a number of procedures that must be comple
 
 Before completing the procedures detailed in this document, the following prerequisites should be met: 
 
-- The account creation for a user has been approved and authorised through the agencies onboarding and security procedures. 
+- The account creation for a user has been approved and authorised through the organisations onboarding and security procedures. 
 - It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Office 365 and Microsoft Azure. 
 - The system administrator has an active account in Azure AD with the appropriate roles and permissions. 
 - A basic understanding of user account creation. 
@@ -30,11 +30,11 @@ Before completing the procedures detailed in this document, the following prereq
 
 ### Account creation
 
-Before creating a user or privileged user account ensure the user has been authorised and approved to access the system and that Agency privileged management procedures for those users with administrative accounts have been complied with.
+Before creating a user or privileged user account ensure the user has been authorised and approved to access the system and that organisation privileged management procedures for those users with administrative accounts have been complied with.
 
 This instruction includes how to create a standard user or administrative account.
 
-Once the below has been followed for the creation of a user or administrative account a few additional steps will occur automatically. If a standard user account is created (e.g., joe.bloggs@domain.gov.au), the account will automatically be added to the dynamic Azure AD group **rol-Agency-users** using the following rule syntax:
+Once the below has been followed for the creation of a user or administrative account a few additional steps will occur automatically. If a standard user account is created (e.g., joe.bloggs@domain.gov.au), the account will automatically be added to the dynamic Azure AD group **rol-organisation-users** using the following rule syntax:
 
 ```
 (user.accountEnabled -eq true) and (user.userPrincipalName -notContains "_priv")
@@ -42,7 +42,7 @@ Once the below has been followed for the creation of a user or administrative ac
 
 This will automatically provide access to a standard set of applications and apply licenses.
 
-If an administrative account is created (e.g., joe.bloggs_priv@domain.gov.au) is created, the account will automatically be added to the dynamic Azure AD group **rol-Agency-Administrators** using the following rule syntax:
+If an administrative account is created (e.g., joe.bloggs_priv@domain.gov.au) is created, the account will automatically be added to the dynamic Azure AD group **rol-organisation-Administrators** using the following rule syntax:
 
 ```
 (user.accountEnabled -eq true) and (user.userPrincipalName -contains "_priv")
@@ -78,7 +78,7 @@ The new password should be sent to the users’ manager or another trusted sourc
 
 When complete press **Next**
 
-**IMPORTANT NOTE**: when selecting a username, ensure that the standard user account follows the Agency naming standard of `user.name@domain.gov.au`, for an Administrative account however ensure the suffix `_priv` is appended to the username (e.g., `user.name_priv@domain.gov.au`). The reason for this is because dynamic groups exist within Azure AD that will automatically control what licenses are added to the user account.
+**IMPORTANT NOTE**: when selecting a username, ensure that the standard user account follows the organisation naming standard of `user.name@domain.gov.au`, for an Administrative account however ensure the suffix `_priv` is appended to the username (e.g., `user.name_priv@domain.gov.au`). The reason for this is because dynamic groups exist within Azure AD that will automatically control what licenses are added to the user account.
 
 #### Step 5
 
@@ -186,9 +186,9 @@ Ensure the device has been added to the group via the **Notifications** icon in 
 
 ## Device offboarding
 
-Asset management and security procedures regarding lost and stolen devices are out of scope of this SOP and are expected to be managed by the Agency.
+Asset management and security procedures regarding lost and stolen devices are out of scope of this SOP and are expected to be managed by the organisation.
 
-If a device is lost, stolen, broken or simply is being replaced, there are several tasks that must be completed to correctly offboard it. Offboarding simply means removing the device from the Agency Azure Active Directory (Azure AD) instance and anywhere else it can be identified within the overarching tenant.
+If a device is lost, stolen, broken or simply is being replaced, there are several tasks that must be completed to correctly offboard it. Offboarding simply means removing the device from the organisation Azure Active Directory (Azure AD) instance and anywhere else it can be identified within the overarching tenant.
 
 This includes the following tasks:
 
@@ -207,7 +207,7 @@ Before completing the procedures detailed in this document, the following prereq
 
 ### Account disable
 
-Depending on the Agency and security practices in place accounts may need to be disabled rather than deleted with the departure of a user from the Agency.
+Depending on the organisation and security practices in place accounts may need to be disabled rather than deleted with the departure of a user from the organisation.
 
 #### Step 1
 
@@ -237,7 +237,7 @@ When complete press **Save changes**
 
 ### Account deletion
 
-Depending on the Agency and security practices in place accounts may need to be deleted rather than disabled with the departure of a user from the Agency.
+Depending on the organisation and security practices in place accounts may need to be deleted rather than disabled with the departure of a user from the organisation.
 
 #### Step 1
 
@@ -585,7 +585,7 @@ Note: **Removable storage** will block the use of removable storage devices with
 
 When presented with the **Assignments** screen select the groups that this profile is to be applied to.
 
-In this example the update ring will apply to **rol-Agency-Administrators**, and **rol-Agency-Users**.
+In this example the update ring will apply to **rol-organisation-Administrators**, and **rol-organisation-Users**.
 
 When complete, press Next
 
@@ -607,7 +607,7 @@ To confirm that these settings have been applied to an endpoint, plug in a USB d
 
 ### Blocking untrusted and unsigned processes running from USB
 
-USB devices may be allowed to be used within an Agency, however untrusted and unsigned process can be blocked to prevent infection. Alternatively, this setting can also be set to Audit Only to track the processes.
+USB devices may be allowed to be used within an organisation, however untrusted and unsigned process can be blocked to prevent infection. Alternatively, this setting can also be set to Audit Only to track the processes.
 
 This will include executable files as well as script files.
 
@@ -645,7 +645,7 @@ When presented with the **Endpoint Protection settings** screen expand **Microso
 
 When presented with the **Assignments** screen select the groups that this profile is to be applied to.
 
-In this example the update ring will apply to **rol-Agency-Administrators**, and **rol-Agency-Users**.
+In this example the update ring will apply to **rol-organisation-Administrators**, and **rol-organisation-Users**.
 
 When complete, press **Next**
 
@@ -719,7 +719,7 @@ When complete, press **Next**
 
 When presented with the **Assignments** screen select the groups that this profile is to be applied to.
 
-In this example the update ring will apply to **rol-Agency-Administrators**, and **rol-Agency-Users**.
+In this example the update ring will apply to **rol-organisation-Administrators**, and **rol-organisation-Users**.
 
 When complete, press **Next**
 
@@ -858,7 +858,7 @@ When presented with the **Update ring settings** screen select the appropriate s
 
 When presented with the **Assignments** screen select the groups that this update ring is to be applied to.
 
-In this example the update ring will apply to **rol-Agency-Administrators**, and **rol-Agency-Users**.
+In this example the update ring will apply to **rol-organisation-Administrators**, and **rol-organisation-Users**.
 
 When complete, press **Next**
 
@@ -1111,7 +1111,7 @@ Note: In the above example the LinkedIn account connections setting has been adj
 
 ## Important file restoration
 
-All data that is considered important will be stored in a corporate data store, such as OneDrive for Business, SharePoint Online, or Exchange Online. As such, these locations are controlled by retention policies and can be configured to retain deleted items potentially indefinitely. Within the solution a number of retention policies have been created as a baseline, if identified by Agency or business, further can be created with the steps listed below.
+All data that is considered important will be stored in a corporate data store, such as OneDrive for Business, SharePoint Online, or Exchange Online. As such, these locations are controlled by retention policies and can be configured to retain deleted items potentially indefinitely. Within the solution a number of retention policies have been created as a baseline, if identified by organisation or business, further can be created with the steps listed below.
 
 ### Prerequisites
 
@@ -1341,7 +1341,7 @@ The message should now be delivered to the user’s mailbox
 
 ## Data loss prevention
 
-Within the Microsoft 365 Compliance Center, Data Loss Prevention (DLP) policies can be configured to identify and protect Agency data and other sensitive information. DLP can be configured for multiple applications, such as:
+Within the Microsoft 365 Compliance Center, Data Loss Prevention (DLP) policies can be configured to identify and protect organisation data and other sensitive information. DLP can be configured for multiple applications, such as:
 
 - Exchange Online,
 - SharePoint Online,
@@ -1362,7 +1362,7 @@ Before completing the procedures detailed in this document, the following prereq
 
 The following describes how to implement a new DLP policy.
 
-This example describes the scenario where an Agency wants to implement a DLP rule to prevent emails or other information containing Australian driver’s license numbers is not shared with unauthorised users.
+This example describes the scenario where an organisation wants to implement a DLP rule to prevent emails or other information containing Australian driver’s license numbers is not shared with unauthorised users.
 
 #### Step 1
 
@@ -1458,7 +1458,7 @@ When the editing pane shows up, make the required changes then press **Save**
 
 ## BitLocker recovery
 
-BitLocker drive encryption is applied to all Agency devices upon first login via a set of pre-defined Microsoft Endpoint Manager policies. BitLocker drive encryption is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned devices.
+BitLocker drive encryption is applied to all organisation devices upon first login via a set of pre-defined Microsoft Endpoint Manager policies. BitLocker drive encryption is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned devices.
 
 ### Prerequisites
 
@@ -1468,7 +1468,7 @@ Before completing the procedures detailed in this document, the following prereq
 - The appropriate permissions within Microsoft Endpoint Manager.
 - The ID/asset number of the device in question.
 - Physical or phone contact with the owner of the endpoint device that requires the recovery key.
-- Positive confirmation that the owner of the device using agency processes for identity verification.
+- Positive confirmation that the owner of the device using organisation processes for identity verification.
 
 ### Locate BitLocker recovery key
 

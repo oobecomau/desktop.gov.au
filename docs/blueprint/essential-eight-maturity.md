@@ -14,13 +14,13 @@ The previous Essential Eight assessment for the DTA Protected Utility blueprint 
 
 Since then, both the blueprint and Essential Eight have been updated by the DTA and the ACSC respectively. Additional functionality and capabilities have been added to the blueprint, and additional controls to the maturity model. Maturity level 0 has also been re-introduced to the Essential Eight.
 
-The assessments presented in this document includes Windows 10 and the supporting Microsoft 365 (M365) services as described in the blueprint. These assessments do not include iOS or any server infrastructure used by agencies to support the blueprint (e.g. in a hybrid deployment). The exclusion of iOS from this assessment is due to the following:
+The assessments presented in this document includes Windows 10 and the supporting Microsoft 365 (M365) services as described in the blueprint. These assessments do not include iOS or any server infrastructure used by organisations to support the blueprint (e.g. in a hybrid deployment). The exclusion of iOS from this assessment is due to the following:
 
 > "The Essential Eight are designed to protect Microsoft Windows-based internet-connected networks. While the Essential Eight may be applied to cloud services and enterprise mobility... it was not primarily designed for such ... In such cases, organisations should consider alternative guidance provided by the ACSC" - [Essential Eight Maturity Model (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight/essential-eight-maturity-model).
 
 The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/security-configuration-guide-apple-ios-14-devices). 
 
-Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
+Server infrastructure used by organisations to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those organisations. It is recommended that organisations operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
 
 | Mitigation Strategy                                                                         | Maturity Level |
 | :------------------------------------------------------------------------------------------ | :------------: |
@@ -33,7 +33,7 @@ Server infrastructure used by agencies to support hybrid deployments of the blue
 | [Multi-factor authentication](#multi-factor-authentication)                                 | 2              |
 | [Regular backups](#regular-backups)                                                         | N/A            |
 
-Each of the individual assessments against the Essential Eight are described in detail in the following sections. These sections detail the rationale for each maturity level assessment, agency responsibilities, and recommendations to achieving greater maturity levels where applicable.
+Each of the individual assessments against the Essential Eight are described in detail in the following sections. These sections detail the rationale for each maturity level assessment, organisation responsibilities, and recommendations to achieving greater maturity levels where applicable.
 
 ## Application control
 
@@ -54,11 +54,11 @@ Defender for Endpoint (which is enabled as part of the blueprint) can be used to
 
 For additional information on WDAC within the blueprint, see [Windows Defender Application Control](client-devices.md#windows-defender-application-control).
 
-As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3. Note, this assessment assumes agencies undertake the recommendations below.
+As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3. Note, this assessment assumes organisations undertake the recommendations below.
 
 ### Recommendations
 
-To achieve and maintain maturity level 3 it is recommended agencies validate their WDAC rule sets at least annually. In addition, agencies are expected to review application control events via either Defender for Endpoint or a third-party centralised logging platform to detect and action cyber security events.
+To achieve and maintain maturity level 3 it is recommended organisations validate their WDAC rule sets at least annually. In addition, organisations are expected to review application control events via either Defender for Endpoint or a third-party centralised logging platform to detect and action cyber security events.
 
 ## Patch applications
 
@@ -73,15 +73,15 @@ Microsoft Defender for Endpoint provides an [automated vulnerability management 
 
 The blueprint does not include any unsupported or legacy applications.
 
-As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
+As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes organisations undertake the recommendations presented below.
 
-\* If agencies do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 0 unless alternative third-party vulnerability scanner is used.
+\* If organisations do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 0 unless alternative third-party vulnerability scanner is used.
 
 ### Recommendations
 
-It is recommended that agencies monitor the success of application patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities).
+It is recommended that organisations monitor the success of application patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities).
 
-If agencies deploy third-party applications to blueprint devices, they are responsible for ensuring patches are deployed within the required timeframes to maintain maturity level 3. Agencies should consider enabling automatic update features for applications or deploy an automated third-party application patching solution.
+If organisations deploy third-party applications to blueprint devices, they are responsible for ensuring patches are deployed within the required timeframes to maintain maturity level 3. Organisations should consider enabling automatic update features for applications or deploy an automated third-party application patching solution.
 
 ## Configure Microsoft Office macro settings
 
@@ -98,15 +98,15 @@ Microsoft Office macros are blocked from making Win32 API calls using Attack Sur
 
 Defender for Endpoint centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices, which includes the execution of macro-enabled documents and resulting behaviours (such as attempts to make Win32 API calls).
 
-As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
+As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes organisations undertake the recommendations presented below.
 
-\* If agencies do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 2 unless a central logging facility is implemented to retrieve macro execution logs from the registry.
+\* If organisations do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 2 unless a central logging facility is implemented to retrieve macro execution logs from the registry.
 
 ### Recommendations
 
-If users do not have a valid business requirement, it is recommended that macros are disabled for them. The blueprint provides an additional MEM policy that blocks macros for all Microsoft Office applications that agencies can deploy for those users that do not require macros.
+If users do not have a valid business requirement, it is recommended that macros are disabled for them. The blueprint provides an additional MEM policy that blocks macros for all Microsoft Office applications that organisations can deploy for those users that do not require macros.
 
-It is recommended that agencies review their list of trusted publishers at least annually. Agencies should also review macro execution events for any indications of malicious activity.
+It is recommended that organisations review their list of trusted publishers at least annually. Organisations should also review macro execution events for any indications of malicious activity.
 
 ## User application hardening
 
@@ -133,13 +133,13 @@ WDAC is configured so that PowerShell runs in Constrained Language Mode (CLM).
 
 PowerShell script block logging is enabled via MEM in accordance with the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations) hardening guide. Defender for Endpoint also centrally stores EDR logs for all Windows 10 blueprint devices, which includes PowerShell script execution and resultant events.
 
-As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
+As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes organisations undertake the recommendations presented below.
 
-\* If agencies do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 2 unless a central logging facility is implemented to retrieve PowerShell logs from Windows 10 devices.
+\* If organisations do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 2 unless a central logging facility is implemented to retrieve PowerShell logs from Windows 10 devices.
 
 ### Recommendations
 
-Agencies should review Defender for Endpoint alerts and logs to detect unauthorised PowerShell execution attempts.
+Organisations should review Defender for Endpoint alerts and logs to detect unauthorised PowerShell execution attempts.
 
 ## Restrict administrative privileges
 
@@ -158,15 +158,15 @@ All logins to blueprint devices are recorded and centralised to Defender for Ide
 
 Windows Defender Credential Guard is enabled in the Windows 10 blueprint SOE (on supported devices).
 
-Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](solution-overview.md#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
+Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](solution-overview.md#secure-system-administration) for organisations leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
 
-As all required technical controls that are in scope of the blueprint are implemented, the maturity level has been assessed at 3*. Note, this assessment assumes agencies have implemented a compliant secure system administration solution and undertake the recommendations presented below.
+As all required technical controls that are in scope of the blueprint are implemented, the maturity level has been assessed at 3*. Note, this assessment assumes organisations have implemented a compliant secure system administration solution and undertake the recommendations presented below.
 
-\* If agencies have not deployed a separate privileged operating environment in accordance with the recommendations of the blueprint, then the maturity is capped at 0.
+\* If organisations have not deployed a separate privileged operating environment in accordance with the recommendations of the blueprint, then the maturity is capped at 0.
 
 ### Recommendations
 
-Agencies should ensure that only the specific privileges required for a role are assigned to privileged accounts, leveraging Azure AD PIM where possible. Agencies are expected to review changes to privileged accounts and groups via either Defender for Identity or a third-party centralised logging platform to detect and action cyber security events.
+Organisations should ensure that only the specific privileges required for a role are assigned to privileged accounts, leveraging Azure AD PIM where possible. Organisations are expected to review changes to privileged accounts and groups via either Defender for Identity or a third-party centralised logging platform to detect and action cyber security events.
 
 ## Patch operating systems
 
@@ -183,13 +183,13 @@ The Windows 10 blueprint SOE is built using the 21H2 General Availability releas
 
 The blueprint does not include any unsupported or legacy operating systems.
 
-As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
+As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes organisations undertake the recommendations presented below.
 
-\* If agencies do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 0 unless a third-party vulnerability scanner is deployed.
+\* If organisations do not license and configure Defender for Endpoint as recommended by the blueprint, their maturity will be reduced to 0 unless a third-party vulnerability scanner is deployed.
 
 ### Recommendations
 
-It is recommended that agencies monitor the success of operating system patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities).
+It is recommended that organisations monitor the success of operating system patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities).
 
 ## Multi-factor authentication
 
@@ -198,7 +198,7 @@ It is recommended that agencies monitor the success of operating system patching
     <span class="maturity-rating">2</span>
 </div>
 
-M365 products are considered as third-party internet-facing services that process and store both sensitive and non-sensitive data for agencies using the blueprint.
+M365 products are considered as third-party internet-facing services that process and store both sensitive and non-sensitive data for organisations using the blueprint.
 
 Access to all M365 products for blueprint users requires an Azure Multi-Factor Authentication (Azure MFA) prompt to be completed using the Microsoft Authenticator app (something users have) along with their Azure AD password (something users know). The Azure MFA prompt can be completed by either responding to a push notification within the app, or by entering a six-digit code presented by the app.
 
@@ -206,15 +206,15 @@ Privileged users are also required to complete an Azure MFA prompt when authenti
 
 The Microsoft Authenticator app authenticating to Azure AD is not considered verifier impersonation resistant. Microsoft recommend using a FIDO2 security key, smart card, or Windows Hello for Business with hardware Trusted Platform Model (TPM) to implement [verifier impersonation resistant authentication](https://docs.microsoft.com/en-au/azure/active-directory/standards/nist-authenticator-assurance-level-3).
 
-All authentication attempts to M365 services, including Azure MFA status, are logged within the Azure AD sign-in log. Defender for Identity and Microsoft Cloud App Security (MCAS) provide additional capabilities for agencies using the blueprint to detect unauthorised authentication attempts.
+All authentication attempts to M365 services, including Azure MFA status, are logged within the Azure AD sign-in log. Defender for Identity and Microsoft Cloud App Security (MCAS) provide additional capabilities for organisations using the blueprint to detect unauthorised authentication attempts.
 
 As the blueprint's implementation of MFA is not considered verifier impersonation resistant, the maturity level is 2.
 
 ### Recommendations
 
-It is recommended agencies review Azure AD sign-in logs and MCAS alerts to detect potentially malicious authentication attempts.
+It is recommended organisations review Azure AD sign-in logs and MCAS alerts to detect potentially malicious authentication attempts.
 
-Agencies seeking to reach maturity level 3 should consider alternative authentication methods not currently included in the blueprint.
+Organisations seeking to reach maturity level 3 should consider alternative authentication methods not currently included in the blueprint.
 
 ## Regular backups
 
@@ -223,6 +223,6 @@ Agencies seeking to reach maturity level 3 should consider alternative authentic
     <span class="maturity-rating">N/A</span>
 </div>
 
-The assessment of regular backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including agency backup capabilities, and to reflect the need for agencies to implement their own backup strategy tailored to their unique business continuity requirements.
+The assessment of regular backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including organisation backup capabilities, and to reflect the need for organisations to implement their own backup strategy tailored to their unique business continuity requirements.
 
-Microsoft provide the [Shared Responsibility Model](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) to assist customers understand what responsibilities are held by Microsoft as the provider of cloud services, and which remain the responsibility of the agency using these services. Responsibility for '*Information and data*' is described as '*always retained by the customer*'. Therefore, agencies are responsible for the protection of data including backup and restoration.
+Microsoft provide the [Shared Responsibility Model](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) to assist customers understand what responsibilities are held by Microsoft as the provider of cloud services, and which remain the responsibility of the organisation using these services. Responsibility for '*Information and data*' is described as '*always retained by the customer*'. Therefore, organisations are responsible for the protection of data including backup and restoration.

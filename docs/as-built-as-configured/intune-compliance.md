@@ -48,7 +48,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
   - Schedule: `1 Day`
 - Scope tags: `Default`
 - Assignments: 
-  - Included groups: `rol-Agency-Administrators, rol-Agency-Users`
+  - Included groups: `rol-organisation-Administrators, rol-organisation-Users`
   - Excluded groups: -
 
 ## iOS compliance
@@ -81,7 +81,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
   - Schedule: `1 Days`
 - Scope tags: `Default`
 - Assignments
-  - Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  - Included groups: `rol-organisation-Administrators`, `rol-organisation-Users`
   - Excluded groups: -
 
 ## Compliance policy settings

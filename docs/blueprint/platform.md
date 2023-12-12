@@ -133,7 +133,7 @@ Additional Microsoft Entra ID Design Decisions for hybrid implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Identity Source | Windows Server Active Directory Domain Services (AD DS) | As this is a hybrid implementation, Active Directory will be the source of identity. 
-Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with agency specific requirements.
+Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with organisation specific requirements.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Inherited | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
 Display Name | Inherited | Organisations should avoid using the "Lastname, Firstname" display name format within the directory as this can cause display issues within Microsoft 365 applications.

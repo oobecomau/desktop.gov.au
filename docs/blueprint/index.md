@@ -9,7 +9,7 @@ title: Blueprint
 
 The blueprint is a design to secure Microsoft 365 desktops, developed with Microsoft and tested with independent security assessors.
 
-The blueprint offers 4 main artefacts to support agencies with implementation.
+The blueprint offers 4 main artefacts to support organisations with implementation.
 
 - The **Solution Overview** provides a non-technical overview of the blueprint and maps blueprint solutions to the Essential Eight security strategies.
 - The **Platform Design** covers all supporting components for the Windows 10 and 11, iOS and Office 365 (including Microsoft Endpoint Manager).

@@ -27,7 +27,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   - Logo: -
 - Scope tags: `Default`
 - Assignments
-  - Required: `rol-Agency-Users`
+  - Required: `rol-organisation-Users`
   - Available for enrolled devices: -
   - Available with or without enrollment: -
   - Uninstall: -
@@ -101,7 +101,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   - Logo: ![Microsoft Edge for Windows 10](../img/abac/microsoft-edge-for-windows-10.png#center)
 - Scope tags: `Default`
 - Assignments
-  - Required: `grp-agency-windows10-dynamic`
+  - Required: `grp-organisation-windows10-dynamic`
   - Available for enrolled devices: -
   - Available with or without enrollment: -
   - Uninstall: -
@@ -332,5 +332,5 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   - Languages: `No languages selected`
 - Scope tags: `Default`
 - Assignments
-  - Required: `grp-agency-windows10-dynamic`
+  - Required: `grp-organisation-windows10-dynamic`
   - Uninstall: -

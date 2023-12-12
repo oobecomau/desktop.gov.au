@@ -7,9 +7,9 @@
 
 This pattern provides guidance for blueprint users to allow access to Microsoft 365 services from various personally owned devices, without the need to enroll those devices. This is referred to as "bring your own device" (BYOD), within an enterprise mobility strategy.
 
-BYOD allows users to perform their work in a flexible manner within specific use-cases allowing access to corporate systems from personally owned devices across multiple business personas. BYOD provides a range of benefits including more flexible working arrangements for employees creating greater business agility for the Agency, catering for use cases such as:
+BYOD allows users to perform their work in a flexible manner within specific use-cases allowing access to corporate systems from personally owned devices across multiple business personas. BYOD provides a range of benefits including more flexible working arrangements for employees creating greater business agility for the organisation, catering for use cases such as:
 
-- Working remotely from within another government Agency premises,
+- Working remotely from within another government organisation premises,
 - Travel or working from home,
 - Ad-hoc access to calendar and mail,
 - Microsoft Teams collaboration and chat, and
@@ -19,18 +19,18 @@ The pattern works through various use cases and configuration required on top of
 
 It is recommended to read the ACSC risk management publication for enterprise mobility. See [Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/remote-working-and-secure-mobility/secure-mobility/risk-management-enterprise-mobility-including-bring-your-own-device).
 
-This pattern suggests **two BYOD access options** dependent on the risk appetite of the Agency and provides some known risk and ISM control guidance. 
+This pattern suggests **two BYOD access options** dependent on the risk appetite of the organisation and provides some known risk and ISM control guidance. 
 
-Agencies adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data.
+Organisations adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data.
 
 It is not recommended to process or store sensitive or classified (OFFICIAL:Sensitive and above) data on non-corporately managed devices. For commonwealth entities, non-sensitive data is marked as OFFICIAL.
 
-This pattern does not discuss Agency policy surrounding the use of personally/privately-owed devices. The following guidance from the ACSC for OFFICIAL and PROTECTED BYOD implementation is:
+This pattern does not discuss organisation policy surrounding the use of personally/privately-owed devices. The following guidance from the ACSC for OFFICIAL and PROTECTED BYOD implementation is:
 
 - Legal advice is sought prior to allowing privately-owned mobile devices to access systems or data (**ISM** control 1297)
 - Personnel accessing OFFICIAL and PROTECTED systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance and have enforced separation of work data from any personal data (**ISM** control 1400) 
 
-The Protected Utility blueprint does not specify any particular BYOD solution, allowing Agencies to implement a solution that best meets their needs.
+The Protected Utility blueprint does not specify any particular BYOD solution, allowing organisations to implement a solution that best meets their needs.
 
 The technical controls that are described in this document have been grouped into two options that can be implemented together or separately, to provide various BYOD use cases:
 
@@ -39,9 +39,9 @@ The technical controls that are described in this document have been grouped int
 - Allows access to some Microsoft 365 applications from personal mobile devices
 - Granular control of user policies, session controls using Microsoft Defender for Cloud Apps when protecting browser apps
 - Intune Application Protection policies to enforce secure containerisation for company data
-- Conditional Access enforced Agency approved apps for Mobile Devices
+- Conditional Access enforced organisation approved apps for Mobile Devices
 - Suits personas for ad-hoc access to Teams, SharePoint and Outlook on Android and iOS phone or tablet devices
-- Agencies to risk assess for their environment and data classification
+- Organisations to risk assess for their environment and data classification
 - This BYOD option is not recommended for use cases involving access to sensitive or classified information.
 
 **Virtual desktop**
@@ -51,8 +51,8 @@ The technical controls that are described in this document have been grouped int
 - Supports any client device able to access AVD
 - Lower security risk approach compared to mobile device, but offers greater use cases
 - More complexity and cost involved to deploy and operate
-- Suits personas for enterprise mobility, including cross-Agency working
-- Agencies to risk assess for their environment and data classification.
+- Suits personas for enterprise mobility, including cross-organisation working
+- Organisations to risk assess for their environment and data classification.
 
 ![BYOD options](../img/patterns/byodoptions.png#center)
 
@@ -87,7 +87,7 @@ Hybrid:
 Options | Use-Cases | Complexity to implement | Risk considerations 
 --- | --- | ---| ---
  Mobile device access (Option 1) | Provides ad-hoc access on the road and in the office to email, Teams and SharePoint from personally owned mobile devices such as iOS and Android devices. <br />Use-case provides some offline access if connectivity is limited.<br /><br />Not suitable for OFFICIAL:Sensitve and above (sensitive or classified data). | Easiest             | Inability to enforce device security controls<br /><br />Limited ability to check compliance for zero trust<br /><br />Lost phone, potential inability to remote data wipe as phone is not fully managed 
- Virtual desktop (Option 2) | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. Access is available from a user's personal Windows or Mac device to access the virtual desktop.<br /><br />Remote working within another government Agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Greater compliance with PROTECTED-level ISM controls and the Essential Eight<br /><br />Screen shot/scraping and physical security (e.g. taking picture of the screen) is a residual risk 
+ Virtual desktop (Option 2) | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. Access is available from a user's personal Windows or Mac device to access the virtual desktop.<br /><br />Remote working within another government organisation or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Greater compliance with PROTECTED-level ISM controls and the Essential Eight<br /><br />Screen shot/scraping and physical security (e.g. taking picture of the screen) is a residual risk 
 
 The following process can be followed to determine which pattern option to follow.
 
@@ -95,7 +95,7 @@ The following process can be followed to determine which pattern option to follo
 
 ### Security Considerations
 
-Introducing BYOD carries some risk for the Agency. While some controls can be addressed through a technical control, others require user training and Agency policy (for example, Standard Operating Procedures (SOPs)) in place to ensure responsibilities are met and understood, and the appropriate mitigations are in place.
+Introducing BYOD carries some risk for the organisation. While some controls can be addressed through a technical control, others require user training and organisation policy (for example, Standard Operating Procedures (SOPs)) in place to ensure responsibilities are met and understood, and the appropriate mitigations are in place.
 
 The following controls while not exhaustive should be a focus while assessing the risk for BYOD under an enterprise mobility strategy. 
 
@@ -105,10 +105,10 @@ Note, refer to the [System Security Plan](../security/system-security-plan.md) f
 
 | Control | Description                                                  | Option 1 (mobile device)                                     | Option 2 (AVD)                                               |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1533    | A mobile device management policy is developed and implemented. | Agency to address                                            | Not applicable                                               |
+| 1533    | A mobile device management policy is developed and implemented. | Organisation to address                                            | Not applicable                                               |
 | 1195    | A Mobile Device Management solution is used to ensure mobile device management policy is applied to all mobile devices. | Not implemented                                              | Not applicable                                               |
 | 1400    | Personnel accessing official or classified systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance, and have enforced separation of official and classified data from any personal data. | Partially implemented                                        | Not applicable                                               |
-| 1297    | Legal advice is sought prior to allowing privately-owned mobile devices to access official or classified systems or data. | Agency to address                                            | Not applicable                                               |
+| 1297    | Legal advice is sought prior to allowing privately-owned mobile devices to access official or classified systems or data. | Organisation to address                                            | Not applicable                                               |
 | 0869    | All data on mobile devices is encrypted using at least an Australian Signals Directorate Approved Cryptographic Algorithm. | Implemented                                                  | Not applicable                                               |
 | 1085    | Mobile devices used to communicate sensitive or classified data over public network infrastructure use encryption approved for communicating such data over public network infrastructure. | Implemented                                                  | Not applicable                                               |
 | 1202    | The range of Bluetooth communications between mobile devices and other Bluetooth devices is restricted to less than 10 metres by using class 2 or class 3 Bluetooth devices. | Not Implemented                                              | Not applicable                                               |
@@ -122,22 +122,22 @@ Note, refer to the [System Security Plan](../security/system-security-plan.md) f
 | 1366    | Mobile devices are able to accept security updates from mobile carriers as soon as they become available. | Partially implemented through O/S version control            | Not applicable                                               |
 | 0874    | Web browsing from mobile devices is conducted through an organisation’s internet gateway rather than via a direct connection to the internet. | Not implemented                                              | Not applicable                                               |
 | 0705    | When accessing an organisation system via a VPN connection, split tunnelling is disabled. | Not applicable                                               | Not applicable                                               |
-| 1082    | A mobile device usage policy is developed and implemented.   | Agency to address                                            | Agency to address                                            |
-| 1083    | Personnel are advised of the sensitivity or classification permitted for voice and data communications when using mobile devices. | Agency to address                                            | Agency to address                                            |
+| 1082    | A mobile device usage policy is developed and implemented.   | Organisation to address                                            | Organisation to address                                            |
+| 1083    | Personnel are advised of the sensitivity or classification permitted for voice and data communications when using mobile devices. | Organisation to address                                            | Organisation to address                                            |
 | 0240    | Paging, Multimedia Message Service, Short Message Service or instant messaging apps are not used to communicate sensitive or classified data. | Implemented through MAM-WE, cannot share data with native apps | Not applicable                                               |
-| 0866    | Sensitive or classified data is not viewed or communicated in public locations unless care is taken to reduce the chance of the screen of a mobile device being observed. | Agency to address                                            | Agency to address                                            |
-| 1644    | Sensitive or classified phone calls are not conducted in public locations unless care is taken to reduce the chance of conversations being overheard. | Agency to address                                            | Agency to address                                            |
-| 0871    | Mobile devices are kept under continual direct supervision when being actively used. | Agency to address                                            | Agency to address                                            |
-| 0870    | Mobile devices are carried or stored in a secured state when not being actively used. | Agency to address<br />Protection via inactivity lockouts is implemented | Agency to address<br />Protection via inactivity lockouts is implemented |
+| 0866    | Sensitive or classified data is not viewed or communicated in public locations unless care is taken to reduce the chance of the screen of a mobile device being observed. | Organisation to address                                            | Organisation to address                                            |
+| 1644    | Sensitive or classified phone calls are not conducted in public locations unless care is taken to reduce the chance of conversations being overheard. | Organisation to address                                            | Organisation to address                                            |
+| 0871    | Mobile devices are kept under continual direct supervision when being actively used. | Organisation to address                                            | Organisation to address                                            |
+| 0870    | Mobile devices are carried or stored in a secured state when not being actively used. | Organisation to address<br />Protection via inactivity lockouts is implemented | Organisation to address<br />Protection via inactivity lockouts is implemented |
 | 1084    | If unable to apply encryption to mobile devices that is suitable for them to be carried through areas not authorised to process the data stored on them, they are physically transferred in a security briefcase or an approved multi-use satchel, pouch or transit bag. | Implemented (data is encrypted in container and protected via credential) | Data not stored outside of AVD session but screenshot to physical device is possible |
-| 0701    | A mobile device emergency sanitisation process, and supporting mobile device emergency sanitisation procedures, is developed and implemented. | Agency to develop SOP to selectively wipe container when required. Refer to [How to Selective Wipe](https://docs.microsoft.com/en-us/mem/intune/apps/apps-selective-wipe) | Not applicable, no data on mobile device                     |
-| 1298    | Personnel are advised of privacy and security risks when travelling overseas with mobile devices. | Agency to address                                            | Not applicable                                               |
-| 1554    | If travelling overseas with mobile devices to high/extreme risk countries, personnel are:<br />issued with newly provisioned accounts and devices from a pool of dedicated travel devices which are - used solely for work-related activities<br />- advised on how to apply and inspect tamper seals to key areas of devices<br />- advised to avoid taking any personal devices, especially if rooted or jailbroken. | Agency to address, MAM policy to prevent jailbreak/rooted    | Not applicable                                               |
-| 1555    | Before travelling overseas with mobile devices, personnel take the following actions:<br />- record all details of the devices being taken, such as product types, serial numbers and International Mobile Equipment Identity numbers<br />- update all applications and operating systems<br />- remove all non-essential accounts, applications and data<br />- apply security configuration settings, such as lock screens<br />- configure remote locate and wipe functionality<br />- enable encryption, including for any media used<br />- backup all important data and configuration settings. | Agency to address<br /> Selective wipe available when required<br />O/S version control available<br />Screenlock and mandatory passcodes enforced with MFA | Not applicable                                               |
-| 1299    | Personnel take the following precautions when travelling overseas with mobile devices:<br />- never leaving devices or media unattended for any period of time, including by placing them in checked-in luggage or leaving them in hotel safes<br />- never storing credentials with devices that they grant access to, such as in laptop bags <br />- never lending devices to untrusted people, even if briefly <br />- never allowing untrusted people to connect other devices or media to their devices, including for charging<br />- never using designated charging stations, wall outlet charging ports or chargers supplied by untrusted people<br />- avoiding connecting devices to open or untrusted Wi-Fi networks<br />- using an approved Virtual Private Network to encrypt all device communications<br />- using encrypted mobile applications for communications instead of using foreign telecommunication networks<br />- disabling any communications capabilities of devices when not in use, such as cellular data, wireless, Bluetooth and Near Field Communication<br />- avoiding reuse of media once used with other parties’ devices or systems<br />- ensuring any media used for data transfers are thoroughly checked for malicious code before <br />- never using any gifted devices, especially media, when travelling or upon returning from travelling. | Agency to address                                            | Not applicable                                               |
-| 1088    | Personnel report the potential compromise of mobile devices, media or credentials to their organisation as soon as possible, especially if they:<br />- provide credentials, decrypt devices or have devices taken out of sight by foreign government officials<br />- have devices or media stolen that are later returned <br />- lose devices or media that are later found<br />- observe unusual behaviour of devices. | Agency to address                                            | Not applicable                                               |
-| 1300    | Upon returning from travelling overseas with mobile devices, personnel take the following actions:<br />- sanitise and reset devices, including all media used with them<br />- decommission any physical credentials that left their possession during their travel<br />- report if significant doubt exists as to the integrity of any devices following their travel. | Agency to address                                            | Not applicable                                               |
-| 1556    | If returning from travelling overseas with mobile devices to high/extreme risk countries, personnel take the following additional actions:<br />- reset user credentials used with devices, including those used for remote access to their organisation’s systems<br />- monitor accounts for any indicators of compromise, such as failed login attempts. | Agency to address                                            | Not applicable                                               |
+| 0701    | A mobile device emergency sanitisation process, and supporting mobile device emergency sanitisation procedures, is developed and implemented. | Organisation to develop SOP to selectively wipe container when required. Refer to [How to Selective Wipe](https://docs.microsoft.com/en-us/mem/intune/apps/apps-selective-wipe) | Not applicable, no data on mobile device                     |
+| 1298    | Personnel are advised of privacy and security risks when travelling overseas with mobile devices. | Organisation to address                                            | Not applicable                                               |
+| 1554    | If travelling overseas with mobile devices to high/extreme risk countries, personnel are:<br />issued with newly provisioned accounts and devices from a pool of dedicated travel devices which are - used solely for work-related activities<br />- advised on how to apply and inspect tamper seals to key areas of devices<br />- advised to avoid taking any personal devices, especially if rooted or jailbroken. | Organisation to address, MAM policy to prevent jailbreak/rooted    | Not applicable                                               |
+| 1555    | Before travelling overseas with mobile devices, personnel take the following actions:<br />- record all details of the devices being taken, such as product types, serial numbers and International Mobile Equipment Identity numbers<br />- update all applications and operating systems<br />- remove all non-essential accounts, applications and data<br />- apply security configuration settings, such as lock screens<br />- configure remote locate and wipe functionality<br />- enable encryption, including for any media used<br />- backup all important data and configuration settings. | Organisation to address<br /> Selective wipe available when required<br />O/S version control available<br />Screenlock and mandatory passcodes enforced with MFA | Not applicable                                               |
+| 1299    | Personnel take the following precautions when travelling overseas with mobile devices:<br />- never leaving devices or media unattended for any period of time, including by placing them in checked-in luggage or leaving them in hotel safes<br />- never storing credentials with devices that they grant access to, such as in laptop bags <br />- never lending devices to untrusted people, even if briefly <br />- never allowing untrusted people to connect other devices or media to their devices, including for charging<br />- never using designated charging stations, wall outlet charging ports or chargers supplied by untrusted people<br />- avoiding connecting devices to open or untrusted Wi-Fi networks<br />- using an approved Virtual Private Network to encrypt all device communications<br />- using encrypted mobile applications for communications instead of using foreign telecommunication networks<br />- disabling any communications capabilities of devices when not in use, such as cellular data, wireless, Bluetooth and Near Field Communication<br />- avoiding reuse of media once used with other parties’ devices or systems<br />- ensuring any media used for data transfers are thoroughly checked for malicious code before <br />- never using any gifted devices, especially media, when travelling or upon returning from travelling. | Organisation to address                                            | Not applicable                                               |
+| 1088    | Personnel report the potential compromise of mobile devices, media or credentials to their organisation as soon as possible, especially if they:<br />- provide credentials, decrypt devices or have devices taken out of sight by foreign government officials<br />- have devices or media stolen that are later returned <br />- lose devices or media that are later found<br />- observe unusual behaviour of devices. | Organisation to address                                            | Not applicable                                               |
+| 1300    | Upon returning from travelling overseas with mobile devices, personnel take the following actions:<br />- sanitise and reset devices, including all media used with them<br />- decommission any physical credentials that left their possession during their travel<br />- report if significant doubt exists as to the integrity of any devices following their travel. | Organisation to address                                            | Not applicable                                               |
+| 1556    | If returning from travelling overseas with mobile devices to high/extreme risk countries, personnel take the following additional actions:<br />- reset user credentials used with devices, including those used for remote access to their organisation’s systems<br />- monitor accounts for any indicators of compromise, such as failed login attempts. | Organisation to address                                            | Not applicable                                               |
 
 ### Mobile device access (BYOD Option 1)
 
@@ -164,9 +164,9 @@ Access via Mobile Application Management (MAM) is provided through approved appl
 
 - Intune app protection policies provide a container policy to the applications to secure corporate data, and prevent download upload, copy and paste actions, and enforce a PIN/appropriate passcode. 
 - A MAM model does not require the device to be managed (MDM) or enrolled so will carry additional risk. Intune app protection MAM policies can be applied without enrolment requirement, this is referred to as MAM without enrolment (MAM-WE). Approved applications can be defined through the Conditional Access policies.  Conditional Access policies can be applied based on various attributes such as device state, user group or location.
-- With MAM, iOS devices do not require Apple Business Manager or Apple Push Notification Service certificate configuration (the configuration in the blueprint for MDM can be ignored if this pattern is the only method for Mobile Devices for the Agency). Without MDM policies and enrolment, various functions cannot be prevented such as the ability to restrict screenshot for example.
-- To protect the data in the event that a device is lost or stolen or if the employee leaves the Agency, Selective Wipe capability can be used to wipe the corporate data in managed apps from the device. Intune app protection policies can help prevent data contamination between non managed apps on a client device.
-- Agencies should provide some guidance or user guides to their users on how to install the Office applications on their devices and authenticate to avoid confusion. Note, these actions and out-of-the-box setup are generally automated within a supervised, managed deployment. 
+- With MAM, iOS devices do not require Apple Business Manager or Apple Push Notification Service certificate configuration (the configuration in the blueprint for MDM can be ignored if this pattern is the only method for Mobile Devices for the organisation). Without MDM policies and enrolment, various functions cannot be prevented such as the ability to restrict screenshot for example.
+- To protect the data in the event that a device is lost or stolen or if the employee leaves the organisation, Selective Wipe capability can be used to wipe the corporate data in managed apps from the device. Intune app protection policies can help prevent data contamination between non managed apps on a client device.
+- Organisations should provide some guidance or user guides to their users on how to install the Office applications on their devices and authenticate to avoid confusion. Note, these actions and out-of-the-box setup are generally automated within a supervised, managed deployment. 
 
 #### Azure AD Identity Protection
 
@@ -192,9 +192,9 @@ The following tables describe the high level implementation decisions
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexibility but also greater risk than full application access on managed Windows devices. Less risk can be provided by the virtual desktop BYOD option. 
-Conditional Access | Conditional Access will be configured with exception group for those trusted for MAM | Provides a Zero Trust method to restrict access to this use case only and allows Protected Utility blueprint baseline configuration for remainder of Agency that do not require BYOD for their persona. 
+Conditional Access | Conditional Access will be configured with exception group for those trusted for MAM | Provides a Zero Trust method to restrict access to this use case only and allows Protected Utility blueprint baseline configuration for remainder of organisation that do not require BYOD for their persona. 
 Defender for Cloud Apps | Cloud App security Session policies will restrict access to data within browser sessions | Provides a Zero Trust method to restrict access to leaking of data. 
-Intune app protection policies | App protection polices will be deployed to the MAM identity groups without enrollment required (MAM-WE) | Provides some protection against Agency data within a managed app. Protection will require a passcode within the app, control sharing of data between apps and prevent copy of data to personal locations. This allows separation between corporate and personal data to address the intent of ISM security control 1400. 
+Intune app protection policies | App protection polices will be deployed to the MAM identity groups without enrollment required (MAM-WE) | Provides some protection against organisation data within a managed app. Protection will require a passcode within the app, control sharing of data between apps and prevent copy of data to personal locations. This allows separation between corporate and personal data to address the intent of ISM security control 1400. 
 Azure AD Identity Protection | Blueprint configuration will remain in place enabling Enable the sign-in risk policy and user risk policy within the Azure AD tenant | Provide reporting of detected suspicious sign-in activity based on defined MFA, sign-in risk and user risk policies for increased security and automated remediation steps such as requiring a password change or MFA challenge when authentication is suspicious. 
 Multi Factor Authentication | Multi Factor authentication for this use-case will always be enforced. | As per the blueprint baselines defined within the [platform design](../blueprint/platform.md). 
 
@@ -210,7 +210,7 @@ The following updates are required within Azure AD.
 
 | Item                           | Value                                               |
 | ------------------------------ | --------------------------------------------------- |
-| New Group: rol-Agency-MAMUsers | Type: Security<br />Membership: Statically assigned |
+| New Group: rol-organisation-MAMUsers | Type: Security<br />Membership: Statically assigned |
 
 ##### App Protection Policies
 
@@ -220,7 +220,7 @@ The following updates are required to existing app protection policies.
 
 | Item                                            | Value                                           |
 | ----------------------------------------------- | ----------------------------------------------- |
-| Existing policy name: iOS App Protection Policy | Assignment: Exclude Group - rol-Agency-MAMUsers |
+| Existing policy name: iOS App Protection Policy | Assignment: Exclude Group - rol-organisation-MAMUsers |
 
 ##### Conditional Access Polices
 
@@ -230,7 +230,7 @@ The following updates are required to the following Conditional Access Policies 
 
 | Item                                            | Value                                                        |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| Existing policy name: GRANT - iOS Device access | This policy requires iOS device state to be compliant which requires enrollment. The update required to this policy is the exclude the MAM users group.<br /><br />Assignments > Exclude > rol-Agency-MAMUsers |
+| Existing policy name: GRANT - iOS Device access | This policy requires iOS device state to be compliant which requires enrollment. The update required to this policy is the exclude the MAM users group.<br /><br />Assignments > Exclude > rol-organisation-MAMUsers |
 
 The following is a new Conditional Access Policy to allow MAM access for BYOD option 2.
 
@@ -241,7 +241,7 @@ The following is a new Conditional Access Policy to allow MAM access for BYOD op
 - Name: `GRANT – MAM BYOD access`
 - Assignments
   - Users and groups
-    - Include: `rol-Agency-MAMUsers`
+    - Include: `rol-organisation-MAMUsers`
     - Exclude
       - All guest and external users: `False`
       - Directory roles: `False`
@@ -306,7 +306,7 @@ The following is a new Conditional Access Policy to allow block unapproved apps 
 - Name: `BLOCK – MAM BYOD unapproved cloud apps`
 - Assignments
   - Users and groups
-    - Include: `rol-Agency-MAMUsers`
+    - Include: `rol-organisation-MAMUsers`
     - Exclude
       - All guest and external users: `False`
       - Directory roles: `False`
@@ -476,7 +476,7 @@ The following updates are required for managed application on iOS and Android.
 | Min OS version                                           | 15.0 (Block access)<br />Note: define latest version at time of configure |
 | Disabled account                                         | Block access                                                 |
 | **Assignments**                                          |                                                              |
-| Included groups                                          | rol-Agency-MAMUsers                                          |
+| Included groups                                          | rol-organisation-MAMUsers                                          |
 
 ###### Android MAM app protection policy without enrollment
 
@@ -527,7 +527,7 @@ The following updates are required for managed application on iOS and Android.
 | Min OS version                                           | 12.0 (Block access)<br />Note: define latest version at time of configure |
 | Disabled account                                         | Block access                                                 |
 | **Assignments**                                          |                                                              |
-| Included groups                                          | rol-Agency-MAMUsers                                          |
+| Included groups                                          | rol-organisation-MAMUsers                                          |
 
 ### Virtual desktop (BYOD Option 2)
 
@@ -546,20 +546,20 @@ The recommendation to implement this option is to utilise the [Azure Virtual Des
 
 The pattern recommends the following:
 
-- A suitably configured Azure subscription is available, which may include connectivity to the Agency's IT premises (e.g. data centre) where connectivity to hybrid Active Directory or corporate apps is required.
+- A suitably configured Azure subscription is available, which may include connectivity to the organisations IT premises (e.g. data centre) where connectivity to hybrid Active Directory or corporate apps is required.
 - Windows Desktop OS multi-session operation system is used to offer greater supportability and cost savings than that of a single instance virtual machines.
 - Conditional Access policies are configured to allow access to the AVD application without enrollment or restriction, and to allow access to Microsoft 365 applications inside the virtual desktop. This will allow personal devices to connect to the service without restriction but only the virtual desktop to access the data.
 - Copy and paste actions, file copy and print are prevented within RDP client properties and group policy to prevent virtual channels being used to copy data in and out of the PROTECTED boundary (the virtual desktop).
 - Multifactor authentication is enforced with session controls to prevent multiple day use of the MFA token.
 - Identity Protection is configured to allow detection of risky sign-ins.
 
-**Mobile devices** or **personal devices** in the context of this BYOD option are consumer desktop devices using MacOS or Windows, or devices provided by another government Agency (cross-Agency working use-cases).
+**Mobile devices** or **personal devices** in the context of this BYOD option are consumer desktop devices using MacOS or Windows, or devices provided by another government organisation (cross-organisation working use-cases).
 
 #### Data segregation
 
 AVD allows users access to Office 365 applications that are hosted on a Windows virtual desktop, including any hybrid applications provided these are configured appropriately within the Azure environment. The user interacts with the applications within the virtual desktop preventing the user from extracting corporate data to the local physical device.
 
-Virtual desktops provide a greater level of security accessing Agency data over a MAM solution (option 1) as all the data remains within the Azure secure boundary (the Azure enterprise landing zone).
+Virtual desktops provide a greater level of security accessing organisation data over a MAM solution (option 1) as all the data remains within the Azure secure boundary (the Azure enterprise landing zone).
 
 #### Client device access
 
@@ -572,8 +572,8 @@ The following tables describe the high level implementation decisions
 Decision Point | Design Decision | Justification
 --- | --- | ---
  Mobile device use cases | Personal device access to a corporate Windows virtual desktop.| Offers greater level of access to applications and data and less risk exposure than MAM data separation.
- Conditional Access | Conditional Access will be configured with exception group for those trusted for AVD| Provides a Zero Trust method to restrict access to this use case only and allows Protected Utility blueprint baseline configuration for remainder of Agency that don't require virtual desktops for their job role.
- Azure Virtual Desktop design | Protected Utility blueprint Azure Virtual Desktop pattern| The Protected Utility blueprint Azure Virtual Desktop pattern provides advice to deploy a secure enterprise virtual desktop solution on Azure with suitable controls to operate at PROTECTED.<br /><br />Note: Agencies should risk assess their own design or deployment of this pattern to determine suitability to operate in their environment.
+ Conditional Access | Conditional Access will be configured with exception group for those trusted for AVD| Provides a Zero Trust method to restrict access to this use case only and allows Protected Utility blueprint baseline configuration for remainder of organisation that don't require virtual desktops for their job role.
+ Azure Virtual Desktop design | Protected Utility blueprint Azure Virtual Desktop pattern| The Protected Utility blueprint Azure Virtual Desktop pattern provides advice to deploy a secure enterprise virtual desktop solution on Azure with suitable controls to operate at PROTECTED.<br /><br />Note: Organisations should risk assess their own design or deployment of this pattern to determine suitability to operate in their environment.
 
 #### BYOD Option 2 configuration guide
 
