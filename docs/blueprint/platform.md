@@ -10,7 +10,7 @@ The blueprint includes guidance for cloud native and hybrid deployments of Micro
 
 Each section of the document provides a description of the relevant technology component, including considerations, decisions and their applicability to cloud native implementations, hybrid configurations, or both.
 
-It is important to consider that even if a product is licenced for use by Microsoft, it may not be included in this blueprint if it is not required for all agencies or a product that cannot operate at PROTECTED. Additionally, an organisation may have requirements that will need to be considered outside of this blueprint.
+It is important to consider that even if a product is licenced for use by Microsoft, it may not be included in this blueprint if it is not required for all organisations or a product that cannot operate at PROTECTED. Additionally, an organisation may have requirements that will need to be considered outside of this blueprint.
 
 This document covers the following topics.
 
@@ -97,7 +97,7 @@ Azure IAM is configured using:
 
 Where an organisation has already determined that a HYBRID solution is required, [additional considerations](https://learn.microsoft.com/en-au/azure/active-directory/hybrid/common-scenarios) will apply and these should also be reviewed.
 
-Microsoft Entra ID Design Decisions for all agencies and implementation types.
+Microsoft Entra ID Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -105,8 +105,8 @@ Cloud Based Service Accounts | Configured | Break glass accounts are required to
 Allow the registration of applications by users | Disabled | Only administrators can register applications.
 Allow self-service sign-up for email verified users | Disabled | Only administrators can create user accounts. 
 Restrict access to the Microsoft Entra ID administrative portal | Enabled | Only administrators have access to the portal.
-Allow LinkedIn connections | Disabled | To meet the organisation's requirements not to share information with third party Agencies without approval.
-External Collaboration | Configured | As required by the organisation, provided the external Agencies are at the same classification.
+Allow LinkedIn connections | Disabled | To meet the organisation's requirements not to share information with third party organisations without approval.
+External Collaboration | Configured | As required by the organisation, provided the external organisations are at the same classification.
 Group Management | Configured | Naming policies and expiration as required by the organisation.
 Azure Active Directory RBAC | Configured | For ease of administration, segregation and delegation of roles. Users and administrators will be assigned only the roles they need through PIM (Privileged Identity Management).
 Enterprise Applications | Not Configured  | No enterprise applications have been identified.
@@ -126,17 +126,17 @@ Decision Point | Design Decision | Justification
 Identity Source | Microsoft Entra ID | As this is a cloud only implementation Microsoft Entra ID will be the source of identity.
 Password Reset | Configured | For self-service password reset, users will need to provide an alternate email address, mobile app and phone number during registration. To reset their password, they will need to provide two methods of verification.
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
-Display Name | Firstname Lastname | Agencies should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
+Display Name | Firstname Lastname | Organisations should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
 
 Additional Microsoft Entra ID Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Identity Source | Windows Server Active Directory Domain Services (AD DS) | As this is a hybrid implementation, Active Directory will be the source of identity. 
-Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with agency specific requirements.
+Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with organisation specific requirements.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Inherited | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
-Display Name | Inherited | Agencies should avoid using the "Lastname, Firstname" display name format within the directory as this can cause display issues within Microsoft 365 applications.
+Display Name | Inherited | Organisations should avoid using the "Lastname, Firstname" display name format within the directory as this can cause display issues within Microsoft 365 applications.
 
 ### Microsoft 365 groups
 
@@ -162,7 +162,7 @@ In conjunction with the Naming Policy, Microsoft 365 groups can also be given ex
 
 Microsoft 365 Groups, by default can be created by any user. This can be restricted to Administrators and members of a security group. This restriction prevents the needless creation of groups. It is advisable to develop a workflow to control the provisioning process.
 
-Microsoft 365 Group Design Decisions for all agencies and implementation types.
+Microsoft 365 Group Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -186,13 +186,13 @@ Emergency access or 'break-glass' accounts are accounts used to restore access t
 - The accounts are stored on paper, in two or three separate parts, in secure, fireproof safes that are in disparate locations.
 - Use of these accounts is monitored and only used in genuine emergencies.
 
-Emergency access account Design Decisions for all agencies and implementation types.
+Emergency access account Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Emergency Access accounts | Configured | Two emergency access accounts will be configured in alignment to Microsoft and security best practice.
 
-Emergency access account configuration for all agencies and implementation types
+Emergency access account configuration for all organisations and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
@@ -209,7 +209,7 @@ Monitoring of accounts | Account usage will be monitored via Defender for Cloud 
 
 Smart Lockout protects Microsoft Entra ID accounts from brute force attacks such as password guessing by recognising legitimate sign-in attempts from authentications from unknown sources. Smart Lockout is always-on for Microsoft Entra ID but allows customisation of the number of incorrect attempts and the lockout duration.
 
-Smart Lockout Design Decisions for all agencies and implementation types.
+Smart Lockout Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -229,7 +229,7 @@ Identity Protection uses the following mechanisms to detect anomalous activity w
 
 Identity Protection provides mechanisms for logging and reporting functionality that simplify investigation activities.
 
-Identity Protection Design Decisions for all agencies and implementation types.
+Identity Protection Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -297,13 +297,13 @@ When a user attempts to access an application or system from any device, one or 
 
 Based on the above conditions, the user will either be allowed, prompted for multi-factor authentication, or blocked.
 
-Conditional Access Design Decisions for all agencies and implementation types.
+Conditional Access Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and organisation issued devices access to the organisation's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Microsoft Entra ID and is evaluated with Conditional Access. 
+Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and organisation issued devices access to the organisation's resources. Organisations should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Microsoft Entra ID and is evaluated with Conditional Access. 
 
-Conditional Access Policy Design Decisions for all agencies and implementation types.
+Conditional Access Policy Design Decisions for all organisations and implementation types.
 
 Configuration | Description
 --- | ---
@@ -368,7 +368,7 @@ Collaboration between organisations assessed and operating at the same security 
 
 ACSC provides guidance on connecting networks with differing security classifications available at [Fundamentals of Cross Domain solutions](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/cross-domain-solutions/fundamentals-cross-domain-solutions). At the time of writing, there are no automated options for external collaboration from a PROTECTED environment and user validation for external collaboration remains a manual process. This is particularly the case should an organisation adopting this service seek to collaborate from a PROTECTED environment to an environment that is operating at a lower classification. The ISM stipulates that all users of a PROTECTED environment must have a valid security clearance. It is recommended that users of the higher classification organisation collaborate into the lower classification organisation, and that unified labelling be configured as per the blueprints with PROTECTED content restricted to external sharing.
 
-For Agencies operating at a PROTECTED level seeking to collaborate, B2C collaboration is not suitable as it allows authentication through publicly accessible domains such as Google and Facebook. Microsoft Entra ID Business-to-Business (B2B) allows authentication between Azure tenants which provides a higher level of assurance.
+For organisations operating at a PROTECTED level seeking to collaborate, B2C collaboration is not suitable as it allows authentication through publicly accessible domains such as Google and Facebook. Microsoft Entra ID Business-to-Business (B2B) allows authentication between Azure tenants which provides a higher level of assurance.
 
 B2B allows the most secure sharing of organisation applications, services, and data with external guest users from other organisations, while maintaining maximal control over corporate data. The collaboration options between two or more organisations can use the following platforms:
 
@@ -389,7 +389,7 @@ When the above are all true, the external user can be invited generating an invi
 
 B2B only requires a small amount of user information (name, and email), however it is recommended that CISOs consuming this document creates a process outside of technology that ensures organisation identity requirements are met. The identity requirements should include the properties listed in the table below and the external user's nationality and clearances held.
 
-The following table describes the identity properties that should be a minimum requirement before collaboration is enabled for all agencies and implementation types.
+The following table describes the identity properties that should be a minimum requirement before collaboration is enabled for all organisations and implementation types.
 
 Field | Example | Justification
 --- | --- | ---
@@ -407,13 +407,13 @@ Photo | ID.JPEG | Viewing and identifying the user.
 
 In addition to the above, Conditional Access policies should be enforced requiring external individuals to use MFA, block legacy authentication, and block from disallowed locations.
 
-The following table describes the minimal conditional access policies that should be applied by the partner organisation for all agencies and implementation types.
+The following table describes the minimal conditional access policies that should be applied by the partner organisation for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Conditional Access Policies | **BLOCK - Legacy Authentication**:<br>This global policy blocks all connections from unsecure legacy protocols like ActiveSync, IMAP, PO3, etc.<br>**BLOCK - Countries not Allowed:**<br>This global policy blocks all connections from countries not in the Allowed countries list. | Minimises the risk of the user in the partner organisation using credentials that have been compromised.
 
-Microsoft Entra ID design decisions in relation to inter-organisation collaboration for all agencies and implementation types.
+Microsoft Entra ID design decisions in relation to inter-organisation collaboration for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -469,7 +469,7 @@ Exchange Hybrid | Configured | Exchange will be used in a hybrid configuration w
 Exchange Mail Public Folders | Not Configured | The organisation does not leverage Public folders currently, therefore this setting is not required.
 Directory extension attribute synchronisation | Not Configured | Not required for this solution.
 
-AAD Connect configuration applicable to agencies leveraging a hybrid implementation.
+AAD Connect configuration applicable to organisations leveraging a hybrid implementation.
 
 Configuration | Value | Description
 --- | --- | ---
@@ -512,6 +512,32 @@ Authentication method | PTA | To ensure passwords are controlled by on-premises 
 Number of PTA agents | 3 | To ensure high availability 3 PTA agents will service authentication requests. The AAD Connect server and Staging server will form two of the agents.
 HTTPS | 443 (TCP/UDP) | Enable outbound HTTPS traffic for operations such as enabling and disabling of the feature, registering connectors, downloading connector updates, and handling all user sign-in requests.
 
+### Microsoft 365 Copilot
+
+Microsoft 365 Copilot is an AI-powered assistant integrated within the Microsoft 365 suite of applications. It is designed to enhance productivity and streamline workflows by providing conversational and generative AI across the Microsoft 365 suite. Copilot leverages large language models (LLMs) to assist users in creating content, summarizing information, and responding to queries within their documents and communications. It is an additional license on top of Microsoft 365.
+ 
+Practical uses for Microsoft 365 Copilot include:
+- **Drafting and Editing**: In Word, Copilot can generate drafts, provide writing suggestions, and facilitate document collaboration.
+- **Presentation Assistance**: In PowerPoint, it can create slides, summarize key points, and provide answers to presentation-related questions.
+- **Email Management**: Outlook users can use Copilot's ability to draft responses, offer writing tips, and summarize lengthy email threads.
+- **Team Collaboration**: Within Teams, Copilot can summarize conversations, ensuring team members are up-to-date with discussions.
+ 
+When deploying Microsoft 365 Copilot within an organisation several considerations must be taken into account, particularly regarding security and data privacy:
+- **Data Sovereignty**: 365 copilot sends data to the US for processing. Data is encrypted in transit and is stateless in the US - no data is stored overseas, only processed.
+- **Data Hygiene**: 365 Copilot uses Enterprise Search to surface information based on user access. It will make finding things easier, so historic shares may become more visible. Security by obscurity will no longer exist.
+- **Feedback Settings**: It is recommended to disable Microsoft feedback settings for 365, as with all Microsoft 365 deployments in sensitive organisations. 
+- **Training**: Copilot is powerful, but to realise the full potential of the product, training is required for users. Provide adequate training for organisation personnel to maximize the benefits of Copilot.
+ 
+Microsoft 365 Copilot serves as a sophisticated virtual assistant, but specifically tailored for Microsoft applications. Administrative settings for copilot are currently limited, but organisational change management and data readiness will realise the full value of your licenses.
+
+Microsoft 365 Copilot Design Decisions for all organisations and implementation types.
+
+Decision Point | Design Decision | Justification
+-------------- | --------------- | -----------
+Enterprise Search | Enabled only for sites that do not have sensitive data| Where SharePoint sites have PII or inappropriate sharing, disabling enterprise search for that SharePoint site will disable Copilot for that site only. Only when a SharePoint site has Enterprise Search enabled will it be visible to Microsoft 365 Copilot.
+Microsoft Copilot (formerly Bing Chat Enterprise) | Enabled | Enable to allow web grounded search. Disable feedback
+Feedback | Disabled | See Feedback settings in Security section
+
 ## Security
 
 Information Technology (IT) Security refers to protection of networks, servers, intranets, data systems, data and computer systems. To protect these items, Microsoft Azure contains several security features and products which together:
@@ -520,6 +546,24 @@ Information Technology (IT) Security refers to protection of networks, servers, 
 - Provide Risk Assessments – Identity Protection, Defender for Identity, and Microsoft Defender for Endpoint utilise analytics and machine learning to detect and flag unusual/risky behaviour.
 - Provide Visibility into User Behaviour – Defender for Cloud Apps provides security operations dashboards which provide visibility into the activities being undertaken within the environment.
 - Control Data Exfiltration –Data Loss Prevention policies and Defender for Cloud Apps session policies control the flow and protection of information inside and outside of the environment.
+
+### Microsoft 365 Feedback
+When users have difficulties or receive an unexpected result in an application they may be tempted to provide feedback to Microsoft and share sensitive organisation data. It is recommended that all forms of feedback to Microsoft are disabled.
+
+Feedback Design Decisions
+
+Decision Point | Design Decision | Justification
+-------------- | --------------- | -----------
+Allow Microsoft To Follow Up On Feedback Submitted By Users | Disabled | Not required. Prevents inadvertent sharing of sensitive data.
+Allow Users To Access The Feedback Portal | Disabled | Not required. Prevents inadvertent sharing of sensitive data.
+Allow Users To Include Log Files And Content Samples When They Submit Feedback To Microsoft | Disabled |Not required. Prevents inadvertent sharing of sensitive data.
+Allow Users To Include Screenshots And Attachments When They Submit Feedback To Microsoft | Disabled |Not required. Prevents inadvertent sharing of sensitive data.
+Allow Users To Receive And Respond To In-product Surveys From Microsoft | Disabled |Not required. Prevents inadvertent sharing of sensitive data.
+Allow Users To Submit Feedback To Microsoft | Disabled |Not required. Prevents inadvertent sharing of sensitive data.
+Feedback  | Disabled By Intune Configuration Profiles |Not required. Prevents inadvertent sharing of sensitive data.
+Feedback  | Disabled By Office Deployment Configuration |Not required. Prevents inadvertent sharing of sensitive data.
+Feedback  | Disabled By Office Policy Configuration | Not required. Prevents inadvertent sharing of sensitive data.
+Overall Feedback State | Disabled | Not required. Prevents inadvertent sharing of sensitive data.
 
 ### Microsoft Defender for Cloud App
 
@@ -581,7 +625,7 @@ Defender for Cloud Apps supports a wide range of [popular proxy and firewall ven
 
 Once a cloud app has been discovered and its usage reviewed it can be either Sanctioned (approved) or Unsanctioned (prohibited) via the Discovered Apps tab. By default, tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from Defender for Cloud Apps and imported into a proxy or firewall appliance. If Defender for Cloud Apps is integrated with Defender for Endpoint, app access enforcement can be enabled to block access to apps marked as Unsanctioned.
 
-Cloud Discovery Design Decisions for all agencies and implementation types.
+Cloud Discovery Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -601,7 +645,7 @@ Log collectors are deployed as a Docker container using a Microsoft-provided Doc
 
 The Docker container is supported on Windows 10 and Windows Server version 1709 and later, Ubuntu versions 14.04, 16.04 and 18.04, and Red Hat Enterprise Linux (RHEL) and CentOS 7.2 or later. The image can be deployed on VMs either hosted on-premises or within Azure, provided suitable network connectivity from the proxy/firewall devices is available.
 
-Log Collector Design Decisions for agencies that use a centralised internet gateway.
+Log Collector Design Decisions for organisations that use a centralised internet gateway.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -614,7 +658,7 @@ Log collector operating system | Organisation's discretion of supported operatin
 
 Defender for Cloud Apps supports the creation and assignment of custom app tags from within the portal. Security analysts can create and apply custom tags to allow them to filter and query results specific to an area of interest. For example, a custom tag may be created for a business unit and that tag applied to only the applications that are approved for their use (i.e. Procurement). An analyst can then quickly filter based on this tag to review the use of these applications.
 
-App tags Design Decisions for all agencies and implementation types.
+App tags Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -631,7 +675,7 @@ This capability is enabled from within the Endpoints > Advanced Features setting
 
 Important Note: Microsoft Defender for Endpoint should be configured prior to enabling this feature. 
 
-Microsoft Defender for Endpoint integration Design Decisions for all agencies and implementation types.
+Microsoft Defender for Endpoint integration Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -643,7 +687,7 @@ To further enrich cloud discovery data Defender for Cloud Apps can integrate wit
 
 This simplifies identification and investigation of user activity, as well as allowing correlation with API collected activities.
 
-Cloud Discovery Enrichment Design Decisions for all agencies and implementation types.
+Cloud Discovery Enrichment Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -655,7 +699,7 @@ To protect the privacy of users Defender for Cloud Apps supports anonymisation o
 
 Security analysts can resolve encrypted usernames on demand to assist in investigations, and each username conversion is recorded in the Governance log. In addition to usernames, Defender for Cloud Apps can also anonymise Windows 10 machine names.
 
-User Data Anonymization Design Decisions for all agencies and implementation types.
+User Data Anonymization Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -668,7 +712,7 @@ In addition to the extensive library of cloud apps that are natively available i
 
 This allows Cloud Discovery to identify these custom cloud apps from uploaded firewall and proxy logs and enables security analysts to filter on them specifically.
 
-Custom Apps Design Decisions for all agencies and implementation types.
+Custom Apps Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -702,7 +746,7 @@ At the time of writing, the following API app connectors are [available in Defen
 
 To connect to each cloud app via API Defender for Cloud Apps requires an account within that app that has administrative privileges with full access to all objects stored within it. The name of this specific privilege level is specific to each cloud app, e.g. Global Admin for Office 365 and Super Admin for G Suite. It is recommended that a dedicated account is used for integration with Defender for Cloud Apps for each connected app.
 
-App Connectors Design Decisions for all agencies and implementation types.
+App Connectors Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -731,11 +775,11 @@ Note, Access and Sessions policies are covered in additional detail in the Condi
 
 In addition to the policy types listed above, Defender for Cloud Apps provides pre-configured policy templates that can be used to streamline policy development and enforcement. Custom policies can also be created by specifying a trigger.
 
-Policies Design Decisions for all agencies and implementation types.
+Policies Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of policies | Enable all in-built policies.<br>Agencies should also consider developing custom policies to match their specific use-cases. | Provides visibility within the organisation of suspicious behaviour and application use. 
+Use of policies | Enable all in-built policies.<br>organisations should also consider developing custom policies to match their specific use-cases. | Provides visibility within the organisation of suspicious behaviour and application use. 
 
 #### Threat Protection
 
@@ -759,7 +803,7 @@ Identity Protection enables configuration of automated responses to suspicious a
 
 Integrating Identity Protection with Defender for Cloud Apps provides a uniformed alerts view within Defender for Cloud Apps, and enables an enhanced investigation experience for identity alerts.
 
-Identity Protection integration Design Decisions for all agencies and implementation types.
+Identity Protection integration Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -771,7 +815,7 @@ App Governance is an add-on capability for Defender for Cloud Apps that provides
 
 At the time of writing App Governance is in [Public Preview](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/announcing-public-preview-of-app-governance/ba-p/2543768).
 
-App Governance Design Decisions for all agencies and implementation types.
+App Governance Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -789,7 +833,7 @@ Note, files that are detected as malware and are stored in either SharePoint Onl
 
 Before a file policy can be configured to use the admin quarantine a folder location for it must first be identified. Only a single admin quarantine folder location is configured for each Defender for Cloud Apps instance and is used by all file policies that leverage this capability. A user notification can also be configured to provide an explanation to users when they attempt to access a quarantined file.
 
-Admin quarantine Design Decisions for all agencies and implementation types.
+Admin quarantine Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -802,7 +846,7 @@ Microsoft Information Protection (MIP) provides document and email classificatio
 
 To enable Defender for Cloud Apps to inspect the content of files that have been protected by MIP it must be granted that permission in Microsoft Entra ID. This is done via a guided activity initiated from the Defender for Cloud Apps portal.
 
-Microsoft Information Protection Design Decisions for all agencies and implementation types.
+Microsoft Information Protection Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -816,7 +860,7 @@ As previously described, file policies can be used to manage documents stored in
 
 There are no design considerations.
 
-Defender for Cloud Apps Files Design Decisions for all agencies and implementation types.
+Defender for Cloud Apps Files Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -837,7 +881,7 @@ Examples of the Conditional Access App Control policies that can be configured t
 - Block access – based on specific risk factors can prevent users and/or devices from accessing specific resources across one or all connected apps.
 - Block custom activities – application-specific events can be blocked if they increase the risk of data leakage or exfiltration.
 
-Conditional Access App Control Protection Design Decisions for all agencies and implementation types.
+Conditional Access App Control Protection Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -850,7 +894,7 @@ In the event of a system outage or downtime Defender for Cloud Apps can be confi
 
 This is a deployment wide setting which can be configured to either prevent users from accessing an app if normal policy cannot be enforced, or to provide unrestricted access if this occurs.
 
-Default Behaviour Design Decisions for all agencies and implementation types.
+Default Behaviour Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -862,11 +906,11 @@ When using Conditional Access App Control to manage access and sessions, Defende
 
 If user notifications are enabled administrators can either use a Microsoft-provided default message or provide their own, which will include their organisational logo (if it has been uploaded to Defender for Cloud Apps).
 
-User Monitoring Design Decisions for all agencies and implementation types.
+User Monitoring Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-User monitoring notifications | Not enabled | There is no default requirement to notify users. Agencies can enable User Monitoring as appropriate to meet operational requirements without impacting the cyber security posture of the environment.
+User monitoring notifications | Not enabled | There is no default requirement to notify users. Organisations can enable User Monitoring as appropriate to meet operational requirements without impacting the cyber security posture of the environment.
 
 ##### Device identification
 
@@ -880,7 +924,7 @@ Defender for Cloud Apps and Conditional Access App Control support three methods
 
 A combination of multiple of these methods can be configured if required to identify devices within a diverse environment. Devices that are present in Intune, as well as those that are registered to Microsoft Entra ID (hybrid joined), are automatically synchronised to Defender for Cloud Apps. To use client certificates to identify devices either a trusted root or intermediate certificate must be uploaded to Defender for Cloud Apps in Privacy-Enhanced Mail (PEM) format.
 
-Device Identification Design Decisions for all agencies and implementation types.
+Device Identification Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -892,7 +936,7 @@ Specific users can be identified that can enable currently unsupported cloud app
 
 These users can be identified by either email or User Principal Name (UPN) and must be configured within the Defender for Cloud Apps console. Once an app is onboarded by a specified user a feedback bar will be presented as part of the application to enable developers and testers to provide feedback directly back to Microsoft's Cloud App Security team.
 
-App Onboarding/Maintenance Design Decisions for all agencies and implementation types.
+App Onboarding/Maintenance Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -915,7 +959,7 @@ By creating API tokens within the Defender for Cloud Apps portal external applic
 
 A common use-case for this is to generate block scripts from a third-party network appliance, or to resolve alerts that have been investigated through a connected SIEM product.
 
-API token Design Decisions for all agencies and implementation types.
+API token Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -954,7 +998,7 @@ In addition to integration with third-party SIEMs, Defender for Cloud Apps also 
 
 Integration between external DLP solution and Defender for Cloud Apps is performed via the Internet Content Adaptation Protocol (ICAP) protocol which is tunnelled over TLS. This allows Defender for Cloud Apps to use the external DLP engine to scan content identified in connected cloud apps for policy violations.
 
-External DLP Design Decisions for all agencies and implementation types.
+External DLP Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -966,7 +1010,7 @@ Defender for Cloud Apps supports playbook-based automation by integrating with M
 
 Specific Defender for Cloud Apps alerts can be configured as playbook triggers, automating pre-approved responses and minimising security analyst intervention. Playbooks are created in Microsoft Flow and made available to Defender for Cloud Apps via the Cloud App Security connector. The use of playbooks requires a Microsoft Flow plan.
 
-Playbooks Design Decisions for all agencies and implementation types.
+Playbooks Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1008,7 +1052,7 @@ Defender for Identity sensor deployment | To all DC's within the identified fore
 Internet connectivity | Domain controllers must have internet connectivity | Domain controllers which will have Defender for Identity sensors installed, must have internet connectivity to the Defender for Identity Cloud Service. <br>Defender for Identity sensors support the use of a web proxy / WPAD for internet connectivity.
 Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the organisation environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If organisation environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the organisation environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [Microsoft Defender for Identity prerequisites](https://learn.microsoft.com/en-au/defender-for-identity/prerequisites).
 Network Name Resolution (NNR) | Reverse DNS lookup and one other method (listed above) | This is the minimum NNR requirement for Defender for Identity. Microsoft recommends using all of the above-mentioned resolution methods available within organisation environment.
-Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://learn.microsoft.com/en-au/defender-for-identity/directory-service-accounts#permissions-required-for-the-dsa) to allow Defender for Identity to detect user deletions from the Agencies Active Directory.
+Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://learn.microsoft.com/en-au/defender-for-identity/directory-service-accounts#permissions-required-for-the-dsa) to allow Defender for Identity to detect user deletions from the Organisations Active Directory.
 
 #### Role groups
 
@@ -1077,7 +1121,7 @@ Further details on the firewall configuration for the solution can be found in t
 
 Defender for Cloud Apps is a Cloud Access Security Broker that provide visibility, control over data travel and powerful analytics to identify and deal with cyberthreats. Integrating Defender for Identity with Defender for Cloud Apps extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the Defender for Cloud Apps dashboard, reducing the need for security analysts to monitor multiple consoles.
 
-To connect Defender for Identity to Defender for Cloud Apps the administrator enabling the setting must be a Microsoft Entra ID Global Admin. Integration is enabled in the Defender for Cloud Apps console and does not require configuration from the Defender for Identity console. Defender for Cloud Apps allows Agencies to access the Defender for Identity data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
+To connect Defender for Identity to Defender for Cloud Apps the administrator enabling the setting must be a Microsoft Entra ID Global Admin. Integration is enabled in the Defender for Cloud Apps console and does not require configuration from the Defender for Identity console. Defender for Cloud Apps allows Organisations to access the Defender for Identity data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
 
 - Alerts – Defender for Cloud Apps can display Defender for Identity alerts within the Alerts queue. Defender for Cloud Apps also provides additional alert filtering not available within Defender for Identity.
 - Alerts management – Management of alerts can be performed in both Defender for Cloud Apps and Defender for Identity portals. Closing alerts in one portal will not necessarily close the same alert in the other portal. It is recommended to choose which portal will be used to manage and remediate alerts to avoid duplicate effort.
@@ -1108,7 +1152,7 @@ Microsoft Defender for Endpoint can be configured with the following options:
 - Secure Score Baseline - Secure Score Baseline configures the product baselines for calculating the score of Microsoft Defender security controls on the secure score dashboard. If third-party solutions are in use the corresponding controls should be excluded from the calculations.
 - Administration Roles and Machine Groups - Administration roles provide the ability to configure role-based access and granular options for regulating permissions to portal features and data. Machine groups enabled machines to be organised into groups and apply configured automated remediation levels and assigned administrators.
 
-Microsoft Defender for Endpoint Design Decisions for all agencies and implementation types.
+Microsoft Defender for Endpoint Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1145,7 +1189,7 @@ Log data stored in Log Analytics data can be consumed in various ways:
 
 Log Analytics is billed per gigabyte (GB) of data ingested and retained into the service. When ingesting into a SIEM, data retention periods can be shortened.
 
-Log Analytics Design Decisions for all agencies and implementation types.
+Log Analytics Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1153,7 +1197,7 @@ Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily 
 Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
 Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the organisation has an existing SIEM for further custom log analysis.
 
-Log Analytics configuration for all agencies and implementation types.
+Log Analytics configuration for all organisations and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
@@ -1175,17 +1219,17 @@ SIEM is a combination of tools and services that provide insights into a network
 
 In a hybrid environment the SIEM can be located either on-premises or in the cloud. In either location, all logs from the environment should be sent to one SIEM. This ensures maximum insight and creates a single pane of glass. To ensure that all logs from the cloud can be ingested by the SIEM compatibility of the SIEM product with Microsoft Office 365, Microsoft Azure, and Azure Monitor should be investigated.
 
-SIEM Design Decisions for all agencies and implementation types.
+SIEM Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-SIEM Solution | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium).
-Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
-Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
+SIEM Solution | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Organisations should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium).
+Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however organisations should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
+Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however organisations should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
 
 ### Microsoft Entra ID tenant restrictions
 
-Office 365 and other enterprise SaaS applications that use Microsoft Entra ID as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the organisation's own Office 365 tenancy. With Microsoft Entra ID tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Microsoft Entra ID tenants that their users are permitted to access (e.g. GovTeams). Microsoft Entra ID then only grants access to these permitted tenants.
+Office 365 and other enterprise SaaS applications that use Microsoft Entra ID as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the organisation's own Office 365 tenancy. With Microsoft Entra ID tenant restrictions, organisations with a supported web filtering (proxy) system can specify the list of approved Microsoft Entra ID tenants that their users are permitted to access (e.g. GovTeams). Microsoft Entra ID then only grants access to these permitted tenants.
 
 Microsoft Entra ID tenant restrictions prerequisites are as follows:
 
@@ -1194,11 +1238,11 @@ Microsoft Entra ID tenant restrictions prerequisites are as follows:
 
 For more detail on Microsoft Entra ID tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://learn.microsoft.com/en-au/azure/active-directory/manage-apps/tenant-restrictions).
 
-Tenant restrictions Design Decisions for all agencies and implementation types.
+Tenant restrictions Design Decisions for all organisations and implementation types.
 
 | Decision Point      | Design Decision | Justification                                                |
 | ------------------- | --------------- | ------------------------------------------------------------ |
-| Tenant restrictions | Configured      | Agencies that have implemented an enterprise Web filtering solution that is capable of this feature (using TLS inspection and HTTP header insertion) should implement tenant restrictions for PROTECTED to prevent data exfiltration. |
+| Tenant restrictions | Configured      | Organisations that have implemented an enterprise Web filtering solution that is capable of this feature (using TLS inspection and HTTP header insertion) should implement tenant restrictions for PROTECTED to prevent data exfiltration. |
 
 ## Client configuration
 
@@ -1279,8 +1323,8 @@ Mobile Application Management Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
-Applications Managed | Microsoft Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Organisations operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however organisations can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Applications Managed | Microsoft Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Organisations operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however organisations can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
 
 ### Intune - Enrolment
 
@@ -1378,7 +1422,7 @@ Device Compliance Profiles deployed ensure a strong security posture for the ent
 - System Security – Password compliance, standards, length, and complexity. This also includes device level firewall, TPM, Antivirus, Antispyware, and Microsoft Defender Antimalware settings.
 - Microsoft Defender for Endpoint – Configures the maximum allowed machine risk score, if exceeded the device is marked as noncompliant.
 
-Device Compliance Design Decisions for all agencies and implementation types.
+Device Compliance Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1406,7 +1450,7 @@ Custom profiles can be created for a platform although this should be considered
 
 In a co-managed state, these settings may be superfluous to existing Group Policies and SOE settings.
 
-Device Configuration Design Decisions for all agencies and implementation types.
+Device Configuration Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1431,7 +1475,7 @@ Application protection policies are rules that ensure an organisation's data rem
 
 An application protection policy can be a rule that is enforced when the user attempts to access or move "corporate" data, or a set of actions that are prohibited or monitored when the user is inside the app.
 
-Information Protection Design Decisions for all agencies and implementation types.
+Information Protection Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1453,7 +1497,7 @@ Fast and slow update rings can be configured and assigned to different groups or
 
 When deploying a hybrid solution, the software and patch updates of Windows devices should be considered. Other management solutions such as MECM and Windows Server Update Service (WSUS) may be servicing the Windows devices for the updates hence duplicating processes.
 
-Software Updates Design Decisions for all agencies and implementation types.
+Software Updates Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1468,9 +1512,9 @@ Feature Update uninstall period | 10 days | Allows reversal for a short period o
 
 iOS devices will be enrolled with the Intune organisation Portal to gain secure access to organisation data.
 
-After devices are enrolled, they become managed. Agencies can assign policies and apps to the device through a mobile device management (MDM) provider, such as Intune.
+After devices are enrolled, they become managed. Organisations can assign policies and apps to the device through a mobile device management (MDM) provider, such as Intune.
 
-Intune iOS Design Decisions for all agencies and implementation types.
+Intune iOS Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1526,7 +1570,7 @@ Applications types that can be managed include:
 
 When deploying a hybrid solution, the application lifecycle method should be considered as other management solutions such as MECM may be performing the same service.
 
-Applications Design Decisions for all agencies and implementation types.
+Applications Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1606,20 +1650,20 @@ Retention policies are created that ensure that data is retained forever for:
 
 Workstation configuration is stored in Intune (Autopilot rebuild).
 
-Agencies should review the native Microsoft 365 capabilities and determine if they meet their data preservation requirements, or if a third-party backup solution is required.
+Organisations should review the native Microsoft 365 capabilities and determine if they meet their data preservation requirements, or if a third-party backup solution is required.
 
-RPO, RTO and Retention Periods Design Decisions for all agencies and implementation types.
+RPO, RTO and Retention Periods Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Exchange Online mailboxes | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Exchange Online mail items | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-SharePoint Online Sites | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-OneDrive for Business accounts | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Microsoft 365 Groups | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Teams chat messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Teams channel messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Teams private channel messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Exchange Online mailboxes | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+Exchange Online mail items | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+SharePoint Online Sites | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+OneDrive for Business accounts | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+Microsoft 365 Groups | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+Teams chat messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+Teams channel messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
+Teams private channel messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements.
 
 Additional RPO, RTO and Retention Periods Design Decisions for cloud native implementations
 
@@ -1627,13 +1671,13 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Restoration tools | Microsoft backup and restoration tools (when no backup product selected) | The organisation will leverage Microsoft Office 365 native tools in the first instance to recover user data, where no third-party backup toolset is deployed. 
 Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups | Backups must cover the Microsoft suite of tools at a minimum.
-Retention Policies | Up to maximum allowable days per Microsoft Office 365 application | For guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements. 
+Retention Policies | Up to maximum allowable days per Microsoft Office 365 application | For guidance only. Organisations are required to measure these against the business, application, regulatory and security requirements. 
 
 Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Restoration tools | Third party backup and restoration tools | Agencies should investigate third-party backup tools to backup and restore data on-premises and within the cloud.
+Restoration tools | Third party backup and restoration tools | Organisations should investigate third-party backup tools to backup and restore data on-premises and within the cloud.
 Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | At discretion of organisation | Retention policies for the backups should be determined by the organisation and measured against the business, application, regulatory (including the organisation's records authority) and security requirements. 
 
@@ -1645,7 +1689,7 @@ Data availability is an important part of making sure that end users have access
 
 The data availability and resiliency of Microsoft 365 cloud service is in-built and managed by Microsoft.
 
-Data Availability Design Decisions for all agencies and implementation types.
+Data Availability Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1661,7 +1705,7 @@ To manage and configure the solution, administrators will use various administra
 
 Web based administrative consoles are provided by Microsoft however the URLs for these consoles constantly change (refer to [Microsoft Security Portals](https://learn.microsoft.com/en-au/microsoft-365/security/defender/portals?view=o365-worldwide)). The consoles listed below are correct at the time of writing.
 
-Administration consoles Design Decisions for all agencies and implementation types.
+Administration consoles Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1696,7 +1740,7 @@ Microsoft Entra ID roles can be assigned via PIM to various scope types, dependi
 
 Note: the product name for Microsoft Information Protection is still referred to as Azure Information Protection within the defined Microsoft Entra ID Roles.
 
-RBAC Design Decisions for all agencies and implementation types.
+RBAC Design Decisions for all organisations and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

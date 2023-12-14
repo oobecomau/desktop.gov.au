@@ -6,7 +6,8 @@ title: News
 
 |                                                                                                                                                         |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**Novemeber 2023 Update**<br><em>13 Nov 2023</em><br>Windows Information Protection sunset](../news/wip-guidance-2023-11-13.md) |
+| [**December 2023 Update**<br><em>08 Dec 2023</em><br>Microsoft 365 Copilot](../news/copilot-2023-12-08.md) |
+| [**November 2023 Update**<br><em>13 Nov 2023</em><br>Windows Information Protection sunset](../news/wip-guidance-2023-11-13.md) |
 | [**October 2023 Update**<br><em>11 Oct 2023</em><br>Macro Execution Logging and Renaming AzureAD to Microsoft Entra ID](../news/october2023newsupdate.md) |
 | [**Introducing The blueprint**<br><em>23 April 2023</em><br>Many of you will be familiar with desktop.gov.au, and the Digital Transformation Agency (DTA) PROTECTED Utility Blueprint. You may know it better as the DTA Blueprint, which still lives at desktop.gov.au........<br>](../news/intro-the-blueprint-2023-04-23.md) |
 | [**Windows 11**<br><em>23 April 2023</em><br>At oobe we’ve been running Windows 11 for a while in our fleet and we’re excited at where it’s headed. For the first time in a long time the day 1 release has been worth it as it’s faster and looks nicer.......<br>](../news/windows-11-2023-04-23.md) |

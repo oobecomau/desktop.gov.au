@@ -1,10 +1,3 @@
----
-hide:
- - navigation
- - toc
-date: 2023-01-16
----
-
 # Enhanced MFA
 
 16 January 2023

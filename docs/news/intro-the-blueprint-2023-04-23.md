@@ -1,10 +1,3 @@
----
-hide:
- - navigation
- - toc
-date: 2023-04-23
----
-
 # Introducing the blueprint
 
 23 April 2023
