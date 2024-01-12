@@ -1,6 +1,6 @@
 # Changelog
 
-The News articles at blueprint.oobe.com.au will be the source of truth moving forward, but this log will be updated intermittently. 
+The News articles at blueprint.oobe.com.au will be the source of truth moving forward, but this log will be updated intermittently.
 
 ## The blueprint
 
