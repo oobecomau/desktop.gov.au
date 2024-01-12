@@ -421,64 +421,64 @@ B2B Relationships | Not Configured | The organisation is pursuing a PROTECTED-le
 B2C Relationships | Not Configured | Client collaboration other than partner organisations is not required.
 External Sharing | Disabled | The organisation is pursuing a PROTECTED-level certification for the solution. To maintain a robust PROTECTED platform for the organisation, B2B collaboration will not be configured.<br>In a future state, specified partner tenants can be listed assuming they are also rated at a PROTECTED level and approved by appropriate organisation personnel. Only users of these tenants would be allowed collaborative access.
 
-### Azure AD Connect
+### Microsoft Entra Connect
 
-Azure Active Directory Connect (AAD Connect) is a product designed to synchronise directory objects and changes between Active Directory and Microsoft Entra ID. AAD Connect enables the on-premises directory service to be the source of truth for identities within the environment and ensures that changes are replicated to Microsoft Entra ID.
+Microsoft Entra Connect is a product designed to synchronise directory objects and changes seamlessly between Active Directory on-premises, and Microsoft Entra ID. Serving as the authoritative source for identities within the environment, Microsoft Entra Connect ensures that changes originating in the on-premises directory service are accurately replicated to Microsoft Entra ID.
 
-AAD Connect can be deployed in several patterns. These patterns follow the guiding principles of:
+Microsoft Entra Connect provides flexibility in deployment through various patterns, in line with the following guiding principles:
 
-- Only one AAD Connect instance can be actively synchronising to a Microsoft Entra ID tenant.
-- On-premises AD can only be synchronised to one Azure tenant unless directory synchronisation and Microsoft Identity Manager (MIM) are leveraged.
+- Only one Entra Connect instance can actively synchronise with a Microsoft Entra ID tenant.
+- An on-premises Active Directory can be synchronised with only one Azure tenant unless leveraging directory synchronisation and Microsoft Identity Manager (MIM).
 
-As only one AAD Connect instance can be actively synchronising at a time, high availability is not possible. A warm standby can be configured using a second AAD Connect server in Staging mode.
+Since only one Microsoft Entra Connect instance can synchronise at a time, achieving high availability is not feasible. However, a warm standby can be configured using a second Entra Connect server in 'Staging mode.'
 
-The following illustrates the user identity synchronisation between the organisation's on-premises AD to Microsoft Entra ID.
+The illustration below depicts the synchronisation of user identities from the organisation's on-premises Active Directory to Microsoft Entra ID.
 
-![AD Connect Identity Synchronisation](../img/platform-ad-connect-id-sync.png#center)
+**!! UPDATE DIAGRAM !!**!![Microsoft Entra Connect Identity Synchronisation](../img/platform-ad-connect-id-sync.png#center)
 
-Within the AAD Connect client the synchronisation process can be customised in several ways including:
+Within the Microsoft Entra Connect client, the synchronisation process can be customised in several ways, including:
 
-- Group Filtering – Group filtering limits the scope of the synchronisation to the members of a group within the on-premises directory.
-- Organisational Unit (OU) Filtering – OU filtering limits the scope of the synchronisation to the objects in one or more OUs within the directory.
-- Attribute Filtering – Attribute filtering controls which attributes from an object are synchronised to the cloud.
-- Microsoft Entra ID App Filtering – Microsoft Entra ID app filtering assists in limiting the number of attributes synchronised to the cloud based on which Office 365 services are in use.
+- Group Filtering – limits the scope of the synchronisation to the members of a group within the on-premises directory.
+- Organisational Unit (OU) Filtering – limits the scope of the synchronisation to the objects in one or more OUs within the directory.
+- Attribute Filtering – controls which attributes from an object are synchronised to Microsoft Entra ID.
+- Microsoft Entra ID App Filtering – assists in limiting the number of attributes synchronised to the cloud based on which Office 365 services are in use.
 
-Each of the above customisations provide control over what directory information is synchronised to the cloud from the on-premises directory service. The AAD Connect client can also be leveraged to configure Single Sign-On (SSO) and Exchange Hybrid. AAD Connect must run on a domain joined Windows Server 2016 or later and can synchronise many Active Directory objects to Microsoft Entra ID and hence there is a range of hardware requirements to consider based on the number of objects in Active Directory that will be synchronised (refer to the [Azure AD Connect Prerequisites](https://learn.microsoft.com/en-au/azure/active-directory/hybrid/connect/how-to-connect-install-prerequisites)).
+Each of the above customisations provides control over what directory information is synchronised to the cloud from the on-premises directory service. The Microsoft Entra Connect client can also be utilised to configure Single Sign-On (SSO) and Exchange Hybrid. Microsoft Entra Connect must run on a domain-joined Windows Server 2016 or later and can synchronise many Active Directory objects to Microsoft Entra ID. Hence, there is a range of hardware requirements to consider based on the number of objects in Active Directory that will be synchronised (refer to the [Prerequisites for Microsoft Entra Connect](https://learn.microsoft.com/en-au/entra/identity/hybrid/connect/how-to-connect-install-prerequisites)).
 
-When AAD Connect is leveraged, a user would be created within the on-premises directory service (Active Directory) and then synchronised via the AAD Connect client into Microsoft Entra ID (the cloud-based directory service).
+When Entra Connect is utilised, a user would be created within the on-premises directory service (Active Directory) and then synchronised via the Entra Connect client into Microsoft Entra ID (the cloud-based directory service).
 
 The following illustrates a typical user account provisioning workflow for a hybrid configuration.
 
-![User Provisioning Workflow](../img/platform-user-provisioning-workflow.png#center)
+**!! UPDATE DIAGRAM !!**![User Provisioning Workflow](../img/platform-user-provisioning-workflow.png#center)
 
-Firewall rules will be implemented for AAD Connect. Further details on firewall configuration can be found in the Network Configuration ABAC.
+Firewall rules will be implemented for Microsoft Entra Connect. Further details on firewall configuration can be found in the Network Configuration ABAC.
 
-AAD Connect Design Decisions for hybrid implementations.
+Microsoft Entra Connect Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-AAD Connect | Configured | Identity synchronisation is a critical requirement and must be implemented based on ACSC guidance. The source of truth for account information will be on-premises Active Directory.
+Entra Connect | Configured | Identity synchronisation is a critical requirement and must be implemented based on ACSC guidance. The source of truth for account information will be the on-premises Active Directory.
 Attribute used for login | User ID | This attribute is commonly used for logins as it will ensure that the same credentials are maintained for on-premises and in-cloud authentication.
 Organisational unit filtering | Configured | To target only the required identities for synchronisation. Whole directory synchronisations are not recommended.
 Single Sign On | Configured | Single Sign-on.
-Staging Server | Configured | Best practice dictates a secondary staging server be in place to be used in disaster recovery scenarios.
-Password writeback | Organisation decision | Password writeback enables additional capabilities such as [Leaked Password Detection](https://learn.microsoft.com/en-au/azure/active-directory/identity-protection/concept-identity-protection-risks#password-hash-synchronization), however, it requires hashed passwords to be synchronised from on-premises AD DS to Microsoft Entra ID.
-Self Service Password Reset | Organisation decision | The Self-Service Password Reset feature requires activation of password writeback in the AAD Connect configuration.
-Microsoft Entra ID App and attribute filtering | Configured | All Microsoft Entra ID App and attribute filtering will be synchronised as recommended by Microsoft .
-Exchange Hybrid | Configured | Exchange will be used in a hybrid configuration with Exchange Online, therefore this setting is required to be set as Configured.
-Exchange Mail Public Folders | Not Configured | The organisation does not leverage Public folders currently, therefore this setting is not required.
+Staging Server | Configured | Best practice dictates that a secondary staging server be in place to be used in disaster recovery scenarios.
+Password writeback | Organisation decision | Password writeback enables additional capabilities such as [Leaked Password Detection](https://learn.microsoft.com/en-au/entra/id-protection/concept-identity-protection-risks#password-hash-synchronization), however, it requires hashed passwords to be synchronised from on-premises Active Directory to Microsoft Entra ID.
+Self Service Password Reset | Organisation decision | The Self-Service Password Reset feature requires activation of password writeback in the Microsoft Entra Connect configuration.
+Microsoft Entra ID App and attribute filtering | Configured | All Microsoft Entra ID App and attribute filtering will be synchronised as recommended by Microsoft.
+Exchange Hybrid | Configured | Exchange will be used in a hybrid configuration with Exchange Online; therefore, this setting is required to be set as Configured.
+Exchange Mail Public Folders | Not Configured | In the absence of the use of public folders, this setting is not required.
 Directory extension attribute synchronisation | Not Configured | Not required for this solution.
 
-AAD Connect configuration applicable to agencies leveraging a hybrid implementation.
+Microsoft Entra Connect configuration applicable to agencies leveraging a hybrid implementation.
 
 Configuration | Value | Description
 --- | --- | ---
 Installation Mode | Custom | The type of installation – Default or Custom. The Default install does not allow customisation of the filtering.
-SQL Mode | Local DB | The location of the AAD Connect database. Local DB is the default configuration and the simplest to manage. 
+SQL Mode | Local DB | The location of the Entra Connect database. Local DB is the default configuration and the simplest to manage.
 Directory to Connect to | {organisation}.com.au | Microsoft Entra ID Tenant of the organisation.
-On-premises attribute to use for Microsoft Entra ID (used for logging in to Microsoft Entra ID) | User ID  | This attribute is commonly used for logins as it will ensure that the same credentials are maintained for on-premises and in-cloud authentication.
+On-premises attribute to use for Microsoft Entra ID (used for logging in to Microsoft Entra ID) | User ID | This attribute is commonly used for logins as it will ensure that the same credentials are maintained for on-premises and in-cloud authentication.
 Alternate ID | Not required | This is required in scenarios where primary ID may be duplicated between users in the organisation.
-OU Filtering | Enabled <br>{TBA by the organisation} | OU filtering will be used to ensure that specific OUs containing entities such as service accounts are not synchronised with Microsoft Entra ID. OU filtering will be finalised during deployment and documented in As-Built-As-Configured documentation.
+OU Filtering | Enabled <br>{TBA by the organisation} | OU filtering will be applied to ensure that particular Organizational Units (OUs) containing entities such as service accounts are not synchronised with Microsoft Entra ID. The finalisation of OU filtering will occur during deployment and will be documented in the As-Built-As-Configured documentation.
 Uniquely Identifying Users | Users are represented only once across all directories.<br>Let Azure manage the source anchor (ms-DS-ConsistencyGuid) | Default configuration. As users are not duplicated within the environment, this setting meets the solution requirements. The ms-DS-ConsistencyGuid is used when Azure manages the source anchor.
 Microsoft Entra ID Attributes | Default – All attributes | Default configuration. All attributes to be synchronised.
 Synchronisation Interval | 30 minutes | Default synchronisation interval.<br>Note: Password resets and new accounts are synchronised immediately.
@@ -487,39 +487,47 @@ Synchronisation Interval | 30 minutes | Default synchronisation interval.<br>Not
 
 Authentication is the process of verifying one's identity. Active Directory allows for the authentication of directory objects within the corporate network using a number of protocols such as LDAP and Kerberos.
 
-In a hybrid scenario, authentication support is required outside the corporate network. In a hybrid scenario, credential authentication support is required outside the corporate network. This can be achieved using either:
+In a hybrid scenario, authentication support is required outside the corporate network, this can be achieved by using one of the following.
 
-- Cloud authentication – Cloud authentication utilises credentials stored within the cloud to authenticate users. The credentials can belong to cloud only accounts.
-- Password hash synchronisation (PHS) – PHS synchronises a hash of the hash of a user's on-premises password which has undergone a salting process before it is sent to Microsoft Entra ID. If the user's hashed password matches the stored password, the user is then authenticated. This means the authentication method will be handled in the cloud.
-- Pass-through authentication (PTA) – This feature allows users to login to Azure services including Office 365 using their on-premises credentials. When authenticating, the user enters their credentials into an Azure authentication service. The service encrypts the credentials and place the request in a queue. The on-premises PTA agents read the queue and perform the decryption and validation against Active Directory. The outcome of the validation is sent via the PTA agent to the Azure authentication service to complete the user's authentication request. Through the process no credentials are stored within Microsoft Entra ID.
-- Federation integration (AD FS) – Active Directory Federation Services (AD FS) allows users to login to Office 365 services using the organisations existing federation infrastructure. A federation trust is established between the corporate network and Microsoft Entra ID with the authentication method being handled on-premises.
+- Cloud authentication – Cloud authentication uses credentials stored in the cloud to verify users, specifically tied to cloud-only accounts.
+- Password Hash Synchronisation (PHS) - PHS involves synchronising a hashed version of an on-premises password, which undergoes salting before being sent to Microsoft Entra ID. If the hashed password matches the stored one, the user is authenticated, indicating that the authentication process is managed in the cloud.
+- Pass-through authentication (PTA) – PTA allows users to access Azure services, including Office 365, by utilizing their on-premises credentials. During the authentication process, users input their credentials into an Azure authentication service, which encrypts the information and places the request in a queue. On-premises PTA agents monitor the queue, performing decryption and validation against the on-premises Active Directory. The validation outcome is then transmitted via the PTA agent to the Azure authentication service, completing the user's authentication request. Throughout this process, no credentials are stored within Microsoft Entra ID.
+- Federation Integration (AD FS) – Active Directory Federation Services (AD FS) enables users to authenticate and access Office 365 services through their organization's existing federation infrastructure. This involves establishing a federation trust between the corporate network and Microsoft Entra ID, with the authentication method being managed on-premises.
 
-The following illustrates the pass-through authentication method and how it communicates across the network.
+The following illustrates the password hash synchronisation method and its communcation with Microsoft Entra ID.
 
 ![Authentication Architecture](../img/platform-authentication-architecture.png#center)
 
-The following table describes the ports and protocols used in a hybrid configuration between on the PTA Agent and Microsoft Entra ID. The hardware requirements for PTA agents are available in Appendix 1: AAD Connect and PTA agent hardware requirements.
+In a hybrid configuration when password hash synchronisation (PHS) is implemented, the following ports and protocols are required from the Microsoft Entra Connect server to communicate with Microsoft Entra ID.
+
+### Ports for directory synchonisation
 
 Protocol | Port | Description
 --- | --- | ---
-HTTP | 80 (TCP/UDP) | Enable outbound HTTP traffic for security validation such as SSL. Also needed for the connector auto-update capability to function properly.
+HTTP | 80 (TCP) | Port 80 is employed for communication with Microsoft Entra ID solely to verify client connectivity with the Entra ID services. The actual communication, however, occurs on port 443.
+HTTPS | 443 (TCP) | Port 443 facilitates SSL-encrypted communication for directory synchronisation with Microsoft Entra ID.
 
-Authentication Method design considerations and decisions apply to the HYBRID solution.
+### Ports for password hash synchronisation
+
+Protocol | Port | Description
+--- | --- | ---
+HTTPS | 443 | Port 443 is used for SSL-encryped communcation with Microsoft Entra ID to synchronise password hashes.
+
+Authentication method design considerations and decisions apply to the HYBRID solution.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Authentication method | PTA | To ensure passwords are controlled by on-premises Active Directory and are not synchronised and stored in the cloud.
-Number of PTA agents | 3 | To ensure high availability 3 PTA agents will service authentication requests. The AAD Connect server and Staging server will form two of the agents.
-HTTPS | 443 (TCP/UDP) | Enable outbound HTTPS traffic for operations such as enabling and disabling of the feature, registering connectors, downloading connector updates, and handling all user sign-in requests.
+Authentication method | PHS | PHS is recommended over PTA for its simplicity and minimised on-premises infrastructure demands. PHS offers resiliency by ensuring authentication can persist even in the absence of the on-premises environment, along with additional security features such as Leaked Credential Detection provided by Microsoft Entra ID.
+HTTPS | 443 (TCP/UDP) | Enable outbound HTTPS traffic for communication checks, operational communication, directory synchronisation, additional security features, and handling user sign-in requests.
 
 ## Security
 
-Information Technology (IT) Security refers to protection of networks, servers, intranets, data systems, data and computer systems. To protect these items, Microsoft Azure contains several security features and products which together:
+Information Technology (IT) Security refers to protection of networks, servers, intranets, data systems, data and computer systems. To protect these items, Microsoft Azure provides an array of security features and products to protect these elements, such as:
 
 - Secure the Platform – Microsoft Azure and Office 365, through their features and products to enable security in depth.
 - Provide Risk Assessments – Identity Protection, Defender for Identity, and Microsoft Defender for Endpoint utilise analytics and machine learning to detect and flag unusual/risky behaviour.
 - Provide Visibility into User Behaviour – Defender for Cloud Apps provides security operations dashboards which provide visibility into the activities being undertaken within the environment.
-- Control Data Exfiltration –Data Loss Prevention policies and Defender for Cloud Apps session policies control the flow and protection of information inside and outside of the environment.
+- Control Data Exfiltration – Data Loss Prevention policies and Defender for Cloud Apps session policies control the flow and protection of information inside and outside of the environment.
 
 ### Microsoft Defender for Cloud App
 
