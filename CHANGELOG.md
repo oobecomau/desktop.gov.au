@@ -5,6 +5,7 @@ The News articles at blueprint.oobe.com.au will be the source of truth moving fo
 ## The blueprint
 
 * oobe forks to the blueprint March 2023 and adds Win 11 and Enhance MFA content
+* New content
 
 ## June 2022
 
